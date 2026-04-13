@@ -83,6 +83,7 @@ struct SppServerManager {
           Stack({ alignContent : Alignment.TopStart }) {
             TestImageDisplay({ testItem : this.testItem })
             PageTitle({ testItem : this.testItem })
+  .id('pages_subManualApiTestManager_subSppTestManager_sppServerManager__pt_0')
           }
 
           Stack().height('0.5vp').backgroundColor($r('app.color.black'));
@@ -90,6 +91,7 @@ struct SppServerManager {
           Row() {
             Text("本机设备UUID：").fontSize('17vp').width('85vp')
             TextInput({ text : this.uuid , placeholder : "请输入uuid" })
+  .id('pages_subManualApiTestManager_subSppTestManager_sppServerManager__ti_0')
               .fontSize('17vp')
               .onChange((str) => {
                 this.uuid = str;
@@ -106,6 +108,7 @@ struct SppServerManager {
           Row() {
             Text("写入目标设备数据：").fontSize('17vp').width('95vp')
             TextInput({ text : this.writeServerData , placeholder : "请输入写入的数据" })
+  .id('pages_subManualApiTestManager_subSppTestManager_sppServerManager__ti_1')
               .fontSize('14vp')
               .onChange((str) => {
                 this.writeServerData = str;
@@ -141,6 +144,7 @@ struct SppServerManager {
             Scroll() {
               ContentTable({ apiItems : initSppServerManagerApiData() }) //子层调用
             }
+  .id('pages_subManualApiTestManager_subSppTestManager_sppServerManager__sc_0')
             .width(ConfigData.WH_100_100)
             .align(Alignment.TopStart)
             .layoutWeight(1)
@@ -301,6 +305,7 @@ struct PairDialog {
               .fontSize('16fp')
               .fontColor(Color.Blue)
           }
+  .id('pages_subManualApiTestManager_subSppTestManager_sppServerManager__btn_0')
           .backgroundColor($r("app.color.white_bg_color"))
           .width('160vp')
           .height('40vp')
@@ -321,6 +326,7 @@ struct PairDialog {
               .fontSize('16fp')
               .fontColor(Color.Blue)
           }
+  .id('pages_subManualApiTestManager_subSppTestManager_sppServerManager__btn_1')
           .backgroundColor($r("app.color.white_bg_color"))
           .width('160vp')
           .height('40vp')
