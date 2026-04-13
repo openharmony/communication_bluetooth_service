@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Copyright (C) 2022 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,7 +21,6 @@ import router from '@ohos.router';
 import ImageAnimatorComponent from '../../../Component/imageAnimatorComponent';
 import { PageTitle } from '../../../Component/pageTitle';
 import bluetooth from '@ohos.bluetooth';
-import promptAction from '@ohos.promptAction';
 /**
  * deviceFound
  */
@@ -406,9 +405,12 @@ export struct PairedItem {
       .width('10%')
       .padding({ left : '10vp' })
       .onClick(() => {
-        promptAction.showToast({
-          message : "当前 SDK 类型声明无取消配对 API，请到系统设置 › 蓝牙中忽略/取消配对"
-        })
+        let ret = bluetooth.cancelPairedDevice(this.mac)
+        if ( ret ) {
+          promptAction.showToast({ message : "取消配对成功！" })
+        } else {
+          promptAction.showToast({ message : "取消配对失败！" })
+        }
       })
     }
   }

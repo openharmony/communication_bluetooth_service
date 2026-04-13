@@ -14,45 +14,16 @@
  */
 
 import bluetooth from '@ohos.bluetooth';
+import bluetoothManager from '@ohos.bluetoothManager';
 import btProfileModel from './btProfileModel'
 import promptAction from '@ohos.promptAction';
-import hid from '@ohos.bluetooth.hid';
-import pan from '@ohos.bluetooth.pan';
+import { fileIo as fs} from '@kit.CoreFileKit';
+import { opp } from '@kit.ConnectivityKit';
 
 
 /**
  * Profile A2DP Test Page Of Bluetooth test
  */
-
-function profileConnectByType(profileType: number, deviceId: string): boolean {
-  if (profileType === btProfileModel.PROFILE_A2DP_SOURCE) {
-    return (btProfileModel.getProfile(profileType) as bluetooth.A2dpSourceProfile).connect(deviceId);
-  }
-  if (profileType === btProfileModel.PROFILE_HANDS_FREE_AUDIO_GATEWAY) {
-    return (btProfileModel.getProfile(profileType) as bluetooth.HandsFreeAudioGatewayProfile).connect(deviceId);
-  }
-  if (profileType === btProfileModel.PROFILE_HID_HOST || profileType === btProfileModel.PROFILE_PAN_NETWORK) {
-    promptAction.showToast({ message: 'HID/PAN Profile 类型声明无 connect，请在系统蓝牙中连接' });
-    return false;
-  }
-  promptAction.showToast({ message: '当前 profile 不支持 connect 或 OPP 未在 API 23 启用' });
-  return false;
-}
-
-function profileDisconnectByType(profileType: number, deviceId: string): boolean {
-  if (profileType === btProfileModel.PROFILE_A2DP_SOURCE) {
-    return (btProfileModel.getProfile(profileType) as bluetooth.A2dpSourceProfile).disconnect(deviceId);
-  }
-  if (profileType === btProfileModel.PROFILE_HANDS_FREE_AUDIO_GATEWAY) {
-    return (btProfileModel.getProfile(profileType) as bluetooth.HandsFreeAudioGatewayProfile).disconnect(deviceId);
-  }
-  if (profileType === btProfileModel.PROFILE_HID_HOST || profileType === btProfileModel.PROFILE_PAN_NETWORK) {
-    promptAction.showToast({ message: 'HID/PAN Profile 类型声明无 disconnect，请在系统蓝牙中断开' });
-    return false;
-  }
-  promptAction.showToast({ message: '当前 profile 不支持 disconnect 或 OPP 未在 API 23 启用' });
-  return false;
-}
 
 export function testProfileConnect() {
   try {
@@ -65,7 +36,7 @@ export function testProfileConnect() {
       promptAction.showToast({ message : btConnectionState == 1 ? "该设备正在连接中" : "该设备已连接" });
       return message;
     }
-    let ret: boolean = profileConnectByType(profileType, deviceId);
+    let ret: boolean = (btProfileModel.getProfile(profileType) as bluetooth.A2dpSourceProfile | bluetooth.HandsFreeAudioGatewayProfile).connect(deviceId);
     if ( ret ) {
       btConnectionState = 1;
     }
@@ -93,7 +64,7 @@ export function testProfileDisConnect() {
       promptAction.showToast({ message : btConnectionState == 0 ? "该设备已断开" : "该设备正在断开连接" });
       return message;
     }
-    let ret: boolean = profileDisconnectByType(profileType, deviceId);
+    let ret: boolean = (btProfileModel.getProfile(profileType) as bluetooth.A2dpSourceProfile | bluetooth.HandsFreeAudioGatewayProfile).disconnect(deviceId);
     if ( ret ) {
       btConnectionState = 3;
     }
@@ -137,52 +108,12 @@ export function testProfileGetPlayingState() {
   }
 }
 
-function getConnectionDevicesByType(profileType: number): Array<string> {
-  const p = btProfileModel.getProfile(profileType);
-  if ( !p ) {
-    return [];
-  }
-  if ( profileType === btProfileModel.PROFILE_A2DP_SOURCE ) {
-    return (p as bluetooth.A2dpSourceProfile).getConnectionDevices();
-  }
-  if ( profileType === btProfileModel.PROFILE_HANDS_FREE_AUDIO_GATEWAY ) {
-    return (p as bluetooth.HandsFreeAudioGatewayProfile).getConnectionDevices();
-  }
-  if ( profileType === btProfileModel.PROFILE_HID_HOST ) {
-    return (p as hid.HidHostProfile).getConnectedDevices();
-  }
-  if ( profileType === btProfileModel.PROFILE_PAN_NETWORK ) {
-    return (p as pan.PanProfile).getConnectedDevices();
-  }
-  return [];
-}
-
-function getDeviceStateByType(profileType: number, deviceId: string): number {
-  const p = btProfileModel.getProfile(profileType);
-  if ( !p ) {
-    return - 1;
-  }
-  if ( profileType === btProfileModel.PROFILE_A2DP_SOURCE ) {
-    return (p as bluetooth.A2dpSourceProfile).getDeviceState(deviceId);
-  }
-  if ( profileType === btProfileModel.PROFILE_HANDS_FREE_AUDIO_GATEWAY ) {
-    return (p as bluetooth.HandsFreeAudioGatewayProfile).getDeviceState(deviceId);
-  }
-  if ( profileType === btProfileModel.PROFILE_HID_HOST ) {
-    return (p as hid.HidHostProfile).getConnectionState(deviceId) as number;
-  }
-  if ( profileType === btProfileModel.PROFILE_PAN_NETWORK ) {
-    return (p as pan.PanProfile).getConnectionState(deviceId) as number;
-  }
-  return - 1;
-}
-
 export function testProfileGetConnectionDevices() {
   try {
     let message = "profileGetConnectionDevices test"
     let textMessage = ""
     let profileType: number = AppStorage.get("profileType") !
-    let ret: Array<string> = getConnectionDevicesByType(profileType);
+    let ret: Array<string> =(btProfileModel.getProfile(profileType) as bluetooth.BaseProfile).getConnectionDevices();
     textMessage = "getConnectionDevices ret: " + JSON.stringify(ret);
     message = "getConnectionDevices ret: " + JSON.stringify(ret);
     AppStorage.SetOrCreate("textMessage" , textMessage)
@@ -202,7 +133,7 @@ export function testProfileGetDeviceState() {
     let textMessage = ""
     let deviceId: string = AppStorage.get("deviceId") !
     let profileType: number = AppStorage.get("profileType") !
-    let ret: number = getDeviceStateByType(profileType, deviceId);
+    let ret: number = (btProfileModel.getProfile(profileType) as bluetooth.BaseProfile).getDeviceState(deviceId);
     textMessage = "getDeviceState ret: " + ret;
     message = "getDeviceState ret: " + ret;
     AppStorage.SetOrCreate("textMessage" , textMessage)
@@ -219,33 +150,167 @@ export function testProfileGetDeviceState() {
 let transferStateChange = false
 
 export function testOnTransferStateChange() {
-  promptAction.showToast({ message: 'API 23 不包含 OPP 传输事件 API，请使用 API 16+ 完整工程' });
-  return 'OPP N/A on API 23';
+  try {
+    let message = "OnTransferStateChange test"
+    let textMessage = ""
+    let profileType: number = AppStorage.get("profileType") !
+    if ( transferStateChange ) {
+      (btProfileModel.getProfile(profileType) as opp.OppServerProfile).off("transferStateChange" , () => {
+        promptAction.showToast({ message : "on.transferStateChange监听已关闭" })
+      })
+      message = ("关闭传输状态改变事件")
+    } else {
+      (btProfileModel.getProfile(profileType) as opp.OppServerProfile).on("transferStateChange" , (stateInformation) => {
+        console.log("transferStateChange enter");
+        textMessage = "transferStateChange success";
+        message = "transferStateChange success";
+        AppStorage.SetOrCreate("textMessage" , textMessage)
+        let curProgress = (stateInformation.currentBytes * 100) / stateInformation.totalBytes;
+        if ( curProgress === 100 ) {
+          console.log("接收文件成功，文件存放路径：" + JSON.stringify(stateInformation.filePath));
+          promptAction.showToast({ message : "接收文件成功，文件存放路径：" + JSON.stringify(stateInformation.filePath) })
+        }
+        promptAction.showToast({ message : message });
+      })
+    }
+    transferStateChange = !transferStateChange
+    return message
+  } catch( e ) {
+    console.log(`Failed to testOnTransferStateChange. message: ${ e.message }, code: ${ e.code }`)
+    let message = `Failed to testOnTransferStateChange. message: ${ e.message }, code: ${ e.code }`
+    promptAction.showToast({ message : message })
+    return message
+  }
 }
 
 let receiveIncomingFile = false
 
 export function testOnReceiveIncomingFile() {
-  promptAction.showToast({ message: 'API 23 不包含 OPP 接收事件 API，请使用 API 16+ 完整工程' });
-  return 'OPP N/A on API 23';
+  try {
+    let message = "OnReceiveIncomingFile test"
+    let textMessage = ""
+    let profileType: number = AppStorage.get("profileType") !
+    if ( receiveIncomingFile ) {
+      (btProfileModel.getProfile(profileType) as opp.OppServerProfile).off("receiveIncomingFile" , () => {
+        promptAction.showToast({ message : "on.receiveIncomingFile监听已关闭" })
+      })
+      message = ("关闭接受文件状态改变事件")
+    } else {
+      (btProfileModel.getProfile(profileType) as opp.OppServerProfile).on("receiveIncomingFile" , (information) => {
+        console.log("receiveIncomingFile enter");
+        let deviceName: string = information.remoteDeviceName;
+        let fileName: string = information.filePath;
+        textMessage = "remoteDeviceName: " + deviceName + " filePath: " + fileName;
+        message = "remoteDeviceName: " + deviceName + " filePath: " + fileName;
+        AppStorage.SetOrCreate("textMessage" , textMessage)
+        promptAction.showToast({ message : message });
+      })
+    }
+
+    receiveIncomingFile = !receiveIncomingFile
+    return message
+  }
+  catch( e ) {
+    console.log(`Failed to testOnReceiveIncomingFile. message: ${ e.message }, code: ${ e.code }`)
+    let message = `Failed to testOnReceiveIncomingFile. message: ${ e.message }, code: ${ e.code }`
+    promptAction.showToast({ message : message })
+    return message
+  }
 }
 
 export function testSendFile(serverMac: string , fileName: string , fileType: string) {
-  promptAction.showToast({ message: 'API 23 不包含 OPP sendFile，请使用 API 16+ 完整工程' });
-  return 'OPP N/A on API 23';
+  try {
+    let message = "sendFile test"
+    let textMessage = ""
+    let profileType: number | undefined = AppStorage.get("profileType")
+    let fileHolders : Array<opp.FileHolder> = [];
+    (btProfileModel.getProfile(profileType) as opp.OppServerProfile).sendFile(
+      serverMac , fileHolders).then(() => {
+      console.log("opp发送文件成功！ result: ");
+      textMessage = "testSendFile ret: ";
+      AppStorage.SetOrCreate("textMessage" , textMessage)
+      message = "opp发送文件成功！ result: "
+      promptAction.showToast({ message : message })
+    })
+
+    return message
+  } catch( e ) {
+    console.log(`Failed to testSendFile. message: ${ e.message }, code: ${ e.code }`)
+    let message = `Failed to testSendFile. message: ${ e.message }, code: ${ e.code }`
+    promptAction.showToast({ message : message })
+    return message
+  }
 }
 
 export function testSetIncomingFileConfirmation() {
-  promptAction.showToast({ message: 'API 23 不包含 OPP setIncomingFileConfirmation' });
-  return 'OPP N/A on API 23';
+  try {
+    let message = "setIncomingFileConfirmation test"
+    let textMessage = ""
+    let profileType: number | undefined = AppStorage.get("profileType")
+    let pathDir = "/test.jpg";
+    let file = fs.openSync(pathDir, fs.OpenMode.CREATE | fs.OpenMode.READ_WRITE);
+    (btProfileModel.getProfile(profileType) as opp.OppServerProfile).setIncomingFileConfirmation(true, file.fd).
+      then(() => {
+        let result = true;
+        console.log("result: " + result);
+        textMessage = "result: " + result;
+        AppStorage.SetOrCreate("textMessage" , textMessage)
+        message = "result: " + result
+        promptAction.showToast({ message : message })
+      })
+
+    return message
+  } catch( e ) {
+    console.log(`Failed to testSetIncomingFileConfirmation. message: ${ e.message }, code: ${ e.code }`)
+    let message = `Failed to testSetIncomingFileConfirmation. message: ${ e.message }, code: ${ e.code }`
+    promptAction.showToast({ message : message })
+    return message
+  }
 }
 
 export function testGetCurrentTransferInformation() {
-  promptAction.showToast({ message: 'API 23 不包含 getCurrentTransferInformation' });
-  return 'OPP N/A on API 23';
+  try {
+    let message = "getCurrentTransferInformation test"
+    let textMessage = ""
+    let profileType: number | undefined = AppStorage.get("profileType");
+    (btProfileModel.getProfile(profileType) as opp.OppServerProfile).
+      getCurrentTransferInformation().then((value: opp.OppTransferInformation) => {
+        let result = true;
+        console.log("当前信息: " + JSON.stringify(result));
+        textMessage = "当前信息: " + JSON.stringify(result);
+        AppStorage.SetOrCreate("textMessage" , textMessage)
+        message = "当前信息: " + JSON.stringify(result)
+        promptAction.showToast({ message : message })
+      })
+
+    return message
+  } catch( e ) {
+    console.log(`Failed to testGetCurrentTransferInformation. message: ${ e.message }, code: ${ e.code }`)
+    let message = `Failed to testGetCurrentTransferInformation. message: ${ e.message }, code: ${ e.code }`
+    promptAction.showToast({ message : message })
+    return message
+  }
 }
 
 export function testCancelTransfer() {
-  promptAction.showToast({ message: 'API 23 不包含 cancelTransfer' });
-  return 'OPP N/A on API 23';
+  try {
+    let message = "cancelTransfer test"
+    let textMessage = ""
+    let profileType: number | undefined = AppStorage.get("profileType");
+    (btProfileModel.getProfile(profileType) as opp.OppServerProfile).cancelTransfer().then(() => {
+      let result = true;
+      console.log("取消传输: " + JSON.stringify(result));
+      textMessage = "取消传输: " + JSON.stringify(result);
+      AppStorage.SetOrCreate("textMessage" , textMessage)
+      message = "取消传输: " + JSON.stringify(result)
+      promptAction.showToast({ message : message })
+    })
+
+    return message
+  } catch( e ) {
+    console.log(`Failed to testCancelTransfer. message: ${ e.message }, code: ${ e.code }`)
+    let message = `Failed to testCancelTransfer. message: ${ e.message }, code: ${ e.code }`
+    promptAction.showToast({ message : message })
+    return message
+  }
 }
