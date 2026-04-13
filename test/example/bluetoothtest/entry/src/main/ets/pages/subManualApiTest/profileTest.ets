@@ -40,6 +40,7 @@ struct ProfileTest {
       Stack({ alignContent : Alignment.TopStart }) {
         TestImageDisplay({ testItem : this.testItem })
         PageTitle({ testItem : this.testItem })
+  .id('pages_subManualApiTest_profileTest__pt_0')
       }
       ContentTable({ apiItems : initA2dpSourceProfileApiData() })
     }
