@@ -12,8 +12,18 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import abilityTest from './Ability.test'
+import bluetoothApiCoverageTest from './BluetoothApiCoverage.test'
+import connectivityKitBluetoothTest from './ConnectivityKitBluetooth.test'
+import connBleSocketMass01 from './ConnBleSocketMass01.test'
+import connBleSocketMass02 from './ConnBleSocketMass02.test'
+import connBleSocketMass03 from './ConnBleSocketMass03.test'
+import connBleSocketMass04 from './ConnBleSocketMass04.test'
 
 export default function testsuite() {
-  abilityTest()
+  bluetoothApiCoverageTest()
+  connectivityKitBluetoothTest()
+  connBleSocketMass01()
+  connBleSocketMass02()
+  connBleSocketMass03()
+  connBleSocketMass04()
 }

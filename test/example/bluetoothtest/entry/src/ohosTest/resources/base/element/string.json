@@ -11,6 +11,10 @@
     {
       "name": "TestAbility_label",
       "value": "test label"
+    },
+    {
+      "name": "bluetooth_permission_reason",
+      "value": "Bluetooth test requires location and Bluetooth permissions."
     }
   ]
 }
