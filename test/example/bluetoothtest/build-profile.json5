@@ -20,10 +20,10 @@
       {
         "name": "default",
         "signingConfig": "default",
-        "compileSdkVersion": 23,
-        "compatibleSdkVersion": 23,
+        "compileSdkVersion": 26,
+        "compatibleSdkVersion": 26,
         "arkTSVersion": "1.0",
-        "targetSdkVersion": 23,
+        "targetSdkVersion": 26,
       }
     ]
   },

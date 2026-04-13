@@ -17,10 +17,34 @@ import UIAbility from '@ohos.app.ability.UIAbility';
 import hilog from '@ohos.hilog';
 import window from '@ohos.window';
 
+const DEFAULT_PAGE = 'pages/homePage';
+const TEST_PAGE_KEY = 'testTargetPage';
+
 export default class EntryAbility extends UIAbility {
+  private windowStageRef: window.WindowStage | null = null;
+  private initialPage: string = DEFAULT_PAGE;
+
   onCreate(want, launchParam) {
     hilog.info(0x0000, 'testTag', '%{public}s', 'Ability onCreate');
     globalThis.context = this.context;
+    const p = want?.parameters?.[TEST_PAGE_KEY];
+    if (typeof p === 'string' && p.length > 0) {
+      this.initialPage = p;
+    }
+  }
+
+  onNewWant(want, launchParam) {
+    const p = want?.parameters?.[TEST_PAGE_KEY];
+    if (typeof p !== 'string' || p.length === 0 || !this.windowStageRef) {
+      return;
+    }
+    this.windowStageRef.loadContent(p, (err, data) => {
+      if (err.code) {
+        hilog.error(0x0000, 'testTag', 'loadContent onNewWant failed: %{public}s', JSON.stringify(err) ?? '');
+        return;
+      }
+      hilog.info(0x0000, 'testTag', 'onNewWant loadContent ok: %{public}s', JSON.stringify(data) ?? '');
+    });
   }
 
   onDestroy() {
@@ -28,30 +52,29 @@ export default class EntryAbility extends UIAbility {
   }
 
   onWindowStageCreate(windowStage: window.WindowStage) {
-    // Main window is created, set main page for this ability
     hilog.info(0x0000, 'testTag', '%{public}s', 'Ability onWindowStageCreate');
-
-    windowStage.loadContent('pages/homePage', (err, data) => {
-      if(err.code) {
+    this.windowStageRef = windowStage;
+    const page = this.initialPage;
+    windowStage.loadContent(page, (err, data) => {
+      if (err.code) {
         hilog.error(0x0000, 'testTag', 'Failed to load the content. Cause: %{public}s', JSON.stringify(err) ?? '');
         return;
       }
-      hilog.info(0x0000, 'testTag', 'Succeeded in loading the content. Data: %{public}s', JSON.stringify(data) ?? '');
+      hilog.info(0x0000, 'testTag', 'Succeeded in loading the content. Data: %{public}s',
+        JSON.stringify(data) ?? '');
     });
   }
 
   onWindowStageDestroy() {
-    // Main window is destroyed, release UI related resources
     hilog.info(0x0000, 'testTag', '%{public}s', 'Ability onWindowStageDestroy');
+    this.windowStageRef = null;
   }
 
   onForeground() {
-    // Ability has brought to foreground
     hilog.info(0x0000, 'testTag', '%{public}s', 'Ability onForeground');
   }
 
   onBackground() {
-    // Ability has back to background
     hilog.info(0x0000, 'testTag', '%{public}s', 'Ability onBackground');
   }
 }
