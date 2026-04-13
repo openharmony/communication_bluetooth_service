@@ -50,6 +50,7 @@ struct GattClientSetting {
       Row() {
         Text("外围设备MAC:").fontSize('16vp').width('70vp')
         TextInput({ text : this.peripheralDeviceId , placeholder : "input peripheral deviceId." })
+  .id('pages_subManualApiTestManager_subGattTestManager_gattClientManager__ti_0')
           .fontSize('15vp')
           .onChange((strInput) => {
             this.peripheralDeviceId = strInput;
@@ -72,6 +73,7 @@ struct GattClientSetting {
           Row() {
             Text("服务UUID:").fontSize('15vp').width('60vp');
             TextInput({ text : this.serviceUUID , placeholder : "input Service UUID" })
+  .id('pages_subManualApiTestManager_subGattTestManager_gattClientManager__ti_1')
               .fontSize('15vp')
               .onChange((strInput) => {
                 this.serviceUUID = strInput;
@@ -90,6 +92,7 @@ struct GattClientSetting {
           Row() {
             Text("特征值UUID:").fontSize('15vp').width('60vp');
             TextInput({ text : this.characteristicUUID , placeholder : "input Characteristic UUID" })
+  .id('pages_subManualApiTestManager_subGattTestManager_gattClientManager__ti_2')
               .fontSize('15vp')
               .onChange((strInput) => {
                 this.characteristicUUID = strInput;
@@ -108,6 +111,7 @@ struct GattClientSetting {
           Row() {
             Text("特征值Value:").fontSize('15vp').width('60vp');
             TextInput({ text : this.characteristicUUID , placeholder : "Characteristic Value" })
+  .id('pages_subManualApiTestManager_subGattTestManager_gattClientManager__ti_3')
               .fontSize('15vp')
               .onChange((strInput) => {
                 this.characteristicValue = strInput;
@@ -126,6 +130,7 @@ struct GattClientSetting {
           Row() {
             Text("描述符UUID:").fontSize('15vp').width('60vp');
             TextInput({ text : this.descriptorUUID , placeholder : "input descriptor UUID" })
+  .id('pages_subManualApiTestManager_subGattTestManager_gattClientManager__ti_4')
               .fontSize('15vp')
               .onChange((strInput) => {
                 this.descriptorUUID = strInput;
@@ -144,6 +149,7 @@ struct GattClientSetting {
           Row() {
             Text("描述符Value:").fontSize('15vp').width('60vp');
             TextInput({ text : this.descriptorUUID , placeholder : "descriptor Value" })
+  .id('pages_subManualApiTestManager_subGattTestManager_gattClientManager__ti_5')
               .fontSize('15vp')
               .onChange((strInput) => {
                 this.descriptorValue = strInput;
@@ -211,6 +217,7 @@ struct GattClientManager {
       Stack({ alignContent : Alignment.TopStart }) {
         TestImageDisplay({ testItem : this.testItem })
         PageTitle({ testItem : this.testItem })
+  .id('pages_subManualApiTestManager_subGattTestManager_gattClientManager__pt_0')
       }
 
       Stack().height('0.5vp').backgroundColor($r('app.color.black'));
@@ -221,6 +228,7 @@ struct GattClientManager {
           .width('80%')
           .padding({ left : '15vp' })
         Image($r('app.media.Switch'))
+  .id('pages_subManualApiTestManager_subGattTestManager_gattClientManager__img_0')
           .height('50vp')
           .width('50vp')
           .padding({ top : '10vp' , bottom : '10vp' , left : '10vp' })
@@ -285,6 +293,7 @@ struct GattClientManager {
               }
               .width('100%')
             }
+  .id('pages_subManualApiTestManager_subGattTestManager_gattClientManager__sc_0')
             .scrollBarWidth('10vp')
             .scrollBar(BarState.Auto)
           }
@@ -302,6 +311,7 @@ struct GattClientManager {
             Scroll() {
               ContentTable({ apiItems : initGattClientManagerApiData() })
             }
+  .id('pages_subManualApiTestManager_subGattTestManager_gattClientManager__sc_1')
             .width(ConfigData.WH_100_100)
             .align(Alignment.TopStart)
             .layoutWeight(1)
