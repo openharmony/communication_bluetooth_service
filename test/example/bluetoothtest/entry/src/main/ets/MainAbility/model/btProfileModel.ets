@@ -15,6 +15,7 @@
 
 /**
  * BT ProfileModel Test Page Of Bluetooth test
+ * API 23：@ohos.bluetooth.opp 仅为占位声明，不包含 OPP 服务端能力；OPP 相关用例已禁用。
  */
 
 import ConfigData from '../../Utils/ConfigData';
@@ -22,13 +23,12 @@ import BaseModel from '../../Utils/BaseModel';
 import bt from '@ohos.bluetooth';
 import hid from '@ohos.bluetooth.hid'
 import pan from '@ohos.bluetooth.pan'
-import { opp } from '@kit.ConnectivityKit'
 
 
 export class BTProfileModel extends BaseModel {
   private TAG = ConfigData.TAG + 'BTProfileModel';
-  private profiles: bt.A2dpSourceProfile | bt.HandsFreeAudioGatewayProfile | hid.HidHostProfile |
-    pan.PanProfile | opp.OppServerProfile | null [] = []
+  private profiles: Array<bt.A2dpSourceProfile | bt.HandsFreeAudioGatewayProfile | hid.HidHostProfile |
+    pan.PanProfile | null> = []
   public PROFILE_A2DP_SOURCE = 1;
   public PROFILE_HANDS_FREE_AUDIO_GATEWAY = 4;
   public PROFILE_HID_HOST = 6;
@@ -51,13 +51,12 @@ export class BTProfileModel extends BaseModel {
 
     this.profiles[ this.PROFILE_PAN_NETWORK ] = pan.createPanProfile() as pan.PanProfile;
 
-    this.profiles[ this.PROFILE_OPP ] = opp.createOppServerProfile();
+    this.profiles[ this.PROFILE_OPP ] = null;
 
     console.log("this.profiles[ this.PROFILE_A2DP_SOURCE ]" + JSON.stringify(bt.getProfile(this.PROFILE_A2DP_SOURCE)))
     console.log("this.profiles[ this.PROFILE_HANDS_FREE_AUDIO_GATEWAY ]" + bt.getProfile(this.PROFILE_HANDS_FREE_AUDIO_GATEWAY))
     console.log("this.profiles[ this.PROFILE_HID_HOST ]" + this.profiles[ this.PROFILE_HID_HOST ])
     console.log("this.profiles[ this.PROFILE_PAN_NETWORK ]" + this.profiles[ this.PROFILE_PAN_NETWORK ])
-    console.log("this.profiles[ this.PROFILE_OPP ]" + bt.getProfile(this.PROFILE_OPP))
     console.log('bt_test BTProfileModel end');
   }
 
@@ -97,15 +96,8 @@ export class BTProfileModel extends BaseModel {
     return null;
   }
 
-  getOppProfile(): opp.OppServerProfile | null {
-    if ( this.profiles[ this.PROFILE_OPP ] != null ) {
-      return this.profiles[ this.PROFILE_OPP ] as opp.OppServerProfile;
-    }
-    return null;
-  }
-
   getProfile(type: number): bt.A2dpSourceProfile | bt.HandsFreeAudioGatewayProfile | hid.HidHostProfile |
-    pan.PanProfile | opp.OppServerProfile | null {
+    pan.PanProfile | null {
     if ( this.profiles[ type ] != null ) {
       return this.profiles[ type ];
     }
