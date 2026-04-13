@@ -1,4 +1,4 @@
-﻿/**
+/**
  * Copyright (C) 2022 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -97,7 +97,6 @@ struct HomePage {
     "ohos.permission.LOCATION",
     "ohos.permission.ACCESS_BLUETOOTH",
     "ohos.permission.APPROXIMATELY_LOCATION",
-    "ohos.permission.CAPTURE_SCREEN",
     "ohos.permission.WRITE_MEDIA",
     "ohos.permission.READ_MEDIA"
   ]

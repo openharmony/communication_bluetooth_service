@@ -15,27 +15,15 @@
 {
   "app": {
     "signingConfigs": [
-      {
-        "name": "default",
-        "material": {
-          "certpath": "C:/Users/Administrator/.ohos/config/openharmony/default_bluetoothtest_1wOWTIyH4sXgIjR3eRfMrzcLjaSgtwhWL7WVvcjpr6I=.cer",
-          "keyAlias": "debugKey",
-          "keyPassword": "0000001BDF20B5B0907B69D9CD907ECEF0335FF38C3CD99ECF7EE7A24B801B748B8C2B05DBA5706644FF76",
-          "profile": "C:/Users/Administrator/.ohos/config/openharmony/default_bluetoothtest_1wOWTIyH4sXgIjR3eRfMrzcLjaSgtwhWL7WVvcjpr6I=.p7b",
-          "signAlg": "SHA256withECDSA",
-          "storeFile": "C:/Users/Administrator/.ohos/config/openharmony/default_bluetoothtest_1wOWTIyH4sXgIjR3eRfMrzcLjaSgtwhWL7WVvcjpr6I=.p12",
-          "storePassword": "0000001B72366441D2F2DAD7481D71AA5E0F8DB4C0DD48A752921CBCCC5AD811E7861447283B73E0B28C3F"
-        }
-      }
     ],
     "products": [
       {
         "name": "default",
         "signingConfig": "default",
-        "compileSdkVersion": 20,
-        "compatibleSdkVersion": 10,
+        "compileSdkVersion": 23,
+        "compatibleSdkVersion": 23,
         "arkTSVersion": "1.0",
-        "targetSdkVersion": 20,
+        "targetSdkVersion": 23,
       }
     ]
   },
