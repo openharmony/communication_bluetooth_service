@@ -1,4 +1,4 @@
-﻿/**
+/**
  * Copyright (C) 2022 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,7 +16,7 @@
 
 import { TestData } from '../MainAbility/model/testData'
 import { TestListItem } from './testListItems';
-import ConfigData from '../utils/ConfigData';
+import ConfigData from '../Utils/ConfigData';
 /**
  * Test-List of bluetooth test
  */
