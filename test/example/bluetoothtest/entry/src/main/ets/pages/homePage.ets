@@ -37,46 +37,57 @@ struct TestCategory {
       Tabs() {
         TabContent() {
           ManualApiTest({ testItems : this.testItems.filter(item => (item.category === Category.API)) })
-        }.tabBar($r("app.string.api")).margin({ top : '5vp' })
+        }
+  .id('pages_homePage__tc_0').tabBar($r("app.string.api")).margin({ top : '5vp' })
 
         TabContent() {
           ManualApiTest({ testItems : this.testItems.filter(item => (item.category === Category.APIManager)) })
-        }.tabBar($r("app.string.api_M")).margin({ top : '5vp' })
+        }
+  .id('pages_homePage__tc_1').tabBar($r("app.string.api_M")).margin({ top : '5vp' })
 
         TabContent() {
           AutoTest({ testItems : this.testItems.filter(item => (item.category === Category.AutoTest)) })
-        }.tabBar($r("app.string.autotest")).margin({ top : '5vp' })
+        }
+  .id('pages_homePage__tc_2').tabBar($r("app.string.autotest")).margin({ top : '5vp' })
 
         TabContent() {
           AutoTest({ testItems : this.testItems.filter(item => (item.category === Category.AutoTestManager)) })
-        }.tabBar($r("app.string.autotest_M")).margin({ top : '5vp' })
+        }
+  .id('pages_homePage__tc_3').tabBar($r("app.string.autotest_M")).margin({ top : '5vp' })
 
         TabContent() {
           ManualSceneTest({ testItems : this.testItems.filter(item => (item.category === Category.Scenario)) })
-        }.tabBar($r("app.string.scenario")).margin({ top : '5vp' })
+        }
+  .id('pages_homePage__tc_4').tabBar($r("app.string.scenario")).margin({ top : '5vp' })
 
         TabContent() {
           ManualSceneTest({ testItems : this.testItems.filter(item => (item.category === Category.ScenarioManager)) })
-        }.tabBar($r("app.string.scenario_M")).margin({ top : '5vp' })
+        }
+  .id('pages_homePage__tc_5').tabBar($r("app.string.scenario_M")).margin({ top : '5vp' })
 
         TabContent() {
           ProfileTest({ testItems : this.testItems.filter(item => (item.category === Category.Profile)) })
-        }.tabBar($r("app.string.profile")).margin({ top : '5vp' })
+        }
+  .id('pages_homePage__tc_6').tabBar($r("app.string.profile")).margin({ top : '5vp' })
 
         TabContent() {
           ProfileTest({ testItems : this.testItems.filter(item => (item.category === Category.ProfileManager)) })
-        }.tabBar($r("app.string.profile_M")).margin({ top : '5vp' })
+        }
+  .id('pages_homePage__tc_7').tabBar($r("app.string.profile_M")).margin({ top : '5vp' })
 
         TabContent() {
           BenchmarkTest({ testItems : this.testItems.filter(item => (item.category === Category.BenchMark)) })
-        }.tabBar($r("app.string.benchmark")).margin({ top : '5vp' })
+        }
+  .id('pages_homePage__tc_8').tabBar($r("app.string.benchmark")).margin({ top : '5vp' })
 
         TabContent() {
           BenchmarkTest({
             testItems : this.testItems.filter(item => (item.category === Category.BenchMarkManager))
           })
-        }.tabBar($r("app.string.benchmark_M"))
+        }
+  .id('pages_homePage__tc_9').tabBar($r("app.string.benchmark_M"))
       }
+  .id('pages_homePage__tabs_0')
       .barWidth('80%')
       .barHeight('40vp')
       .align(Alignment.TopStart)
@@ -118,9 +129,11 @@ struct HomePage {
   build() {
     Column() {
       MainPageTitle()
+  .id('pages_homePage__mpt_0')
       Stack({ alignContent : Alignment.TopEnd }) {
         TestCategory({ testItems : this.testItems })
         Image($r('app.media.Switch'))
+  .id('pages_homePage__img_0')
           .height('30vp')
           .width('30vp')
           .margin({ top : '5vp' , right : '10vp' })

@@ -1,6 +1,21 @@
 # bluetoothtest：API 23 适配变更说明
 
-本文档记录在将工程目标 SDK 切到 **API 23** 时为通过编译所做的修改，便于日后切回 **API 26**（或更高）时对照恢复能力。
+## API 26 当前状态（已恢复）
+
+工程已使用 **`build-profile.json5`：`compileSdkVersion` / `compatibleSdkVersion` / `targetSdkVersion` 均为 26**。下列在 API 23 中被裁剪或占位的能力，**已从提交 `8d9dc4c`（API 23 之前基线）恢复源码**，并在当前 OpenHarmony 6.x / API 26 工具链下 **通过 `assembleHap` 编译**：
+
+| 能力 | 恢复方式概要 |
+|------|----------------|
+| **OPP** | `btProfileModel` 重新接入 `@kit.ConnectivityKit` 的 `opp.createOppServerProfile()`；`oppSendScenarioTest` / `oppRecvScenarioTest` 恢复发送、接收与事件；`a2dpSinkProfileInterface` 恢复 OPP 相关导出。 |
+| **截屏** | `mainPageTitle.ets`、`pageTitle.ets` 恢复 `@ohos.screenshot` + `MediaUtils.savePicture`。 |
+| **取消配对** | 两处 `deviceFound.ets` 恢复 `bluetooth.cancelPairedDevice`。 |
+| **权限** | `entry/src/main/module.json5` 恢复 `CAPTURE_SCREEN`、`WRITE_IMAGEVIDEO`、`MANAGE_BLUETOOTH` 等声明；`homePage.ets` 恢复含截屏等运行时申请列表。 |
+
+**说明**：真机/开发板需系统与签名策略支持上述权限与 Profile；若安装阶段权限预授权失败，仍需按环境调整 `module.json5` 或换调试证书（与此前 API 23 设备侧问题相同）。
+
+---
+
+本文档下文仍保留 **API 23 适配当时** 的修改记录，便于对照历史。
 
 ## 构建配置
 

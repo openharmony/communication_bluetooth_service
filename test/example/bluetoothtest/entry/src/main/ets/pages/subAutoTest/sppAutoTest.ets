@@ -38,6 +38,7 @@ struct SppAutoTest {
       Stack({ alignContent : Alignment.TopStart }) {
         TestImageDisplay({ testItem : this.testItem })
         PageTitle({ testItem : this.testItem })
+  .id('pages_subAutoTest_sppAutoTest__pt_0')
       }
 
       List() {
@@ -47,6 +48,7 @@ struct SppAutoTest {
               testItem : item
             })
           }
+  .id('pages_subAutoTest_sppAutoTest__li_0')
         } , (item: TestData) => item.id)
       }
       .height('93%')
