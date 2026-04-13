@@ -64,6 +64,7 @@ struct oppSendScenarioTest {
       Stack({ alignContent : Alignment.TopStart }) {
         TestImageDisplay({ testItem : this.testItem })
         PageTitle({ testItem : this.testItem })
+  .id('pages_subScenarioTest_oppSendScenarioTest__pt_0')
       }
 
       Stack().height('1vp').backgroundColor($r('app.color.black'));
@@ -87,18 +88,21 @@ struct oppSendScenarioTest {
                         radius : 5
                       })
                   }
+  .id('pages_subScenarioTest_oppSendScenarioTest__li_0')
                   .onClick(() => {
                     this.serverMac = item.id;
                   })
                 })
               }
             }
+  .id('pages_subScenarioTest_oppSendScenarioTest__sc_1')
             .height('80%')
             .width('80%')
           }
           .height('30%')
           .width('100%')
         }
+  .id('pages_subScenarioTest_oppSendScenarioTest__sc_0')
         .scrollBarWidth('10vp')
         .scrollBar(BarState.Auto)
 
@@ -120,6 +124,7 @@ struct oppSendScenarioTest {
           Text("请输入需要发送的文件名称，如：test.txt").fontSize('18vp').fontWeight(FontWeight.Bold)
           Text("注：文件必须在/data/bluetooth/log/目录下").fontSize('18vp').fontWeight(FontWeight.Bold)
           TextInput({ placeholder : "文件名称" })
+  .id('pages_subScenarioTest_oppSendScenarioTest__ti_0')
             .fontSize('20vp')
             .onChange((str) => {
               if ( str ) {
@@ -146,6 +151,7 @@ struct oppSendScenarioTest {
                   .textAlign(TextAlign.Start)
                   .width('90%')
               }
+  .id('pages_subScenarioTest_oppSendScenarioTest__li_1')
             }
             .height('80%')
             .width('90%')
@@ -154,6 +160,7 @@ struct oppSendScenarioTest {
           .width('100%')
           .height('30%')
         }
+  .id('pages_subScenarioTest_oppSendScenarioTest__sc_2')
         .scrollBarWidth('10vp')
         .scrollBar(BarState.On)
       }
@@ -167,6 +174,7 @@ struct oppSendScenarioTest {
         Flex({ alignItems : ItemAlign.Center , justifyContent : FlexAlign.SpaceBetween }) {
           Column() {
             Button('oppSendFile')
+  .id('pages_subScenarioTest_oppSendScenarioTest__btn_0')
               .borderRadius('8vp')
               .backgroundColor($r("app.color.blue"))
               .width('200vp')

@@ -113,6 +113,7 @@ struct OppRecvScenarioTest {
       Stack({ alignContent : Alignment.TopStart }) {
         TestImageDisplay({ testItem : this.testItem })
         PageTitle({ testItem : this.testItem })
+  .id('pages_subScenarioTest_oppRecvScenarioTest__pt_0')
       }
 
       Stack().height('1vp').backgroundColor($r('app.color.black'));
@@ -136,12 +137,14 @@ struct OppRecvScenarioTest {
                         radius : 5
                       })
                   }
+  .id('pages_subScenarioTest_oppRecvScenarioTest__li_0')
                   .onClick(() => {
                     this.serverMac = item.id;
                   })
                 })
               }
             }
+  .id('pages_subScenarioTest_oppRecvScenarioTest__sc_1')
             .height('70%')
             .width('80%')
           }
@@ -149,6 +152,7 @@ struct OppRecvScenarioTest {
           .width('100%')
 
         }
+  .id('pages_subScenarioTest_oppRecvScenarioTest__sc_0')
         .scrollBarWidth('10vp')
         .scrollBar(BarState.On)
 
@@ -181,6 +185,7 @@ struct OppRecvScenarioTest {
                   .textAlign(TextAlign.Start)
                   .width('90%')
               }
+  .id('pages_subScenarioTest_oppRecvScenarioTest__li_1')
             }
             .height('80%')
             .width('90%')
@@ -189,6 +194,7 @@ struct OppRecvScenarioTest {
           .width('100%')
           .height('30%')
         }
+  .id('pages_subScenarioTest_oppRecvScenarioTest__sc_2')
         .scrollBarWidth('10vp')
         .scrollBar(BarState.On)
       }
@@ -202,6 +208,7 @@ struct OppRecvScenarioTest {
         Flex({ alignItems : ItemAlign.Center , justifyContent : FlexAlign.SpaceBetween }) {
           Column() {
             Button('opp开启接收文件')
+  .id('pages_subScenarioTest_oppRecvScenarioTest__btn_0')
               .fontSize('20vp')
               .borderRadius('8vp')
               .backgroundColor($r("app.color.blue"))
@@ -267,10 +274,12 @@ struct ReceiveCustomDialog {
       Text(this.fileName).fontSize('18vp').margin({ bottom : '10vp' })
       Flex({ justifyContent : FlexAlign.SpaceAround }) {
         Button('拒接')
+  .id('pages_subScenarioTest_oppRecvScenarioTest__btn_1')
           .onClick(() => {
             this.cancel()
           })
         Button('接收')
+  .id('pages_subScenarioTest_oppRecvScenarioTest__btn_2')
           .onClick(() => {
             this.confirm()
           })

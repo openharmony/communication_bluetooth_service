@@ -49,16 +49,6 @@
     ],
     "requestPermissions":[
       {
-        "name": "ohos.permission.CAPTURE_SCREEN",
-        "reason": "$string:reason"
-      },
-      {
-        "name": "ohos.permission.WRITE_IMAGEVIDEO",
-        "reason": "$string:reason",
-        "usedScene": {
-        }
-      },
-      {
         "name": "ohos.permission.ACCESS_BLUETOOTH",
         "reason": "$string:reason",
         "usedScene": {
@@ -69,9 +59,6 @@
       },
       {
         "name": "ohos.permission.USE_BLUETOOTH"
-      },
-      {
-        "name": "ohos.permission.MANAGE_BLUETOOTH"
       },
       {
         "name": "ohos.permission.LOCATION",
