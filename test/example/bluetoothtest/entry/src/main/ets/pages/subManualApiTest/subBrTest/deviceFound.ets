@@ -80,6 +80,7 @@ struct DeviceFound {
           });
           Column({ space : '12vp' }) {
             PageTitle({ detail : '扫描蓝牙设备' })
+  .id('pages_subManualApiTest_subBrTest_deviceFound__pt_0')
             Scroll() {
               Column() {
                 if ( this.isOn ) {
@@ -96,6 +97,7 @@ struct DeviceFound {
               .width(ConfigData.WH_100_100)
               .margin({ bottom : $r('sys.float.ohos_id_default_padding_bottom_fixed') })
             }
+  .id('pages_subManualApiTest_subBrTest_deviceFound__sc_0')
             .width(ConfigData.WH_100_100)
             .align(Alignment.TopStart)
             .layoutWeight(1)
@@ -193,6 +195,7 @@ export struct PairedDeviceComponent {
               })
 
             }
+  .id('pages_subManualApiTest_subBrTest_deviceFound__li_0')
           } , (item: BluetoothDevice) => JSON.stringify(item));
         }
         .height('200vp')
@@ -322,6 +325,7 @@ export struct AvailableItem {
     Row() {
       Row() {
         Image($r('app.media.bleSmall'))
+  .id('pages_subManualApiTest_subBrTest_deviceFound__img_0')
           .objectFit(ImageFit.Contain)
           .autoResize(false)
           .height('30vp')
@@ -372,6 +376,7 @@ export struct PairedItem {
     Row() {
       Row() {
         Image($r('app.media.bleSmall'))
+  .id('pages_subManualApiTest_subBrTest_deviceFound__img_1')
           .objectFit(ImageFit.Contain)
           .autoResize(false)
           .height('30vp')
@@ -507,6 +512,7 @@ export struct AvailableDeviceComponent {
                   this.pairDevice(item)
                 })
               }
+  .id('pages_subManualApiTest_subBrTest_deviceFound__li_1')
             } , (item: BluetoothDevice) => JSON.stringify(item));
           }
           .backgroundColor($r("app.color.white_bg_color"))
@@ -519,6 +525,7 @@ export struct AvailableDeviceComponent {
             endMargin : '12vp'
           })
         }
+  .id('pages_subManualApiTest_subBrTest_deviceFound__sc_1')
         .scrollBar(BarState.Auto)
         .scrollBarWidth('20vp')
       } else {
@@ -658,6 +665,7 @@ struct PairDialog {
               .fontSize('16fp')
               .fontColor(Color.Blue)
           }
+  .id('pages_subManualApiTest_subBrTest_deviceFound__btn_0')
           .backgroundColor($r("app.color.white_bg_color"))
           .width('160vp')
           .height('40vp')
@@ -678,6 +686,7 @@ struct PairDialog {
               .fontSize('16fp')
               .fontColor(Color.Blue)
           }
+  .id('pages_subManualApiTest_subBrTest_deviceFound__btn_1')
           .backgroundColor($r("app.color.white_bg_color"))
           .width('160vp')
           .height('40vp')
