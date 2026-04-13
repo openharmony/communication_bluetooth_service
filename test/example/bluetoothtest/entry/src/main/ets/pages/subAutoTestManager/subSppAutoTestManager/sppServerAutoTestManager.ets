@@ -58,6 +58,7 @@ struct SppServerAutoTestManager {
       Stack({ alignContent : Alignment.TopStart }) {
         TestImageDisplay({ testItem : this.testItem })
         PageTitle({ testItem : this.testItem })
+  .id('pages_subAutoTestManager_subSppAutoTestManager_sppServerAutoTestManager__pt_0')
       }
 
       Stack().height('1vp').backgroundColor($r('app.color.black'));
@@ -77,6 +78,7 @@ struct SppServerAutoTestManager {
           .width('100%')
           .height('260vp')
         }
+  .id('pages_subAutoTestManager_subSppAutoTestManager_sppServerAutoTestManager__sc_0')
         .scrollBarWidth('10vp')
         .scrollBar(BarState.Auto)
 
@@ -97,6 +99,7 @@ struct SppServerAutoTestManager {
                   .textAlign(TextAlign.Start)
                   .width('90%')
               }
+  .id('pages_subAutoTestManager_subSppAutoTestManager_sppServerAutoTestManager__li_0')
             }
             .height('80%')
             .width('90%')
@@ -105,6 +108,7 @@ struct SppServerAutoTestManager {
           .width('100%')
           .height('280vp')
         }
+  .id('pages_subAutoTestManager_subSppAutoTestManager_sppServerAutoTestManager__sc_1')
         .scrollBarWidth('10vp')
         .scrollBar(BarState.Auto)
 
@@ -121,6 +125,7 @@ struct SppServerAutoTestManager {
             Text('自动测试').fontSize('24vp').fontColor(0xffffff).margin({ left : '5vp' , right : '5vp' })
           }.alignItems(VerticalAlign.Center)
         }
+  .id('pages_subAutoTestManager_subSppAutoTestManager_sppServerAutoTestManager__btn_0')
         .borderRadius('8vp')
         .backgroundColor($r("app.color.blue"))
         .width('180vp')

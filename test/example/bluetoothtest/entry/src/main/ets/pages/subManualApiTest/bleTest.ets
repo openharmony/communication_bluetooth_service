@@ -79,6 +79,7 @@ struct BleTest {
       Stack({ alignContent : Alignment.TopStart }) {
         TestImageDisplay({ testItem : this.testItem })
         PageTitle({ testItem : this.testItem })
+  .id('pages_subManualApiTest_bleTest__pt_0')
       }
 
       Stack().height('0.5vp').backgroundColor($r('app.color.black'));
@@ -91,6 +92,7 @@ struct BleTest {
             .align(Alignment.Start)
 
           TextInput({ text : this.peripheralDeviceId , placeholder : "input peripheral deviceId." })
+  .id('pages_subManualApiTest_bleTest__ti_0')
             .fontSize('18vp')
             .onChange((strInput) => {
               this.peripheralDeviceId = strInput;
@@ -102,6 +104,7 @@ struct BleTest {
             .borderStyle(BorderStyle.Dashed)
             .backgroundColor($r("app.color.white"))
           Image($r('app.media.Switch'))
+  .id('pages_subManualApiTest_bleTest__img_0')
             .height('50vp')
             .width('15%')
             .padding({ top : '5vp' , bottom : '5vp' , left : '10vp' })
