@@ -59,6 +59,7 @@ struct A2dpSourceProfileManagerTest {
         Stack({ alignContent : Alignment.TopStart }) {
           TestImageDisplay({ testItem : this.testItem })
           PageTitle({ testItem : this.testItem })
+  .id('pages_subProfileTestManager_a2dpSourceProfileTestManager__pt_0')
         }
 
         Stack().height('0.5vp').backgroundColor($r('app.color.black'));
@@ -76,6 +77,7 @@ struct A2dpSourceProfileManagerTest {
               .width('110vp')
               .margin('5vp')
             TextInput({ text : JSON.stringify(this.deviceId) , placeholder : "请输入需要连接的deviceId" })
+  .id('pages_subProfileTestManager_a2dpSourceProfileTestManager__ti_0')
               .fontSize('17vp')
               .onChange((str) => {
                 this.deviceId = str;
