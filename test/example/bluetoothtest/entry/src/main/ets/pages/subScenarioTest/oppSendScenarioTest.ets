@@ -1,4 +1,4 @@
-﻿/**
+/**
  * Copyright (C) 2022 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,10 +20,9 @@ import { PageTitle } from '../../Component/pageTitle';
 import { TestImageDisplay } from '../../Component/testImageDisplay';
 import { TestData } from '../../MainAbility/model/testData'
 import bluetooth from '@ohos.bluetooth';
-import { opp } from '@kit.ConnectivityKit';
 
 /**
- * OppSend Scenario Test Page Of Bluetooth test
+ * OppSend Scenario Test — API 23 不包含完整 OPP Kit，本页为占位说明。
  */
 
 @Entry
@@ -32,19 +31,13 @@ struct oppSendScenarioTest {
   @State changeIndex: number = - 1;
   private testItem: TestData = (router.getParams() as myParams).testItem
   @StorageLink("oppSendScenarioMessage") oppSendScenarioMessage: string = ""
-  private oppProfile!: opp.OppServerProfile;
   private pairDevices: PairDevices[] = []
   @State serverMac: string = "00:00:00:00:00:00";
   private fileName: string = "test.jpg";
   private fileType: string = "jpg"
 
   aboutToAppear() {
-    try {
-      this.oppProfile = opp.createOppServerProfile();
-      testLog("OppSend get opp profile success");
-    } catch( error ) {
-      testLog("OppSend get opp profile fail, err: " + JSON.stringify(error));
-    }
+    testLog("OPP 发送：API 23 工程未启用 @kit.ConnectivityKit OPP，请使用更高 API 完整工程");
     this.getPairDevice();
   }
 
@@ -70,6 +63,10 @@ struct oppSendScenarioTest {
       Column() {
         Scroll() {
           Column() {
+            Text("API 23：OPP 发送未启用（需更高 API 的 ConnectivityKit OPP）")
+              .fontSize('18vp')
+              .fontWeight(FontWeight.Bold)
+              .margin({ top : '10vp' , left : '20vp' , right : '20vp' })
             Text("已配对设备列表：(点击选择设备)")
               .fontSize('20vp')
               .fontWeight(FontWeight.Bold)
@@ -118,7 +115,7 @@ struct oppSendScenarioTest {
 
         Column() {
           Text("请输入需要发送的文件名称，如：test.txt").fontSize('18vp').fontWeight(FontWeight.Bold)
-          Text("注：文件必须在/data/bluetooth/log/目录下").fontSize('18vp').fontWeight(FontWeight.Bold)
+          Text("注：完整 OPP 发送需更高 API").fontSize('18vp').fontWeight(FontWeight.Bold)
           TextInput({ placeholder : "文件名称" })
             .fontSize('20vp')
             .onChange((str) => {
@@ -166,7 +163,7 @@ struct oppSendScenarioTest {
       Column() {
         Flex({ alignItems : ItemAlign.Center , justifyContent : FlexAlign.SpaceBetween }) {
           Column() {
-            Button('oppSendFile')
+            Button('oppSendFile（占位）')
               .borderRadius('8vp')
               .backgroundColor($r("app.color.blue"))
               .width('200vp')
@@ -175,22 +172,10 @@ struct oppSendScenarioTest {
               .margin({ top : '15vp' })
               .align(Alignment.Center)
               .alignSelf(ItemAlign.Center)
-              .onClick(async(event: ClickEvent) => {
-                try {
-                  let fileHolders : Array<opp.FileHolder> = [];
-                  this.oppProfile.sendFile(this.serverMac , fileHolders).then(() => {
-                    let result: boolean = true;
-                    if ( result ) {
-                      this.oppSendScenarioMessage += "opp发送文件成功！ result: " + JSON.stringify(result)
-                    } else {
-                      this.oppSendScenarioMessage += "opp发送文件失败， result: " + JSON.stringify(result) +
-                        "; 请核对文件名称或文件路径或者设备配对情况"
-                    }
-                  })
-                } catch( error ) {
-                  this.oppSendScenarioMessage += "opp发送文件失败，err :" + JSON.stringify(error)
-                }
+              .onClick(() => {
+                this.oppSendScenarioMessage += "API 23 未提供 OPP sendFile\n";
                 testLog(this.oppSendScenarioMessage);
+                promptAction.showToast({ message : 'API 23：OPP 未启用' });
                 AppStorage.setOrCreate("oppSendScenarioMessage" , this.oppSendScenarioMessage)
               })
           }
