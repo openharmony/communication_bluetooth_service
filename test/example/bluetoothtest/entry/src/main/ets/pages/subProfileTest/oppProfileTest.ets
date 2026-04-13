@@ -74,6 +74,7 @@ struct OppProfileTest {
         Stack({ alignContent : Alignment.TopStart }) {
           TestImageDisplay({ testItem : this.testItem })
           PageTitle({ testItem : this.testItem })
+  .id('pages_subProfileTest_oppProfileTest__pt_0')
         }
 
         Stack().height('0.5vp').backgroundColor($r('app.color.black'));
@@ -105,12 +106,14 @@ struct OppProfileTest {
                             radius : 5
                           })
                       }
+  .id('pages_subProfileTest_oppProfileTest__li_0')
                       .onClick(() => {
                         this.serverMac = item.id;
                       })
                     })
                   }
                 }
+  .id('pages_subProfileTest_oppProfileTest__sc_1')
                 .height('50%')
                 .width('80%')
 
@@ -127,6 +130,7 @@ struct OppProfileTest {
               .height('15%')
               .width('100%')
             }
+  .id('pages_subProfileTest_oppProfileTest__sc_0')
             .scrollBarWidth('10vp')
             .scrollBar(BarState.Auto)
           }
@@ -150,6 +154,7 @@ struct OppProfileTest {
             .backgroundColor($r("sys.color.ohos_id_color_foreground_contrary"))
             .width('88%')
           }
+  .id('pages_subProfileTest_oppProfileTest__sc_2')
           .scrollBarWidth('10vp')
           .scrollBar(BarState.Auto)
 
