@@ -32,20 +32,7 @@ export function testProfileConnectManager() {
       promptAction.showToast({ message : btConnectionState == 1 ? "该设备正在连接中" : "该设备已连接" });
       return message;
     }
-    const p = btmProfileModel.getProfile(profileType);
-    if ( !p ) {
-      promptAction.showToast({ message : "profile 未初始化" });
-      return message;
-    }
-    if ( profileType === btmProfileModel.PROFILE_HID_HOST || profileType === btmProfileModel.PROFILE_PAN_NETWORK ) {
-      promptAction.showToast({ message : "HID/PAN 在 Manager API 中无 connect，请在系统蓝牙中连接" });
-      return message;
-    }
-    if ( profileType === btmProfileModel.PROFILE_A2DP_SOURCE ) {
-      (p as btm.A2dpSourceProfile).connect(deviceId);
-    } else if ( profileType === btmProfileModel.PROFILE_HANDS_FREE_AUDIO_GATEWAY ) {
-      (p as btm.HandsFreeAudioGatewayProfile).connect(deviceId);
-    }
+    (btmProfileModel.getProfile(profileType) as btm.A2dpSourceProfile | btm.HandsFreeAudioGatewayProfile | btm.HidHostProfile).connect(deviceId);
     btConnectionState = 1;
     textMessage = "connect ret："
     message = "connect ret：";
@@ -71,20 +58,7 @@ export function testProfileDisConnectManager() {
       promptAction.showToast({ message : btConnectionState == 0 ? "该设备已断开" : "该设备正在断开连接" });
       return message;
     }
-    const p = btmProfileModel.getProfile(profileType);
-    if ( !p ) {
-      promptAction.showToast({ message : "profile 未初始化" });
-      return message;
-    }
-    if ( profileType === btmProfileModel.PROFILE_HID_HOST || profileType === btmProfileModel.PROFILE_PAN_NETWORK ) {
-      promptAction.showToast({ message : "HID/PAN 在 Manager API 中无 disconnect，请在系统蓝牙中断开" });
-      return message;
-    }
-    if ( profileType === btmProfileModel.PROFILE_A2DP_SOURCE ) {
-      (p as btm.A2dpSourceProfile).disconnect(deviceId);
-    } else if ( profileType === btmProfileModel.PROFILE_HANDS_FREE_AUDIO_GATEWAY ) {
-      (p as btm.HandsFreeAudioGatewayProfile).disconnect(deviceId);
-    }
+    btmProfileModel.getProfile(profileType)!.disconnect(deviceId);
     btConnectionState = 3;
     textMessage = "disconnect ret：";
     AppStorage.setOrCreate("textMessage" , textMessage)
@@ -131,12 +105,7 @@ export function testProfileGetConnectionDevicesManager() {
     let message = "profileGetConnectionDevices test"
     let textMessage = ""
     let profileType: number = AppStorage.get("profileType") !
-    let prof = btmProfileModel.getProfile(profileType);
-    if ( !prof ) {
-      promptAction.showToast({ message : "profile 未初始化" });
-      return message;
-    }
-    let msgArray: Array<string> = (prof as btm.BaseProfile).getConnectionDevices();
+    let msgArray: Array<string> = btmProfileModel.getProfile(profileType)!.getConnectionDevices();
     textMessage = "getConnectionDevices ret: " + JSON.stringify(msgArray);
     message = "getConnectionDevices ret: " + JSON.stringify(msgArray);
     AppStorage.setOrCreate("textMessage" , textMessage)
@@ -156,14 +125,9 @@ export function testProfileGetDeviceStateManager() {
     let textMessage = ""
     let deviceId: string = AppStorage.get("deviceId") !
     let profileType: number = AppStorage.get("profileType") !
-    let prof = btmProfileModel.getProfile(profileType);
-    if ( !prof ) {
-      promptAction.showToast({ message : "profile 未初始化" });
-      return message;
-    }
-    let st = (prof as btm.BaseProfile).getDeviceState(deviceId);
-    textMessage = "getDeviceState ret: " + st;
-    message = "getDeviceState ret: " + st;
+    btmProfileModel.getProfile(profileType)!.getDeviceState(deviceId);
+    textMessage = "getDeviceState ret: ";
+    message = "getDeviceState ret: ";
     AppStorage.setOrCreate("textMessage" , textMessage)
     promptAction.showToast({ message : message });
     return message

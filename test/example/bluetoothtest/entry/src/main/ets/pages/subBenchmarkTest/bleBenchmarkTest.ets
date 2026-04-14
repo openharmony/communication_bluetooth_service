@@ -43,6 +43,7 @@ struct BleBenchmarkTest {
       Stack({ alignContent : Alignment.TopStart }) {
         TestImageDisplay({ testItem : this.testItem })
         PageTitle({ testItem : this.testItem })
+  .id('pages_subBenchmarkTest_bleBenchmarkTest__pt_0')
       }
 
       Stack().height('1vp').backgroundColor($r('app.color.black'));
@@ -62,6 +63,7 @@ struct BleBenchmarkTest {
           .width('100%')
           .height('100vp')
         }
+  .id('pages_subBenchmarkTest_bleBenchmarkTest__sc_0')
         .scrollBarWidth('10vp')
         .scrollBar(BarState.Auto)
 
@@ -82,6 +84,7 @@ struct BleBenchmarkTest {
                   .textAlign(TextAlign.Start)
                   .width('90%')
               }
+  .id('pages_subBenchmarkTest_bleBenchmarkTest__li_0')
             }
             .height('90%')
             .width('90%')
@@ -90,6 +93,7 @@ struct BleBenchmarkTest {
           .width('100%')
           .height('400vp')
         }
+  .id('pages_subBenchmarkTest_bleBenchmarkTest__sc_1')
         .scrollBarWidth('10vp')
         .scrollBar(BarState.On)
       }
@@ -101,6 +105,7 @@ struct BleBenchmarkTest {
           Button({ type : ButtonType.Normal , stateEffect : true }) {
             Text('性能测试准备').fontSize('24vp').fontColor(0xffffff).margin({ left : '5vp' , right : '5vp' })
           }
+  .id('pages_subBenchmarkTest_bleBenchmarkTest__btn_0')
           .borderRadius('8vp')
           .backgroundColor($r("app.color.blue"))
           .width('100vp')
@@ -116,6 +121,7 @@ struct BleBenchmarkTest {
               Text('时间性能测试').fontSize('24vp').fontColor(0xffffff).margin({ left : '5vp' , right : '5vp' })
             }.alignItems(VerticalAlign.Center)
           }
+  .id('pages_subBenchmarkTest_bleBenchmarkTest__btn_1')
           .borderRadius('8vp')
           .backgroundColor($r("app.color.blue"))
           .width('100vp')
@@ -143,6 +149,7 @@ struct BleBenchmarkTest {
               Text('稳定性能测试').fontSize('24vp').fontColor(0xffffff).margin({ left : '5vp' , right : '5vp' })
             }.alignItems(VerticalAlign.Center)
           }
+  .id('pages_subBenchmarkTest_bleBenchmarkTest__btn_2')
           .borderRadius('8vp')
           .backgroundColor($r("app.color.blue"))
           .width('100vp')
@@ -181,9 +188,11 @@ struct BleBenchmarkTest {
 
           Button({ type : ButtonType.Normal , stateEffect : true }) {
             Row() {
-              Image($r('app.media.ic_public_delete_filled')).width('30vp').height('40vp').margin({ left : '5vp' })
+              Image($r('app.media.ic_public_delete_filled'))
+  .id('pages_subBenchmarkTest_bleBenchmarkTest__img_0').width('30vp').height('40vp').margin({ left : '5vp' })
             }.alignItems(VerticalAlign.Center)
           }
+  .id('pages_subBenchmarkTest_bleBenchmarkTest__btn_3')
           .borderRadius('8vp')
           .backgroundColor($r("app.color.moon"))
           .width('50vp')

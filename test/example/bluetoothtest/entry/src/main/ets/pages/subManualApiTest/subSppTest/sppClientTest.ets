@@ -78,12 +78,14 @@ struct SppClient {
           Stack({ alignContent : Alignment.TopStart }) {
             TestImageDisplay({ testItem : this.testItem })
             PageTitle({ testItem : this.testItem })
+  .id('pages_subManualApiTest_subSppTest_sppClientTest__pt_0')
           }
 
           Stack().height('0.5vp').backgroundColor($r('app.color.black'));
           Row() {
             Text("目标设备MAC：").fontSize('17vp').width('70vp');
             TextInput({ text : this.deviceId , placeholder : "请输入mac地址" })
+  .id('pages_subManualApiTest_subSppTest_sppClientTest__ti_0')
               .fontSize('15vp')
               .onChange((str) => {
                 this.deviceId = str;
@@ -100,6 +102,7 @@ struct SppClient {
           Row() {
             Text("目标设备UUID：").fontSize('17vp').width('70vp');
             TextInput({ text : this.uuid , placeholder : "请输入uuid" })
+  .id('pages_subManualApiTest_subSppTest_sppClientTest__ti_1')
               .fontSize('15vp')
               .onChange((str) => {
                 this.uuid = str;
@@ -116,6 +119,7 @@ struct SppClient {
           Row() {
             Text("写入目标设备数据：").fontSize('17vp').width('95vp');
             TextInput({ text : this.writeClientData , placeholder : "请输入写入的数据" })
+  .id('pages_subManualApiTest_subSppTest_sppClientTest__ti_2')
               .fontSize('15vp')
               .onChange((str) => {
                 this.writeClientData = str;
@@ -151,6 +155,7 @@ struct SppClient {
             Scroll() {
               ContentTable({ apiItems : initSppClientApiData() }) //子层调用
             }
+  .id('pages_subManualApiTest_subSppTest_sppClientTest__sc_0')
             .width(ConfigData.WH_100_100)
             .align(Alignment.TopStart)
             .layoutWeight(1)
@@ -329,6 +334,7 @@ struct PairDialog {
               .fontSize('16fp')
               .fontColor(Color.Blue)
           }
+  .id('pages_subManualApiTest_subSppTest_sppClientTest__btn_0')
           .backgroundColor($r("app.color.white_bg_color"))
           .width('160vp')
           .height('40vp')
@@ -349,6 +355,7 @@ struct PairDialog {
               .fontSize('16fp')
               .fontColor(Color.Blue)
           }
+  .id('pages_subManualApiTest_subSppTest_sppClientTest__btn_1')
           .backgroundColor($r("app.color.white_bg_color"))
           .width('160vp')
           .height('40vp')

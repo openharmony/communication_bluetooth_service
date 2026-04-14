@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Copyright (C) 2022 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,7 +13,9 @@
  * limitations under the License.
  */
 
-import promptAction from '@ohos.promptAction'
+import screenshot from '@ohos.screenshot'
+import image from '@ohos.multimedia.image'
+import MediaUtils from '../MainAbility/model/MediaUtils'
 import Logger from '../MainAbility/model/Logger'
 
 const TAG = '[Screenshot]'
@@ -31,9 +33,29 @@ export struct MainPageTitle {
   @State offsetY: number = 0
   @State myscale: number = 1
   @State angle: number = 0
-  getScreen = (_isFullScreen: boolean) => {
-    Logger.info(TAG , 'API 23 工程未接入 @ohos.screenshot 截屏保存，请使用更高 API 或系统截屏')
-    promptAction.showToast({ message : 'API 23：截屏保存未启用' })
+  getScreen = (isFullScreen: boolean) => {
+    let screenshotOptions: screenshot.ScreenshotOptions = {
+      screenRect : { left : 0 , top : 0 , width : 400 , height : 400 } ,
+      imageSize : { width : 400 , height : 400 } ,
+      rotation : 0 ,
+      displayId : 0
+    }
+    if ( isFullScreen ) {
+      screenshotOptions = {
+        rotation : 0
+      }
+    }
+    try {
+      screenshot.save(screenshotOptions , (err , data: image.PixelMap) => {
+        if ( err ) {
+          Logger.info(TAG , `Failed to save the screenshot. Error:${ JSON.stringify(err) }`)
+        }
+        Logger.info(TAG , 'save callback')
+        MediaUtils.savePicture(data , getContext(this))
+      })
+    } catch( err ) {
+      Logger.error(`save failed, code is ${ err.code }, message is ${ err.message }`)
+    }
   }
 
   @Builder

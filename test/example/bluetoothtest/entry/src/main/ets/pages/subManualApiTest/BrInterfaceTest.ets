@@ -87,6 +87,7 @@ struct BrTest {
       Stack({ alignContent : Alignment.TopStart }) {
         TestImageDisplay({ testItem : this.testItem })
         PageTitle({ testItem : this.testItem })
+  .id('pages_subManualApiTest_BrInterfaceTest__pt_0')
       }
 
       Stack().height('0.5vp').backgroundColor($r('app.color.black'));
@@ -98,6 +99,7 @@ struct BrTest {
             .width(ConfigData.WH_30_100)
             .align(Alignment.Start)
           TextInput({ text : this.pairedMac , placeholder : "请输入即将连接的设备MAC" })
+  .id('pages_subManualApiTest_BrInterfaceTest__ti_0')
             .height('40vp')
             .borderStyle(BorderStyle.Dashed)
             .backgroundColor($r("app.color.white"))
@@ -241,6 +243,7 @@ struct PairDialog {
               .fontSize('16fp')
               .fontColor(Color.Blue)
           }
+  .id('pages_subManualApiTest_BrInterfaceTest__btn_0')
           .backgroundColor($r("app.color.white_bg_color"))
           .width('160vp')
           .height('40vp')
@@ -261,6 +264,7 @@ struct PairDialog {
               .fontSize('16fp')
               .fontColor(Color.Blue)
           }
+  .id('pages_subManualApiTest_BrInterfaceTest__btn_1')
           .backgroundColor($r("app.color.white_bg_color"))
           .width('160vp')
           .height('40vp')

@@ -86,6 +86,7 @@ struct brTestManager {
       Stack({ alignContent : Alignment.TopStart }) {
         TestImageDisplay({ testItem : this.testItem })
         PageTitle({ testItem : this.testItem })
+  .id('pages_subManualApiTestManager_brTestManager__pt_0')
       }
 
       Stack().height('0.5vp').backgroundColor($r('app.color.black'));
@@ -96,6 +97,7 @@ struct brTestManager {
           .width('100%')
           .padding({ top : '10vp' , left : '10vp' })
         TextInput({ text : this.pairedMac , placeholder : "请输入即将连接的设备MAC" })
+  .id('pages_subManualApiTestManager_brTestManager__ti_0')
           .height('50vp')
           .borderStyle(BorderStyle.Dashed)
           .backgroundColor($r("app.color.white"))
@@ -238,6 +240,7 @@ struct PairDialog {
               .fontSize('16fp')
               .fontColor(Color.Blue)
           }
+  .id('pages_subManualApiTestManager_brTestManager__btn_0')
           .backgroundColor($r("app.color.white_bg_color"))
           .width('160vp')
           .height('40vp')
@@ -258,6 +261,7 @@ struct PairDialog {
               .fontSize('16fp')
               .fontColor(Color.Blue)
           }
+  .id('pages_subManualApiTestManager_brTestManager__btn_1')
           .backgroundColor($r("app.color.white_bg_color"))
           .width('160vp')
           .height('40vp')

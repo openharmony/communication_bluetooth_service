@@ -59,6 +59,7 @@ struct HidHostProfileManagerTest {
         Stack({ alignContent : Alignment.TopStart }) {
           TestImageDisplay({ testItem : this.testItem })
           PageTitle({ testItem : this.testItem })
+  .id('pages_subProfileTestManager_hidHostProfileTestManager__pt_0')
         }
 
         Stack().height('0.5vp').backgroundColor($r('app.color.black'));
@@ -74,6 +75,7 @@ struct HidHostProfileManagerTest {
             Text("现在正在连接的设备为：")
               .fontSize("17").width('110vp').margin('5vp')
             TextInput({ text : JSON.stringify(this.deviceId) , placeholder : "请输入需要连接的deviceId" })
+  .id('pages_subProfileTestManager_hidHostProfileTestManager__ti_0')
               .fontSize('17vp')
               .onChange((str) => {
                 this.deviceId = str;

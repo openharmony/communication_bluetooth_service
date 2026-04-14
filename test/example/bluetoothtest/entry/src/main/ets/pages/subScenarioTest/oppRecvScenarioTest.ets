@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Copyright (C) 2022 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,9 +20,11 @@ import { TestImageDisplay } from '../../Component/testImageDisplay';
 import { TestData } from '../../MainAbility/model/testData'
 import bluetooth from '@ohos.bluetooth';
 import promptAction from '@ohos.promptAction';
+import { opp } from '@kit.ConnectivityKit'
+import { fileIo as fs} from '@kit.CoreFileKit';
 
 /**
- * OppRecv Scenario Test — API 23 不包含完整 OPP Kit，本页为占位说明。
+ * OppRecv Scenario Test Page Of Bluetooth test
  */
 
 @Entry
@@ -31,13 +33,50 @@ struct OppRecvScenarioTest {
   private testItem: TestData = (router.getParams() as myParams).testItem
   @State changeIndex: number = - 1;
   @StorageLink("oppRecvScenarioMessage") oppRecvScenarioMessage: string = ""
+  private oppProfile!: opp.OppServerProfile
   @State showProgress: boolean = false;
   @State curProgress: number = 0;
   @State serverMac: string = "00:00:00:00:00:00";
+  private deviceName: string = "";
+  private fileName: string = "";
   private pairedDevices: PairDevices[] = [];
+  private receiveDialogController: CustomDialogController = new CustomDialogController({
+    builder : ReceiveCustomDialog({
+      deviceName : this.deviceName ,
+      fileName : this.fileName ,
+      confirm : () => {
+        try {
+          let pathDir = "/test.jpg"; // Replace the example path with the actual one.
+          let file = fs.openSync(pathDir, fs.OpenMode.CREATE | fs.OpenMode.READ_WRITE);
+          this.oppProfile.setIncomingFileConfirmation(true, file.fd);
+          this.receiveDialogController.close();
+          this.onTransferStateChange();
+          console.log("receive success");
+        } catch( error ) {
+          console.log("receive fail, err: " + JSON.stringify(error));
+        }
+      } ,
+      cancel : () => {
+        try {
+          let pathDir = "/test.jpg"; // Replace the example path with the actual one.
+          let file = fs.openSync(pathDir, fs.OpenMode.CREATE | fs.OpenMode.READ_WRITE);
+          this.oppProfile.setIncomingFileConfirmation(false, file.fd);
+          this.receiveDialogController.close();
+          console.log("reject receive success");
+        } catch( error ) {
+          console.log("reject receive fail, err: " + JSON.stringify(error));
+        }
+      }
+    })
+  })
 
   aboutToAppear() {
-    testLog("OPP 接收：API 23 工程未启用 ConnectivityKit OPP，请使用更高 API 完整工程");
+    try {
+      this.oppProfile = opp.createOppServerProfile();
+      testLog("oppRecv get opp profile success");
+    } catch( error ) {
+      testLog("oppRecv get opp profile fail, err: " + JSON.stringify(error));
+    }
     this.getPairDevice();
   }
 
@@ -52,21 +91,35 @@ struct OppRecvScenarioTest {
     console.log("OppRecv getPairDevice pairedDevices: " + JSON.stringify(this.pairedDevices));
   }
 
+  onTransferStateChange() {
+    try {
+      this.oppProfile.on("transferStateChange" , (stateInformation) => {
+        console.log("transferStateChange enter");
+        this.showProgress = true;
+        this.curProgress = (stateInformation.currentBytes * 100) / stateInformation.totalBytes;
+        if ( this.curProgress === 100 ) {
+          this.showProgress = false;
+          this.oppRecvScenarioMessage = "接收文件成功，文件存放路径：" + JSON.stringify(stateInformation.filePath) + "\n"
+          testLog(this.oppRecvScenarioMessage);
+        }
+      })
+    } catch( error ) {
+      console.log("on transferStateChange fail, err: " + JSON.stringify(error));
+    }
+  }
+
   build() {
     Column() {
       Stack({ alignContent : Alignment.TopStart }) {
         TestImageDisplay({ testItem : this.testItem })
         PageTitle({ testItem : this.testItem })
+  .id('pages_subScenarioTest_oppRecvScenarioTest__pt_0')
       }
 
       Stack().height('1vp').backgroundColor($r('app.color.black'));
       Column() {
         Scroll() {
           Column() {
-            Text("API 23：OPP 接收未启用（需更高 API）")
-              .fontSize('18vp')
-              .fontWeight(FontWeight.Bold)
-              .margin({ top : '10vp' , left : '20vp' })
             Text("已配对设备列表：(点击选择设备)")
               .fontSize('20vp')
               .fontWeight(FontWeight.Bold)
@@ -84,12 +137,14 @@ struct OppRecvScenarioTest {
                         radius : 5
                       })
                   }
+  .id('pages_subScenarioTest_oppRecvScenarioTest__li_0')
                   .onClick(() => {
                     this.serverMac = item.id;
                   })
                 })
               }
             }
+  .id('pages_subScenarioTest_oppRecvScenarioTest__sc_1')
             .height('70%')
             .width('80%')
           }
@@ -97,6 +152,7 @@ struct OppRecvScenarioTest {
           .width('100%')
 
         }
+  .id('pages_subScenarioTest_oppRecvScenarioTest__sc_0')
         .scrollBarWidth('10vp')
         .scrollBar(BarState.On)
 
@@ -129,6 +185,7 @@ struct OppRecvScenarioTest {
                   .textAlign(TextAlign.Start)
                   .width('90%')
               }
+  .id('pages_subScenarioTest_oppRecvScenarioTest__li_1')
             }
             .height('80%')
             .width('90%')
@@ -137,6 +194,7 @@ struct OppRecvScenarioTest {
           .width('100%')
           .height('30%')
         }
+  .id('pages_subScenarioTest_oppRecvScenarioTest__sc_2')
         .scrollBarWidth('10vp')
         .scrollBar(BarState.On)
       }
@@ -149,7 +207,8 @@ struct OppRecvScenarioTest {
       Column() {
         Flex({ alignItems : ItemAlign.Center , justifyContent : FlexAlign.SpaceBetween }) {
           Column() {
-            Button('opp开启接收文件（占位）')
+            Button('opp开启接收文件')
+  .id('pages_subScenarioTest_oppRecvScenarioTest__btn_0')
               .fontSize('20vp')
               .borderRadius('8vp')
               .backgroundColor($r("app.color.blue"))
@@ -159,9 +218,20 @@ struct OppRecvScenarioTest {
               .align(Alignment.Center)
               .alignSelf(ItemAlign.Center)
               .onClick(() => {
-                this.oppRecvScenarioMessage = "API 23：未提供 receiveIncomingFile / setIncomingFileConfirmation\n";
-                testLog(this.oppRecvScenarioMessage);
-                promptAction.showToast({ message : 'API 23：OPP 未启用' });
+                try {
+                  this.oppProfile.on("receiveIncomingFile" , ( information) => {
+                    testLog("opp开启接收文件")
+                    this.deviceName = information.remoteDeviceName;
+                    this.fileName = information.filePath;
+                    this.oppRecvScenarioMessage = "发送端为：" + this.deviceName + ";文件名为：" + this.fileName + "\n"
+                    testLog(this.oppRecvScenarioMessage);
+                    console.log(JSON.stringify(information));
+                    this.receiveDialogController.open();
+                  })
+                } catch( error ) {
+                  this.oppRecvScenarioMessage = "opp开启接收文件失败，err: " + JSON.stringify(error)
+                  testLog(this.oppRecvScenarioMessage);
+                }
               })
               .width('60%')
           }
@@ -186,6 +256,34 @@ struct OppRecvScenarioTest {
       .backgroundColor($r("sys.color.ohos_id_color_sub_background"))
       .width('100%')
       .height('100%');
+    }
+  }
+}
+
+@CustomDialog
+struct ReceiveCustomDialog {
+  controller: CustomDialogController
+  deviceName: string = 'defaultDeviceName'
+  fileName: string = 'defaultFileName'
+  cancel!: () => void
+  confirm!: () => void
+
+  build() {
+    Column() {
+      Text("是否接收来自 " + this.deviceName + " 的文件").fontSize('20vp').margin({ top : '10vp' , bottom : '10vp' })
+      Text(this.fileName).fontSize('18vp').margin({ bottom : '10vp' })
+      Flex({ justifyContent : FlexAlign.SpaceAround }) {
+        Button('拒接')
+  .id('pages_subScenarioTest_oppRecvScenarioTest__btn_1')
+          .onClick(() => {
+            this.cancel()
+          })
+        Button('接收')
+  .id('pages_subScenarioTest_oppRecvScenarioTest__btn_2')
+          .onClick(() => {
+            this.confirm()
+          })
+      }.margin({ bottom : '10vp' })
     }
   }
 }

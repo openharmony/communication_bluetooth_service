@@ -40,6 +40,7 @@ struct etScanMode {
   build() {
     Column() {
       PageTitle({ detail : '设置扫描类型' })
+  .id('pages_subManualApiTest_subBrTest_setScanMode__pt_0')
       Scroll() {
         Column() {
           List() {
@@ -48,8 +49,10 @@ struct etScanMode {
                 title : "SCAN_MODE_SELECT" ,
                 bgColor : $r('app.color.moon') ,
                 fontSize : '17vp' ,
-              });
+              })
+  .id('pages_subManualApiTest_subBrTest_setScanMode__tt_0');
             }
+  .id('pages_subManualApiTest_subBrTest_setScanMode__li_0')
             .height('80vp')
             .borderRadius('10vp')
 
@@ -58,8 +61,10 @@ struct etScanMode {
                 title : "SCAN_MODE_NONE" ,
                 fontSize : '15vp' ,
                 bgColor : this.currentClick === 0 ? $r('app.color.font_color_007DFF') : $r('app.color.white_bg_color')
-              });
+              })
+  .id('pages_subManualApiTest_subBrTest_setScanMode__tt_1');
             }
+  .id('pages_subManualApiTest_subBrTest_setScanMode__li_1')
             .padding({ top : '10vp' })
             .height('80vp')
             .borderRadius('10vp')
@@ -72,8 +77,10 @@ struct etScanMode {
                 title : "CONNECTABLE" ,
                 fontSize : '15vp' ,
                 bgColor : this.currentClick === 1 ? $r('app.color.font_color_007DFF') : $r('app.color.white_bg_color')
-              });
+              })
+  .id('pages_subManualApiTest_subBrTest_setScanMode__tt_2');
             }
+  .id('pages_subManualApiTest_subBrTest_setScanMode__li_2')
             .padding({ top : '10vp' })
             .height('80vp')
             .borderRadius('10vp')
@@ -86,8 +93,10 @@ struct etScanMode {
                 title : "GENERAL_DISCOVERABLE" ,
                 fontSize : '15vp' ,
                 bgColor : this.currentClick === 2 ? $r('app.color.font_color_007DFF') : $r('app.color.white_bg_color')
-              });
+              })
+  .id('pages_subManualApiTest_subBrTest_setScanMode__tt_3');
             }
+  .id('pages_subManualApiTest_subBrTest_setScanMode__li_3')
             .padding({ top : '10vp' })
             .height('80vp')
             .borderRadius('10vp')
@@ -100,8 +109,10 @@ struct etScanMode {
                 title : "LIMITED_DISCOVERABLE" ,
                 fontSize : '15vp' ,
                 bgColor : this.currentClick === 3 ? $r('app.color.font_color_007DFF') : $r('app.color.white_bg_color')
-              });
+              })
+  .id('pages_subManualApiTest_subBrTest_setScanMode__tt_4');
             }
+  .id('pages_subManualApiTest_subBrTest_setScanMode__li_4')
             .padding({ top : '10vp' })
             .height('80vp')
             .borderRadius('10vp')
@@ -114,8 +125,10 @@ struct etScanMode {
                 title : "CONNECTABLE_GENERAL_DISCOVERABLE" ,
                 fontSize : '15vp' ,
                 bgColor : this.currentClick === 4 ? $r('app.color.font_color_007DFF') : $r('app.color.white_bg_color')
-              });
+              })
+  .id('pages_subManualApiTest_subBrTest_setScanMode__tt_5');
             }
+  .id('pages_subManualApiTest_subBrTest_setScanMode__li_5')
             .padding({ top : '10vp' })
             .height('80vp')
             .borderRadius('10vp')
@@ -128,8 +141,10 @@ struct etScanMode {
                 title : "CONNECTABLE_LIMITED_DISCOVERABLE" ,
                 fontSize : '15vp' ,
                 bgColor : this.currentClick === 5 ? $r('app.color.font_color_007DFF') : $r('app.color.white_bg_color')
-              });
+              })
+  .id('pages_subManualApiTest_subBrTest_setScanMode__tt_6');
             }
+  .id('pages_subManualApiTest_subBrTest_setScanMode__li_6')
             .padding({ top : '10vp' })
             .height('80vp')
             .borderRadius('10vp')
@@ -141,6 +156,7 @@ struct etScanMode {
           Blank()
         }
       }
+  .id('pages_subManualApiTest_subBrTest_setScanMode__sc_0')
       .height('50%')
       .scrollable(ScrollDirection.Vertical)
       .scrollBar(BarState.On)
@@ -154,6 +170,7 @@ struct etScanMode {
           .fontColor($r('app.color.font_color_182431'))
           .fontWeight(FontWeight.Medium)
         TextInput({ text : this.duration })
+  .id('pages_subManualApiTest_subBrTest_setScanMode__ti_0')
           .placeholderFont({
             size : '18fp' ,
             weight : FontWeight.Normal ,
@@ -191,6 +208,7 @@ struct etScanMode {
           ButtonComponent({ text : $r("app.string.cancel") , isOnClick : () => {
             router.back();
           } })
+  .id('pages_subManualApiTest_subBrTest_setScanMode__bcomp_0')
         }
         .width('120vp')
         .margin({ right : '12vp' })
@@ -208,6 +226,7 @@ struct etScanMode {
             AppStorage.setOrCreate('setScanModeRet' , ret);
             router.back();
           } })
+  .id('pages_subManualApiTest_subBrTest_setScanMode__bcomp_1')
         }.width('120vp')
 
       }

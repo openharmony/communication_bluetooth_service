@@ -27,7 +27,7 @@
     "abilities": [
       {
         "name": "TestAbility",
-        "srcEntry": "./ets/testability/TestAbility.ets",
+        "srcEntry": "./ets/TestAbility/TestAbility.ets",
         "description": "$string:TestAbility_desc",
         "icon": "$media:icon",
         "label": "$string:TestAbility_label",
@@ -44,6 +44,33 @@
             ]
           }
         ]
+      }
+    ],
+    "requestPermissions": [
+      {
+        "name": "ohos.permission.ACCESS_BLUETOOTH",
+        "reason": "$string:bluetooth_permission_reason",
+        "usedScene": {
+        }
+      },
+      {
+        "name": "ohos.permission.DISCOVER_BLUETOOTH"
+      },
+      {
+        "name": "ohos.permission.USE_BLUETOOTH"
+      },
+      {
+        "name": "ohos.permission.LOCATION",
+        "reason": "$string:bluetooth_permission_reason",
+        "usedScene": {
+        }
+      },
+      {
+        "name": "ohos.permission.APPROXIMATELY_LOCATION",
+        "reason": "$string:bluetooth_permission_reason",
+        "usedScene": {
+
+        }
       }
     ]
   }
