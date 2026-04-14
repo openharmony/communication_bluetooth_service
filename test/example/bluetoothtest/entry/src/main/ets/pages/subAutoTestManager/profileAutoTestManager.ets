@@ -38,6 +38,7 @@ struct ProfileAutoTestManager {
       Stack({ alignContent : Alignment.TopStart }) {
         TestImageDisplay({ testItem : this.testItem })
         PageTitle({ testItem : this.testItem })
+  .id('pages_subAutoTestManager_profileAutoTestManager__pt_0')
       }
 
       List() {
@@ -47,6 +48,7 @@ struct ProfileAutoTestManager {
               testItem : item
             })
           }
+  .id('pages_subAutoTestManager_profileAutoTestManager__li_0')
         } , (item: TestData) => item.id)
       }
       .height('80%')

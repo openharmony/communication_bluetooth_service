@@ -59,6 +59,7 @@ struct GattClientVelocityBenchmarkTest {
       Stack({ alignContent : Alignment.TopStart }) {
         TestImageDisplay({ testItem : this.testItem })
         PageTitle({ testItem : this.testItem })
+  .id('pages_subBenchmarkTest_gattClientVelocityBenchmarkTest__pt_0')
       }
 
       Stack().height('1vp').backgroundColor($r('app.color.black'));
@@ -106,6 +107,7 @@ struct GattClientVelocityBenchmarkTest {
           .width('100%')
           .height('1300vp')
         }
+  .id('pages_subBenchmarkTest_gattClientVelocityBenchmarkTest__sc_0')
         .scrollBarWidth('10vp')
         .scrollBar(BarState.Auto)
 
@@ -126,6 +128,7 @@ struct GattClientVelocityBenchmarkTest {
                   .textAlign(TextAlign.Start)
                   .width('90%')
               }
+  .id('pages_subBenchmarkTest_gattClientVelocityBenchmarkTest__li_0')
             }
             .height('90%')
             .width('90%')
@@ -134,6 +137,7 @@ struct GattClientVelocityBenchmarkTest {
           .width('100%')
           .height('330vp')
         }
+  .id('pages_subBenchmarkTest_gattClientVelocityBenchmarkTest__sc_1')
         .scrollBarWidth('10vp')
         .scrollBar(BarState.On)
       }
@@ -147,6 +151,7 @@ struct GattClientVelocityBenchmarkTest {
               Text("速率性能测试").fontSize('24vp').fontColor(0xffffff).margin({ left : '5vp' , right : '5vp' })
             }.alignItems(VerticalAlign.Center)
           }
+  .id('pages_subBenchmarkTest_gattClientVelocityBenchmarkTest__btn_0')
           .borderRadius('8vp')
           .backgroundColor($r("app.color.blue"))
           .width('100vp')
@@ -201,6 +206,7 @@ struct GattClientVelocityBenchmarkTest {
               Text("结束测试").fontSize('24vp').fontColor(0xffffff).margin({ left : '5vp' , right : '5vp' })
             }.alignItems(VerticalAlign.Center)
           }
+  .id('pages_subBenchmarkTest_gattClientVelocityBenchmarkTest__btn_1')
           .borderRadius('8vp')
           .backgroundColor($r("app.color.blue"))
           .width('100vp')
@@ -222,9 +228,11 @@ struct GattClientVelocityBenchmarkTest {
 
           Button({ type : ButtonType.Normal , stateEffect : true }) {
             Row() {
-              Image($r("app.media.ic_public_delete_filled")).width('30vp').height('40vp').margin({ left : '5vp' })
+              Image($r("app.media.ic_public_delete_filled"))
+  .id('pages_subBenchmarkTest_gattClientVelocityBenchmarkTest__img_0').width('30vp').height('40vp').margin({ left : '5vp' })
             }.alignItems(VerticalAlign.Center)
           }
+  .id('pages_subBenchmarkTest_gattClientVelocityBenchmarkTest__btn_2')
           .borderRadius('8vp')
           .backgroundColor($r("app.color.moon"))
           .width('50vp')

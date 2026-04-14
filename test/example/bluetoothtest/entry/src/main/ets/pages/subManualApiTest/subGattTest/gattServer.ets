@@ -82,6 +82,7 @@ struct GattServerSetting {
             Row() {
               Text("服务UUID:").fontSize('15vp').width('70vp').padding({ left : '10vp' });
               TextInput({ text : this.curServiceUUID , placeholder : "input service UUID" })
+  .id('pages_subManualApiTest_subGattTest_gattServer__ti_0')
                 .fontSize('17vp')
                 .onChange((strInput) => {
                   this.curServiceUUID = strInput;
@@ -99,6 +100,7 @@ struct GattServerSetting {
               Row() {
                 Text("CCC UUID:").fontSize('15vp').width('70vp').padding({ left : '10vp' });
                 TextInput({ text : this.curCharacteristicUUID , placeholder : "input characteristic UUID" })
+  .id('pages_subManualApiTest_subGattTest_gattServer__ti_1')
                   .fontSize('17vp')
                   .onChange((strInput) => {
                     this.curCharacteristicUUID = strInput;
@@ -115,6 +117,7 @@ struct GattServerSetting {
               Row() {
                 Text("CCC Value:").fontSize('15vp').width('70vp').padding({ left : '10vp' });
                 TextInput({ text : this.curCharacteristicValue , placeholder : "input characteristic Value" })
+  .id('pages_subManualApiTest_subGattTest_gattServer__ti_2')
                   .fontSize('17vp')
                   .onChange((strInput) => {
                     this.curCharacteristicValue = strInput;
@@ -137,6 +140,7 @@ struct GattServerSetting {
               Row() {
                 Text("Descriptor UUID:").fontSize('15vp').width('70vp');
                 TextInput({ text : this.curDescriptorUUID , placeholder : "input descriptor UUID" })
+  .id('pages_subManualApiTest_subGattTest_gattServer__ti_3')
                   .fontSize('17vp')
                   .onChange((strInput) => {
                     this.curDescriptorUUID = strInput;
@@ -153,6 +157,7 @@ struct GattServerSetting {
               Row() {
                 Text("Descriptor Value:").fontSize('15vp').width('70vp');
                 TextInput({ text : this.curDescriptorValue , placeholder : "input descriptor Value" })
+  .id('pages_subManualApiTest_subGattTest_gattServer__ti_4')
                   .fontSize('17vp')
                   .onChange((strInput) => {
                     this.curDescriptorValue = strInput;
@@ -171,6 +176,7 @@ struct GattServerSetting {
             .backgroundColor($r("app.color.moon"));
           }
         }
+  .id('pages_subManualApiTest_subGattTest_gattServer__sc_0')
         .height('22%')
       }
       .backgroundColor($r("app.color.lead"))
@@ -186,6 +192,7 @@ struct GattServerSetting {
             .width('70%')
             .textAlign(TextAlign.Start)
           Checkbox({ name : 'AdvSettings' , group : 'checkboxGroup1' })
+  .id('pages_subManualApiTest_subGattTest_gattServer__cb_0')
             .select(this.cbxAdvSettings)
             .selectedColor(0x39a2db)
             .onChange((value) => {
@@ -210,6 +217,7 @@ struct GattServerSetting {
             Column() {
               Row() {
                 Checkbox({ name : 'interval' , group : 'checkboxGroup1' })
+  .id('pages_subManualApiTest_subGattTest_gattServer__cb_1')
                   .select(this.cbxInterval)
                   .selectedColor(0x39a2db)
                   .width('30vp')
@@ -223,6 +231,7 @@ struct GattServerSetting {
                   })
                 Text("interval").fontSize('17vp').width('70vp');
                 TextInput({ text : this.advSettings_interval , placeholder : "32~1600" })
+  .id('pages_subManualApiTest_subGattTest_gattServer__ti_5')
                   .fontSize('18vp')
                   .onChange((strInput) => {
                     this.advSettings_interval = strInput;
@@ -237,6 +246,7 @@ struct GattServerSetting {
 
               Row() {
                 Checkbox({ name : 'txPower' , group : 'checkboxGroup' })
+  .id('pages_subManualApiTest_subGattTest_gattServer__cb_2')
                   .select(this.cbxTxPower)
                   .selectedColor(0x39a2db)
                   .width('30vp')
@@ -250,6 +260,7 @@ struct GattServerSetting {
                   })
                 Text("txPower").fontSize('17vp').width('70vp')
                 TextInput({ text : this.advSettings_txPower.toString() , placeholder : "input txPower" })
+  .id('pages_subManualApiTest_subGattTest_gattServer__ti_6')
                   .fontSize('18vp')
                   .onChange((strInput) => {
                     this.advSettings_txPower = strInput;
@@ -265,6 +276,7 @@ struct GattServerSetting {
 
               Row() {
                 Checkbox({ name : 'connectable' , group : 'checkboxGroup' })
+  .id('pages_subManualApiTest_subGattTest_gattServer__cb_3')
                   .select(this.cbxConnectable)
                   .selectedColor(0x39a2db)
                   .onChange((value) => {
@@ -293,6 +305,7 @@ struct GattServerSetting {
               Row() {
                 Text("服务Uuid").fontSize('17vp').width('60vp').padding({ left : '10vp' })
                 TextInput({ text : this.advDataServiceUuids_serviceUuid , placeholder : "input serviceUuid" })
+  .id('pages_subManualApiTest_subGattTest_gattServer__ti_7')
                   .fontSize('17vp')
                   .onChange((strInput) => {
                     this.advDataServiceUuids_serviceUuid = strInput;
@@ -310,6 +323,7 @@ struct GattServerSetting {
                     text : this.advDataManufactureData_manufactureId ,
                     placeholder : "input manufactureId(less than 8 digi)"
                   })
+  .id('pages_subManualApiTest_subGattTest_gattServer__ti_8')
                     .fontSize('17vp')
                     .onChange((strInput) => {
                       this.advDataManufactureData_manufactureId = strInput;
@@ -321,6 +335,7 @@ struct GattServerSetting {
                     text : this.advDataManufactureData_manufactureValue ,
                     placeholder : "input manufactureValue(less than 8 char)"
                   })
+  .id('pages_subManualApiTest_subGattTest_gattServer__ti_9')
                     .fontSize('17vp')
                     .onChange((strInput) => {
                       this.advDataManufactureData_manufactureValue = strInput;
@@ -339,6 +354,7 @@ struct GattServerSetting {
                   Row() {
                     Text("serviceUuid").fontSize('17vp').width('70vp')
                     TextInput({ text : '' + this.advDataServiceData_serviceUuid , placeholder : "input serviceUuid" })
+  .id('pages_subManualApiTest_subGattTest_gattServer__ti_10')
                       .fontSize('17vp')
                       .onChange((strInput) => {
                         this.advDataServiceData_serviceUuid = strInput;
@@ -353,6 +369,7 @@ struct GattServerSetting {
                       text : this.advDataServiceData_serviceValue ,
                       placeholder : "input manufactureValue(less than 8 char)"
                     })
+  .id('pages_subManualApiTest_subGattTest_gattServer__ti_11')
                       .fontSize('17vp')
                       .onChange((strInput) => {
                         this.advDataServiceData_serviceValue = strInput;
@@ -371,6 +388,7 @@ struct GattServerSetting {
 
             Row() {
               Checkbox({ name : 'AdvResponse' , group : 'checkboxGroup1' })
+  .id('pages_subManualApiTest_subGattTest_gattServer__cb_4')
                 .select(this.cbxAdvResponse)
                 .selectedColor(0x39a2db)
                 .onChange((value) => {
@@ -397,6 +415,7 @@ struct GattServerSetting {
               Row() {
                 Text("serviceUuid").fontSize('17vp').width('70vp') //.width('40vp')
                 TextInput({ text : this.advResponseServiceUuids_serviceUuid , placeholder : "input serviceUuid" })
+  .id('pages_subManualApiTest_subGattTest_gattServer__ti_12')
                   .fontSize('17vp')
                   .onChange((strInput) => {
                     this.advResponseServiceUuids_serviceUuid = strInput;
@@ -413,6 +432,7 @@ struct GattServerSetting {
                     Text("Id").fontSize('17vp').width('50vp')
                     TextInput({ text : this.advResponseManufactureData_manufactureId ,
                       placeholder : "input manufactureId(less than 8 char)" })
+  .id('pages_subManualApiTest_subGattTest_gattServer__ti_13')
                       .fontSize('17vp')
                       .onChange((strInput) => {
                         this.advResponseManufactureData_manufactureId = strInput;
@@ -425,6 +445,7 @@ struct GattServerSetting {
                     Text("Value").fontSize('17vp').width('50vp')
                     TextInput({ text : this.advResponseManufactureData_manufactureValue ,
                       placeholder : "input manufactureValue(less than 8 char)" })
+  .id('pages_subManualApiTest_subGattTest_gattServer__ti_14')
                       .fontSize('17vp')
                       .onChange((strInput) => {
                         this.advResponseManufactureData_manufactureValue = strInput;
@@ -448,6 +469,7 @@ struct GattServerSetting {
                       text : '' + this.advResponseServiceData_serviceUuid ,
                       placeholder : "input serviceUuid"
                     })
+  .id('pages_subManualApiTest_subGattTest_gattServer__ti_15')
                       .fontSize('17vp')
                       .onChange((strInput) => {
                         this.advResponseServiceData_serviceUuid = strInput;
@@ -462,6 +484,7 @@ struct GattServerSetting {
                       text : this.advResponseServiceData_serviceValue ,
                       placeholder : "input manufactureValue(less than 8 char)"
                     })
+  .id('pages_subManualApiTest_subGattTest_gattServer__ti_16')
                       .fontSize('17vp')
                       .onChange((strInput) => {
                         this.advResponseServiceData_serviceValue = strInput;
@@ -481,6 +504,7 @@ struct GattServerSetting {
             .backgroundColor($r("app.color.moon"));
           }
         }
+  .id('pages_subManualApiTest_subGattTest_gattServer__sc_1')
         .height('50%')
       }
       .backgroundColor($r("app.color.lead"))
@@ -636,6 +660,7 @@ struct GattServer {
       Stack({ alignContent : Alignment.TopStart }) {
         TestImageDisplay({ testItem : this.testItem })
         PageTitle({ testItem : this.testItem })
+  .id('pages_subManualApiTest_subGattTest_gattServer__pt_0')
       }
 
       Stack().height('0.5vp').backgroundColor($r('app.color.black'));
@@ -646,6 +671,7 @@ struct GattServer {
           .width('80%')
           .padding({ left : '10vp' })
         Image($r('app.media.Switch'))
+  .id('pages_subManualApiTest_subGattTest_gattServer__img_0')
           .height('50vp')
           .width('50vp')
           .padding({ top : '5vp' , bottom : '5vp' , left : '10vp' })
@@ -711,6 +737,7 @@ struct GattServer {
               Scroll() {
                 ContentTable({ apiItems : initGattServerApiData() }) //子层调用
               }
+  .id('pages_subManualApiTest_subGattTest_gattServer__sc_2')
               .width(ConfigData.WH_100_100)
               .align(Alignment.TopStart)
               .layoutWeight(1)

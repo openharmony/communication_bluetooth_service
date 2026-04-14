@@ -40,6 +40,7 @@ struct ProfileTestManager {
       Stack({ alignContent : Alignment.TopStart }) {
         TestImageDisplay({ testItem : this.testItem })
         PageTitle({ testItem : this.testItem })
+  .id('pages_subManualApiTestManager_profileTestManager__pt_0')
       }
       ContentTable({ apiItems : initA2dpSourceProfileManagerApiData() })
     }

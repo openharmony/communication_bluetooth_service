@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Copyright (C) 2022 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,7 +21,6 @@ import router from '@ohos.router';
 import ImageAnimatorComponent from '../../../Component/imageAnimatorComponent';
 import { PageTitle } from '../../../Component/pageTitle';
 import bluetooth from '@ohos.bluetooth';
-import bluetoothManager from '@ohos.bluetoothManager';
 import promptAction from '@ohos.promptAction';
 
 interface BluetoothDeviceParam {
@@ -81,6 +80,7 @@ struct DeviceFound {
           });
           Column({ space : '12vp' }) {
             PageTitle({ detail : '扫描蓝牙设备' })
+  .id('pages_subManualApiTest_subBrTest_deviceFound__pt_0')
             Scroll() {
               Column() {
                 if ( this.isOn ) {
@@ -97,6 +97,7 @@ struct DeviceFound {
               .width(ConfigData.WH_100_100)
               .margin({ bottom : $r('sys.float.ohos_id_default_padding_bottom_fixed') })
             }
+  .id('pages_subManualApiTest_subBrTest_deviceFound__sc_0')
             .width(ConfigData.WH_100_100)
             .align(Alignment.TopStart)
             .layoutWeight(1)
@@ -194,6 +195,7 @@ export struct PairedDeviceComponent {
               })
 
             }
+  .id('pages_subManualApiTest_subBrTest_deviceFound__li_0')
           } , (item: BluetoothDevice) => JSON.stringify(item));
         }
         .height('200vp')
@@ -323,6 +325,7 @@ export struct AvailableItem {
     Row() {
       Row() {
         Image($r('app.media.bleSmall'))
+  .id('pages_subManualApiTest_subBrTest_deviceFound__img_0')
           .objectFit(ImageFit.Contain)
           .autoResize(false)
           .height('30vp')
@@ -373,6 +376,7 @@ export struct PairedItem {
     Row() {
       Row() {
         Image($r('app.media.bleSmall'))
+  .id('pages_subManualApiTest_subBrTest_deviceFound__img_1')
           .objectFit(ImageFit.Contain)
           .autoResize(false)
           .height('30vp')
@@ -414,9 +418,12 @@ export struct PairedItem {
       .width('10%')
       .padding({ left : '10vp' })
       .onClick(() => {
-        promptAction.showToast({
-          message : "当前 SDK 类型声明无取消配对 API，请到系统设置 › 蓝牙中忽略/取消配对"
-        })
+        let ret = bluetooth.cancelPairedDevice(this.mac)
+        if ( ret ) {
+          promptAction.showToast({ message : "取消配对成功！" })
+        } else {
+          promptAction.showToast({ message : "取消配对失败！" })
+        }
       })
     }
   }
@@ -505,6 +512,7 @@ export struct AvailableDeviceComponent {
                   this.pairDevice(item)
                 })
               }
+  .id('pages_subManualApiTest_subBrTest_deviceFound__li_1')
             } , (item: BluetoothDevice) => JSON.stringify(item));
           }
           .backgroundColor($r("app.color.white_bg_color"))
@@ -517,6 +525,7 @@ export struct AvailableDeviceComponent {
             endMargin : '12vp'
           })
         }
+  .id('pages_subManualApiTest_subBrTest_deviceFound__sc_1')
         .scrollBar(BarState.Auto)
         .scrollBarWidth('20vp')
       } else {
@@ -656,6 +665,7 @@ struct PairDialog {
               .fontSize('16fp')
               .fontColor(Color.Blue)
           }
+  .id('pages_subManualApiTest_subBrTest_deviceFound__btn_0')
           .backgroundColor($r("app.color.white_bg_color"))
           .width('160vp')
           .height('40vp')
@@ -676,6 +686,7 @@ struct PairDialog {
               .fontSize('16fp')
               .fontColor(Color.Blue)
           }
+  .id('pages_subManualApiTest_subBrTest_deviceFound__btn_1')
           .backgroundColor($r("app.color.white_bg_color"))
           .width('160vp')
           .height('40vp')

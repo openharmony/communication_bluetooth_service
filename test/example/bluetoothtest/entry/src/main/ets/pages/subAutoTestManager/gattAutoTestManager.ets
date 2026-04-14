@@ -38,6 +38,7 @@ struct GattAutoTestManager {
       Stack({ alignContent : Alignment.TopStart }) {
         TestImageDisplay({ testItem : this.testItem })
         PageTitle({ testItem : this.testItem })
+  .id('pages_subAutoTestManager_gattAutoTestManager__pt_0')
       }
 
       List() {
@@ -47,6 +48,7 @@ struct GattAutoTestManager {
               testItem : item
             })
           }
+  .id('pages_subAutoTestManager_gattAutoTestManager__li_0')
         } , (item: TestData) => item.id)
       }
       .height('93%')

@@ -38,6 +38,7 @@ struct BrAutoTestManager {
       Stack({ alignContent : Alignment.TopStart }) {
         TestImageDisplay({ testItem : this.testItem })
         PageTitle({ testItem : this.testItem })
+  .id('pages_subAutoTestManager_brAutoTestManager__pt_0')
       }
 
       Stack().height('1vp').backgroundColor($r('app.color.black'));
@@ -57,6 +58,7 @@ struct BrAutoTestManager {
           .width('100%')
           .height('280vp')
         }
+  .id('pages_subAutoTestManager_brAutoTestManager__sc_0')
         .scrollBarWidth('10vp')
         .scrollBar(BarState.Auto)
 
@@ -77,6 +79,7 @@ struct BrAutoTestManager {
                   .textAlign(TextAlign.Start)
                   .width('90%')
               }
+  .id('pages_subAutoTestManager_brAutoTestManager__li_0')
             }
             .height('80%')
             .width('90%')
@@ -85,6 +88,7 @@ struct BrAutoTestManager {
           .width('100%')
           .height('260vp')
         }
+  .id('pages_subAutoTestManager_brAutoTestManager__sc_1')
         .scrollBarWidth('10vp')
         .scrollBar(BarState.On)
       }
@@ -100,6 +104,7 @@ struct BrAutoTestManager {
             Text('自动测试').fontSize('24vp').fontColor(0xffffff).margin({ left : '5vp' , right : '5vp' })
           }.alignItems(VerticalAlign.Center)
         }
+  .id('pages_subAutoTestManager_brAutoTestManager__btn_0')
         .borderRadius('8vp')
         .backgroundColor($r("app.color.blue"))
         .width('180vp')

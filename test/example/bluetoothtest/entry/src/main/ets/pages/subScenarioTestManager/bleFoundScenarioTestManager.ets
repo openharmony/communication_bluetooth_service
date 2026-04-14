@@ -54,6 +54,7 @@ struct BleFoundScenarioTestManager {
       Stack({ alignContent : Alignment.TopStart }) {
         TestImageDisplay({ testItem : this.testItem })
         PageTitle({ testItem : this.testItem })
+  .id('pages_subScenarioTestManager_bleFoundScenarioTestManager__pt_0')
       }
 
       Stack().height('1vp').backgroundColor($r('app.color.black'));
@@ -73,6 +74,7 @@ struct BleFoundScenarioTestManager {
           .width('100%')
           .height('280vp')
         }
+  .id('pages_subScenarioTestManager_bleFoundScenarioTestManager__sc_0')
         .scrollBarWidth('10vp')
         .scrollBar(BarState.Auto)
 
@@ -93,6 +95,7 @@ struct BleFoundScenarioTestManager {
                   .textAlign(TextAlign.Start)
                   .width('90%')
               }
+  .id('pages_subScenarioTestManager_bleFoundScenarioTestManager__li_0')
             }
             .height('80%')
             .width('90%')
@@ -101,6 +104,7 @@ struct BleFoundScenarioTestManager {
           .width('100%')
           .height('260vp')
         }
+  .id('pages_subScenarioTestManager_bleFoundScenarioTestManager__sc_1')
         .scrollBarWidth('10vp')
         .scrollBar(BarState.On)
       }
@@ -115,6 +119,7 @@ struct BleFoundScenarioTestManager {
           Button({ type : ButtonType.Normal , stateEffect : true }) {
             Text('场景测试开始').fontSize('24vp').fontColor(0xffffff).margin({ left : '5vp' , right : '5vp' })
           }
+  .id('pages_subScenarioTestManager_bleFoundScenarioTestManager__btn_0')
           .borderRadius('8vp')
           .backgroundColor($r("app.color.blue"))
           .width('100vp')
@@ -131,6 +136,7 @@ struct BleFoundScenarioTestManager {
               Text('场景测试结束').fontSize('24vp').fontColor(0xffffff).margin({ left : '5vp' , right : '5vp' })
             }.alignItems(VerticalAlign.Top)
           }
+  .id('pages_subScenarioTestManager_bleFoundScenarioTestManager__btn_1')
           .borderRadius('8vp')
           .backgroundColor($r("app.color.blue"))
           .width('100vp')
@@ -167,6 +173,7 @@ struct BleFoundScenarioTestManager {
               Text('清空日志').fontSize('24vp').fontColor(0xffffff).margin({ left : '5vp' , right : '5vp' })
             }.alignItems(VerticalAlign.Top)
           }
+  .id('pages_subScenarioTestManager_bleFoundScenarioTestManager__btn_2')
           .borderRadius('8vp')
           .backgroundColor($r("app.color.moon"))
           .width('80vp')
