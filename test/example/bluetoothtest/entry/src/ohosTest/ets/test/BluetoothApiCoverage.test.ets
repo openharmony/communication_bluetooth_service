@@ -1,4 +1,19 @@
 /**
+ * Copyright (C) 2022 Huawei Device Co., Ltd.
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+/**
  * 蓝牙相关系统 API 冒烟测试（@ohos.bluetooth / bluetoothManager / hid / pan / ConnectivityKit OPP 等）。
  * 在已授予 USE_BLUETOOTH、DISCOVER_BLUETOOTH、ACCESS_BLUETOOTH 的设备上执行；
  * 部分调用可能因蓝牙未开、无权限或硬件返回错误码，用 try/catch 记录但不强制失败。
