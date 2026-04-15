@@ -7,7 +7,7 @@ Skill commands (from repo skills/ohproj):
   python3 skills/ohproj/ohproj.py test-uitest <项目> [--timeout 毫秒]   # 同上部署，默认仍跑 entry_test 全量
   python3 skills/ohproj/ohproj.py test-all <项目> [--timeout 毫秒]
 
-Hypium 单入口：entry/src/ohosTest/ets/test/List.test.ets 的 testsuite() 注册 API 测试与 UiTest（本目录）。
+Hypium 单入口：entry/src/ohosTest/ets/apitest/List.test.ets 的 testsuite() 注册 API 测试与 UiTest（本目录）。
 
 UiTest 源码（@ohos.UiTest）：
   entry/src/ohosTest/ets/uitest/
