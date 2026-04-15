@@ -45,6 +45,16 @@
             ]
           }
         ]
+      },
+      {
+        "name": "UiTestStubAbility",
+        "srcEntry": "./ets/uitestability/UiTestStubAbility.ets",
+        "description": "UiTest stub page for Hypium @ohos.UiTest",
+        "icon": "$media:icon",
+        "label": "$string:MainAbility_label",
+        "exported": true,
+        "startWindowIcon": "$media:icon",
+        "startWindowBackground": "$color:white"
       }
     ],
     "requestPermissions":[

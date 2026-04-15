@@ -13,9 +13,8 @@
  * limitations under the License.
  */
 
-import { BTAutoArrayItem , myParams } from '../../Utils/common'
+import { BTAutoArrayItem, testItemFromRouterOrPlaceholder } from '../../Utils/common'
 import promptAction from '@ohos.promptAction';
-import router from '@ohos.router';
 import { PageTitle } from '../../Component/pageTitle';
 import { TestImageDisplay } from '../../Component/testImageDisplay';
 import { TestData } from '../../MainAbility/model/testData'
@@ -34,7 +33,7 @@ import BluetoothModelManager from '../../MainAbility/model/BluetoothModelManager
 @Entry
 @Component
 struct BrFoundScenarioTestManager {
-  private testItem: TestData = (router.getParams() as myParams).testItem
+  private testItem: TestData = testItemFromRouterOrPlaceholder()
   @State changeIndex: number = - 1
   @StorageLink("brFoundScenarioMessage") brFoundScenarioMessage: string = ""
 
@@ -43,6 +42,7 @@ struct BrFoundScenarioTestManager {
       Stack({ alignContent : Alignment.TopStart }) {
         TestImageDisplay({ testItem : this.testItem })
         PageTitle({ testItem : this.testItem })
+  .accessibilityLevel('yes')
   .id('pages_subScenarioTestManager_brFoundScenarioTestManager__pt_0')
       }
 
@@ -63,6 +63,7 @@ struct BrFoundScenarioTestManager {
           .width('100%')
           .height('280vp')
         }
+  .accessibilityLevel('yes')
   .id('pages_subScenarioTestManager_brFoundScenarioTestManager__sc_0')
         .scrollBarWidth('10vp')
         .scrollBar(BarState.Auto)
@@ -84,6 +85,7 @@ struct BrFoundScenarioTestManager {
                   .textAlign(TextAlign.Start)
                   .width('90%')
               }
+  .accessibilityLevel('yes')
   .id('pages_subScenarioTestManager_brFoundScenarioTestManager__li_0')
             }
             .height('80%')
@@ -93,6 +95,7 @@ struct BrFoundScenarioTestManager {
           .width('100%')
           .height('260vp')
         }
+  .accessibilityLevel('yes')
   .id('pages_subScenarioTestManager_brFoundScenarioTestManager__sc_1')
         .scrollBarWidth('10vp')
         .scrollBar(BarState.On)
@@ -108,6 +111,7 @@ struct BrFoundScenarioTestManager {
           Button({ type : ButtonType.Normal , stateEffect : true }) {
             Text('场景测试开始').fontSize('24vp').fontColor(0xffffff).margin({ left : '5vp' , right : '5vp' })
           }
+  .accessibilityLevel('yes')
   .id('pages_subScenarioTestManager_brFoundScenarioTestManager__btn_0')
           .borderRadius('8vp')
           .backgroundColor($r("app.color.blue"))
@@ -125,6 +129,7 @@ struct BrFoundScenarioTestManager {
               Text('场景测试结束').fontSize('24vp').fontColor(0xffffff).margin({ left : '5vp' , right : '5vp' })
             }.alignItems(VerticalAlign.Center)
           }
+  .accessibilityLevel('yes')
   .id('pages_subScenarioTestManager_brFoundScenarioTestManager__btn_1')
           .borderRadius('8vp')
           .backgroundColor($r("app.color.blue"))
@@ -158,6 +163,7 @@ struct BrFoundScenarioTestManager {
               Text('清空日志').fontSize('24vp').fontColor(0xffffff).margin({ left : '5vp' , right : '5vp' })
             }.alignItems(VerticalAlign.Center)
           }
+  .accessibilityLevel('yes')
   .id('pages_subScenarioTestManager_brFoundScenarioTestManager__btn_2')
           .borderRadius('8vp')
           .backgroundColor($r("app.color.moon"))

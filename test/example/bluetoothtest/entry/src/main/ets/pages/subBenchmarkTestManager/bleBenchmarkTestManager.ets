@@ -13,8 +13,7 @@
  * limitations under the License.
  */
 
-import { BTAutoArrayItem , myParams , ScanResult } from '../../Utils/common'
-import router from '@ohos.router';
+import { BTAutoArrayItem, ScanResult, testItemFromRouterOrPlaceholder } from '../../Utils/common'
 import { PageTitle } from '../../Component/pageTitle';
 import { TestImageDisplay } from '../../Component/testImageDisplay';
 import { TestData } from '../../MainAbility/model/testData'
@@ -34,7 +33,7 @@ import promptAction from '@ohos.promptAction';
 @Entry
 @Component
 struct BleBenchmarkTestManager {
-  private testItem: TestData = (router.getParams() as myParams).testItem
+  private testItem: TestData = testItemFromRouterOrPlaceholder()
   @State changeIndex: number = - 1
   @StorageLink("bleBenchmarkTestMessage") bleBenchmarkTestMessage: string = ""
 
@@ -43,6 +42,7 @@ struct BleBenchmarkTestManager {
       Stack({ alignContent : Alignment.TopStart }) {
         TestImageDisplay({ testItem : this.testItem })
         PageTitle({ testItem : this.testItem })
+  .accessibilityLevel('yes')
   .id('pages_subBenchmarkTestManager_bleBenchmarkTestManager__pt_0')
       }
 
@@ -63,6 +63,7 @@ struct BleBenchmarkTestManager {
           .width('100%')
           .height('100vp')
         }
+  .accessibilityLevel('yes')
   .id('pages_subBenchmarkTestManager_bleBenchmarkTestManager__sc_0')
         .scrollBarWidth('10vp')
         .scrollBar(BarState.Auto)
@@ -84,6 +85,7 @@ struct BleBenchmarkTestManager {
                   .textAlign(TextAlign.Start)
                   .width('90%')
               }
+  .accessibilityLevel('yes')
   .id('pages_subBenchmarkTestManager_bleBenchmarkTestManager__li_0')
             }
             .height('90%')
@@ -93,6 +95,7 @@ struct BleBenchmarkTestManager {
           .width('100%')
           .height('400vp')
         }
+  .accessibilityLevel('yes')
   .id('pages_subBenchmarkTestManager_bleBenchmarkTestManager__sc_1')
         .scrollBarWidth('10vp')
         .scrollBar(BarState.On)
@@ -105,6 +108,7 @@ struct BleBenchmarkTestManager {
           Button({ type : ButtonType.Normal , stateEffect : true }) {
             Text('性能测试准备').fontSize('24vp').fontColor(0xffffff).margin({ left : '5vp' , right : '5vp' })
           }
+  .accessibilityLevel('yes')
   .id('pages_subBenchmarkTestManager_bleBenchmarkTestManager__btn_0')
           .borderRadius('8vp')
           .backgroundColor($r("app.color.blue"))
@@ -121,6 +125,7 @@ struct BleBenchmarkTestManager {
               Text('时间性能测试').fontSize('24vp').fontColor(0xffffff).margin({ left : '5vp' , right : '5vp' })
             }.alignItems(VerticalAlign.Center)
           }
+  .accessibilityLevel('yes')
   .id('pages_subBenchmarkTestManager_bleBenchmarkTestManager__btn_1')
           .borderRadius('8vp')
           .backgroundColor($r("app.color.blue"))
@@ -149,6 +154,7 @@ struct BleBenchmarkTestManager {
               Text('稳定性能测试').fontSize('24vp').fontColor(0xffffff).margin({ left : '5vp' , right : '5vp' })
             }.alignItems(VerticalAlign.Center)
           }
+  .accessibilityLevel('yes')
   .id('pages_subBenchmarkTestManager_bleBenchmarkTestManager__btn_2')
           .borderRadius('8vp')
           .backgroundColor($r("app.color.blue"))
@@ -189,9 +195,11 @@ struct BleBenchmarkTestManager {
           Button({ type : ButtonType.Normal , stateEffect : true }) {
             Row() {
               Image($r('app.media.ic_public_delete_filled'))
+  .accessibilityLevel('yes')
   .id('pages_subBenchmarkTestManager_bleBenchmarkTestManager__img_0').width('30vp').height('40vp').margin({ left : '5vp' })
             }.alignItems(VerticalAlign.Center)
           }
+  .accessibilityLevel('yes')
   .id('pages_subBenchmarkTestManager_bleBenchmarkTestManager__btn_3')
           .borderRadius('8vp')
           .backgroundColor($r("app.color.moon"))

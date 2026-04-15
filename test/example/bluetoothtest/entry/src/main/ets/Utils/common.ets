@@ -13,7 +13,8 @@
  * limitations under the License.
  */
 
-import { TestData } from '../MainAbility/model/testData'
+import router from '@ohos.router';
+import { Category, TestData } from '../MainAbility/model/testData'
 import bluetooth from '@ohos.bluetooth'
 /**
  * GattServer Interface Of Bluetooth test
@@ -124,6 +125,17 @@ export interface CurScanOptions {
 
 export interface myParams extends Object {
   testItem: TestData
+}
+
+/**
+ * EntryAbility 经 testTargetPage / loadContent 直达子页时无 router 参数，避免读取 undefined 崩溃（UiTest 等）。
+ */
+export function testItemFromRouterOrPlaceholder(): TestData {
+  const raw = router.getParams() as myParams | undefined;
+  if (raw !== undefined && raw !== null && raw.testItem !== undefined && raw.testItem !== null) {
+    return raw.testItem;
+  }
+  return new TestData('UiTest', 'UiTest', '', $r('app.media.icon'), Category.All);
 }
 
 export interface myParamsManager extends Object {

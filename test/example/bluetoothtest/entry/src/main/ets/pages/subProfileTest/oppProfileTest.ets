@@ -1,4 +1,4 @@
-﻿/**
+/**
  * Copyright (C) 2022 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { myParams , PairDevices } from '../../Utils/common'
+import { PairDevices, testItemFromRouterOrPlaceholder } from '../../Utils/common'
 import promptAction from '@ohos.promptAction';
 import { ContentTable } from '../../Component/contentTable';
 import { initOppProfileApiData } from '../../MainAbility/model/testDataModels'
@@ -26,6 +26,7 @@ import { TestImageDisplay } from '../../Component/testImageDisplay';
 import bluetooth from '@ohos.bluetooth';
 import { TestData } from '../../MainAbility/model/testData'
 import bluetoothManager from '@ohos.bluetoothManager';
+import { shouldSkipBluetoothPermissionRequest } from '../../bluetoothTestNav';
 
 /**
  * oppProfile Test Page Of Bluetooth test
@@ -47,7 +48,7 @@ struct OppProfileTest {
   @State currentClick: number = - 1;
   private pageType = 10;
   private deviceId = "8C:5A:F8:25:FB:E9";
-  private testItem: TestData = (router.getParams() as myParams).testItem
+  private testItem: TestData = testItemFromRouterOrPlaceholder()
   private pairDevices: PairDevices[] = [];
 
   aboutToAppear() {
@@ -74,6 +75,7 @@ struct OppProfileTest {
         Stack({ alignContent : Alignment.TopStart }) {
           TestImageDisplay({ testItem : this.testItem })
           PageTitle({ testItem : this.testItem })
+  .accessibilityLevel('yes')
   .id('pages_subProfileTest_oppProfileTest__pt_0')
         }
 
@@ -95,24 +97,34 @@ struct OppProfileTest {
                   .margin({ top : '5vp' })
                 Scroll() {
                   List({ space : '5vp' }) {
-                    ForEach(this.pairDevices , (item: PairDevices) => {
-                      ListItem() {
-                        Text(item.name)
-                          .fontSize('25vp')
-                          .width('80%')
-                          .margin({ left : '10%' })
-                          .backgroundColor(this.serverMac === item.id ? $r("app.color.moon") : $r("app.color.white"))
-                          .border({
-                            radius : 5
-                          })
-                      }
-  .id('pages_subProfileTest_oppProfileTest__li_0')
-                      .onClick(() => {
-                        this.serverMac = item.id;
-                      })
-                    })
+                    ForEach(
+                      this.pairDevices.length > 0 ? this.pairDevices :
+                        [{ id: '__uitest_placeholder__', name: '—' } as PairDevices],
+                      (item: PairDevices, index: number) => {
+                        ListItem() {
+                          Text(item.name)
+                            .fontSize('25vp')
+                            .width('80%')
+                            .margin({ left : '10%' })
+                            .backgroundColor(this.serverMac === item.id ? $r("app.color.moon") : $r("app.color.white"))
+                            .border({
+                              radius : 5
+                            })
+                        }
+                        .id(index === 0 ? 'pages_subProfileTest_oppProfileTest__li_0' :
+                          `pages_subProfileTest_oppProfileTest__li_${index}`)
+                        .accessibilityLevel('yes')
+                        .onClick(() => {
+                          if (item.id !== '__uitest_placeholder__') {
+                            this.serverMac = item.id;
+                          }
+                        })
+                      },
+                      (item: PairDevices) => item.id
+                    )
                   }
                 }
+  .accessibilityLevel('yes')
   .id('pages_subProfileTest_oppProfileTest__sc_1')
                 .height('50%')
                 .width('80%')
@@ -130,6 +142,7 @@ struct OppProfileTest {
               .height('15%')
               .width('100%')
             }
+  .accessibilityLevel('yes')
   .id('pages_subProfileTest_oppProfileTest__sc_0')
             .scrollBarWidth('10vp')
             .scrollBar(BarState.Auto)
@@ -154,6 +167,7 @@ struct OppProfileTest {
             .backgroundColor($r("sys.color.ohos_id_color_foreground_contrary"))
             .width('88%')
           }
+  .accessibilityLevel('yes')
   .id('pages_subProfileTest_oppProfileTest__sc_2')
           .scrollBarWidth('10vp')
           .scrollBar(BarState.Auto)
@@ -171,7 +185,7 @@ struct OppProfileTest {
         .backgroundColor($r("sys.color.ohos_id_color_sub_background"))
         .width('100%')
         .height('100%')
-        .visibility(this.hasProfile ? Visibility.Visible : Visibility.Hidden);
+        .visibility(shouldSkipBluetoothPermissionRequest() || this.hasProfile ? Visibility.Visible : Visibility.Hidden);
       }
       .width('100%')
     }
@@ -263,17 +277,23 @@ struct OppProfileTest {
     this.hasProfile = btProfileModel.hasProfile(this.profileType);
     if ( this.hasProfile ) {
       console.log("bt_test registered connectionStateChange type: " + this.profileType);
-      (btProfileModel.getProfile(this.profileType) as bluetooth.A2dpSourceProfile | bluetooth.HandsFreeAudioGatewayProfile).on("connectionStateChange" , (date: bluetoothManager.StateChangeParam) => {
-        this.connectionStateInfo = JSON.stringify(date);
-        this.btConnectionState = date.state;
-        AppStorage.setOrCreate("btConnectionState" , this.btConnectionState)
-      });
+      if (this.profileType === btProfileModel.PROFILE_A2DP_SOURCE ||
+        this.profileType === btProfileModel.PROFILE_HANDS_FREE_AUDIO_GATEWAY) {
+        (btProfileModel.getProfile(this.profileType) as bluetooth.A2dpSourceProfile | bluetooth.HandsFreeAudioGatewayProfile).on("connectionStateChange" , (date: bluetoothManager.StateChangeParam) => {
+          this.connectionStateInfo = JSON.stringify(date);
+          this.btConnectionState = date.state;
+          AppStorage.setOrCreate("btConnectionState" , this.btConnectionState)
+        });
+      }
     }
   }
 
   onPageHide() {
     if ( this.hasProfile ) {
-      (btProfileModel.getProfile(this.profileType) as bluetooth.A2dpSourceProfile | bluetooth.HandsFreeAudioGatewayProfile).off("connectionStateChange");
+      if (this.profileType === btProfileModel.PROFILE_A2DP_SOURCE ||
+        this.profileType === btProfileModel.PROFILE_HANDS_FREE_AUDIO_GATEWAY) {
+        (btProfileModel.getProfile(this.profileType) as bluetooth.A2dpSourceProfile | bluetooth.HandsFreeAudioGatewayProfile).off("connectionStateChange");
+      }
     }
     console.log("bt_test Ability end");
   }

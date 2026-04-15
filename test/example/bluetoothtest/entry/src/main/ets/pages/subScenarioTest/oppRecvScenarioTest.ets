@@ -13,8 +13,7 @@
  * limitations under the License.
  */
 
-import { myParams , PairDevices } from '../../Utils/common'
-import router from '@ohos.router';
+import { PairDevices, testItemFromRouterOrPlaceholder } from '../../Utils/common'
 import { PageTitle } from '../../Component/pageTitle';
 import { TestImageDisplay } from '../../Component/testImageDisplay';
 import { TestData } from '../../MainAbility/model/testData'
@@ -30,7 +29,7 @@ import { fileIo as fs} from '@kit.CoreFileKit';
 @Entry
 @Component
 struct OppRecvScenarioTest {
-  private testItem: TestData = (router.getParams() as myParams).testItem
+  private testItem: TestData = testItemFromRouterOrPlaceholder()
   @State changeIndex: number = - 1;
   @StorageLink("oppRecvScenarioMessage") oppRecvScenarioMessage: string = ""
   private oppProfile!: opp.OppServerProfile
@@ -113,6 +112,7 @@ struct OppRecvScenarioTest {
       Stack({ alignContent : Alignment.TopStart }) {
         TestImageDisplay({ testItem : this.testItem })
         PageTitle({ testItem : this.testItem })
+  .accessibilityLevel('yes')
   .id('pages_subScenarioTest_oppRecvScenarioTest__pt_0')
       }
 
@@ -126,7 +126,7 @@ struct OppRecvScenarioTest {
               .margin({ top : '5vp' })
             Scroll() {
               List({ space : '5vp' }) {
-                ForEach(this.pairedDevices , (item: PairDevices) => {
+                ForEach(this.pairedDevices , (item: PairDevices, index: number) => {
                   ListItem() {
                     Text(item.name)
                       .fontSize('25vp')
@@ -137,13 +137,14 @@ struct OppRecvScenarioTest {
                         radius : 5
                       })
                   }
-  .id('pages_subScenarioTest_oppRecvScenarioTest__li_0')
+  .id(index === 0 ? 'pages_subScenarioTest_oppRecvScenarioTest__li_0' : `pages_subScenarioTest_oppRecvScenarioTest__li_${index}`)
                   .onClick(() => {
                     this.serverMac = item.id;
                   })
                 })
               }
             }
+  .accessibilityLevel('yes')
   .id('pages_subScenarioTest_oppRecvScenarioTest__sc_1')
             .height('70%')
             .width('80%')
@@ -152,6 +153,7 @@ struct OppRecvScenarioTest {
           .width('100%')
 
         }
+  .accessibilityLevel('yes')
   .id('pages_subScenarioTest_oppRecvScenarioTest__sc_0')
         .scrollBarWidth('10vp')
         .scrollBar(BarState.On)
@@ -185,6 +187,7 @@ struct OppRecvScenarioTest {
                   .textAlign(TextAlign.Start)
                   .width('90%')
               }
+  .accessibilityLevel('yes')
   .id('pages_subScenarioTest_oppRecvScenarioTest__li_1')
             }
             .height('80%')
@@ -194,6 +197,7 @@ struct OppRecvScenarioTest {
           .width('100%')
           .height('30%')
         }
+  .accessibilityLevel('yes')
   .id('pages_subScenarioTest_oppRecvScenarioTest__sc_2')
         .scrollBarWidth('10vp')
         .scrollBar(BarState.On)
@@ -208,6 +212,7 @@ struct OppRecvScenarioTest {
         Flex({ alignItems : ItemAlign.Center , justifyContent : FlexAlign.SpaceBetween }) {
           Column() {
             Button('opp开启接收文件')
+  .accessibilityLevel('yes')
   .id('pages_subScenarioTest_oppRecvScenarioTest__btn_0')
               .fontSize('20vp')
               .borderRadius('8vp')
@@ -274,11 +279,13 @@ struct ReceiveCustomDialog {
       Text(this.fileName).fontSize('18vp').margin({ bottom : '10vp' })
       Flex({ justifyContent : FlexAlign.SpaceAround }) {
         Button('拒接')
+  .accessibilityLevel('yes')
   .id('pages_subScenarioTest_oppRecvScenarioTest__btn_1')
           .onClick(() => {
             this.cancel()
           })
         Button('接收')
+  .accessibilityLevel('yes')
   .id('pages_subScenarioTest_oppRecvScenarioTest__btn_2')
           .onClick(() => {
             this.confirm()

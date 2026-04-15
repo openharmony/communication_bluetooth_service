@@ -13,9 +13,8 @@
  * limitations under the License.
  */
 
-import { BTAutoArrayItem , myParams } from '../../Utils/common'
+import { BTAutoArrayItem, testItemFromRouterOrPlaceholder } from '../../Utils/common'
 import promptAction from '@ohos.promptAction';
-import router from '@ohos.router';
 import { PageTitle } from '../../Component/pageTitle';
 import { TestImageDisplay } from '../../Component/testImageDisplay';
 import { TestData } from '../../MainAbility/model/testData'
@@ -31,7 +30,7 @@ import { BrBenchmarkTestCase } from '../../MainAbility/model/benchmarkTestDataMo
 @Entry
 @Component
 struct BrBenchmarkTest {
-  private testItem: TestData = (router.getParams() as myParams).testItem
+  private testItem: TestData = testItemFromRouterOrPlaceholder()
   @State changeIndex: number = - 1
   @StorageLink("brBenchmarkTestMessage") brBenchmarkTestMessage: string = ""
 
@@ -40,6 +39,7 @@ struct BrBenchmarkTest {
       Stack({ alignContent : Alignment.TopStart }) {
         TestImageDisplay({ testItem : this.testItem })
         PageTitle({ testItem : this.testItem })
+  .accessibilityLevel('yes')
   .id('pages_subBenchmarkTest_brBenchmarkTest__pt_0')
       }
 
@@ -60,6 +60,7 @@ struct BrBenchmarkTest {
           .width('100%')
           .height('100vp')
         }
+  .accessibilityLevel('yes')
   .id('pages_subBenchmarkTest_brBenchmarkTest__sc_0')
         .scrollBarWidth('10vp')
         .scrollBar(BarState.Auto)
@@ -81,6 +82,7 @@ struct BrBenchmarkTest {
                   .textAlign(TextAlign.Start)
                   .width('90%')
               }
+  .accessibilityLevel('yes')
   .id('pages_subBenchmarkTest_brBenchmarkTest__li_0')
             }
             .height('90%')
@@ -90,6 +92,7 @@ struct BrBenchmarkTest {
           .width('100%')
           .height('400vp')
         }
+  .accessibilityLevel('yes')
   .id('pages_subBenchmarkTest_brBenchmarkTest__sc_1')
         .scrollBarWidth('10vp')
         .scrollBar(BarState.On)
@@ -102,6 +105,7 @@ struct BrBenchmarkTest {
           Button({ type : ButtonType.Normal , stateEffect : true }) {
             Text('性能测试准备').fontSize('24vp').fontColor(0xffffff).margin({ left : '5vp' , right : '5vp' })
           }
+  .accessibilityLevel('yes')
   .id('pages_subBenchmarkTest_brBenchmarkTest__btn_0')
           .borderRadius('8vp')
           .backgroundColor($r("app.color.blue"))
@@ -118,6 +122,7 @@ struct BrBenchmarkTest {
               Text('时间性能测试').fontSize('24vp').fontColor(0xffffff).margin({ left : '5vp' , right : '5vp' })
             }.alignItems(VerticalAlign.Center)
           }
+  .accessibilityLevel('yes')
   .id('pages_subBenchmarkTest_brBenchmarkTest__btn_1')
           .borderRadius('8vp')
           .backgroundColor($r("app.color.blue"))
@@ -146,6 +151,7 @@ struct BrBenchmarkTest {
               Text('稳定性能测试').fontSize('24vp').fontColor(0xffffff).margin({ left : '5vp' , right : '5vp' })
             }.alignItems(VerticalAlign.Center)
           }
+  .accessibilityLevel('yes')
   .id('pages_subBenchmarkTest_brBenchmarkTest__btn_2')
           .borderRadius('8vp')
           .backgroundColor($r("app.color.blue"))
@@ -182,9 +188,11 @@ struct BrBenchmarkTest {
           Button({ type : ButtonType.Normal , stateEffect : true }) {
             Row() {
               Image($r('app.media.ic_public_delete_filled'))
+  .accessibilityLevel('yes')
   .id('pages_subBenchmarkTest_brBenchmarkTest__img_0').width('30vp').height('40vp').margin({ left : '5vp' })
             }.alignItems(VerticalAlign.Center)
           }
+  .accessibilityLevel('yes')
   .id('pages_subBenchmarkTest_brBenchmarkTest__btn_3')
           .borderRadius('8vp')
           .backgroundColor($r("app.color.moon"))

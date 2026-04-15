@@ -1,4 +1,4 @@
-﻿/**
+/**
  * Copyright (C) 2022 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,6 +25,7 @@ import abilityAccessCtrl from '@ohos.abilityAccessCtrl';
 import common from '@ohos.app.ability.common';
 import { Permissions } from '@ohos.abilityAccessCtrl';
 import dlog from '../MainAbility/model/dlog';
+import { shouldSkipBluetoothPermissionRequest } from '../bluetoothTestNav';
 
 const TAG = '[Screenshot]'
 
@@ -32,66 +33,101 @@ const TAG = '[Screenshot]'
 struct TestCategory {
   private testItems: TestData[] = []
 
+  /** Tab 标签栏始终可见；UiTest 的 id 挂在标签上，避免仅当前 Tab 的 TabContent 被挂载导致查找不到。 */
+  @Builder
+  HomeTabBarItem(label: Resource, stableId: string) {
+    Column() {
+      Text(label)
+        .id(stableId)
+        .accessibilityLevel('yes')
+        .fontSize(12)
+        .margin({ top: '5vp' })
+    }
+    .accessibilityLevel('yes')
+  }
+
   build() {
     Stack() {
       Tabs() {
         TabContent() {
           ManualApiTest({ testItems : this.testItems.filter(item => (item.category === Category.API)) })
         }
-  .id('pages_homePage__tc_0').tabBar($r("app.string.api")).margin({ top : '5vp' })
+        .tabBar((): void => {
+          this.HomeTabBarItem($r("app.string.api"), 'pages_homePage__tc_0');
+        })
 
         TabContent() {
           ManualApiTest({ testItems : this.testItems.filter(item => (item.category === Category.APIManager)) })
         }
-  .id('pages_homePage__tc_1').tabBar($r("app.string.api_M")).margin({ top : '5vp' })
+        .tabBar((): void => {
+          this.HomeTabBarItem($r("app.string.api_M"), 'pages_homePage__tc_1');
+        })
 
         TabContent() {
           AutoTest({ testItems : this.testItems.filter(item => (item.category === Category.AutoTest)) })
         }
-  .id('pages_homePage__tc_2').tabBar($r("app.string.autotest")).margin({ top : '5vp' })
+        .tabBar((): void => {
+          this.HomeTabBarItem($r("app.string.autotest"), 'pages_homePage__tc_2');
+        })
 
         TabContent() {
           AutoTest({ testItems : this.testItems.filter(item => (item.category === Category.AutoTestManager)) })
         }
-  .id('pages_homePage__tc_3').tabBar($r("app.string.autotest_M")).margin({ top : '5vp' })
+        .tabBar((): void => {
+          this.HomeTabBarItem($r("app.string.autotest_M"), 'pages_homePage__tc_3');
+        })
 
         TabContent() {
           ManualSceneTest({ testItems : this.testItems.filter(item => (item.category === Category.Scenario)) })
         }
-  .id('pages_homePage__tc_4').tabBar($r("app.string.scenario")).margin({ top : '5vp' })
+        .tabBar((): void => {
+          this.HomeTabBarItem($r("app.string.scenario"), 'pages_homePage__tc_4');
+        })
 
         TabContent() {
           ManualSceneTest({ testItems : this.testItems.filter(item => (item.category === Category.ScenarioManager)) })
         }
-  .id('pages_homePage__tc_5').tabBar($r("app.string.scenario_M")).margin({ top : '5vp' })
+        .tabBar((): void => {
+          this.HomeTabBarItem($r("app.string.scenario_M"), 'pages_homePage__tc_5');
+        })
 
         TabContent() {
           ProfileTest({ testItems : this.testItems.filter(item => (item.category === Category.Profile)) })
         }
-  .id('pages_homePage__tc_6').tabBar($r("app.string.profile")).margin({ top : '5vp' })
+        .tabBar((): void => {
+          this.HomeTabBarItem($r("app.string.profile"), 'pages_homePage__tc_6');
+        })
 
         TabContent() {
           ProfileTest({ testItems : this.testItems.filter(item => (item.category === Category.ProfileManager)) })
         }
-  .id('pages_homePage__tc_7').tabBar($r("app.string.profile_M")).margin({ top : '5vp' })
+        .tabBar((): void => {
+          this.HomeTabBarItem($r("app.string.profile_M"), 'pages_homePage__tc_7');
+        })
 
         TabContent() {
           BenchmarkTest({ testItems : this.testItems.filter(item => (item.category === Category.BenchMark)) })
         }
-  .id('pages_homePage__tc_8').tabBar($r("app.string.benchmark")).margin({ top : '5vp' })
+        .tabBar((): void => {
+          this.HomeTabBarItem($r("app.string.benchmark"), 'pages_homePage__tc_8');
+        })
 
         TabContent() {
           BenchmarkTest({
             testItems : this.testItems.filter(item => (item.category === Category.BenchMarkManager))
           })
         }
-  .id('pages_homePage__tc_9').tabBar($r("app.string.benchmark_M"))
+        .tabBar((): void => {
+          this.HomeTabBarItem($r("app.string.benchmark_M"), 'pages_homePage__tc_9');
+        })
       }
+  .accessibilityLevel('yes')
   .id('pages_homePage__tabs_0')
+      .accessibilityLevel('yes')
       .barWidth('80%')
       .barHeight('40vp')
       .align(Alignment.TopStart)
-      .barMode(BarMode.Scrollable)
+      .barMode(BarMode.Fixed)
       .backgroundColor($r("app.color.white"))
     }
   }
@@ -117,7 +153,29 @@ struct HomePage {
     this.testItems = initTestData();
   }
 
+  /** UiTest 在 Tabs 自定义 tabBar 上常扫不到 Text.id；自动化时在首页底部挂载与 Tab 一一对应的锚点（仍参与无障碍树）。 */
+  @Builder
+  HomeUiTestTabIdAnchors() {
+    Row() {
+      Text(' ').id('pages_homePage__tc_0').layoutWeight(1).fontSize(1).height('2vp').accessibilityLevel('yes')
+      Text(' ').id('pages_homePage__tc_1').layoutWeight(1).fontSize(1).height('2vp').accessibilityLevel('yes')
+      Text(' ').id('pages_homePage__tc_2').layoutWeight(1).fontSize(1).height('2vp').accessibilityLevel('yes')
+      Text(' ').id('pages_homePage__tc_3').layoutWeight(1).fontSize(1).height('2vp').accessibilityLevel('yes')
+      Text(' ').id('pages_homePage__tc_4').layoutWeight(1).fontSize(1).height('2vp').accessibilityLevel('yes')
+      Text(' ').id('pages_homePage__tc_5').layoutWeight(1).fontSize(1).height('2vp').accessibilityLevel('yes')
+      Text(' ').id('pages_homePage__tc_6').layoutWeight(1).fontSize(1).height('2vp').accessibilityLevel('yes')
+      Text(' ').id('pages_homePage__tc_7').layoutWeight(1).fontSize(1).height('2vp').accessibilityLevel('yes')
+      Text(' ').id('pages_homePage__tc_8').layoutWeight(1).fontSize(1).height('2vp').accessibilityLevel('yes')
+      Text(' ').id('pages_homePage__tc_9').layoutWeight(1).fontSize(1).height('2vp').accessibilityLevel('yes')
+    }
+    .width('100%')
+    .height('2vp')
+  }
+
   aboutToAppear() {
+    if (shouldSkipBluetoothPermissionRequest()) {
+      return;
+    }
     let abilityMgr = abilityAccessCtrl.createAtManager();
     let context: Context = getContext(this) as common.UIAbilityContext;
     abilityMgr.requestPermissionsFromUser(context , this.permissions , (error , result) => {
@@ -129,11 +187,15 @@ struct HomePage {
   build() {
     Column() {
       MainPageTitle()
+  .accessibilityLevel('yes')
   .id('pages_homePage__mpt_0')
+        .accessibilityLevel('yes')
       Stack({ alignContent : Alignment.TopEnd }) {
         TestCategory({ testItems : this.testItems })
         Image($r('app.media.Switch'))
+  .accessibilityLevel('yes')
   .id('pages_homePage__img_0')
+          .accessibilityLevel('yes')
           .height('30vp')
           .width('30vp')
           .margin({ top : '5vp' , right : '10vp' })
@@ -141,6 +203,9 @@ struct HomePage {
           })
       }
       .height('100%')
+      if (shouldSkipBluetoothPermissionRequest()) {
+        this.HomeUiTestTabIdAnchors()
+      }
     }
   }
 }
