@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { myParams } from '../../Utils/common'
+import { testItemFromRouterOrPlaceholder } from '../../Utils/common'
 import promptAction from '@ohos.promptAction';
 import { ContentTable } from '../../Component/contentTable';
 import { initA2dpSourceProfileApiData } from '../../MainAbility/model/testDataModels'
@@ -45,7 +45,7 @@ struct A2dpSourceProfileTest {
   @State currentClick: number = - 1;
   private pageType = 1;
   private deviceId = "8C:5A:F8:25:FB:E9";
-  private testItem: TestData = (router.getParams() as myParams).testItem
+  private testItem: TestData = testItemFromRouterOrPlaceholder()
 
   aboutToAppear() {
     LogUtil.log(ConfigData.TAG + "xzyj: aboutToAppear a2dp: deviceId " + JSON.stringify(this.deviceId));
@@ -59,6 +59,7 @@ struct A2dpSourceProfileTest {
         Stack({ alignContent : Alignment.TopStart }) {
           TestImageDisplay({ testItem : this.testItem })
           PageTitle({ testItem : this.testItem })
+  .accessibilityLevel('yes')
   .id('pages_subProfileTest_a2dpSourceProfileTest__pt_0')
         }
 
@@ -77,6 +78,7 @@ struct A2dpSourceProfileTest {
               .width('110vp')
               .margin('5vp')
             TextInput({ text : JSON.stringify(this.deviceId) , placeholder : "请输入需要连接的deviceId" })
+  .accessibilityLevel('yes')
   .id('pages_subProfileTest_a2dpSourceProfileTest__ti_0')
               .fontSize('17vp')
               .onChange((str) => {

@@ -13,8 +13,7 @@
  * limitations under the License.
  */
 
-import { myParams } from '../../Utils/common'
-import router from '@ohos.router';
+import { testItemFromRouterOrPlaceholder } from '../../Utils/common'
 import { TestData } from '../../MainAbility/model/testData'
 import { initA2dpSourceProfileApiData } from '../../MainAbility/model/testDataModels'
 import { PageTitle } from '../../Component/pageTitle';
@@ -29,7 +28,7 @@ import btProfileModel from '../../MainAbility/model/btProfileModel';
 @Entry
 @Component
 struct ProfileTest {
-  private testItem: TestData = (router.getParams() as myParams).testItem
+  private testItem: TestData = testItemFromRouterOrPlaceholder()
 
   aboutToAppear() {
     // btProfileModel.initProfile()
@@ -40,6 +39,7 @@ struct ProfileTest {
       Stack({ alignContent : Alignment.TopStart }) {
         TestImageDisplay({ testItem : this.testItem })
         PageTitle({ testItem : this.testItem })
+  .accessibilityLevel('yes')
   .id('pages_subManualApiTest_profileTest__pt_0')
       }
       ContentTable({ apiItems : initA2dpSourceProfileApiData() })

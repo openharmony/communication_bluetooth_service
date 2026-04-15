@@ -14,13 +14,12 @@
  */
 
 import ConfigData from '../../Utils/ConfigData';
-import router from '@ohos.router';
 import { TestData } from '../../MainAbility/model/testData'
 import { PageTitle } from '../../Component/pageTitle';
 import { TestImageDisplay } from '../../Component/testImageDisplay';
 import { initSppApiTestData } from '../../MainAbility/model/testDataModels'
 import { TestListItem } from '../../Component/testListItems';
-import { myParams } from '../../Utils/common'
+import { testItemFromRouterOrPlaceholder } from '../../Utils/common'
 
 /**
  * SPP Test Page Of Bluetooth test
@@ -29,7 +28,7 @@ import { myParams } from '../../Utils/common'
 @Entry
 @Component
 struct SppTest {
-  private testItem: TestData = (router.getParams() as myParams).testItem
+  private testItem: TestData = testItemFromRouterOrPlaceholder()
   private sppApiTestItems: TestData[] = initSppApiTestData();
 
   build() {
@@ -37,17 +36,18 @@ struct SppTest {
       Stack({ alignContent : Alignment.TopStart }) {
         TestImageDisplay({ testItem : this.testItem })
         PageTitle({ testItem : this.testItem })
+  .accessibilityLevel('yes')
   .id('pages_subManualApiTest_sppTest__pt_0')
       }
 
       List() {
-        ForEach(this.sppApiTestItems , (item: TestData) => {
+        ForEach(this.sppApiTestItems , (item: TestData, index: number) => {
           ListItem() {
             TestListItem({
               testItem : item
             })
           }
-  .id('pages_subManualApiTest_sppTest__li_0')
+  .id(index === 0 ? 'pages_subManualApiTest_sppTest__li_0' : `pages_subManualApiTest_sppTest__li_${index}`)
         } , (item: TestData) => item.id)
       }
       .height('93%')

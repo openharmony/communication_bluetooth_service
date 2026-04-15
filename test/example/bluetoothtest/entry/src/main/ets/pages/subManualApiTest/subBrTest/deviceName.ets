@@ -49,9 +49,11 @@ struct DeviceNameCard {
 
           Column() {
             PageTitle({ detail : '设备名称' })
+  .accessibilityLevel('yes')
   .id('pages_subManualApiTest_subBrTest_deviceName__pt_0')
 
             TextInput({ text : this.deviceName })
+  .accessibilityLevel('yes')
   .id('pages_subManualApiTest_subBrTest_deviceName__ti_0')
               .placeholderFont({
                 size : '18fp' ,
@@ -96,6 +98,7 @@ struct DeviceNameCard {
                 ButtonComponent({ text : $r("app.string.cancel") , isOnClick : () => {
                   router.back();
                 } })
+  .accessibilityLevel('yes')
   .id('pages_subManualApiTest_subBrTest_deviceName__bcomp_0')
               }
               .width('120vp')
@@ -107,6 +110,7 @@ struct DeviceNameCard {
                   AppStorage.setOrCreate('setLocalNameRet' , ret);
                   router.back();
                 } })
+  .accessibilityLevel('yes')
   .id('pages_subManualApiTest_subBrTest_deviceName__bcomp_1')
               }.width('120vp')
             }

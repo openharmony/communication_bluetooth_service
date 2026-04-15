@@ -13,8 +13,7 @@
  * limitations under the License.
  */
 
-import { myParams } from '../../Utils/common'
-import router from '@ohos.router';
+import { testItemFromRouterOrPlaceholder } from '../../Utils/common'
 import { PageTitle } from '../../Component/pageTitle';
 import { TestImageDisplay } from '../../Component/testImageDisplay';
 import { TestData } from '../../MainAbility/model/testData'
@@ -28,7 +27,7 @@ import { testSetBluetoothScanMode , testSetLocalName } from '../../MainAbility/m
 @Entry
 @Component
 struct GattServerVelocityBenchmarkTest {
-  private testItem: TestData = (router.getParams() as myParams).testItem
+  private testItem: TestData = testItemFromRouterOrPlaceholder()
   @State changeIndex: number = - 1
   @State gatt_Cycle_index: number = 10
   @StorageLink("gattServerBenchmarkTestMessage") gattServerBenchmarkTestMessage: string = ""
@@ -72,6 +71,7 @@ struct GattServerVelocityBenchmarkTest {
       Stack({ alignContent : Alignment.TopStart }) {
         TestImageDisplay({ testItem : this.testItem })
         PageTitle({ testItem : this.testItem })
+  .accessibilityLevel('yes')
   .id('pages_subBenchmarkTest_gattServerVelocityBenchmarkTest__pt_0')
       }
 
@@ -120,6 +120,7 @@ struct GattServerVelocityBenchmarkTest {
           .width('100%')
           .height('1300vp')
         }
+  .accessibilityLevel('yes')
   .id('pages_subBenchmarkTest_gattServerVelocityBenchmarkTest__sc_0')
         .scrollBarWidth('10vp')
         .scrollBar(BarState.Auto)
@@ -141,6 +142,7 @@ struct GattServerVelocityBenchmarkTest {
                   .textAlign(TextAlign.Start)
                   .width('90%')
               }
+  .accessibilityLevel('yes')
   .id('pages_subBenchmarkTest_gattServerVelocityBenchmarkTest__li_0')
             }
             .height('90%')
@@ -150,6 +152,7 @@ struct GattServerVelocityBenchmarkTest {
           .width('100%')
           .height('330vp')
         }
+  .accessibilityLevel('yes')
   .id('pages_subBenchmarkTest_gattServerVelocityBenchmarkTest__sc_1')
         .scrollBarWidth('10vp')
         .scrollBar(BarState.On)
@@ -164,6 +167,7 @@ struct GattServerVelocityBenchmarkTest {
               Text('速率性能测试').fontSize('24vp').fontColor(0xffffff).margin({ left : '5vp' , right : '5vp' })
             }.alignItems(VerticalAlign.Center)
           }
+  .accessibilityLevel('yes')
   .id('pages_subBenchmarkTest_gattServerVelocityBenchmarkTest__btn_0')
           .borderRadius('8vp')
           .backgroundColor($r("app.color.blue"))
@@ -204,6 +208,7 @@ struct GattServerVelocityBenchmarkTest {
               Text('结束测试').fontSize('24vp').fontColor(0xffffff).margin({ left : '5vp' , right : '5vp' })
             }.alignItems(VerticalAlign.Center)
           }
+  .accessibilityLevel('yes')
   .id('pages_subBenchmarkTest_gattServerVelocityBenchmarkTest__btn_1')
           .borderRadius('8vp')
           .backgroundColor($r("app.color.blue"))
@@ -230,9 +235,11 @@ struct GattServerVelocityBenchmarkTest {
           Button({ type : ButtonType.Normal , stateEffect : true }) {
             Row() {
               Image($r('app.media.ic_public_delete_filled'))
+  .accessibilityLevel('yes')
   .id('pages_subBenchmarkTest_gattServerVelocityBenchmarkTest__img_0').width('30vp').height('40vp').margin({ left : '5vp' })
             }.alignItems(VerticalAlign.Center)
           }
+  .accessibilityLevel('yes')
   .id('pages_subBenchmarkTest_gattServerVelocityBenchmarkTest__btn_2')
           .borderRadius('8vp')
           .backgroundColor($r("app.color.moon"))

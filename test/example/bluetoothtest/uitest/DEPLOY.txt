@@ -1,0 +1,34 @@
+Skill commands (from repo skills/ohproj):
+  python3 skills/ohproj/ohproj.py build <项目>
+  python3 skills/ohproj/ohproj.py build-test <项目>
+  python3 skills/ohproj/ohproj.py build-test-uitest <项目>
+  python3 skills/ohproj/ohproj.py sign <项目> debug
+  python3 skills/ohproj/ohproj.py test <项目> [--timeout 毫秒]           # API only
+  python3 skills/ohproj/ohproj.py test-uitest <项目> [--timeout 毫秒]   # UiTest only
+  python3 skills/ohproj/ohproj.py test-all <项目> [--timeout 毫秒]      # both
+
+Two Hypium entry points in this repo (same bundle, separate test HAPs):
+
+1) API tests (no @ohos.UiTest)
+   - Sources: entry/src/ohosTest/ets/test/, List.test.ets
+   - Test module name: entry_test
+   - Build: python3 <repo>/skills/ohproj/ohproj.py build-test <project>
+     (default: module entry@ohosTest)
+   - Install: entry-default-signed.hap + entry/build/.../entry-ohosTest-signed.hap
+   - Run: aa test -b <bundle> -m entry_test -s unittest OpenHarmonyTestRunner -s timeout <ms>
+     (omit -s class to run the full testsuite)
+
+2) Ui tests (Hypium + @ohos.UiTest)
+   - Default suite (List.test.ets): UitestStubSmoke (2) + MainPageControlsUi01/02/03（约 592 条，按 entry 页面控件 .id 校验）。
+   - 全量跑耗时长，建议 test-uitest 加大 --timeout（例如 3600000 ms）；部分 ROM 上 entry 窗口对 Driver 不可见时会大量失败，需对症排查或换机验证。
+   - Sources: uitest/src/ohosTest/ets/test/, List.test.ets
+   - Test module name: uitest_test
+   - Build feature stub + test HAP:
+       hvigorw --mode module -p module=uitest -p product=default assembleHap
+       hvigorw --mode module -p module=uitest@ohosTest -p isOhosTest=true -p product=default -p buildMode=test assembleHap
+   - Sign: python3 <repo>/skills/ohproj/ohproj.py sign <project> debug
+     (signs all unsigned HAPs under the project, including uitest-*)
+   - Install (typical): entry-default-signed.hap, uitest-default-signed.hap, uitest-ohosTest-signed.hap
+   - Run: aa test -b <bundle> -m uitest_test -s unittest OpenHarmonyTestRunner -s timeout <ms>
+
+MainPageControlsUi*.test.ets (entry 全页控件) 仍保留在 uitest/src/ohosTest/ets/test/；参考副本见 scripts/ui_tests_backup/。

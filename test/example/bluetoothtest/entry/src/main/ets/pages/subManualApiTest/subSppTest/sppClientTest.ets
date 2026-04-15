@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { myParams } from '../../../Utils/common'
+import { testItemFromRouterOrPlaceholder } from '../../../Utils/common'
 import ConfigData from '../../../Utils/ConfigData';
 import LogUtil from '../../../Utils/LogUtil';
 import bluetooth from '@ohos.bluetooth';
@@ -23,7 +23,6 @@ import { PageTitle } from '../../../Component/pageTitle';
 import { ContentTable } from '../../../Component/contentTable';
 import { initSppClientApiData } from '../../../MainAbility/model/testDataModels'
 import { TestImageDisplay } from '../../../Component/testImageDisplay';
-import router from '@ohos.router';
 import { TestData } from '../../../MainAbility/model/testData'
 
 let MODEL = "bluetoothModel:"
@@ -50,7 +49,7 @@ struct SppClient {
   @StorageLink('pairedDeviceInfo') pairingDevice: BluetoothDevice = new BluetoothDevice;
   @StorageLink('btDeviceController') controller: BluetoothDeviceController = new BluetoothDeviceController;
   @State pairPinCode: string = '';
-  private testItem: TestData = (router.getParams() as myParams).testItem;
+  private testItem: TestData = testItemFromRouterOrPlaceholder();
   pairDialog: CustomDialogController = new CustomDialogController({
     builder : PairDialog({
       deviceName : this.pairingDevice.deviceName ,
@@ -78,6 +77,7 @@ struct SppClient {
           Stack({ alignContent : Alignment.TopStart }) {
             TestImageDisplay({ testItem : this.testItem })
             PageTitle({ testItem : this.testItem })
+  .accessibilityLevel('yes')
   .id('pages_subManualApiTest_subSppTest_sppClientTest__pt_0')
           }
 
@@ -85,6 +85,7 @@ struct SppClient {
           Row() {
             Text("目标设备MAC：").fontSize('17vp').width('70vp');
             TextInput({ text : this.deviceId , placeholder : "请输入mac地址" })
+  .accessibilityLevel('yes')
   .id('pages_subManualApiTest_subSppTest_sppClientTest__ti_0')
               .fontSize('15vp')
               .onChange((str) => {
@@ -102,6 +103,7 @@ struct SppClient {
           Row() {
             Text("目标设备UUID：").fontSize('17vp').width('70vp');
             TextInput({ text : this.uuid , placeholder : "请输入uuid" })
+  .accessibilityLevel('yes')
   .id('pages_subManualApiTest_subSppTest_sppClientTest__ti_1')
               .fontSize('15vp')
               .onChange((str) => {
@@ -119,6 +121,7 @@ struct SppClient {
           Row() {
             Text("写入目标设备数据：").fontSize('17vp').width('95vp');
             TextInput({ text : this.writeClientData , placeholder : "请输入写入的数据" })
+  .accessibilityLevel('yes')
   .id('pages_subManualApiTest_subSppTest_sppClientTest__ti_2')
               .fontSize('15vp')
               .onChange((str) => {
@@ -155,6 +158,7 @@ struct SppClient {
             Scroll() {
               ContentTable({ apiItems : initSppClientApiData() }) //子层调用
             }
+  .accessibilityLevel('yes')
   .id('pages_subManualApiTest_subSppTest_sppClientTest__sc_0')
             .width(ConfigData.WH_100_100)
             .align(Alignment.TopStart)
@@ -334,6 +338,7 @@ struct PairDialog {
               .fontSize('16fp')
               .fontColor(Color.Blue)
           }
+  .accessibilityLevel('yes')
   .id('pages_subManualApiTest_subSppTest_sppClientTest__btn_0')
           .backgroundColor($r("app.color.white_bg_color"))
           .width('160vp')
@@ -355,6 +360,7 @@ struct PairDialog {
               .fontSize('16fp')
               .fontColor(Color.Blue)
           }
+  .accessibilityLevel('yes')
   .id('pages_subManualApiTest_subSppTest_sppClientTest__btn_1')
           .backgroundColor($r("app.color.white_bg_color"))
           .width('160vp')
