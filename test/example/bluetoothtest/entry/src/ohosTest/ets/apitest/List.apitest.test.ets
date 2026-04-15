@@ -24,6 +24,11 @@ import connBleSocketMass01 from './ConnBleSocketMass01.test'
 import connBleSocketMass02 from './ConnBleSocketMass02.test'
 import connBleSocketMass03 from './ConnBleSocketMass03.test'
 import connBleSocketMass04 from './ConnBleSocketMass04.test'
+import bluetoothExpandedMatrixConnection01 from './BluetoothExpandedMatrixConnection01.test'
+import bluetoothExpandedMatrixConnection02 from './BluetoothExpandedMatrixConnection02.test'
+import bluetoothExpandedMatrixLegacy01 from './BluetoothExpandedMatrixLegacy01.test'
+import bluetoothExpandedMatrixLegacy02 from './BluetoothExpandedMatrixLegacy02.test'
+import bluetoothExpandedMatrixRotate from './BluetoothExpandedMatrixRotate.test'
 
 export function registerApitestSuite(): void {
   abilityTest()
@@ -34,6 +39,11 @@ export function registerApitestSuite(): void {
   connBleSocketMass02()
   connBleSocketMass03()
   connBleSocketMass04()
+  bluetoothExpandedMatrixConnection01()
+  bluetoothExpandedMatrixConnection02()
+  bluetoothExpandedMatrixLegacy01()
+  bluetoothExpandedMatrixLegacy02()
+  bluetoothExpandedMatrixRotate()
 }
 
 export default function testsuiteApitestOnly(): void {
