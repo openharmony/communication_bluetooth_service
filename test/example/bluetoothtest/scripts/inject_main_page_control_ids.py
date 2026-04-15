@@ -32,7 +32,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 MAIN_PAGES_JSON = ROOT / "entry/src/main/resources/base/profile/main_pages.json"
 MAIN_ETS = ROOT / "entry/src/main/ets"
-MANIFEST_OUT = ROOT / "entry/src/ohosTest/ets/test/main_page_control_manifest.json"
+MANIFEST_OUT = ROOT / "entry/src/ohosTest/ets/apitest/main_page_control_manifest.json"
 
 COMPONENTS: list[tuple[str, str]] = [
     ("TextInput", "ti"),
