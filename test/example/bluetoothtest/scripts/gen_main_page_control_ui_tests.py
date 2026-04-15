@@ -27,9 +27,9 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 # Manifest is produced by inject_main_page_control_ids.py (may live under scripts/ui_tests_backup
 # when UiTest sources are moved out of the compile tree).
-MANIFEST = ROOT / "entry/src/ohosTest/ets/test/main_page_control_manifest.json"
+MANIFEST = ROOT / "entry/src/ohosTest/ets/apitest/main_page_control_manifest.json"
 MANIFEST_ALT = ROOT / "scripts/ui_tests_backup/main_page_control_manifest.json"
-OUT_DIR = ROOT / "entry/src/ohosTest/ets/test"
+OUT_DIR = ROOT / "entry/src/ohosTest/ets/uitest"
 MAX_LINES = 1500
 TESTS_PER_CHUNK = 280  # ~5 lines/test + ~60 header → under 1500
 
