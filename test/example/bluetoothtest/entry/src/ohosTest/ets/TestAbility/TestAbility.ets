@@ -17,7 +17,8 @@ import { AbilityConstant, Want } from '@kit.AbilityKit';
 import AbilityDelegatorRegistry from '@ohos.app.ability.abilityDelegatorRegistry';
 import hilog from '@ohos.hilog';
 import { Hypium } from '@ohos/hypium';
-import testsuite from '../test/List.test';
+/** 默认：API + UiTest（List.test）。仅跑 apitest 时将 import 改为 ../apitest/List.apitest.test */
+import testsuite from '../apitest/List.test';
 import window from '@ohos.window';
 
 export default class TestAbility extends UIAbility {
