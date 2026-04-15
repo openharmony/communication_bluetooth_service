@@ -1,6 +1,6 @@
 UiTest sources (@ohos.UiTest) live under entry ohosTest:
   entry/src/ohosTest/ets/uitest/
-Hypium entry is entry/src/ohosTest/ets/test/List.test.ets (see entry/src/ohosTest/ets/uitest/DEPLOY.txt).
+Hypium entry is entry/src/ohosTest/ets/apitest/List.test.ets (see entry/src/ohosTest/ets/uitest/DEPLOY.txt).
 
 This directory keeps copies of generated files and main_page_control_manifest.json for regeneration:
   python3 scripts/inject_main_page_control_ids.py
