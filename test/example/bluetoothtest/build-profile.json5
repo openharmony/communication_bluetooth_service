@@ -39,18 +39,6 @@
           ]
         }
       ]
-    },
-    {
-      "name": "uitest",
-      "srcPath": "./uitest",
-      "targets": [
-        {
-          "name": "default",
-          "applyToProducts": [
-            "default"
-          ]
-        }
-      ]
     }
   ]
 }

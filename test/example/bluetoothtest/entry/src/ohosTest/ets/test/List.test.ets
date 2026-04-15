@@ -18,6 +18,10 @@ import connBleSocketMass01 from './ConnBleSocketMass01.test'
 import connBleSocketMass02 from './ConnBleSocketMass02.test'
 import connBleSocketMass03 from './ConnBleSocketMass03.test'
 import connBleSocketMass04 from './ConnBleSocketMass04.test'
+import uitestStubSmoke from '../uitest/UitestStubSmoke.test'
+import mainPageControlsUi01 from '../uitest/MainPageControlsUi01.test'
+import mainPageControlsUi02 from '../uitest/MainPageControlsUi02.test'
+import mainPageControlsUi03 from '../uitest/MainPageControlsUi03.test'
 
 export default function testsuite() {
   bluetoothApiCoverageTest()
@@ -26,4 +30,8 @@ export default function testsuite() {
   connBleSocketMass02()
   connBleSocketMass03()
   connBleSocketMass04()
+  uitestStubSmoke()
+  mainPageControlsUi01()
+  mainPageControlsUi02()
+  mainPageControlsUi03()
 }

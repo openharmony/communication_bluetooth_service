@@ -25,8 +25,7 @@ export const MAIN_BUNDLE: string = 'com.example.myapplicationbt';
 /** 与 entry/module.json5 中 module.name 一致；多模块工程下 startAbility 需指定，否则无法正确拉起含页面路由的 entry UIAbility */
 export const ENTRY_MODULE: string = 'entry';
 export const ENTRY_ABILITY: string = 'EntryAbility';
-/** uitest 主模块：Hypium 用例与 stub 页同包，Driver 查此窗口比跨模块拉 entry 更稳定 */
-export const UITEST_MODULE: string = 'uitest';
+/** stub 能力在 entry 主模块内（pages/uitestStub），与 Hypium 同包便于 Driver 枚举窗口 */
 export const UITEST_STUB_ABILITY: string = 'UiTestStubAbility';
 
 function delayMs(ms: number): Promise<void> {
@@ -102,16 +101,16 @@ export async function startMainPage(route: string): Promise<void> {
   await delayMs(400);
 }
 
-/** 拉起 uitest 特性模块中的 stub 页（pages/Index），供 UiTest 校验同 bundle 内窗口可见性 */
+/** 拉起 entry 内的 UiTestStubAbility（pages/uitestStub/Index），供 UiTest 校验同 bundle 内窗口可见性 */
 export async function startUiTestStubAbility(): Promise<void> {
   const delegator = abilityDelegatorRegistry.getAbilityDelegator();
   const cmd =
-    `aa start -b ${MAIN_BUNDLE} -a ${UITEST_STUB_ABILITY} -m ${UITEST_MODULE}`;
+    `aa start -b ${MAIN_BUNDLE} -a ${UITEST_STUB_ABILITY} -m ${ENTRY_MODULE}`;
   const shellRet = await delegator.executeShellCommand(cmd, 60);
   if (shellRet.exitCode !== 0) {
     const want: Want = {
       bundleName: MAIN_BUNDLE,
-      moduleName: UITEST_MODULE,
+      moduleName: ENTRY_MODULE,
       abilityName: UITEST_STUB_ABILITY
     };
     await delegator.startAbility(want);
