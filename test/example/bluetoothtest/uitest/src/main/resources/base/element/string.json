@@ -1,0 +1,16 @@
+{
+  "string": [
+    {
+      "name": "module_uitest_desc",
+      "value": "UiTest harness stub module"
+    },
+    {
+      "name": "UiTestStubAbility_desc",
+      "value": "Stub UI for uitest feature module"
+    },
+    {
+      "name": "UiTestStubAbility_label",
+      "value": "uitest"
+    }
+  ]
+}

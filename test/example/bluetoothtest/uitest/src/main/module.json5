@@ -1,0 +1,27 @@
+{
+  "module": {
+    "name": "uitest",
+    "type": "feature",
+    "description": "$string:module_uitest_desc",
+    "mainElement": "UiTestStubAbility",
+    "deviceTypes": [
+      "default",
+      "tablet"
+    ],
+    "deliveryWithInstall": true,
+    "installationFree": false,
+    "pages": "$profile:main_pages",
+    "abilities": [
+      {
+        "name": "UiTestStubAbility",
+        "srcEntry": "./ets/uitestability/UiTestStubAbility.ets",
+        "description": "$string:UiTestStubAbility_desc",
+        "icon": "$media:AutoIcon",
+        "label": "$string:UiTestStubAbility_label",
+        "exported": true,
+        "startWindowIcon": "$media:AutoIcon",
+        "startWindowBackground": "$color:white"
+      }
+    ]
+  }
+}
