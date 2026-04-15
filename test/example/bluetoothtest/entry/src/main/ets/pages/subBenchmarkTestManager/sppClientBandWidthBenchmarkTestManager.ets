@@ -13,8 +13,7 @@
  * limitations under the License.
  */
 
-import { myParams } from '../../Utils/common'
-import router from '@ohos.router';
+import { testItemFromRouterOrPlaceholder } from '../../Utils/common'
 import { PageTitle } from '../../Component/pageTitle';
 import { TestImageDisplay } from '../../Component/testImageDisplay';
 import { TestData } from '../../MainAbility/model/testData'
@@ -33,7 +32,7 @@ import promptAction from '@ohos.promptAction';
 @Component
 struct SppClientBandWidthBenchmarkTestManager {
   @State message: string = 'SppClientBenchmarkTestManager';
-  private testItem: TestData = (router.getParams() as myParams).testItem
+  private testItem: TestData = testItemFromRouterOrPlaceholder()
   @State changeIndex: number = - 1
   @StorageLink('dataClientReadMessageBW') dataClientReadMessageBW: string = "00";
   @StorageLink("sppClientBandWidthBenchmarkTestMessage") sppClientBandWidthBenchmarkTestMessage: string = ""
@@ -54,6 +53,7 @@ struct SppClientBandWidthBenchmarkTestManager {
       Stack({ alignContent : Alignment.TopStart }) {
         TestImageDisplay({ testItem : this.testItem })
         PageTitle({ testItem : this.testItem })
+  .accessibilityLevel('yes')
   .id('pages_subBenchmarkTestManager_sppClientBandWidthBenchmarkTestManager__pt_0')
       }
 
@@ -77,6 +77,7 @@ struct SppClientBandWidthBenchmarkTestManager {
             Row() {
               Text("目标设备MAC：").fontSize('17vp').width('1300vp')
               TextInput({ text : this.deviceId , placeholder : "请输入mac地址" })
+  .accessibilityLevel('yes')
   .id('pages_subBenchmarkTestManager_sppClientBandWidthBenchmarkTestManager__ti_0')
                 .fontSize('17vp')
                 .onChange((str) => {
@@ -95,6 +96,7 @@ struct SppClientBandWidthBenchmarkTestManager {
             Row() {
               Text("写入目标设备数据：").fontSize('17vp').width('160vp').padding({ left : '5vp' });
               TextInput({ text : this.writeClientDataBW , placeholder : "请输入写入的数据" })
+  .accessibilityLevel('yes')
   .id('pages_subBenchmarkTestManager_sppClientBandWidthBenchmarkTestManager__ti_1')
                 .align(Alignment.Center)
                 .fontSize('15vp')
@@ -129,12 +131,14 @@ struct SppClientBandWidthBenchmarkTestManager {
                         .borderRadius('10vp')
                         .backgroundColor($r("app.color.white"))
                     }
+  .accessibilityLevel('yes')
   .id('pages_subBenchmarkTestManager_sppClientBandWidthBenchmarkTestManager__li_0')
                   }
                   .height('95%')
                   .width('90%')
                   .backgroundColor($r("sys.color.ohos_id_color_foreground_contrary"))
                 }
+  .accessibilityLevel('yes')
   .id('pages_subBenchmarkTestManager_sppClientBandWidthBenchmarkTestManager__sc_2')
                 .scrollBarWidth('10vp')
                 .scrollBar(BarState.On)
@@ -142,6 +146,7 @@ struct SppClientBandWidthBenchmarkTestManager {
               .width('100%')
               .height('150vp')
             }
+  .accessibilityLevel('yes')
   .id('pages_subBenchmarkTestManager_sppClientBandWidthBenchmarkTestManager__sc_1')
             .scrollBarWidth('10vp')
             .scrollBar(BarState.On)
@@ -150,6 +155,7 @@ struct SppClientBandWidthBenchmarkTestManager {
           .height('360vp')
           .backgroundColor($r("sys.color.ohos_id_color_sub_background"))
         }
+  .accessibilityLevel('yes')
   .id('pages_subBenchmarkTestManager_sppClientBandWidthBenchmarkTestManager__sc_0')
         .scrollBarWidth('10vp')
         .scrollBar(BarState.Auto)
@@ -172,6 +178,7 @@ struct SppClientBandWidthBenchmarkTestManager {
                   .textAlign(TextAlign.Start)
                   .width('90%')
               }
+  .accessibilityLevel('yes')
   .id('pages_subBenchmarkTestManager_sppClientBandWidthBenchmarkTestManager__li_1')
             }
             .height('90%')
@@ -181,6 +188,7 @@ struct SppClientBandWidthBenchmarkTestManager {
           .width('100%')
           .height('150vp')
         }
+  .accessibilityLevel('yes')
   .id('pages_subBenchmarkTestManager_sppClientBandWidthBenchmarkTestManager__sc_3')
         .scrollBarWidth('10vp')
         .scrollBar(BarState.On)
@@ -195,6 +203,7 @@ struct SppClientBandWidthBenchmarkTestManager {
               Text('带宽性能测试').fontSize('24vp').fontColor(0xffffff).margin({ left : '5vp' , right : '5vp' })
             }.alignItems(VerticalAlign.Center)
           }
+  .accessibilityLevel('yes')
   .id('pages_subBenchmarkTestManager_sppClientBandWidthBenchmarkTestManager__btn_0')
           .borderRadius('8vp')
           .backgroundColor($r("app.color.blue"))
@@ -222,6 +231,7 @@ struct SppClientBandWidthBenchmarkTestManager {
               Text('结束测试').fontSize('24vp').fontColor(0xffffff).margin({ left : '5vp' , right : '5vp' })
             }.alignItems(VerticalAlign.Center)
           }
+  .accessibilityLevel('yes')
   .id('pages_subBenchmarkTestManager_sppClientBandWidthBenchmarkTestManager__btn_1')
           .borderRadius('8vp')
           .backgroundColor($r("app.color.blue"))
@@ -246,9 +256,11 @@ struct SppClientBandWidthBenchmarkTestManager {
           Button({ type : ButtonType.Normal , stateEffect : true }) {
             Row() {
               Image($r('app.media.ic_public_delete_filled'))
+  .accessibilityLevel('yes')
   .id('pages_subBenchmarkTestManager_sppClientBandWidthBenchmarkTestManager__img_0').width('30vp').height('40vp').margin({ left : '5vp' })
             }.alignItems(VerticalAlign.Center)
           }
+  .accessibilityLevel('yes')
   .id('pages_subBenchmarkTestManager_sppClientBandWidthBenchmarkTestManager__btn_2')
           .borderRadius('8vp')
           .backgroundColor($r("app.color.moon"))

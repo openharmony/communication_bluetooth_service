@@ -16,6 +16,8 @@
 import UIAbility from '@ohos.app.ability.UIAbility';
 import hilog from '@ohos.hilog';
 import window from '@ohos.window';
+import type { Want } from '@kit.AbilityKit';
+import { setSkipBluetoothPermissionForAutomatedTest } from '../bluetoothTestNav';
 
 const DEFAULT_PAGE = 'pages/homePage';
 const TEST_PAGE_KEY = 'testTargetPage';
@@ -24,11 +26,21 @@ export default class EntryAbility extends UIAbility {
   private windowStageRef: window.WindowStage | null = null;
   private initialPage: string = DEFAULT_PAGE;
 
+  private extractTestTargetPage(w: Want | undefined): string | undefined {
+    if (!w?.parameters) {
+      return undefined;
+    }
+    const v = w.parameters[TEST_PAGE_KEY];
+    return typeof v === 'string' && v.length > 0 ? v : undefined;
+  }
+
   onCreate(want, launchParam) {
     hilog.info(0x0000, 'testTag', '%{public}s', 'Ability onCreate');
     globalThis.context = this.context;
-    const p = want?.parameters?.[TEST_PAGE_KEY];
-    if (typeof p === 'string' && p.length > 0) {
+    const p = this.extractTestTargetPage(want);
+    const fromAutomatedTest = p !== undefined;
+    setSkipBluetoothPermissionForAutomatedTest(fromAutomatedTest);
+    if (fromAutomatedTest && p) {
       this.initialPage = p;
     }
   }
@@ -38,6 +50,7 @@ export default class EntryAbility extends UIAbility {
     if (typeof p !== 'string' || p.length === 0 || !this.windowStageRef) {
       return;
     }
+    setSkipBluetoothPermissionForAutomatedTest(true);
     this.windowStageRef.loadContent(p, (err, data) => {
       if (err.code) {
         hilog.error(0x0000, 'testTag', 'loadContent onNewWant failed: %{public}s', JSON.stringify(err) ?? '');
@@ -54,6 +67,11 @@ export default class EntryAbility extends UIAbility {
   onWindowStageCreate(windowStage: window.WindowStage) {
     hilog.info(0x0000, 'testTag', '%{public}s', 'Ability onWindowStageCreate');
     this.windowStageRef = windowStage;
+    const fromLaunch = this.extractTestTargetPage(this.launchWant);
+    if (fromLaunch) {
+      setSkipBluetoothPermissionForAutomatedTest(true);
+      this.initialPage = fromLaunch;
+    }
     const page = this.initialPage;
     windowStage.loadContent(page, (err, data) => {
       if (err.code) {

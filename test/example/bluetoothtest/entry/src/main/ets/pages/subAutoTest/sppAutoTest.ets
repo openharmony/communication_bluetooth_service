@@ -13,8 +13,7 @@
  * limitations under the License.
  */
 
-import { myParams } from '../../Utils/common'
-import router from '@ohos.router';
+import { testItemFromRouterOrPlaceholder } from '../../Utils/common'
 import ConfigData from '../../Utils/ConfigData';
 import { TestData } from '../../MainAbility/model/testData'
 import { PageTitle } from '../../Component/pageTitle';
@@ -30,7 +29,7 @@ import { TestListItem } from '../../Component/testListItems';
 @Component
 struct SppAutoTest {
   private sppAutoTestItems: TestData[] = initSppAutoTestData();
-  private testItem: TestData = (router.getParams() as myParams).testItem
+  private testItem: TestData = testItemFromRouterOrPlaceholder()
   @StorageLink("autoTestMessage") autoTestMessage: string = ""
 
   build() {
@@ -38,17 +37,18 @@ struct SppAutoTest {
       Stack({ alignContent : Alignment.TopStart }) {
         TestImageDisplay({ testItem : this.testItem })
         PageTitle({ testItem : this.testItem })
+  .accessibilityLevel('yes')
   .id('pages_subAutoTest_sppAutoTest__pt_0')
       }
 
       List() {
-        ForEach(this.sppAutoTestItems , (item: TestData) => {
+        ForEach(this.sppAutoTestItems , (item: TestData, index: number) => {
           ListItem() {
             TestListItem({
               testItem : item
             })
           }
-  .id('pages_subAutoTest_sppAutoTest__li_0')
+  .id(index === 0 ? 'pages_subAutoTest_sppAutoTest__li_0' : `pages_subAutoTest_sppAutoTest__li_${index}`)
         } , (item: TestData) => item.id)
       }
       .height('93%')

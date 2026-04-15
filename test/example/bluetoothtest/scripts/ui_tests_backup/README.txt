@@ -1,7 +1,11 @@
-These files import @ohos.UiTest. OpenHarmony compiles all .ets under entry/src/ohosTest/ets/,
-so keeping them under ets/test/ links UiTest into the test HAP even when List.test.ets does not
-import them — which can cause TestAbility to exit with "App died" on some devices.
+UiTest sources (@ohos.UiTest) live in the separate module:
+  uitest/src/ohosTest/ets/test/
+with uitest/src/ohosTest/ets/test/List.test.ets as the entry (see uitest/DEPLOY.txt).
 
-Restore: copy *.ets and main_page_control_manifest.json back to
-entry/src/ohosTest/ets/test/, re-add imports/calls in List.test.ets, then run
-gen_main_page_control_ui_tests.py after inject_main_page_control_ids.py if needed.
+This directory keeps copies of generated files and main_page_control_manifest.json for regeneration:
+  python3 scripts/inject_main_page_control_ids.py
+  python3 scripts/gen_main_page_control_ui_tests.py
+Then sync outputs into uitest/src/ohosTest/ets/test/ (or adjust generator OUT_DIR).
+
+Previously these files were kept here because compiling all ohosTest sources pulled UiTest into the
+same test HAP as API-only Hypium; the uitest module avoids that split.

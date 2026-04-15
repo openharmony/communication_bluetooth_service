@@ -13,9 +13,8 @@
  * limitations under the License.
  */
 
-import { myParams , PairDevices } from '../../Utils/common'
+import { PairDevices, testItemFromRouterOrPlaceholder } from '../../Utils/common'
 import promptAction from '@ohos.promptAction';
-import router from '@ohos.router';
 import { PageTitle } from '../../Component/pageTitle';
 import { TestImageDisplay } from '../../Component/testImageDisplay';
 import { TestData } from '../../MainAbility/model/testData'
@@ -30,7 +29,7 @@ import { opp } from '@kit.ConnectivityKit';
 @Component
 struct oppSendScenarioTest {
   @State changeIndex: number = - 1;
-  private testItem: TestData = (router.getParams() as myParams).testItem
+  private testItem: TestData = testItemFromRouterOrPlaceholder()
   @StorageLink("oppSendScenarioMessage") oppSendScenarioMessage: string = ""
   private oppProfile!: opp.OppServerProfile;
   private pairDevices: PairDevices[] = []
@@ -64,6 +63,7 @@ struct oppSendScenarioTest {
       Stack({ alignContent : Alignment.TopStart }) {
         TestImageDisplay({ testItem : this.testItem })
         PageTitle({ testItem : this.testItem })
+  .accessibilityLevel('yes')
   .id('pages_subScenarioTest_oppSendScenarioTest__pt_0')
       }
 
@@ -77,7 +77,7 @@ struct oppSendScenarioTest {
               .margin({ top : '5vp' })
             Scroll() {
               List({ space : '5vp' }) {
-                ForEach(this.pairDevices , (item: PairDevices) => {
+                ForEach(this.pairDevices , (item: PairDevices, index: number) => {
                   ListItem() {
                     Text(item.name)
                       .fontSize('25vp')
@@ -88,13 +88,14 @@ struct oppSendScenarioTest {
                         radius : 5
                       })
                   }
-  .id('pages_subScenarioTest_oppSendScenarioTest__li_0')
+  .id(index === 0 ? 'pages_subScenarioTest_oppSendScenarioTest__li_0' : `pages_subScenarioTest_oppSendScenarioTest__li_${index}`)
                   .onClick(() => {
                     this.serverMac = item.id;
                   })
                 })
               }
             }
+  .accessibilityLevel('yes')
   .id('pages_subScenarioTest_oppSendScenarioTest__sc_1')
             .height('80%')
             .width('80%')
@@ -102,6 +103,7 @@ struct oppSendScenarioTest {
           .height('30%')
           .width('100%')
         }
+  .accessibilityLevel('yes')
   .id('pages_subScenarioTest_oppSendScenarioTest__sc_0')
         .scrollBarWidth('10vp')
         .scrollBar(BarState.Auto)
@@ -124,6 +126,7 @@ struct oppSendScenarioTest {
           Text("请输入需要发送的文件名称，如：test.txt").fontSize('18vp').fontWeight(FontWeight.Bold)
           Text("注：文件必须在/data/bluetooth/log/目录下").fontSize('18vp').fontWeight(FontWeight.Bold)
           TextInput({ placeholder : "文件名称" })
+  .accessibilityLevel('yes')
   .id('pages_subScenarioTest_oppSendScenarioTest__ti_0')
             .fontSize('20vp')
             .onChange((str) => {
@@ -151,6 +154,7 @@ struct oppSendScenarioTest {
                   .textAlign(TextAlign.Start)
                   .width('90%')
               }
+  .accessibilityLevel('yes')
   .id('pages_subScenarioTest_oppSendScenarioTest__li_1')
             }
             .height('80%')
@@ -160,6 +164,7 @@ struct oppSendScenarioTest {
           .width('100%')
           .height('30%')
         }
+  .accessibilityLevel('yes')
   .id('pages_subScenarioTest_oppSendScenarioTest__sc_2')
         .scrollBarWidth('10vp')
         .scrollBar(BarState.On)
@@ -174,6 +179,7 @@ struct oppSendScenarioTest {
         Flex({ alignItems : ItemAlign.Center , justifyContent : FlexAlign.SpaceBetween }) {
           Column() {
             Button('oppSendFile')
+  .accessibilityLevel('yes')
   .id('pages_subScenarioTest_oppSendScenarioTest__btn_0')
               .borderRadius('8vp')
               .backgroundColor($r("app.color.blue"))

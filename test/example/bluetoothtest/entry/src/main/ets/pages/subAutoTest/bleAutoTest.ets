@@ -1,4 +1,4 @@
-﻿/**
+/**
  * Copyright (C) 2022 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,9 +13,8 @@
  * limitations under the License.
  */
 
-import { BTAutoArrayItem , myParams } from '../../Utils/common'
+import { BTAutoArrayItem , testItemFromRouterOrPlaceholder } from '../../Utils/common'
 import ConfigData from '../../Utils/ConfigData';
-import router from '@ohos.router';
 import { TestData } from '../../MainAbility/model/testData'
 import { PageTitle } from '../../Component/pageTitle';
 import { TestImageDisplay } from '../../Component/testImageDisplay';
@@ -29,7 +28,7 @@ import { AutoContentTable } from '../../Component/autoContentTable'
 @Entry
 @Component
 struct BleAutoTest {
-  private testItem: TestData = (router.getParams() as myParams).testItem
+  private testItem: TestData = testItemFromRouterOrPlaceholder()
   @State changeIndex: number = - 1
   @StorageLink("bleAutoTestMessage") bleAutoTestMessage: string = ""
 
@@ -49,6 +48,7 @@ struct BleAutoTest {
       Stack({ alignContent : Alignment.TopStart }) {
         TestImageDisplay({ testItem : this.testItem })
         PageTitle({ testItem : this.testItem })
+  .accessibilityLevel('yes')
   .id('pages_subAutoTest_bleAutoTest__pt_0')
       }
 
@@ -69,6 +69,7 @@ struct BleAutoTest {
           .width('100%')
           .height('280vp')
         }
+  .accessibilityLevel('yes')
   .id('pages_subAutoTest_bleAutoTest__sc_0')
         .scrollBarWidth('10vp')
         .scrollBar(BarState.Auto)
@@ -90,6 +91,7 @@ struct BleAutoTest {
                   .textAlign(TextAlign.Start)
                   .width('90%')
               }
+  .accessibilityLevel('yes')
   .id('pages_subAutoTest_bleAutoTest__li_0')
             }
             .height('80%')
@@ -99,6 +101,7 @@ struct BleAutoTest {
           .width('100%')
           .height('260vp')
         }
+  .accessibilityLevel('yes')
   .id('pages_subAutoTest_bleAutoTest__sc_1')
         .scrollBarWidth('10vp')
         .scrollBar(BarState.Auto)
@@ -115,7 +118,9 @@ struct BleAutoTest {
             Text('自动测试').fontSize('24vp').fontColor(0xffffff).margin({ left : '5vp' , right : '5vp' })
           }.alignItems(VerticalAlign.Center)
         }
+  .accessibilityLevel('yes')
   .id('pages_subAutoTest_bleAutoTest__btn_0')
+        .accessibilityLevel('yes')
         .borderRadius('8vp')
         .backgroundColor($r("app.color.blue"))
         .width('180vp')

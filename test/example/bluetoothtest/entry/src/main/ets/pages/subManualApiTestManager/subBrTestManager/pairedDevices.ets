@@ -57,7 +57,7 @@ struct pairedDevices {
 
             Column() {
               List() {
-                ForEach(this.pairedDevices , (item: string) => {
+                ForEach(this.pairedDevices , (item: string, index: number) => {
                   ListItem() {
                     TitleComponent({ title : item });
                   }.padding({ top : '2vp' , bottom : '2vp' })

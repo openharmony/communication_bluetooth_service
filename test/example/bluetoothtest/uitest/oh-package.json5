@@ -1,0 +1,10 @@
+{
+  "name": "uitest",
+  "version": "1.0.0",
+  "license": "",
+  "devDependencies": {},
+  "author": "",
+  "description": "UiTest-only feature module (Hypium + @ohos.UiTest).",
+  "main": "",
+  "dependencies": {}
+}

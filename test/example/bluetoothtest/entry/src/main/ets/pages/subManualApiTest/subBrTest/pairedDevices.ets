@@ -51,6 +51,7 @@ struct PairedDevices {
 
           Column() {
             PageTitle({ detail : '已配对设备' })
+  .accessibilityLevel('yes')
   .id('pages_subManualApiTest_subBrTest_pairedDevices__pt_0')
 
             Divider()
@@ -61,12 +62,13 @@ struct PairedDevices {
 
             Column() {
               List() {
-                ForEach(this.pairedDevices , (item: string) => {
+                ForEach(this.pairedDevices , (item: string, index: number) => {
                   ListItem() {
                     TitleComponent({ title : item })
+  .accessibilityLevel('yes')
   .id('pages_subManualApiTest_subBrTest_pairedDevices__tt_0');
                   }
-  .id('pages_subManualApiTest_subBrTest_pairedDevices__li_0').padding({ top : '2vp' , bottom : '2vp' })
+  .id(index === 0 ? 'pages_subManualApiTest_subBrTest_pairedDevices__li_0' : `pages_subManualApiTest_subBrTest_pairedDevices__li_${index}`).padding({ top : '2vp' , bottom : '2vp' })
                 } , (item: string) => JSON.stringify(item));
               }
 
@@ -82,6 +84,7 @@ struct PairedDevices {
                 ButtonComponent({ text : $r("app.string.cancel") , isOnClick : () => {
                   router.back();
                 } })
+  .accessibilityLevel('yes')
   .id('pages_subManualApiTest_subBrTest_pairedDevices__bcomp_0')
               }
               .width('120vp')
@@ -91,6 +94,7 @@ struct PairedDevices {
                 ButtonComponent({ text : $r("app.string.confirm") , isOnClick : () => {
                   router.back();
                 } })
+  .accessibilityLevel('yes')
   .id('pages_subManualApiTest_subBrTest_pairedDevices__bcomp_1')
               }.width('120vp')
             }

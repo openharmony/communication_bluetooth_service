@@ -13,9 +13,8 @@
  * limitations under the License.
  */
 
-import { myParams } from '../../../Utils/common'
+import { testItemFromRouterOrPlaceholder } from '../../../Utils/common'
 import { TestImageDisplay } from '../../../Component/testImageDisplay';
-import router from '@ohos.router';
 import ConfigData from '../../../Utils/ConfigData';
 import { initGattClientManagerApiData } from '../../../MainAbility/model/testDataModelsManager'
 import { PageTitle } from '../../../Component/pageTitle';
@@ -50,6 +49,7 @@ struct GattClientSetting {
       Row() {
         Text("外围设备MAC:").fontSize('16vp').width('70vp')
         TextInput({ text : this.peripheralDeviceId , placeholder : "input peripheral deviceId." })
+  .accessibilityLevel('yes')
   .id('pages_subManualApiTestManager_subGattTestManager_gattClientManager__ti_0')
           .fontSize('15vp')
           .onChange((strInput) => {
@@ -73,6 +73,7 @@ struct GattClientSetting {
           Row() {
             Text("服务UUID:").fontSize('15vp').width('60vp');
             TextInput({ text : this.serviceUUID , placeholder : "input Service UUID" })
+  .accessibilityLevel('yes')
   .id('pages_subManualApiTestManager_subGattTestManager_gattClientManager__ti_1')
               .fontSize('15vp')
               .onChange((strInput) => {
@@ -92,6 +93,7 @@ struct GattClientSetting {
           Row() {
             Text("特征值UUID:").fontSize('15vp').width('60vp');
             TextInput({ text : this.characteristicUUID , placeholder : "input Characteristic UUID" })
+  .accessibilityLevel('yes')
   .id('pages_subManualApiTestManager_subGattTestManager_gattClientManager__ti_2')
               .fontSize('15vp')
               .onChange((strInput) => {
@@ -111,6 +113,7 @@ struct GattClientSetting {
           Row() {
             Text("特征值Value:").fontSize('15vp').width('60vp');
             TextInput({ text : this.characteristicUUID , placeholder : "Characteristic Value" })
+  .accessibilityLevel('yes')
   .id('pages_subManualApiTestManager_subGattTestManager_gattClientManager__ti_3')
               .fontSize('15vp')
               .onChange((strInput) => {
@@ -130,6 +133,7 @@ struct GattClientSetting {
           Row() {
             Text("描述符UUID:").fontSize('15vp').width('60vp');
             TextInput({ text : this.descriptorUUID , placeholder : "input descriptor UUID" })
+  .accessibilityLevel('yes')
   .id('pages_subManualApiTestManager_subGattTestManager_gattClientManager__ti_4')
               .fontSize('15vp')
               .onChange((strInput) => {
@@ -149,6 +153,7 @@ struct GattClientSetting {
           Row() {
             Text("描述符Value:").fontSize('15vp').width('60vp');
             TextInput({ text : this.descriptorUUID , placeholder : "descriptor Value" })
+  .accessibilityLevel('yes')
   .id('pages_subManualApiTestManager_subGattTestManager_gattClientManager__ti_5')
               .fontSize('15vp')
               .onChange((strInput) => {
@@ -201,7 +206,7 @@ struct GattClientManager {
 
   //------------@State->private------------------------------
   private peripheralDeviceId = G_MAC; // '6c:96:d7:3d:87:6f';PC//
-  private testItem: TestData = (router.getParams() as myParams).testItem;
+  private testItem: TestData = testItemFromRouterOrPlaceholder();
 
   aboutToAppear() {
     AppStorage.setOrCreate('peripheralDeviceId' , this.peripheralDeviceId);
@@ -217,6 +222,7 @@ struct GattClientManager {
       Stack({ alignContent : Alignment.TopStart }) {
         TestImageDisplay({ testItem : this.testItem })
         PageTitle({ testItem : this.testItem })
+  .accessibilityLevel('yes')
   .id('pages_subManualApiTestManager_subGattTestManager_gattClientManager__pt_0')
       }
 
@@ -228,6 +234,7 @@ struct GattClientManager {
           .width('80%')
           .padding({ left : '15vp' })
         Image($r('app.media.Switch'))
+  .accessibilityLevel('yes')
   .id('pages_subManualApiTestManager_subGattTestManager_gattClientManager__img_0')
           .height('50vp')
           .width('50vp')
@@ -293,6 +300,7 @@ struct GattClientManager {
               }
               .width('100%')
             }
+  .accessibilityLevel('yes')
   .id('pages_subManualApiTestManager_subGattTestManager_gattClientManager__sc_0')
             .scrollBarWidth('10vp')
             .scrollBar(BarState.Auto)
@@ -311,6 +319,7 @@ struct GattClientManager {
             Scroll() {
               ContentTable({ apiItems : initGattClientManagerApiData() })
             }
+  .accessibilityLevel('yes')
   .id('pages_subManualApiTestManager_subGattTestManager_gattClientManager__sc_1')
             .width(ConfigData.WH_100_100)
             .align(Alignment.TopStart)

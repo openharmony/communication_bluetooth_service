@@ -12,12 +12,11 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { myParams } from '../../Utils/common'
+import { testItemFromRouterOrPlaceholder } from '../../Utils/common'
 import { PageTitle } from '../../Component/pageTitle';
 import { TestImageDisplay } from '../../Component/testImageDisplay';
 import { ContentTable } from '../../Component/contentTable';
 import BluetoothModel , { BluetoothDevice } from '../../MainAbility/model/BluetoothModel';
-import router from '@ohos.router';
 import BluetoothDeviceController from '../../MainAbility/controller/BluetoothDeviceController';
 import ConfigData from '../../Utils/ConfigData';
 import LogUtil from '../../Utils/LogUtil';
@@ -34,7 +33,7 @@ const TAG = "[Bluetooth]"
 @Component
 struct BrTest {
   private TAG_PAGE = ConfigData.TAG + 'Paired_Device ';
-  private testItem: TestData = (router.getParams() as myParams).testItem;
+  private testItem: TestData = testItemFromRouterOrPlaceholder();
   @State btEnable: boolean = false;
   @StorageLink('setLocalNameRet') setLocalNameRet: boolean = false;
   @StorageLink('setScanModeRet') setScanModeRet: boolean = false;
@@ -87,6 +86,7 @@ struct BrTest {
       Stack({ alignContent : Alignment.TopStart }) {
         TestImageDisplay({ testItem : this.testItem })
         PageTitle({ testItem : this.testItem })
+  .accessibilityLevel('yes')
   .id('pages_subManualApiTest_BrInterfaceTest__pt_0')
       }
 
@@ -99,6 +99,7 @@ struct BrTest {
             .width(ConfigData.WH_30_100)
             .align(Alignment.Start)
           TextInput({ text : this.pairedMac , placeholder : "请输入即将连接的设备MAC" })
+  .accessibilityLevel('yes')
   .id('pages_subManualApiTest_BrInterfaceTest__ti_0')
             .height('40vp')
             .borderStyle(BorderStyle.Dashed)
@@ -243,6 +244,7 @@ struct PairDialog {
               .fontSize('16fp')
               .fontColor(Color.Blue)
           }
+  .accessibilityLevel('yes')
   .id('pages_subManualApiTest_BrInterfaceTest__btn_0')
           .backgroundColor($r("app.color.white_bg_color"))
           .width('160vp')
@@ -264,6 +266,7 @@ struct PairDialog {
               .fontSize('16fp')
               .fontColor(Color.Blue)
           }
+  .accessibilityLevel('yes')
   .id('pages_subManualApiTest_BrInterfaceTest__btn_1')
           .backgroundColor($r("app.color.white_bg_color"))
           .width('160vp')
