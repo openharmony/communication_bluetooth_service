@@ -80,6 +80,7 @@ struct DeviceFound {
           });
           Column({ space : '12vp' }) {
             PageTitle({ detail : '扫描蓝牙设备' })
+  .accessibilityLevel('yes')
   .id('pages_subManualApiTest_subBrTest_deviceFound__pt_0')
             Scroll() {
               Column() {
@@ -97,6 +98,7 @@ struct DeviceFound {
               .width(ConfigData.WH_100_100)
               .margin({ bottom : $r('sys.float.ohos_id_default_padding_bottom_fixed') })
             }
+  .accessibilityLevel('yes')
   .id('pages_subManualApiTest_subBrTest_deviceFound__sc_0')
             .width(ConfigData.WH_100_100)
             .align(Alignment.TopStart)
@@ -195,7 +197,7 @@ export struct PairedDeviceComponent {
               })
 
             }
-  .id('pages_subManualApiTest_subBrTest_deviceFound__li_0')
+  .id(index === 0 ? 'pages_subManualApiTest_subBrTest_deviceFound__li_0' : `pages_subManualApiTest_subBrTest_deviceFound__li_${index}`)
           } , (item: BluetoothDevice) => JSON.stringify(item));
         }
         .height('200vp')
@@ -325,6 +327,7 @@ export struct AvailableItem {
     Row() {
       Row() {
         Image($r('app.media.bleSmall'))
+  .accessibilityLevel('yes')
   .id('pages_subManualApiTest_subBrTest_deviceFound__img_0')
           .objectFit(ImageFit.Contain)
           .autoResize(false)
@@ -376,6 +379,7 @@ export struct PairedItem {
     Row() {
       Row() {
         Image($r('app.media.bleSmall'))
+  .accessibilityLevel('yes')
   .id('pages_subManualApiTest_subBrTest_deviceFound__img_1')
           .objectFit(ImageFit.Contain)
           .autoResize(false)
@@ -491,7 +495,7 @@ export struct AvailableDeviceComponent {
         Scroll() {
           List() {
             // paired devices list
-            ForEach(this.availableDevices , (item: BluetoothDevice) => {
+            ForEach(this.availableDevices , (item: BluetoothDevice, index: number) => {
               ListItem() {
                 Row() {
                   AvailableItem({
@@ -512,6 +516,7 @@ export struct AvailableDeviceComponent {
                   this.pairDevice(item)
                 })
               }
+  .accessibilityLevel('yes')
   .id('pages_subManualApiTest_subBrTest_deviceFound__li_1')
             } , (item: BluetoothDevice) => JSON.stringify(item));
           }
@@ -525,6 +530,7 @@ export struct AvailableDeviceComponent {
             endMargin : '12vp'
           })
         }
+  .accessibilityLevel('yes')
   .id('pages_subManualApiTest_subBrTest_deviceFound__sc_1')
         .scrollBar(BarState.Auto)
         .scrollBarWidth('20vp')
@@ -665,6 +671,7 @@ struct PairDialog {
               .fontSize('16fp')
               .fontColor(Color.Blue)
           }
+  .accessibilityLevel('yes')
   .id('pages_subManualApiTest_subBrTest_deviceFound__btn_0')
           .backgroundColor($r("app.color.white_bg_color"))
           .width('160vp')
@@ -686,6 +693,7 @@ struct PairDialog {
               .fontSize('16fp')
               .fontColor(Color.Blue)
           }
+  .accessibilityLevel('yes')
   .id('pages_subManualApiTest_subBrTest_deviceFound__btn_1')
           .backgroundColor($r("app.color.white_bg_color"))
           .width('160vp')

@@ -35,6 +35,7 @@ struct ProfileConnState2 {
         Row() {
           Text("目标设备MAC：").fontSize('20vp')
           TextInput({ text : this.deviceId , placeholder : "请输入mac地址" })
+  .accessibilityLevel('yes')
   .id('pages_subManualApiTest_subBrTest_searchProfileConnStateById__ti_0')
             .fontSize('20vp')
             .onChange((str) => {
@@ -54,8 +55,10 @@ struct ProfileConnState2 {
               fontSize : '15vp' ,
               bgColor : this.currentClick === 0 ? $r('app.color.font_color_007DFF') : $r('app.color.white_bg_color')
             })
+  .accessibilityLevel('yes')
   .id('pages_subManualApiTest_subBrTest_searchProfileConnStateById__tt_0');
           }
+  .accessibilityLevel('yes')
   .id('pages_subManualApiTest_subBrTest_searchProfileConnStateById__li_0')
           .padding({ top : '20vp' })
           .height('80vp')
@@ -91,8 +94,10 @@ struct ProfileConnState2 {
               fontSize : '15vp' ,
               bgColor : this.currentClick === 1 ? $r('app.color.font_color_007DFF') : $r('app.color.white_bg_color')
             })
+  .accessibilityLevel('yes')
   .id('pages_subManualApiTest_subBrTest_searchProfileConnStateById__tt_1');
           }
+  .accessibilityLevel('yes')
   .id('pages_subManualApiTest_subBrTest_searchProfileConnStateById__li_1')
           .padding({ top : '20vp' })
           .height('80vp')
@@ -128,8 +133,10 @@ struct ProfileConnState2 {
               fontSize : '15vp' ,
               bgColor : this.currentClick === 2 ? $r('app.color.font_color_007DFF') : $r('app.color.white_bg_color')
             })
+  .accessibilityLevel('yes')
   .id('pages_subManualApiTest_subBrTest_searchProfileConnStateById__tt_2');
           }
+  .accessibilityLevel('yes')
   .id('pages_subManualApiTest_subBrTest_searchProfileConnStateById__li_2')
           .padding({ top : '20vp' })
           .height('80vp')

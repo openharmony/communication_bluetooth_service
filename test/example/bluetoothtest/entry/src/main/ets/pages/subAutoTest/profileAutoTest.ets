@@ -13,9 +13,8 @@
  * limitations under the License.
  */
 
-import { myParams } from '../../Utils/common'
+import { testItemFromRouterOrPlaceholder } from '../../Utils/common'
 import ConfigData from '../../Utils/ConfigData';
-import router from '@ohos.router';
 import { TestData } from '../../MainAbility/model/testData'
 import { PageTitle } from '../../Component/pageTitle';
 import { TestImageDisplay } from '../../Component/testImageDisplay';
@@ -30,7 +29,7 @@ import { TestListItem } from '../../Component/testListItems';
 @Component
 struct ProfileAutoTest {
   private profileAutoTestItems: TestData[] = initProfileAutoTestData();
-  private testItem: TestData = (router.getParams() as myParams).testItem
+  private testItem: TestData = testItemFromRouterOrPlaceholder()
   @StorageLink("autoTestMessage") autoTestMessage: string = ""
 
   build() {
@@ -38,17 +37,18 @@ struct ProfileAutoTest {
       Stack({ alignContent : Alignment.TopStart }) {
         TestImageDisplay({ testItem : this.testItem })
         PageTitle({ testItem : this.testItem })
+  .accessibilityLevel('yes')
   .id('pages_subAutoTest_profileAutoTest__pt_0')
       }
 
       List() {
-        ForEach(this.profileAutoTestItems , (item: TestData) => {
+        ForEach(this.profileAutoTestItems , (item: TestData, index: number) => {
           ListItem() {
             TestListItem({
               testItem : item
             })
           }
-  .id('pages_subAutoTest_profileAutoTest__li_0')
+  .id(index === 0 ? 'pages_subAutoTest_profileAutoTest__li_0' : `pages_subAutoTest_profileAutoTest__li_${index}`)
         } , (item: TestData) => item.id)
       }
       .height('80%')

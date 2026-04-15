@@ -13,9 +13,8 @@
  * limitations under the License.
  */
 
-import { BleScanFilter , myParams } from '../../Utils/common'
+import { BleScanFilter, testItemFromRouterOrPlaceholder } from '../../Utils/common'
 import BluetoothModel from '../../MainAbility/model/BluetoothModel';
-import router from '@ohos.router';
 import bluetooth from '@ohos.bluetooth';
 import { PageTitle } from '../../Component/pageTitle';
 import { TestImageDisplay } from '../../Component/testImageDisplay';
@@ -31,7 +30,7 @@ import { BleFilterTable } from '../../Component/bleFilterTable';
 @Entry
 @Component
 struct BleTest {
-  private testItem: TestData = (router.getParams() as myParams).testItem;
+  private testItem: TestData = testItemFromRouterOrPlaceholder();
   @State showList: boolean = true;
   @State peripheralDeviceId: string = '6c:96:d7:3d:87:6f'; // 88:36:CF:09:C1:90
   @State currentClick: number = - 1;
@@ -79,6 +78,7 @@ struct BleTest {
       Stack({ alignContent : Alignment.TopStart }) {
         TestImageDisplay({ testItem : this.testItem })
         PageTitle({ testItem : this.testItem })
+  .accessibilityLevel('yes')
   .id('pages_subManualApiTest_bleTest__pt_0')
       }
 
@@ -92,6 +92,7 @@ struct BleTest {
             .align(Alignment.Start)
 
           TextInput({ text : this.peripheralDeviceId , placeholder : "input peripheral deviceId." })
+  .accessibilityLevel('yes')
   .id('pages_subManualApiTest_bleTest__ti_0')
             .fontSize('18vp')
             .onChange((strInput) => {
@@ -104,6 +105,7 @@ struct BleTest {
             .borderStyle(BorderStyle.Dashed)
             .backgroundColor($r("app.color.white"))
           Image($r('app.media.Switch'))
+  .accessibilityLevel('yes')
   .id('pages_subManualApiTest_bleTest__img_0')
             .height('50vp')
             .width('15%')

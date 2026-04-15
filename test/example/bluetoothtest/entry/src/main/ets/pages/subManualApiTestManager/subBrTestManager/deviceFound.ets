@@ -477,7 +477,7 @@ export struct AvailableDeviceComponent {
         Scroll() {
           List() {
             // paired devices list
-            ForEach(this.availableDevices , (item: BluetoothDevice) => {
+            ForEach(this.availableDevices , (item: BluetoothDevice, index: number) => {
               ListItem() {
                 Row() {
                   AvailableItem({

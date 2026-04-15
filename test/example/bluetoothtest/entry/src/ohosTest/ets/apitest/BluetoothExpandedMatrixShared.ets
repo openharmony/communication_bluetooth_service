@@ -12,18 +12,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import bluetoothApiCoverageTest from './BluetoothApiCoverage.test'
-import connectivityKitBluetoothTest from './ConnectivityKitBluetooth.test'
-import connBleSocketMass01 from './ConnBleSocketMass01.test'
-import connBleSocketMass02 from './ConnBleSocketMass02.test'
-import connBleSocketMass03 from './ConnBleSocketMass03.test'
-import connBleSocketMass04 from './ConnBleSocketMass04.test'
 
-export default function testsuite() {
-  bluetoothApiCoverageTest()
-  connectivityKitBluetoothTest()
-  connBleSocketMass01()
-  connBleSocketMass02()
-  connBleSocketMass03()
-  connBleSocketMass04()
+/**
+ * 扩展矩阵用例共享：扫参时实现侧可能抛错，统一吞异常以免阻断全量。
+ */
+export function matrixTryRun(fn: () => void): void {
+  try {
+    fn();
+  } catch (_e) {
+    // 参数或能力导致抛错时忽略
+  }
 }

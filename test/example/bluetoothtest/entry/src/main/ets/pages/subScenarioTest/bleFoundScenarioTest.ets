@@ -13,7 +13,6 @@
  * limitations under the License.
  */
 
-import router from '@ohos.router';
 import { PageTitle } from '../../Component/pageTitle';
 import { TestImageDisplay } from '../../Component/testImageDisplay';
 import { TestData } from '../../MainAbility/model/testData'
@@ -21,7 +20,7 @@ import { ScenarioContentTable } from '../../Component/scenarioContentTable'
 import { BleFoundScenarioTestCase , initBleFoundScenarioData } from '../../MainAbility/model/scenarioTestDataModel'
 import * as BLEInterface from '../../MainAbility/model/bleInterface'
 import * as BrInterface from '../../MainAbility/model/brInterface'
-import { BTAutoArrayItem , myParams } from '../../Utils/common'
+import { BTAutoArrayItem, testItemFromRouterOrPlaceholder } from '../../Utils/common'
 
 /**
  * BLE found Scenario Test Page Of Bluetooth test
@@ -30,7 +29,7 @@ import { BTAutoArrayItem , myParams } from '../../Utils/common'
 @Entry
 @Component
 struct BleFoundScenarioTest {
-  private testItem: TestData = (router.getParams() as myParams).testItem
+  private testItem: TestData = testItemFromRouterOrPlaceholder()
   @State changeIndex: number = - 1
   @StorageLink("bleFoundScenarioMessage") bleFoundScenarioMessage: string = ""
 
@@ -50,6 +49,7 @@ struct BleFoundScenarioTest {
       Stack({ alignContent : Alignment.TopStart }) {
         TestImageDisplay({ testItem : this.testItem })
         PageTitle({ testItem : this.testItem })
+  .accessibilityLevel('yes')
   .id('pages_subScenarioTest_bleFoundScenarioTest__pt_0')
       }
 
@@ -70,6 +70,7 @@ struct BleFoundScenarioTest {
           .width('100%')
           .height('280vp')
         }
+  .accessibilityLevel('yes')
   .id('pages_subScenarioTest_bleFoundScenarioTest__sc_0')
         .scrollBarWidth('10vp')
         .scrollBar(BarState.Auto)
@@ -91,6 +92,7 @@ struct BleFoundScenarioTest {
                   .textAlign(TextAlign.Start)
                   .width('90%')
               }
+  .accessibilityLevel('yes')
   .id('pages_subScenarioTest_bleFoundScenarioTest__li_0')
             }
             .height('80%')
@@ -100,6 +102,7 @@ struct BleFoundScenarioTest {
           .width('100%')
           .height('260vp')
         }
+  .accessibilityLevel('yes')
   .id('pages_subScenarioTest_bleFoundScenarioTest__sc_1')
         .scrollBarWidth('10vp')
         .scrollBar(BarState.On)
@@ -115,6 +118,7 @@ struct BleFoundScenarioTest {
           Button({ type : ButtonType.Normal , stateEffect : true }) {
             Text('场景测试开始').fontSize('24vp').fontColor(0xffffff).margin({ left : '5vp' , right : '5vp' })
           }
+  .accessibilityLevel('yes')
   .id('pages_subScenarioTest_bleFoundScenarioTest__btn_0')
           .borderRadius('8vp')
           .backgroundColor($r("app.color.blue"))
@@ -131,6 +135,7 @@ struct BleFoundScenarioTest {
               Text('场景测试结束').fontSize('24vp').fontColor(0xffffff).margin({ left : '5vp' , right : '5vp' })
             }.alignItems(VerticalAlign.Top)
           }
+  .accessibilityLevel('yes')
   .id('pages_subScenarioTest_bleFoundScenarioTest__btn_1')
           .borderRadius('8vp')
           .backgroundColor($r("app.color.blue"))
@@ -166,6 +171,7 @@ struct BleFoundScenarioTest {
               Text('清空日志').fontSize('24vp').fontColor(0xffffff).margin({ left : '5vp' , right : '5vp' })
             }.alignItems(VerticalAlign.Top)
           }
+  .accessibilityLevel('yes')
   .id('pages_subScenarioTest_bleFoundScenarioTest__btn_2')
           .borderRadius('8vp')
           .backgroundColor($r("app.color.moon"))

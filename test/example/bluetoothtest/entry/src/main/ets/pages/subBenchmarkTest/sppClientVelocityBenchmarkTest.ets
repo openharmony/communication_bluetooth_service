@@ -13,8 +13,7 @@
  * limitations under the License.
  */
 
-import { myParams } from '../../Utils/common'
-import router from '@ohos.router';
+import { testItemFromRouterOrPlaceholder } from '../../Utils/common'
 import { PageTitle } from '../../Component/pageTitle';
 import { TestImageDisplay } from '../../Component/testImageDisplay';
 import { TestData } from '../../MainAbility/model/testData'
@@ -32,7 +31,7 @@ import LogUtil from '../../Utils/LogUtil'
 @Component
 struct SppClientVelocityBenchmarkTest {
   @State message: string = 'SppClientBenchmarkTest';
-  private testItem: TestData = (router.getParams() as myParams).testItem
+  private testItem: TestData = testItemFromRouterOrPlaceholder()
   @State changeIndex: number = - 1
   @StorageLink('dataClientReadMessage') dataClientReadMessage: string = "00";
   @StorageLink("sppClientVelocityBenchmarkTestMessage") sppClientVelocityBenchmarkTestMessage: string = ""
@@ -54,6 +53,7 @@ struct SppClientVelocityBenchmarkTest {
       Stack({ alignContent : Alignment.TopStart }) {
         TestImageDisplay({ testItem : this.testItem })
         PageTitle({ testItem : this.testItem })
+  .accessibilityLevel('yes')
   .id('pages_subBenchmarkTest_sppClientVelocityBenchmarkTest__pt_0')
       }
 
@@ -77,6 +77,7 @@ struct SppClientVelocityBenchmarkTest {
             Row() {
               Text("目标设备MAC：").fontSize('17vp').width('1300vp')
               TextInput({ text : this.deviceId , placeholder : "请输入mac地址" })
+  .accessibilityLevel('yes')
   .id('pages_subBenchmarkTest_sppClientVelocityBenchmarkTest__ti_0')
                 .fontSize('17vp')
                 .onChange((str) => {
@@ -126,6 +127,7 @@ struct SppClientVelocityBenchmarkTest {
             Row() {
               Text("写入目标设备数据：").fontSize('17vp').width('170vp')
               TextInput({ text : this.writeClientData , placeholder : "请输入写入的数据" })
+  .accessibilityLevel('yes')
   .id('pages_subBenchmarkTest_sppClientVelocityBenchmarkTest__ti_1')
                 .align(Alignment.Center)
                 .fontSize('15vp')
@@ -161,12 +163,14 @@ struct SppClientVelocityBenchmarkTest {
                         .borderRadius('10vp')
                         .backgroundColor($r("app.color.white"))
                     }
+  .accessibilityLevel('yes')
   .id('pages_subBenchmarkTest_sppClientVelocityBenchmarkTest__li_0')
                   }
                   .height('95%')
                   .width('90%')
                   .backgroundColor($r("sys.color.ohos_id_color_foreground_contrary"))
                 }
+  .accessibilityLevel('yes')
   .id('pages_subBenchmarkTest_sppClientVelocityBenchmarkTest__sc_2')
                 .scrollBarWidth('10vp')
                 .scrollBar(BarState.On)
@@ -174,6 +178,7 @@ struct SppClientVelocityBenchmarkTest {
               .width('100%')
               .height('150vp')
             }
+  .accessibilityLevel('yes')
   .id('pages_subBenchmarkTest_sppClientVelocityBenchmarkTest__sc_1')
             .scrollBarWidth('10vp')
             .scrollBar(BarState.On)
@@ -183,6 +188,7 @@ struct SppClientVelocityBenchmarkTest {
           .height('360vp')
           .backgroundColor($r("sys.color.ohos_id_color_sub_background"))
         }
+  .accessibilityLevel('yes')
   .id('pages_subBenchmarkTest_sppClientVelocityBenchmarkTest__sc_0')
         .scrollBarWidth('10vp')
         .scrollBar(BarState.Auto)
@@ -205,6 +211,7 @@ struct SppClientVelocityBenchmarkTest {
                   .textAlign(TextAlign.Start)
                   .width('90%')
               }
+  .accessibilityLevel('yes')
   .id('pages_subBenchmarkTest_sppClientVelocityBenchmarkTest__li_1')
             }
             .height('90%')
@@ -214,6 +221,7 @@ struct SppClientVelocityBenchmarkTest {
           .width('100%')
           .height('150vp')
         }
+  .accessibilityLevel('yes')
   .id('pages_subBenchmarkTest_sppClientVelocityBenchmarkTest__sc_3')
         .scrollBarWidth('10vp')
         .scrollBar(BarState.On)
@@ -228,6 +236,7 @@ struct SppClientVelocityBenchmarkTest {
               Text('速率性能测试').fontSize('24vp').fontColor(0xffffff).margin({ left : '5vp' , right : '5vp' })
             }.alignItems(VerticalAlign.Center)
           }
+  .accessibilityLevel('yes')
   .id('pages_subBenchmarkTest_sppClientVelocityBenchmarkTest__btn_0')
           .borderRadius('8vp')
           .backgroundColor($r("app.color.blue"))
@@ -255,6 +264,7 @@ struct SppClientVelocityBenchmarkTest {
               Text('结束测试').fontSize('24vp').fontColor(0xffffff).margin({ left : '5vp' , right : '5vp' })
             }.alignItems(VerticalAlign.Center)
           }
+  .accessibilityLevel('yes')
   .id('pages_subBenchmarkTest_sppClientVelocityBenchmarkTest__btn_1')
           .borderRadius('8vp')
           .backgroundColor($r("app.color.blue"))
@@ -278,10 +288,12 @@ struct SppClientVelocityBenchmarkTest {
           Button({ type : ButtonType.Normal , stateEffect : true }) {
             Row() {
               Image($r('app.media.ic_public_delete_filled'))
+  .accessibilityLevel('yes')
   .id('pages_subBenchmarkTest_sppClientVelocityBenchmarkTest__img_0').width('30vp').height('40vp').margin({ left : '5vp' })
               //              Text('清空').fontSize('24vp').fontColor(0xffffff).margin({ left: '5vp', right: '10vp' })
             }.alignItems(VerticalAlign.Center)
           }
+  .accessibilityLevel('yes')
   .id('pages_subBenchmarkTest_sppClientVelocityBenchmarkTest__btn_2')
           .borderRadius('8vp')
           .backgroundColor($r("app.color.moon"))

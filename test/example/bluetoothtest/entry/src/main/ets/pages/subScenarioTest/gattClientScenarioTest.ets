@@ -13,8 +13,7 @@
  * limitations under the License.
  */
 
-import { myParams } from '../../Utils/common'
-import router from '@ohos.router';
+import { testItemFromRouterOrPlaceholder } from '../../Utils/common'
 import { PageTitle } from '../../Component/pageTitle';
 import { TestImageDisplay } from '../../Component/testImageDisplay';
 import { TestData } from '../../MainAbility/model/testData'
@@ -30,7 +29,7 @@ import * as BrInterface from '../../MainAbility/model/brInterface'
 @Entry
 @Component
 struct GattClientScenarioTest {
-  private testItem: TestData = (router.getParams() as myParams).testItem
+  private testItem: TestData = testItemFromRouterOrPlaceholder()
   @State changeIndex: number = - 1
   @StorageLink("gattClientScenarioMessage") gattClientScenarioMessage: string = ""
   @StorageLink("getServices") getServices: string = "";
@@ -58,6 +57,7 @@ struct GattClientScenarioTest {
       Stack({ alignContent : Alignment.TopStart }) {
         TestImageDisplay({ testItem : this.testItem })
         PageTitle({ testItem : this.testItem })
+  .accessibilityLevel('yes')
   .id('pages_subScenarioTest_gattClientScenarioTest__pt_0')
       }
 
@@ -78,6 +78,7 @@ struct GattClientScenarioTest {
           .width('100%')
           .height('280vp')
         }
+  .accessibilityLevel('yes')
   .id('pages_subScenarioTest_gattClientScenarioTest__sc_0')
         .scrollBarWidth('10vp')
         .scrollBar(BarState.Auto)
@@ -99,6 +100,7 @@ struct GattClientScenarioTest {
                   .textAlign(TextAlign.Start)
                   .width('90%')
               }
+  .accessibilityLevel('yes')
   .id('pages_subScenarioTest_gattClientScenarioTest__li_0')
             }
             .height('80%')
@@ -108,6 +110,7 @@ struct GattClientScenarioTest {
           .width('100%')
           .height('260vp')
         }
+  .accessibilityLevel('yes')
   .id('pages_subScenarioTest_gattClientScenarioTest__sc_1')
         .scrollBarWidth('10vp')
         .scrollBar(BarState.On)
@@ -122,6 +125,7 @@ struct GattClientScenarioTest {
           Button({ type : ButtonType.Normal , stateEffect : true }) {
             Text('场景测试开始').fontSize('24vp').fontColor(0xffffff).margin({ left : '5vp' , right : '5vp' })
           }
+  .accessibilityLevel('yes')
   .id('pages_subScenarioTest_gattClientScenarioTest__btn_0')
           .borderRadius('8vp')
           .backgroundColor($r("app.color.blue"))
@@ -235,6 +239,7 @@ struct GattClientScenarioTest {
               Text('场景测试结束').fontSize('24vp').fontColor(0xffffff).margin({ left : '5vp' , right : '5vp' })
             }.alignItems(VerticalAlign.Top)
           }
+  .accessibilityLevel('yes')
   .id('pages_subScenarioTest_gattClientScenarioTest__btn_1')
           .borderRadius('8vp')
           .backgroundColor($r("app.color.blue"))
@@ -292,6 +297,7 @@ struct GattClientScenarioTest {
               Text('清空日志').fontSize('24vp').fontColor(0xffffff).margin({ left : '5vp' , right : '5vp' })
             }.alignItems(VerticalAlign.Top)
           }
+  .accessibilityLevel('yes')
   .id('pages_subScenarioTest_gattClientScenarioTest__btn_2')
           .borderRadius('8vp')
           .backgroundColor($r("app.color.moon"))
