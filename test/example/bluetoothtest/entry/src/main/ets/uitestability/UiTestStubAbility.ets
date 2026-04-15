@@ -21,7 +21,7 @@ export default class UiTestStubAbility extends UIAbility {
   }
 
   onWindowStageCreate(windowStage: window.WindowStage): void {
-    windowStage.loadContent('pages/Index', () => {
+    windowStage.loadContent('pages/uitestStub/Index', () => {
     });
   }
 }

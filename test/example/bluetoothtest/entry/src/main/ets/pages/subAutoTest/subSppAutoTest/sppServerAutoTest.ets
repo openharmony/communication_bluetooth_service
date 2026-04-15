@@ -33,7 +33,6 @@ struct SppServerAutoTest {
   @StorageLink("sppServerAutoTestMessage") sppServerAutoTestMessage: string = ""
 
   aboutToAppear() {
-
     AppStorage.setOrCreate('txtScanFilterDeviceId' , "08:FB:EA:1B:3C:63");
     AppStorage.setOrCreate('txtScanFilterName' , "dudu-tiger");
     AppStorage.setOrCreate('txtScanFilterServiceUuid' , "0000180A-0000-1000-8000-00805f9b34fb");
