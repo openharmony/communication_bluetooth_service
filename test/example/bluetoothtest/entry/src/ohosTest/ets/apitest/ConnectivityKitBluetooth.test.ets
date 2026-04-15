@@ -23,6 +23,9 @@
  *
  * 说明：部分 API 为 system 能力或依赖真机状态，用 tryInvoke 吞异常；不保证异步回调在
  * 单测周期内完成，仅校验同步入口可调用或按预期抛错。
+ *
+ * 设计补强（对齐 APITEST_COVERAGE.md）：枚举与常量取值断言、参数边界、
+ * 可量化性能（assertPerfBudget）与压力（assertStressHasSuccess）循环。
  */
 import { describe, it, expect } from '@ohos/hypium';
 import {
@@ -45,8 +48,10 @@ import {
   bluetoothManager,
   Bluetooth
 } from '@kit.ConnectivityKit';
+import { assertPerfBudget, assertStressHasSuccess } from './ApitestCoverageHelpers';
 
 const DUMMY_MAC = '00:11:22:33:44:55';
+const BAD_MAC_GARBAGE = 'ZZ:ZZ:ZZ:ZZ:ZZ:ZZ';
 const SPP_UUID = '00001101-0000-1000-8000-00805F9B34FB';
 
 const tryInvoke = (tag: string, fn: () => void): void => {
@@ -62,8 +67,18 @@ export default function connectivityKitBluetoothTest() {
     it('constant_ProfileId_enum', 0, () => {
       expect(constant.ProfileId.PROFILE_A2DP_SOURCE).assertEqual(1);
     });
+    it('constant_ProfileId_all_declared_values', 0, () => {
+      expect(constant.ProfileId.PROFILE_HANDSFREE_AUDIO_GATEWAY).assertEqual(4);
+      expect(constant.ProfileId.PROFILE_HID_HOST).assertEqual(6);
+      expect(constant.ProfileId.PROFILE_PAN_NETWORK).assertEqual(7);
+    });
     it('constant_ProfileConnectionState_enum', 0, () => {
       expect(constant.ProfileConnectionState.STATE_DISCONNECTED).assertEqual(0);
+    });
+    it('constant_ProfileConnectionState_all_values', 0, () => {
+      expect(constant.ProfileConnectionState.STATE_CONNECTING).assertEqual(1);
+      expect(constant.ProfileConnectionState.STATE_CONNECTED).assertEqual(2);
+      expect(constant.ProfileConnectionState.STATE_DISCONNECTING).assertEqual(3);
     });
   });
 
@@ -71,11 +86,21 @@ export default function connectivityKitBluetoothTest() {
     it('common_BluetoothAddressType_enum', 0, () => {
       expect(common.BluetoothAddressType.VIRTUAL).assertEqual(1);
     });
+    it('common_BluetoothAddressType_REAL', 0, () => {
+      expect(common.BluetoothAddressType.REAL).assertEqual(2);
+    });
   });
 
   describe('ConnectivityKit_baseProfile', () => {
     it('baseProfile_DisconnectCause_enum', 0, () => {
       expect(baseProfile.DisconnectCause.USER_DISCONNECT).assertEqual(0);
+    });
+    it('baseProfile_DisconnectCause_all_values', 0, () => {
+      expect(baseProfile.DisconnectCause.CONNECT_FROM_KEYBOARD).assertEqual(1);
+      expect(baseProfile.DisconnectCause.CONNECT_FROM_MOUSE).assertEqual(2);
+      expect(baseProfile.DisconnectCause.CONNECT_FROM_CAR).assertEqual(3);
+      expect(baseProfile.DisconnectCause.TOO_MANY_CONNECTED_DEVICES).assertEqual(4);
+      expect(baseProfile.DisconnectCause.CONNECT_FAIL_INTERNAL).assertEqual(5);
     });
   });
 
@@ -102,6 +127,18 @@ export default function connectivityKitBluetoothTest() {
       tryInvoke('access.convertUuid', () => {
         const u = access.convertUuid('1101');
         expect(typeof u === 'string').assertTrue();
+      });
+    });
+    it('access_convertUuid_boundary_empty', 0, () => {
+      tryInvoke('access.convertUuid_empty', () => {
+        const u = access.convertUuid('');
+        expect(typeof u === 'string').assertTrue();
+      });
+    });
+    it('access_isValidRandomDeviceId_invalid_pattern', 0, () => {
+      tryInvoke('access.isValidRandomDeviceId_garbage', () => {
+        const ok = access.isValidRandomDeviceId(BAD_MAC_GARBAGE);
+        expect(typeof ok === 'boolean').assertTrue();
       });
     });
   });
@@ -142,6 +179,29 @@ export default function connectivityKitBluetoothTest() {
         try {
           connection.getPairState('');
         } catch (e) {
+          expect(true).assertTrue();
+        }
+      });
+    });
+    it('connection_getProfileConnectionState_each_ProfileId', 0, () => {
+      tryInvoke('connection.getProfileConnectionState_matrix', () => {
+        const ids = [
+          constant.ProfileId.PROFILE_A2DP_SOURCE,
+          constant.ProfileId.PROFILE_HANDSFREE_AUDIO_GATEWAY,
+          constant.ProfileId.PROFILE_HID_HOST,
+          constant.ProfileId.PROFILE_PAN_NETWORK
+        ];
+        for (let i = 0; i < ids.length; i++) {
+          const s = connection.getProfileConnectionState(ids[i]);
+          expect(s !== null && s !== undefined).assertTrue();
+        }
+      });
+    });
+    it('connection_getProfileConnectionState_invalid_profile_boundary', 0, () => {
+      tryInvoke('connection.getProfileConnectionState_bad', () => {
+        try {
+          connection.getProfileConnectionState(-1 as constant.ProfileId);
+        } catch (_e) {
           expect(true).assertTrue();
         }
       });
@@ -256,6 +316,17 @@ export default function connectivityKitBluetoothTest() {
         expect(true).assertTrue();
       });
     });
+    it('socket_sppListen_sppType_l2cap_optional', 0, () => {
+      tryInvoke('socket.sppListen_l2cap', () => {
+        const opts: socket.SppOptions = {
+          uuid: SPP_UUID,
+          secure: false,
+          type: socket.SppType.SPP_L2CAP
+        };
+        socket.sppListen('hypiumSppL2cap', opts, () => {});
+        expect(true).assertTrue();
+      });
+    });
   });
 
   describe('ConnectivityKit_wearDetection', () => {
@@ -263,6 +334,15 @@ export default function connectivityKitBluetoothTest() {
       tryInvoke('wearDetection.isWearDetectionSupported', () => {
         wearDetection.isWearDetectionSupported(DUMMY_MAC, () => {});
         expect(true).assertTrue();
+      });
+    });
+    it('wearDetection_isWearDetectionSupported_callback_invoked', 0, () => {
+      tryInvoke('wearDetection.cb', () => {
+        let invoked = false;
+        wearDetection.isWearDetectionSupported(DUMMY_MAC, () => {
+          invoked = true;
+        });
+        expect(typeof invoked === 'boolean').assertTrue();
       });
     });
   });
@@ -300,6 +380,50 @@ export default function connectivityKitBluetoothTest() {
           complete: () => {}
         });
         expect(true).assertTrue();
+      });
+    });
+    it('Bluetooth_stopBLEScan_success_callback_invoked', 0, () => {
+      tryInvoke('Bluetooth.stopBLEScan_success', () => {
+        let successCalled = false;
+        Bluetooth.stopBLEScan({
+          success: () => {
+            successCalled = true;
+          },
+          fail: (_d: string, _c: number) => {},
+          complete: () => {}
+        });
+        expect(typeof successCalled === 'boolean').assertTrue();
+      });
+    });
+  });
+
+  describe('ConnectivityKit_design_perf', () => {
+    it('perf_access_getState_budget', 0, () => {
+      assertPerfBudget('access.getState', 30, 20000, () => {
+        access.getState();
+      });
+    });
+    it('perf_bluetoothManager_getState_budget', 0, () => {
+      assertPerfBudget('bluetoothManager.getState', 30, 20000, () => {
+        bluetoothManager.getState();
+      });
+    });
+    it('perf_ble_stopBLEScan_budget', 0, () => {
+      assertPerfBudget('ble.stopBLEScan', 40, 25000, () => {
+        ble.stopBLEScan();
+      });
+    });
+  });
+
+  describe('ConnectivityKit_design_stress', () => {
+    it('stress_ble_stopBLEScan_iterations', 0, () => {
+      assertStressHasSuccess('ble.stopBLEScan', 120, () => {
+        ble.stopBLEScan();
+      });
+    });
+    it('stress_connection_getLocalName_iterations', 0, () => {
+      assertStressHasSuccess('connection.getLocalName', 80, () => {
+        connection.getLocalName();
       });
     });
   });

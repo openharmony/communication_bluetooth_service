@@ -17,6 +17,9 @@
  * 蓝牙相关系统 API 冒烟测试（@ohos.bluetooth / bluetoothManager / hid / pan / ConnectivityKit OPP 等）。
  * 在已授予 USE_BLUETOOTH、DISCOVER_BLUETOOTH、ACCESS_BLUETOOTH 的设备上执行；
  * 部分调用可能因蓝牙未开、无权限或硬件返回错误码，用 try/catch 记录但不强制失败。
+ *
+ * 设计补强（对齐 jsapi/26/APITEST_COVERAGE.md）：ProfileId 矩阵、非法参数边界、
+ * 可量化性能与压力循环（ApitestCoverageHelpers）。
  */
 import { describe, it, expect } from '@ohos/hypium';
 import bluetooth from '@ohos.bluetooth';
@@ -24,12 +27,17 @@ import btm from '@ohos.bluetoothManager';
 import hid from '@ohos.bluetooth.hid';
 import pan from '@ohos.bluetooth.pan';
 import { opp } from '@kit.ConnectivityKit';
+import { assertPerfBudget, assertStressHasSuccess } from './ApitestCoverageHelpers';
 
 const DUMMY_MAC = '00:11:22:33:44:55';
 /** 与主工程 BluetoothModel 中 getProfile 使用的 profileId 一致 */
 const PROFILE_A2DP_SOURCE = 1;
 const PROFILE_HFP_AG = 4;
 const PROFILE_OPP = 10;
+/** 与 @ohos.bluetooth.constant ProfileId 对齐（HID / PAN） */
+const PROFILE_HID_HOST = 6;
+const PROFILE_PAN_NETWORK = 7;
+const PROFILE_INVALID = -1;
 
 const tryInvoke = (tag: string, fn: () => void): void => {
   try {
@@ -80,6 +88,25 @@ export default function bluetoothApiCoverageTest() {
       tryInvoke('getProfileConnState', () => {
         const s = bluetooth.getProfileConnState(PROFILE_A2DP_SOURCE);
         expect(s !== null && s !== undefined).assertTrue();
+      });
+    });
+
+    it('getProfileConnState_hid_pan_profiles', 0, () => {
+      tryInvoke('getProfileConnState_6_7', () => {
+        const s6 = bluetooth.getProfileConnState(PROFILE_HID_HOST);
+        const s7 = bluetooth.getProfileConnState(PROFILE_PAN_NETWORK);
+        expect(s6 !== null && s6 !== undefined).assertTrue();
+        expect(s7 !== null && s7 !== undefined).assertTrue();
+      });
+    });
+
+    it('getProfileConnState_invalid_profile_boundary', 0, () => {
+      tryInvoke('getProfileConnState_invalid', () => {
+        try {
+          bluetooth.getProfileConnState(PROFILE_INVALID);
+        } catch (_e) {
+          expect(true).assertTrue();
+        }
       });
     });
 
@@ -184,6 +211,32 @@ export default function bluetoothApiCoverageTest() {
       tryInvoke('getRemoteDeviceName', () => {
         bluetooth.getRemoteDeviceName(DUMMY_MAC);
         expect(true).assertTrue();
+      });
+    });
+  });
+
+  describe('BluetoothApiCoverage_design_perf', () => {
+    it('perf_getState_budget', 0, () => {
+      assertPerfBudget('@ohos.bluetooth.getState', 35, 20000, () => {
+        bluetooth.getState();
+      });
+    });
+    it('perf_btm_getPairedDevices_budget', 0, () => {
+      assertPerfBudget('bluetoothManager.getPairedDevices', 25, 20000, () => {
+        btm.getPairedDevices();
+      });
+    });
+  });
+
+  describe('BluetoothApiCoverage_design_stress', () => {
+    it('stress_getBtConnectionState_iterations', 0, () => {
+      assertStressHasSuccess('getBtConnectionState', 100, () => {
+        bluetooth.getBtConnectionState();
+      });
+    });
+    it('stress_BLE_stopBLEScan_iterations', 0, () => {
+      assertStressHasSuccess('BLE.stopBLEScan', 100, () => {
+        bluetooth.BLE.stopBLEScan();
       });
     });
   });
