@@ -17,7 +17,7 @@ Stub 页与 UiTestStubAbility 在 entry 主模块：entry/src/main/ets/pages/uit
 测试模块名：entry_test（entry/src/ohosTest/module.json5）
 构建：build + build-test（或 build-test-uitest 仅打 entry 与 entry@ohosTest）
 安装：entry-default-signed.hap + entry-ohosTest-signed.hap
-运行：aa test -b <bundle> -m entry_test -s unittest OpenHarmonyTestRunner -s timeout <ms>
+运行：test -b <bundle> -m entry_test -s unittest OpenHarmonyTestRunner -s timeout <ms>
 仅跑某一 UiTest 套件可加：-s class MainPageControlsUi01（通过 ohhdc --suite）
 
 参考副本与生成脚本见 scripts/ui_tests_backup/
