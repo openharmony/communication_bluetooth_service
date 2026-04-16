@@ -13,6 +13,7 @@
  * limitations under the License.
  */
 
+import ConfigData from '../Utils/ConfigData';
 import { Category , TestData } from '../MainAbility/model/testData'
 import { initTestData } from '../MainAbility/model/testDataModels'
 import { MainPageTitle } from '../Component/mainPageTitle';
@@ -41,7 +42,7 @@ struct TestCategory {
         .id(stableId)
         .accessibilityLevel('yes')
         .fontSize(12)
-        .margin({ top: '5vp' })
+        .margin({ top: ConfigData.VP_5 })
     }
     .accessibilityLevel('yes')
   }
@@ -121,11 +122,11 @@ struct TestCategory {
           this.HomeTabBarItem($r("app.string.benchmark_M"), 'pages_homePage__tc_9');
         })
       }
-  .accessibilityLevel('yes')
-  .id('pages_homePage__tabs_0')
       .accessibilityLevel('yes')
-      .barWidth('80%')
-      .barHeight('40vp')
+      .id('pages_homePage__tabs_0')
+      .accessibilityLevel('yes')
+      .barWidth(ConfigData.WH_80_100)
+      .barHeight(ConfigData.VP_40)
       .align(Alignment.TopStart)
       .barMode(BarMode.Fixed)
       .backgroundColor($r("app.color.white"))
@@ -157,19 +158,19 @@ struct HomePage {
   @Builder
   HomeUiTestTabIdAnchors() {
     Row() {
-      Text(' ').id('pages_homePage__tc_0').layoutWeight(1).fontSize(1).height('2vp').accessibilityLevel('yes')
-      Text(' ').id('pages_homePage__tc_1').layoutWeight(1).fontSize(1).height('2vp').accessibilityLevel('yes')
-      Text(' ').id('pages_homePage__tc_2').layoutWeight(1).fontSize(1).height('2vp').accessibilityLevel('yes')
-      Text(' ').id('pages_homePage__tc_3').layoutWeight(1).fontSize(1).height('2vp').accessibilityLevel('yes')
-      Text(' ').id('pages_homePage__tc_4').layoutWeight(1).fontSize(1).height('2vp').accessibilityLevel('yes')
-      Text(' ').id('pages_homePage__tc_5').layoutWeight(1).fontSize(1).height('2vp').accessibilityLevel('yes')
-      Text(' ').id('pages_homePage__tc_6').layoutWeight(1).fontSize(1).height('2vp').accessibilityLevel('yes')
-      Text(' ').id('pages_homePage__tc_7').layoutWeight(1).fontSize(1).height('2vp').accessibilityLevel('yes')
-      Text(' ').id('pages_homePage__tc_8').layoutWeight(1).fontSize(1).height('2vp').accessibilityLevel('yes')
-      Text(' ').id('pages_homePage__tc_9').layoutWeight(1).fontSize(1).height('2vp').accessibilityLevel('yes')
+      Text($r('app.string.ohcc_txt_36a9e7f1c9')).id('pages_homePage__tc_0').layoutWeight(1).fontSize(1).height(ConfigData.VP_2).accessibilityLevel('yes')
+      Text($r('app.string.ohcc_txt_36a9e7f1c9')).id('pages_homePage__tc_1').layoutWeight(1).fontSize(1).height(ConfigData.VP_2).accessibilityLevel('yes')
+      Text($r('app.string.ohcc_txt_36a9e7f1c9')).id('pages_homePage__tc_2').layoutWeight(1).fontSize(1).height(ConfigData.VP_2).accessibilityLevel('yes')
+      Text($r('app.string.ohcc_txt_36a9e7f1c9')).id('pages_homePage__tc_3').layoutWeight(1).fontSize(1).height(ConfigData.VP_2).accessibilityLevel('yes')
+      Text($r('app.string.ohcc_txt_36a9e7f1c9')).id('pages_homePage__tc_4').layoutWeight(1).fontSize(1).height(ConfigData.VP_2).accessibilityLevel('yes')
+      Text($r('app.string.ohcc_txt_36a9e7f1c9')).id('pages_homePage__tc_5').layoutWeight(1).fontSize(1).height(ConfigData.VP_2).accessibilityLevel('yes')
+      Text($r('app.string.ohcc_txt_36a9e7f1c9')).id('pages_homePage__tc_6').layoutWeight(1).fontSize(1).height(ConfigData.VP_2).accessibilityLevel('yes')
+      Text($r('app.string.ohcc_txt_36a9e7f1c9')).id('pages_homePage__tc_7').layoutWeight(1).fontSize(1).height(ConfigData.VP_2).accessibilityLevel('yes')
+      Text($r('app.string.ohcc_txt_36a9e7f1c9')).id('pages_homePage__tc_8').layoutWeight(1).fontSize(1).height(ConfigData.VP_2).accessibilityLevel('yes')
+      Text($r('app.string.ohcc_txt_36a9e7f1c9')).id('pages_homePage__tc_9').layoutWeight(1).fontSize(1).height(ConfigData.VP_2).accessibilityLevel('yes')
     }
-    .width('100%')
-    .height('2vp')
+    .width(ConfigData.WH_100_100)
+    .height(ConfigData.VP_2)
   }
 
   aboutToAppear() {
@@ -187,22 +188,22 @@ struct HomePage {
   build() {
     Column() {
       MainPageTitle()
-  .accessibilityLevel('yes')
-  .id('pages_homePage__mpt_0')
+        .accessibilityLevel('yes')
+        .id('pages_homePage__mpt_0')
         .accessibilityLevel('yes')
       Stack({ alignContent : Alignment.TopEnd }) {
         TestCategory({ testItems : this.testItems })
         Image($r('app.media.Switch'))
-  .accessibilityLevel('yes')
-  .id('pages_homePage__img_0')
           .accessibilityLevel('yes')
-          .height('30vp')
-          .width('30vp')
-          .margin({ top : '5vp' , right : '10vp' })
+          .id('pages_homePage__img_0')
+          .accessibilityLevel('yes')
+          .height(ConfigData.VP_30)
+          .width(ConfigData.VP_30)
+          .margin({ top : ConfigData.VP_5 , right : ConfigData.VP_10 })
           .onClick(() => {
           })
       }
-      .height('100%')
+      .height(ConfigData.WH_100_100)
       if (shouldSkipBluetoothPermissionRequest()) {
         this.HomeUiTestTabIdAnchors()
       }

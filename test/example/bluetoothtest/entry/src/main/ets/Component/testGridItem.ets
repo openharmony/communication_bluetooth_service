@@ -12,6 +12,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+import ConfigData from '../Utils/ConfigData';
 import { TestData } from '../MainAbility/model/testData'
 import router from '@ohos.router'
 /**
@@ -26,25 +27,25 @@ export struct TestGridItem {
       Row() {
         Image(this.testItem.image)
           .objectFit(ImageFit.Contain)
-          .height('152vp')
-          .width('100%')
+          .height(ConfigData.VP_152)
+          .width(ConfigData.WH_100_100)
       }.backgroundColor($r('app.color.color_FFF1F3F5_bg'))
 
       Flex({ justifyContent : FlexAlign.Start , alignItems : ItemAlign.Center }) {
         Text(this.testItem.name)
-          .fontSize('14vp')
+          .fontSize(ConfigData.VP_14)
           .flexGrow(1)
-          .padding({ left : '8vp' })
+          .padding({ left : ConfigData.VP_8 })
         Text(this.testItem.detail)
-          .fontSize('14vp')
-          .margin({ right : '6vp' })
+          .fontSize(ConfigData.VP_14)
+          .margin({ right : ConfigData.VP_6 })
       }
-      .height('32vp')
-      .width('100%')
+      .height(ConfigData.VP_32)
+      .width(ConfigData.WH_100_100)
       .backgroundColor($r('app.color.color_FFE5E5E5_bg'))
     }
-    .height('184vp')
-    .width('100%')
+    .height(ConfigData.VP_184)
+    .width(ConfigData.WH_100_100)
     .onClick(() => {
       router.pushUrl({ url : 'MainAbility/pagesTestDetail' , params : { testId : this.testItem } })
     })

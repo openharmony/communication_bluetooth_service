@@ -13,6 +13,7 @@
  * limitations under the License.
  */
 
+import ConfigData from '../Utils/ConfigData';
 import { TestData } from '../MainAbility/model/testData'
 /**
  * Test-ImageDisplay of bluetooth test
@@ -26,29 +27,29 @@ export struct TestImageDisplay {
       Flex({ alignItems : ItemAlign.Start }) {
         Stack() {
           Image(this.testItem.image)
-            .height('80vp')
-            .width('80vp')
-            .margin({ left : '10vp' , bottom : '10vp' })
+            .height(ConfigData.VP_80)
+            .width(ConfigData.VP_80)
+            .margin({ left : ConfigData.VP_10 , bottom : ConfigData.VP_10 })
         }
-        .width('20%')
+        .width(ConfigData.PCT_20)
 
         Column() {
           Text(this.testItem.name)
-            .fontSize('26vp')
+            .fontSize(ConfigData.VP_26)
             .fontWeight(500)
-            .margin({ left : '26vp' , top : '10vp' })
-            .width('90%')
+            .margin({ left : ConfigData.VP_26 , top : ConfigData.VP_10 })
+            .width(ConfigData.WH_90_100)
           Text(this.testItem.detail)
-            .fontSize('17vp')
+            .fontSize(ConfigData.VP_17)
             .fontWeight(500)
-            .margin({ top : '8vp' })
-            .width('80%')
+            .margin({ top : ConfigData.VP_8 })
+            .width(ConfigData.WH_80_100)
         }
-        .width('80%')
-        .padding({ left : '20vp' })
+        .width(ConfigData.WH_80_100)
+        .padding({ left : ConfigData.VP_20 })
       }
     }
     .backgroundColor($r('app.color.color_FFEDF2F5_bg'))
-    .height('160vp')
+    .height(ConfigData.VP_160)
   }
 }

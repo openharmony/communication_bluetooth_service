@@ -13,6 +13,7 @@
  * limitations under the License.
  */
 
+import ConfigData from '../Utils/ConfigData';
 import { TestData } from '../MainAbility/model/testData'
 import router from '@ohos.router';
 import screenshot from '@ohos.screenshot'
@@ -67,15 +68,15 @@ export struct PageTitle {
   CustomBtn(text: Resource , isFullScreen: boolean) {
     Button() {
       Image($r('app.media.screenShot'))
-        .height('40vp')
-        .width('40vp')
+        .height(ConfigData.VP_40)
+        .width(ConfigData.VP_40)
     }
     .key(isFullScreen + 'FullScreenShot')
     .type(ButtonType.Normal)
     .backgroundColor($r("app.color.blue"))
-    .height('100%')
-    .width('100%')
-    .margin({ left : '3vp' , right : '3vp' , top : '2vp' })
+    .height(ConfigData.WH_100_100)
+    .width(ConfigData.WH_100_100)
+    .margin({ left : ConfigData.VP_3 , right : ConfigData.VP_3 , top : ConfigData.VP_2 })
     .onClick(() => {
       console.log('[Screenshot] onClick,screenshot')
       this.getScreen(isFullScreen)
@@ -87,29 +88,29 @@ export struct PageTitle {
       Flex({ alignItems : ItemAlign.Start }) {
         Button() {
           Image($r('app.media.Back'))
-            .width('60%')
-            .height('60%')
+            .width(ConfigData.PCT_60)
+            .height(ConfigData.PCT_60)
         }
         .type(ButtonType.Normal)
-        .width('20%')
-        .height('100%')
+        .width(ConfigData.PCT_20)
+        .height(ConfigData.WH_100_100)
         .backgroundColor($r("app.color.blue"))
-        .padding({ left : '1vp' , top : '15vp' })
+        .padding({ left : ConfigData.HEIGHT_1_VP , top : ConfigData.VP_15 })
         .onClick(() => {
           router.back()
         })
 
         Text(this.testItem != null ? this.testItem.detail : this.detail)
-          .fontSize('24vp')
-          .margin({ left : '3vp' })
-          .padding({ top : '18vp' })
+          .fontSize(ConfigData.VP_24)
+          .margin({ left : ConfigData.VP_3 })
+          .padding({ top : ConfigData.VP_18 })
 
         Scroll() {
           Column() {
             this.CustomBtn($r('app.string.btn_fullscreen') , true)
           }
-          .width('100%')
-          .height('100%')
+          .width(ConfigData.WH_100_100)
+          .height(ConfigData.WH_100_100)
           .borderWidth(this.myborderWidth)
           .borderRadius(this.myborderRadius)
           .borderColor(Color.Green)
@@ -171,9 +172,9 @@ export struct PageTitle {
         }
         .layoutWeight(1)
       }
-      .height('61vp')
+      .height(ConfigData.VP_61)
       .backgroundColor($r('app.color.color_FFEDF2F5_bg'))
-      .padding({ left : '10vp' })
+      .padding({ left : ConfigData.VP_10 })
       .borderColor($r("app.color.black"))
       .backgroundColor($r("app.color.blue"))
     }
