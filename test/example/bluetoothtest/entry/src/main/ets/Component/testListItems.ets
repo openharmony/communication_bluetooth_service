@@ -13,6 +13,7 @@
  * limitations under the License.
  */
 
+import ConfigData from '../Utils/ConfigData';
 import { TestData } from '../MainAbility/model/testData'
 
 /**
@@ -34,28 +35,28 @@ export struct TestListItem {
           Image(this.testItem.image)
             .objectFit(ImageFit.Contain)
             .autoResize(false)
-            .height('60vp')
-            .width('60vp')
+            .height(ConfigData.VP_60)
+            .width(ConfigData.VP_60)
         }
         .backgroundColor($r("app.color.white"))
-        .width('30%')
+        .width(ConfigData.WH_30_100)
 
         Text(this.testItem.name)
-          .fontSize('20vp')
+          .fontSize(ConfigData.VP_20)
           .flexGrow(1)
-          .margin({ left : '12vp' })
-          .width('45%')
+          .margin({ left : ConfigData.VP_12 })
+          .width(ConfigData.WH_45_100)
         Text(this.testItem.detail)
-          .fontSize('17vp')
-          .margin({ left : '10vp' , right : '5vp' })
-          .width('45%')
+          .fontSize(ConfigData.VP_17)
+          .margin({ left : ConfigData.VP_10 , right : ConfigData.VP_5 })
+          .width(ConfigData.WH_45_100)
       }
-      .height('95vp')
+      .height(ConfigData.VP_95)
     }
     .params({ testItem : this.testItem })
-    .margin({ right : '10vp' , left : '10vp' , top : '10vp' })
-    .padding({ left : '15vp' , right : '15vp' })
-    .borderRadius('10vp')
+    .margin({ right : ConfigData.VP_10 , left : ConfigData.VP_10 , top : ConfigData.VP_10 })
+    .padding({ left : ConfigData.VP_15 , right : ConfigData.VP_15 })
+    .borderRadius(ConfigData.VP_10)
     .backgroundColor($r("app.color.white"))
   }
 }
