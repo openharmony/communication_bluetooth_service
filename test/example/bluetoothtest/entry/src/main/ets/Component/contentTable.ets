@@ -13,6 +13,7 @@
  * limitations under the License.
  */
 
+import ConfigData from '../Utils/ConfigData';
 import { CaseCategory , TestApi , TestData } from '../MainAbility/model/testData'
 import promptAction from '@ohos.promptAction';
 import { ProfileList , ScanMode } from '../Utils/common'
@@ -43,16 +44,16 @@ export struct GetProfileConnSateDialog {
   build() {
     Column() {
       Text(this.hitText)
-        .fontSize('20vp')
-        .margin({ top : '10vp' , bottom : '10vp' })
+        .fontSize(ConfigData.VP_20)
+        .margin({ top : ConfigData.VP_10 , bottom : ConfigData.VP_10 })
       Select(this.getProfileList)
         .selected(this.currentClick)
         .value(this.getProfileList[ this.currentClick ].value)
-        .font({ size : '20vp' })
-        .selectedOptionFont({ size : '20vp' })
+        .font({ size : ConfigData.VP_20 })
+        .selectedOptionFont({ size : ConfigData.VP_20 })
         .optionFont({ size : 17 })
-        .height('80vp')
-        .width('90%')
+        .height(ConfigData.VP_80)
+        .width(ConfigData.WH_90_100)
         .onSelect((index: number) => {
           console.log("Select:" + index)
           this.currentClick = index
@@ -85,7 +86,7 @@ export struct GetProfileConnSateDialog {
           })
           .backgroundColor(0xffffff).fontColor(Color.Red)
       }
-      .margin({ bottom : '10vp' })
+      .margin({ bottom : ConfigData.VP_10 })
     }
   }
 }
@@ -115,16 +116,16 @@ export struct SetScanModeDialog {
   build() {
     Column() {
       Text(this.hitText)
-        .fontSize('20vp')
-        .margin({ top : '10vp' , bottom : '10vp' })
+        .fontSize(ConfigData.VP_20)
+        .margin({ top : ConfigData.VP_10 , bottom : ConfigData.VP_10 })
       Select(this.scanModeList)
         .selected(this.currentClick)
         .value(this.scanModeList[ this.currentClick ].value)
-        .font({ size : '12vp' })
-        .selectedOptionFont({ size : '12vp' })
-        .optionFont({ size : '12vp' })
-        .height('60vp')
-        .width('90%')
+        .font({ size : ConfigData.VP_12 })
+        .selectedOptionFont({ size : ConfigData.VP_12 })
+        .optionFont({ size : ConfigData.VP_12 })
+        .height(ConfigData.VP_60)
+        .width(ConfigData.WH_90_100)
         .onSelect((index: number) => {
           console.log("Select:" + index)
           this.currentClick = index
@@ -133,7 +134,7 @@ export struct SetScanModeDialog {
         placeholder : '请输入延迟时间' ,
         text : this.duration.toString() ,
       }).type(InputType.Number)
-        .height('60vp').width('90%')
+        .height(ConfigData.VP_60).width(ConfigData.WH_90_100)
         .onChange((value: string) => {
           if ( value == "" ) {
             this.duration = 0
@@ -171,7 +172,7 @@ export struct SetScanModeDialog {
           .backgroundColor(0xffffff)
           .fontColor(Color.Red)
       }
-      .margin({ bottom : '10vp' })
+      .margin({ bottom : ConfigData.VP_10 })
     }
   }
 }
@@ -191,11 +192,11 @@ export struct InputDialog {
   build() {
     Column() {
       Text(this.hitText)
-        .fontSize('20vp')
-        .margin({ top : '10vp' , bottom : '10vp' })
+        .fontSize(ConfigData.VP_20)
+        .margin({ top : ConfigData.VP_10 , bottom : ConfigData.VP_10 })
       TextInput({ placeholder : '' , text : this.textValue })
-        .height('60vp')
-        .width('90%')
+        .height(ConfigData.VP_60)
+        .width(ConfigData.WH_90_100)
         .onChange((value: string) => {
           this.textValue = value
         })
@@ -226,7 +227,7 @@ export struct InputDialog {
           .backgroundColor(0xffffff)
           .fontColor(Color.Red)
       }
-      .margin({ bottom : '10vp' })
+      .margin({ bottom : ConfigData.VP_10 })
     }
   }
 }
@@ -252,16 +253,16 @@ export struct SetConnectionStrategyDialog {
   build() {
     Column() {
       Text(this.hitText)
-        .fontSize('20vp')
-        .margin({ top : '10vp' , bottom : '10vp' })
+        .fontSize(ConfigData.VP_20)
+        .margin({ top : ConfigData.VP_10 , bottom : ConfigData.VP_10 })
       Select(this.connectionStrategyList)
         .selected(this.currentClick)
         .value(this.connectionStrategyList[ this.currentClick ].value)
-        .font({ size : '18vp' })
-        .selectedOptionFont({ size : '18vp' })
+        .font({ size : ConfigData.VP_18 })
+        .selectedOptionFont({ size : ConfigData.VP_18 })
         .optionFont({ size : 17 })
-        .height('80vp')
-        .width('90%')
+        .height(ConfigData.VP_80)
+        .width(ConfigData.WH_90_100)
         .onSelect((index: number) => {
           console.log("Select:" + index)
           this.currentClick = index
@@ -294,7 +295,7 @@ export struct SetConnectionStrategyDialog {
           })
           .backgroundColor(0xffffff).fontColor(Color.Red)
       }
-      .margin({ bottom : '10vp' })
+      .margin({ bottom : ConfigData.VP_10 })
     }
   }
 }
@@ -382,41 +383,41 @@ export struct ContentTable {
           Image($r('app.media.bleSmall'))
             .objectFit(ImageFit.Contain)
             .autoResize(false)
-            .height('50vp')
-            .width('40vp')
-            .padding({ top : '15vp' })
+            .height(ConfigData.VP_50)
+            .width(ConfigData.VP_40)
+            .padding({ top : ConfigData.VP_15 })
         }
         .layoutWeight(1)
-        .padding({ left : '10vp' })
+        .padding({ left : ConfigData.VP_10 })
 
         Flex({ direction : FlexDirection.Column , alignItems : ItemAlign.Start }) {
           Text(apiItem.name)
-            .fontSize('17.4vp')
+            .fontSize(ConfigData.VP_17_4)
             .fontWeight(FontWeight.Bold)
             .layoutWeight(1)
-            .padding({ left : '10vp' , top : '10vp' })
+            .padding({ left : ConfigData.VP_10 , top : ConfigData.VP_10 })
           Text(apiItem.method)
-            .fontSize('17.4vp')
+            .fontSize(ConfigData.VP_17_4)
             .fontWeight(FontWeight.Bold)
             .layoutWeight(1)
-            .padding({ left : '10vp' , top : '5vp' })
+            .padding({ left : ConfigData.VP_10 , top : ConfigData.VP_5 })
         }
         .layoutWeight(6)
-        .width('80%')
+        .width(ConfigData.WH_80_100)
 
         Flex({ alignItems : ItemAlign.Center }) {
           Text(this.changeIndex >= 0 ? this.getCurrentState(index) : apiItem.result)
-            .fontSize('17.4vp')
+            .fontSize(ConfigData.VP_17_4)
             .flexGrow(1)
-            .padding({ top : '15vp' })
+            .padding({ top : ConfigData.VP_15 })
         }
         .layoutWeight(3)
-        .padding({ left : '25vp' })
+        .padding({ left : ConfigData.VP_25 })
       }
     }
-    .height('80vp')
-    .borderRadius('10vp')
-    .margin({ top : '5vp' , bottom : '5vp' })
+    .height(ConfigData.VP_80)
+    .borderRadius(ConfigData.VP_10)
+    .margin({ top : ConfigData.VP_5 , bottom : ConfigData.VP_5 })
     .backgroundColor($r("app.color.white"))
     .onClick(() => {
       switch ( apiItem.method ) {
@@ -567,9 +568,9 @@ export struct ContentTable {
           })
         }
       }
-      .scrollBarWidth('20vp')
+      .scrollBarWidth(ConfigData.VP_20)
     }
-    .height('66%')
-    .padding({ top : '5vp' , right : '10vp' , left : '10vp' })
+    .height(ConfigData.PCT_66)
+    .padding({ top : ConfigData.VP_5 , right : ConfigData.VP_10 , left : ConfigData.VP_10 })
   }
 }
