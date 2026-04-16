@@ -36,8 +36,8 @@ struct PairedDevices {
       GridContainer({
         columns : 12 ,
         sizeType : SizeType.Auto ,
-        gutter : vp2px(1) === 2 ? '12vp' : '0vp' ,
-        margin : vp2px(1) === 2 ? '24vp' : '0vp'
+        gutter : vp2px(1) === 2 ? ConfigData.VP_12 : ConfigData.VP_0 ,
+        margin : vp2px(1) === 2 ? ConfigData.VP_24 : ConfigData.VP_0
       }) {
         Row({}) {
           Column() {
@@ -51,8 +51,8 @@ struct PairedDevices {
 
           Column() {
             PageTitle({ detail : '已配对设备' })
-  .accessibilityLevel('yes')
-  .id('pages_subManualApiTest_subBrTest_pairedDevices__pt_0')
+              .accessibilityLevel('yes')
+              .id('pages_subManualApiTest_subBrTest_pairedDevices__pt_0')
 
             Divider()
               .padding({
@@ -65,10 +65,10 @@ struct PairedDevices {
                 ForEach(this.pairedDevices , (item: string, index: number) => {
                   ListItem() {
                     TitleComponent({ title : item })
-  .accessibilityLevel('yes')
-  .id('pages_subManualApiTest_subBrTest_pairedDevices__tt_0');
+              .accessibilityLevel('yes')
+              .id('pages_subManualApiTest_subBrTest_pairedDevices__tt_0');
                   }
-  .id(index === 0 ? 'pages_subManualApiTest_subBrTest_pairedDevices__li_0' : `pages_subManualApiTest_subBrTest_pairedDevices__li_${index}`).padding({ top : '2vp' , bottom : '2vp' })
+              .id(index === 0 ? 'pages_subManualApiTest_subBrTest_pairedDevices__li_0' : `pages_subManualApiTest_subBrTest_pairedDevices__li_${index}`).padding({ top : ConfigData.VP_2 , bottom : ConfigData.VP_2 })
                 } , (item: string) => JSON.stringify(item));
               }
 
@@ -84,22 +84,22 @@ struct PairedDevices {
                 ButtonComponent({ text : $r("app.string.cancel") , isOnClick : () => {
                   router.back();
                 } })
-  .accessibilityLevel('yes')
-  .id('pages_subManualApiTest_subBrTest_pairedDevices__bcomp_0')
+              .accessibilityLevel('yes')
+              .id('pages_subManualApiTest_subBrTest_pairedDevices__bcomp_0')
               }
-              .width('120vp')
-              .margin({ right : '12vp' })
+              .width(ConfigData.VP_120)
+              .margin({ right : ConfigData.VP_12 })
 
               Row() {
                 ButtonComponent({ text : $r("app.string.confirm") , isOnClick : () => {
                   router.back();
                 } })
-  .accessibilityLevel('yes')
-  .id('pages_subManualApiTest_subBrTest_pairedDevices__bcomp_1')
-              }.width('120vp')
+          .accessibilityLevel('yes')
+          .id('pages_subManualApiTest_subBrTest_pairedDevices__bcomp_1')
+              }.width(ConfigData.VP_120)
             }
           }
-          .padding({ left : '24vp' , right : '24vp' })
+          .padding({ left : ConfigData.VP_24 , right : ConfigData.VP_24 })
           .width(ConfigData.WH_100_100)
           .height(ConfigData.WH_100_100)
           .useSizeType({
@@ -129,14 +129,14 @@ struct ButtonComponent {
   build() {
     Column() {
       Text(this.text)
-        .fontSize('16fp')
+        .fontSize(ConfigData.FP_16)
         .fontWeight(FontWeight.Medium)
         .lineHeight('22vp')
         .fontColor($r('app.color.font_color_007DFF'))
         .textAlign(TextAlign.Center)
-        .width('120vp')
-        .height('40vp')
-        .borderRadius('20vp')
+        .width(ConfigData.VP_120)
+        .height(ConfigData.VP_40)
+        .borderRadius(ConfigData.VP_20)
         .backgroundColor(!this.isTouched ? $r("app.color.color_button_grey") : $r("sys.color.ohos_id_color_foreground_contrary"))
         .onTouch((event: TouchEvent) => {
           if ( event.type === TouchType.Down ) {

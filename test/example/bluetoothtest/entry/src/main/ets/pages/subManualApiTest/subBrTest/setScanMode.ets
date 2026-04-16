@@ -40,8 +40,8 @@ struct etScanMode {
   build() {
     Column() {
       PageTitle({ detail : '设置扫描类型' })
-  .accessibilityLevel('yes')
-  .id('pages_subManualApiTest_subBrTest_setScanMode__pt_0')
+            .accessibilityLevel('yes')
+            .id('pages_subManualApiTest_subBrTest_setScanMode__pt_0')
       Scroll() {
         Column() {
           List() {
@@ -49,30 +49,30 @@ struct etScanMode {
               TitleComponent({
                 title : "SCAN_MODE_SELECT" ,
                 bgColor : $r('app.color.moon') ,
-                fontSize : '17vp' ,
+                fontSize : ConfigData.VP_17 ,
               })
-  .accessibilityLevel('yes')
-  .id('pages_subManualApiTest_subBrTest_setScanMode__tt_0');
+            .accessibilityLevel('yes')
+            .id('pages_subManualApiTest_subBrTest_setScanMode__tt_0');
             }
-  .accessibilityLevel('yes')
-  .id('pages_subManualApiTest_subBrTest_setScanMode__li_0')
-            .height('80vp')
-            .borderRadius('10vp')
+            .accessibilityLevel('yes')
+            .id('pages_subManualApiTest_subBrTest_setScanMode__li_0')
+            .height(ConfigData.VP_80)
+            .borderRadius(ConfigData.VP_10)
 
             ListItem() {
               TitleComponent({
                 title : "SCAN_MODE_NONE" ,
-                fontSize : '15vp' ,
+                fontSize : ConfigData.VP_15 ,
                 bgColor : this.currentClick === 0 ? $r('app.color.font_color_007DFF') : $r('app.color.white_bg_color')
               })
-  .accessibilityLevel('yes')
-  .id('pages_subManualApiTest_subBrTest_setScanMode__tt_1');
+            .accessibilityLevel('yes')
+            .id('pages_subManualApiTest_subBrTest_setScanMode__tt_1');
             }
-  .accessibilityLevel('yes')
-  .id('pages_subManualApiTest_subBrTest_setScanMode__li_1')
-            .padding({ top : '10vp' })
-            .height('80vp')
-            .borderRadius('10vp')
+            .accessibilityLevel('yes')
+            .id('pages_subManualApiTest_subBrTest_setScanMode__li_1')
+            .padding({ top : ConfigData.VP_10 })
+            .height(ConfigData.VP_80)
+            .borderRadius(ConfigData.VP_10)
             .onClick(() => {
               this.currentClick = 0;
             })
@@ -80,17 +80,17 @@ struct etScanMode {
             ListItem() {
               TitleComponent({
                 title : "CONNECTABLE" ,
-                fontSize : '15vp' ,
+                fontSize : ConfigData.VP_15 ,
                 bgColor : this.currentClick === 1 ? $r('app.color.font_color_007DFF') : $r('app.color.white_bg_color')
               })
-  .accessibilityLevel('yes')
-  .id('pages_subManualApiTest_subBrTest_setScanMode__tt_2');
+            .accessibilityLevel('yes')
+            .id('pages_subManualApiTest_subBrTest_setScanMode__tt_2');
             }
-  .accessibilityLevel('yes')
-  .id('pages_subManualApiTest_subBrTest_setScanMode__li_2')
-            .padding({ top : '10vp' })
-            .height('80vp')
-            .borderRadius('10vp')
+            .accessibilityLevel('yes')
+            .id('pages_subManualApiTest_subBrTest_setScanMode__li_2')
+            .padding({ top : ConfigData.VP_10 })
+            .height(ConfigData.VP_80)
+            .borderRadius(ConfigData.VP_10)
             .onClick(() => {
               this.currentClick = 1;
             })
@@ -98,17 +98,17 @@ struct etScanMode {
             ListItem() {
               TitleComponent({
                 title : "GENERAL_DISCOVERABLE" ,
-                fontSize : '15vp' ,
+                fontSize : ConfigData.VP_15 ,
                 bgColor : this.currentClick === 2 ? $r('app.color.font_color_007DFF') : $r('app.color.white_bg_color')
               })
-  .accessibilityLevel('yes')
-  .id('pages_subManualApiTest_subBrTest_setScanMode__tt_3');
+            .accessibilityLevel('yes')
+            .id('pages_subManualApiTest_subBrTest_setScanMode__tt_3');
             }
-  .accessibilityLevel('yes')
-  .id('pages_subManualApiTest_subBrTest_setScanMode__li_3')
-            .padding({ top : '10vp' })
-            .height('80vp')
-            .borderRadius('10vp')
+            .accessibilityLevel('yes')
+            .id('pages_subManualApiTest_subBrTest_setScanMode__li_3')
+            .padding({ top : ConfigData.VP_10 })
+            .height(ConfigData.VP_80)
+            .borderRadius(ConfigData.VP_10)
             .onClick(() => {
               this.currentClick = 2;
             })
@@ -116,17 +116,17 @@ struct etScanMode {
             ListItem() {
               TitleComponent({
                 title : "LIMITED_DISCOVERABLE" ,
-                fontSize : '15vp' ,
+                fontSize : ConfigData.VP_15 ,
                 bgColor : this.currentClick === 3 ? $r('app.color.font_color_007DFF') : $r('app.color.white_bg_color')
               })
-  .accessibilityLevel('yes')
-  .id('pages_subManualApiTest_subBrTest_setScanMode__tt_4');
+            .accessibilityLevel('yes')
+            .id('pages_subManualApiTest_subBrTest_setScanMode__tt_4');
             }
-  .accessibilityLevel('yes')
-  .id('pages_subManualApiTest_subBrTest_setScanMode__li_4')
-            .padding({ top : '10vp' })
-            .height('80vp')
-            .borderRadius('10vp')
+            .accessibilityLevel('yes')
+            .id('pages_subManualApiTest_subBrTest_setScanMode__li_4')
+            .padding({ top : ConfigData.VP_10 })
+            .height(ConfigData.VP_80)
+            .borderRadius(ConfigData.VP_10)
             .onClick(() => {
               this.currentClick = 3;
             })
@@ -134,17 +134,17 @@ struct etScanMode {
             ListItem() {
               TitleComponent({
                 title : "CONNECTABLE_GENERAL_DISCOVERABLE" ,
-                fontSize : '15vp' ,
+                fontSize : ConfigData.VP_15 ,
                 bgColor : this.currentClick === 4 ? $r('app.color.font_color_007DFF') : $r('app.color.white_bg_color')
               })
-  .accessibilityLevel('yes')
-  .id('pages_subManualApiTest_subBrTest_setScanMode__tt_5');
+            .accessibilityLevel('yes')
+            .id('pages_subManualApiTest_subBrTest_setScanMode__tt_5');
             }
-  .accessibilityLevel('yes')
-  .id('pages_subManualApiTest_subBrTest_setScanMode__li_5')
-            .padding({ top : '10vp' })
-            .height('80vp')
-            .borderRadius('10vp')
+            .accessibilityLevel('yes')
+            .id('pages_subManualApiTest_subBrTest_setScanMode__li_5')
+            .padding({ top : ConfigData.VP_10 })
+            .height(ConfigData.VP_80)
+            .borderRadius(ConfigData.VP_10)
             .onClick(() => {
               this.currentClick = 4;
             })
@@ -152,17 +152,17 @@ struct etScanMode {
             ListItem() {
               TitleComponent({
                 title : "CONNECTABLE_LIMITED_DISCOVERABLE" ,
-                fontSize : '15vp' ,
+                fontSize : ConfigData.VP_15 ,
                 bgColor : this.currentClick === 5 ? $r('app.color.font_color_007DFF') : $r('app.color.white_bg_color')
               })
-  .accessibilityLevel('yes')
-  .id('pages_subManualApiTest_subBrTest_setScanMode__tt_6');
+            .accessibilityLevel('yes')
+            .id('pages_subManualApiTest_subBrTest_setScanMode__tt_6');
             }
-  .accessibilityLevel('yes')
-  .id('pages_subManualApiTest_subBrTest_setScanMode__li_6')
-            .padding({ top : '10vp' })
-            .height('80vp')
-            .borderRadius('10vp')
+            .accessibilityLevel('yes')
+            .id('pages_subManualApiTest_subBrTest_setScanMode__li_6')
+            .padding({ top : ConfigData.VP_10 })
+            .height(ConfigData.VP_80)
+            .borderRadius(ConfigData.VP_10)
             .onClick(() => {
               this.currentClick = 5;
             })
@@ -171,33 +171,33 @@ struct etScanMode {
           Blank()
         }
       }
-  .accessibilityLevel('yes')
-  .id('pages_subManualApiTest_subBrTest_setScanMode__sc_0')
-      .height('50%')
+      .accessibilityLevel('yes')
+      .id('pages_subManualApiTest_subBrTest_setScanMode__sc_0')
+      .height(ConfigData.WH_50_100)
       .scrollable(ScrollDirection.Vertical)
       .scrollBar(BarState.On)
       .scrollBarColor(Color.Gray)
-      .scrollBarWidth('30vp')
+      .scrollBarWidth(ConfigData.VP_30)
 
       Row() {
-        Text('duration')
+        Text($r('app.string.ohcc_txt_caa79af4db'))
           .textAlign(TextAlign.Center)
-          .fontSize('20fp')
+          .fontSize(ConfigData.FP_20)
           .fontColor($r('app.color.font_color_182431'))
           .fontWeight(FontWeight.Medium)
         TextInput({ text : this.duration })
-  .accessibilityLevel('yes')
-  .id('pages_subManualApiTest_subBrTest_setScanMode__ti_0')
+          .accessibilityLevel('yes')
+          .id('pages_subManualApiTest_subBrTest_setScanMode__ti_0')
           .placeholderFont({
-            size : '18fp' ,
+            size : ConfigData.FP_18 ,
             weight : FontWeight.Normal ,
             style : FontStyle.Normal
           })
           .type(InputType.Normal)
           .enterKeyType(EnterKeyType.Done)
           .caretColor(Color.Blue)
-          .height('40vp')
-          .borderRadius('0vp')
+          .height(ConfigData.VP_40)
+          .borderRadius(ConfigData.VP_0)
           .backgroundColor($r('app.color.color_00000000_transparent'))
           .onChange((value: string) => {
             console.log(ConfigData.TAG + 'device name changed to: ' + JSON.stringify(value));
@@ -209,14 +209,14 @@ struct etScanMode {
             });
           })
       }
-      .padding('15vp')
-      .width('100%')
+      .padding(ConfigData.VP_15)
+      .width(ConfigData.WH_100_100)
 
       Text(this.message)
         .textAlign(TextAlign.Center)
-        .fontSize('17fp')
-        .height('50vp')
-        .width('100%')
+        .fontSize(ConfigData.FP_17)
+        .height(ConfigData.VP_50)
+        .width(ConfigData.WH_100_100)
         .fontWeight(FontWeight.Medium)
         .backgroundColor($r("app.color.moon"))
 
@@ -225,11 +225,11 @@ struct etScanMode {
           ButtonComponent({ text : $r("app.string.cancel") , isOnClick : () => {
             router.back();
           } })
-  .accessibilityLevel('yes')
-  .id('pages_subManualApiTest_subBrTest_setScanMode__bcomp_0')
+        .accessibilityLevel('yes')
+        .id('pages_subManualApiTest_subBrTest_setScanMode__bcomp_0')
         }
-        .width('120vp')
-        .margin({ right : '12vp' })
+        .width(ConfigData.VP_120)
+        .margin({ right : ConfigData.VP_12 })
 
         Row() {
           ButtonComponent({ text : $r("app.string.confirm") , isOnClick : () => {
@@ -244,14 +244,14 @@ struct etScanMode {
             AppStorage.setOrCreate('setScanModeRet' , ret);
             router.back();
           } })
-  .accessibilityLevel('yes')
-  .id('pages_subManualApiTest_subBrTest_setScanMode__bcomp_1')
-        }.width('120vp')
+    .accessibilityLevel('yes')
+    .id('pages_subManualApiTest_subBrTest_setScanMode__bcomp_1')
+        }.width(ConfigData.VP_120)
 
       }
     }
-    .padding({ left : '24vp' , right : '24vp' })
-    .width('100%')
+    .padding({ left : ConfigData.VP_24 , right : ConfigData.VP_24 })
+    .width(ConfigData.WH_100_100)
     .height(ConfigData.WH_100_100)
     .backgroundColor($r("app.color.lead"))
   }
@@ -268,14 +268,14 @@ struct ButtonComponent {
   build() {
     Column() {
       Text(this.text)
-        .fontSize('16fp')
+        .fontSize(ConfigData.FP_16)
         .fontWeight(FontWeight.Medium)
         .lineHeight('22vp')
         .fontColor($r('app.color.font_color_007DFF'))
         .textAlign(TextAlign.Center)
-        .width('120vp')
-        .height('40vp')
-        .borderRadius('20vp')
+        .width(ConfigData.VP_120)
+        .height(ConfigData.VP_40)
+        .borderRadius(ConfigData.VP_20)
         .backgroundColor(!this.isTouched ? $r("app.color.color_button_grey") : $r("sys.color.ohos_id_color_foreground_contrary"))
         .onTouch((event: TouchEvent) => {
           if ( event.type === TouchType.Down ) {
