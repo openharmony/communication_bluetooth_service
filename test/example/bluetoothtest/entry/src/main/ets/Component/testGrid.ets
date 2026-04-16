@@ -13,6 +13,7 @@
  * limitations under the License.
  */
 
+import ConfigData from '../Utils/ConfigData';
 import { TestData } from '../MainAbility/model/testData'
 import { TestGridItem } from './testGridItem'
 /**
@@ -41,11 +42,11 @@ export struct TestGrid {
       }
       .rowsTemplate(this.gridRowTemplate)
       .columnsTemplate('1fr 1fr')
-      .columnsGap('8vp')
-      .rowsGap('8vp')
+      .columnsGap(ConfigData.VP_8)
+      .rowsGap(ConfigData.VP_8)
       .height(this.heightValue)
     }
     .scrollBar(BarState.Off)
-    .padding({ left : '16vp' , right : '16vp' })
+    .padding({ left : ConfigData.VP_16 , right : ConfigData.VP_16 })
   }
 }

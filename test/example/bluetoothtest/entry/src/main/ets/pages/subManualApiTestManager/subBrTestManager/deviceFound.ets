@@ -59,8 +59,8 @@ struct deviceFound {
       GridContainer({
         columns : 12 ,
         sizeType : SizeType.Auto ,
-        gutter : vp2px(1) === 2 ? '12vp' : '0vp' ,
-        margin : vp2px(1) === 2 ? '24vp' : '0vp'
+        gutter : vp2px(1) === 2 ? ConfigData.VP_12 : ConfigData.VP_0 ,
+        margin : vp2px(1) === 2 ? ConfigData.VP_24 : ConfigData.VP_0
       }) {
         Row({}) {
           Column() {
@@ -71,7 +71,7 @@ struct deviceFound {
             xs : { span : 0 , offset : 0 } , sm : { span : 0 , offset : 0 } ,
             md : { span : 0 , offset : 0 } , lg : { span : 2 , offset : 0 }
           });
-          Column({ space : '12vp' }) {
+          Column({ space : ConfigData.VP_12 }) {
             PageTitle({ detail : '扫描蓝牙设备' })
             Scroll() {
               Column() {
@@ -95,9 +95,9 @@ struct deviceFound {
             .margin({ top : $r('sys.float.ohos_id_card_margin_middle') })
           }
           .padding({
-            left : '24vp' ,
-            right : '24vp' ,
-            bottom : '32vp'
+            left : ConfigData.VP_24 ,
+            right : ConfigData.VP_24 ,
+            bottom : ConfigData.VP_32
           })
           .width(ConfigData.WH_100_100)
           .height(ConfigData.WH_100_100)
@@ -155,14 +155,14 @@ export struct PairedDeviceComponent {
         // paired devices title
         Row() {
           Text($r('app.string.bluetooth_paired_devices'))
-            .fontSize('14fp')
+            .fontSize(ConfigData.FP_14)
             .fontColor($r('app.color.font_color_182431'))
         }
         .width(ConfigData.WH_100_100)
         .padding({
-          left : '24vp' ,
-          top : '19.5vp' ,
-          bottom : '9.5vp'
+          left : ConfigData.VP_24 ,
+          top : ConfigData.VP_19_5 ,
+          bottom : ConfigData.VP_9_5
         })
 
         List() {
@@ -178,8 +178,8 @@ export struct PairedDeviceComponent {
                 })
               }
               .width(ConfigData.WH_100_100)
-              .borderRadius('24vp')
-              .padding('4vp')
+              .borderRadius(ConfigData.VP_24)
+              .padding(ConfigData.VP_4)
               .backgroundColor($r("app.color.white_bg_color"))
               .onClick(() => {
                 this.itemClicked(item);
@@ -188,15 +188,15 @@ export struct PairedDeviceComponent {
             }
           } , item => JSON.stringify(item));
         }
-        .height('200vp')
+        .height(ConfigData.VP_200)
         .divider({
-          strokeWidth : '1vp' ,
+          strokeWidth : ConfigData.HEIGHT_1_VP ,
           color : $r('app.color.color_E3E3E3_grey') ,
-          startMargin : '52vp' ,
-          endMargin : '12vp'
+          startMargin : ConfigData.VP_52 ,
+          endMargin : ConfigData.VP_12
         })
         .backgroundColor($r("app.color.white_bg_color"))
-        .borderRadius('24vp')
+        .borderRadius(ConfigData.VP_24)
 
       }
     }
@@ -316,36 +316,36 @@ export struct AvailableItem {
         Image($r('app.media.bleSmall'))
           .objectFit(ImageFit.Contain)
           .autoResize(false)
-          .height('30vp')
-          .width('30vp')
+          .height(ConfigData.VP_30)
+          .width(ConfigData.VP_30)
       }
-      .width('10%')
-      .padding({ left : '10vp' })
+      .width(ConfigData.PCT_10)
+      .padding({ left : ConfigData.VP_10 })
 
       Column() {
         Text(this.name)
-          .fontSize('17.4vp')
+          .fontSize(ConfigData.VP_17_4)
           .fontWeight(FontWeight.Bold)
-          .width('90%')
-          .height('40vp')
-          .padding({ left : '10vp' , top : '15vp' })
+          .width(ConfigData.WH_90_100)
+          .height(ConfigData.VP_40)
+          .padding({ left : ConfigData.VP_10 , top : ConfigData.VP_15 })
         Text(this.mac)
-          .fontSize('17.4vp')
+          .fontSize(ConfigData.VP_17_4)
           .fontWeight(FontWeight.Bold)
-          .width('90%')
-          .height('30vp')
-          .padding({ left : '10vp' , top : '5vp' })
+          .width(ConfigData.WH_90_100)
+          .height(ConfigData.VP_30)
+          .padding({ left : ConfigData.VP_10 , top : ConfigData.VP_5 })
       }
-      .height('80vp')
-      .width('80%')
+      .height(ConfigData.VP_80)
+      .width(ConfigData.WH_80_100)
 
       Row() {
         Text(this.state)
-          .fontSize('17.4vp')
+          .fontSize(ConfigData.VP_17_4)
           .flexGrow(1)
       }
-      .width('10%')
-      .padding({ left : '10vp' })
+      .width(ConfigData.PCT_10)
+      .padding({ left : ConfigData.VP_10 })
     }
   }
 }
@@ -366,44 +366,44 @@ export struct PairedItem {
         Image($r('app.media.bleSmall'))
           .objectFit(ImageFit.Contain)
           .autoResize(false)
-          .height('30vp')
-          .width('30vp')
+          .height(ConfigData.VP_30)
+          .width(ConfigData.VP_30)
       }
-      .width('10%')
-      .padding({ left : '10vp' })
+      .width(ConfigData.PCT_10)
+      .padding({ left : ConfigData.VP_10 })
 
       Column() {
         Text(this.name)
-          .fontSize('17.4vp')
+          .fontSize(ConfigData.VP_17_4)
           .fontWeight(FontWeight.Bold)
-          .width('90%')
-          .height('40vp')
-          .padding({ left : '10vp' , top : '15vp' })
+          .width(ConfigData.WH_90_100)
+          .height(ConfigData.VP_40)
+          .padding({ left : ConfigData.VP_10 , top : ConfigData.VP_15 })
         Text(this.mac)
-          .fontSize('17.4vp')
+          .fontSize(ConfigData.VP_17_4)
           .fontWeight(FontWeight.Bold)
-          .width('90%')
-          .height('30vp')
-          .padding({ left : '10vp' , top : '5vp' })
+          .width(ConfigData.WH_90_100)
+          .height(ConfigData.VP_30)
+          .padding({ left : ConfigData.VP_10 , top : ConfigData.VP_5 })
       }
-      .height('80vp')
-      .width('70%')
+      .height(ConfigData.VP_80)
+      .width(ConfigData.PCT_70)
 
       Row() {
         Text(this.state)
-          .fontSize('17.4vp')
+          .fontSize(ConfigData.VP_17_4)
           .flexGrow(1)
       }
-      .width('10%')
-      .padding({ left : '10vp' })
+      .width(ConfigData.PCT_10)
+      .padding({ left : ConfigData.VP_10 })
 
       Row() {
-        Text("取消")
-          .fontSize('17.4vp')
+        Text($r('app.string.cancel'))
+          .fontSize(ConfigData.VP_17_4)
           .flexGrow(1)
       }
-      .width('10%')
-      .padding({ left : '10vp' })
+      .width(ConfigData.PCT_10)
+      .padding({ left : ConfigData.VP_10 })
       .onClick(() => {
         let ret = bluetooth.cancelPairedDevice(this.mac)
         if ( ret ) {
@@ -456,13 +456,13 @@ export struct AvailableDeviceComponent {
       Row() {
         // available devices title
         Text($r('app.string.bluetooth_available_devices'))
-          .fontSize('14fp')
+          .fontSize(ConfigData.FP_14)
           .fontColor($r('app.color.font_color_182431'))
           .width(ConfigData.WH_100_100)
           .padding({
-            left : '24vp' ,
-            top : '19.5vp' ,
-            bottom : '9.5vp'
+            left : ConfigData.VP_24 ,
+            top : ConfigData.VP_19_5 ,
+            bottom : ConfigData.VP_9_5
           })
         Blank()
 
@@ -488,8 +488,8 @@ export struct AvailableDeviceComponent {
                   })
                 }
                 .width(ConfigData.WH_100_100)
-                .borderRadius('24vp')
-                .padding('4vp')
+                .borderRadius(ConfigData.VP_24)
+                .padding(ConfigData.VP_4)
                 .backgroundColor($r("app.color.white_bg_color"))
                 .onClick(() => {
                   LogUtil.info(this.TAG_PAGE + 'item on click : ' + JSON.stringify(item));
@@ -500,22 +500,22 @@ export struct AvailableDeviceComponent {
             } , item => JSON.stringify(item));
           }
           .backgroundColor($r("app.color.white_bg_color"))
-          .borderRadius('24vp')
-          .height('80%')
+          .borderRadius(ConfigData.VP_24)
+          .height(ConfigData.WH_80_100)
           .divider({
-            strokeWidth : '1vp' ,
+            strokeWidth : ConfigData.HEIGHT_1_VP ,
             color : $r('app.color.color_E3E3E3_grey') ,
-            startMargin : '52vp' ,
-            endMargin : '12vp'
+            startMargin : ConfigData.VP_52 ,
+            endMargin : ConfigData.VP_12
           })
         }
         .scrollBar(BarState.Auto)
-        .scrollBarWidth('20vp')
+        .scrollBarWidth(ConfigData.VP_20)
       } else {
         Row() {
           // Scanning...
           Text($r('app.string.scanning'))
-            .fontSize('20fp')
+            .fontSize(ConfigData.FP_20)
             .textCase(TextCase.UpperCase);
         }
       }
@@ -598,44 +598,44 @@ struct PairDialog {
   build() {
     Column() {
       Text($r('app.string.bluetooth_pairing_request'))
-        .fontSize('22fp')
-        .height('60vp')
+        .fontSize(ConfigData.FP_22)
+        .height(ConfigData.VP_60)
         .width(ConfigData.WH_100_100)
         .padding({
-          left : '24vp' ,
-          top : '14vp' ,
-          bottom : '14vp'
+          left : ConfigData.VP_24 ,
+          top : ConfigData.VP_14 ,
+          bottom : ConfigData.VP_14
         })
       Column() {
         if ( this.pinCode ) {
           Text($r('app.string.bluetooth_pairing_intelligent_device_hit' , this.deviceName , this.deviceName))
-            .fontSize('16fp')
+            .fontSize(ConfigData.FP_16)
             .width(ConfigData.WH_100_100)
             .margin({
-              top : '14vp' ,
-              bottom : '14vp'
+              top : ConfigData.VP_14 ,
+              bottom : ConfigData.VP_14
             })
 
           Text(`${ this.pinCode }`)
-            .fontSize('32fp')
+            .fontSize(ConfigData.FP_32)
             .fontWeight(FontWeight.Bolder)
             .width(ConfigData.WH_100_100)
             .textAlign(TextAlign.Center)
             .margin({
-              top : '24vp' ,
-              bottom : '24vp'
+              top : ConfigData.VP_24 ,
+              bottom : ConfigData.VP_24
             })
 
         } else {
           Text($r('app.string.bluetooth_pairing_media_device_hit'))
-            .fontSize('16fp')
+            .fontSize(ConfigData.FP_16)
             .width(ConfigData.WH_100_100)
             .margin({
-              bottom : '2vp'
+              bottom : ConfigData.VP_2
             })
 
           Text(this.deviceName)
-            .fontSize('16fp')
+            .fontSize(ConfigData.FP_16)
             .width(ConfigData.WH_100_100)
             .fontWeight(FontWeight.Bold)
         }
@@ -645,12 +645,12 @@ struct PairDialog {
 
           Button() {
             Text($r('app.string.cancel'))
-              .fontSize('16fp')
+              .fontSize(ConfigData.FP_16)
               .fontColor(Color.Blue)
           }
           .backgroundColor($r("app.color.white_bg_color"))
-          .width('160vp')
-          .height('40vp')
+          .width(ConfigData.VP_160)
+          .height(ConfigData.VP_40)
           .flexGrow(1)
           .onClick(() => {
             this.dialogController.close();
@@ -658,19 +658,19 @@ struct PairDialog {
           })
 
           Divider()
-            .height('24vp')
-            .strokeWidth('0.5vp')
+            .height(ConfigData.VP_24)
+            .strokeWidth(ConfigData.VP_0_5)
             .vertical(true)
             .color(($r("app.color.color_E3E3E3_grey")))
 
           Button() {
             Text($r('app.string.bluetooth_pair_button'))
-              .fontSize('16fp')
+              .fontSize(ConfigData.FP_16)
               .fontColor(Color.Blue)
           }
           .backgroundColor($r("app.color.white_bg_color"))
-          .width('160vp')
-          .height('40vp')
+          .width(ConfigData.VP_160)
+          .height(ConfigData.VP_40)
           .flexGrow(1)
           .onClick(() => {
             this.dialogController.close();
@@ -678,17 +678,17 @@ struct PairDialog {
           })
         }
         .width(ConfigData.WH_100_100)
-        .height('60vp');
+        .height(ConfigData.VP_60);
       }
       .width(ConfigData.WH_100_100)
       .padding({
-        left : '24vp' ,
-        right : '24vp'
+        left : ConfigData.VP_24 ,
+        right : ConfigData.VP_24
       })
     }
     .padding({
-      left : '24vp' ,
-      right : '24vp'
+      left : ConfigData.VP_24 ,
+      right : ConfigData.VP_24
     })
     .width(ConfigData.WH_100_100);
   }

@@ -60,69 +60,69 @@ struct PanNetWorkManagerTest {
         Stack({ alignContent : Alignment.TopStart }) {
           TestImageDisplay({ testItem : this.testItem })
           PageTitle({ testItem : this.testItem })
-  .accessibilityLevel('yes')
-  .id('pages_subProfileTestManager_panNetworkProfileTestManager__pt_0')
+          .accessibilityLevel('yes')
+          .id('pages_subProfileTestManager_panNetworkProfileTestManager__pt_0')
         }
 
-        Stack().height('0.5vp').backgroundColor($r('app.color.black'));
+        Stack().height(ConfigData.VP_0_5).backgroundColor($r('app.color.black'));
         Text(this.hasProfile ? this.profileExist : this.profileNotExist)
-          .margin({ top : '10vp' })
-          .fontSize('20vp')
+          .margin({ top : ConfigData.VP_10 })
+          .fontSize(ConfigData.VP_20)
           .fontColor(this.hasProfile ? $r('app.color.color_66CCFF_blue') : $r('app.color.color_FF0000_red'))
           .border({ width : 0.5 })
-          .padding('5vp')
+          .padding(ConfigData.VP_5)
           .fontStyle(FontStyle.Italic);
         Column() {
           Row() {
-            Text("现在正在连接的设备为：")
-              .fontSize("17").width('110vp').margin('5vp')
+            Text($r('app.string.bluetoothtest_text_xzzzljdsbw'))
+              .fontSize("17").width(ConfigData.VP_110).margin(ConfigData.VP_5)
             TextInput({ text : JSON.stringify(this.deviceId) , placeholder : "请输入需要连接的deviceId" })
-  .accessibilityLevel('yes')
-  .id('pages_subProfileTestManager_panNetworkProfileTestManager__ti_0')
-              .fontSize('17vp')
+              .accessibilityLevel('yes')
+              .id('pages_subProfileTestManager_panNetworkProfileTestManager__ti_0')
+              .fontSize(ConfigData.VP_17)
               .onChange((str) => {
                 this.deviceId = str;
                 AppStorage.setOrCreate("deviceId" , str)
               })
-              .width('70%')
-              .borderRadius('1vp')
+              .width(ConfigData.PCT_70)
+              .borderRadius(ConfigData.HEIGHT_1_VP)
           }
           .backgroundColor($r("app.color.moon"))
-          .margin({ top : '20vp' , bottom : '20vp' , left : '20vp' , right : '20vp' })
+          .margin({ top : ConfigData.VP_20 , bottom : ConfigData.VP_20 , left : ConfigData.VP_20 , right : ConfigData.VP_20 })
           .alignItems(VerticalAlign.Center)
 
           Column() {
-            Text("接口调用结果： " + this.panMessage)
-              .fontSize('17vp')
+            Text($r('app.string.label_api_result_space') + this.panMessage)
+              .fontSize(ConfigData.VP_17)
               .textAlign(TextAlign.Start)
-              .margin({ top : '5vp' , left : '10vp' })
-              .width('100%')
-            Text("connectionStateChange： " + this.connectionStateInfo)
-              .fontSize('17vp')
-              .margin({ top : '10vp' , left : '10vp' })
+              .margin({ top : ConfigData.VP_5 , left : ConfigData.VP_10 })
+              .width(ConfigData.WH_100_100)
+            Text($r('app.string.label_connection_state_change') + this.connectionStateInfo)
+              .fontSize(ConfigData.VP_17)
+              .margin({ top : ConfigData.VP_10 , left : ConfigData.VP_10 })
               .textAlign(TextAlign.Start)
-              .width('90%')
+              .width(ConfigData.WH_90_100)
           }
           .backgroundColor($r("sys.color.ohos_id_color_foreground_contrary"))
-          .width('88%')
-          .height('90vp')
+          .width(ConfigData.PCT_88)
+          .height(ConfigData.VP_90)
 
-          Text("请点击需要测试的方法")
-            .margin({ top : '10vp' })
-            .padding('5vp')
-            .fontSize('17vp')
+          Text($r('app.string.bluetoothtest_text_qdjxycsdff'))
+            .margin({ top : ConfigData.VP_10 })
+            .padding(ConfigData.VP_5)
+            .fontSize(ConfigData.VP_17)
             .fontColor($r('app.color.color_4444444_grey'));
           Column() {
             ContentTable({ apiItems : initPanNetworkProfileManagerApiData() })
           }
-          .height('800vp')
+          .height(ConfigData.VP_800)
         }
         .visibility(this.hasProfile ? Visibility.Visible : Visibility.Hidden);
       }
-      .width('100%')
+      .width(ConfigData.WH_100_100)
     }
     .backgroundColor($r("sys.color.ohos_id_color_sub_background"))
-    .height('100%')
+    .height(ConfigData.WH_100_100)
     .alignItems(VerticalAlign.Top)
   }
 

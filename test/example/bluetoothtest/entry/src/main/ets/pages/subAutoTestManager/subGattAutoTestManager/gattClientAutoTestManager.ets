@@ -49,82 +49,82 @@ struct GattClientAutoTestManager {
       Stack({ alignContent : Alignment.TopStart }) {
         TestImageDisplay({ testItem : this.testItem })
         PageTitle({ testItem : this.testItem })
-  .accessibilityLevel('yes')
-  .id('pages_subAutoTestManager_subGattAutoTestManager_gattClientAutoTestManager__pt_0')
+              .accessibilityLevel('yes')
+              .id('pages_subAutoTestManager_subGattAutoTestManager_gattClientAutoTestManager__pt_0')
       }
 
-      Stack().height('1vp').backgroundColor($r('app.color.black'));
+      Stack().height(ConfigData.HEIGHT_1_VP).backgroundColor($r('app.color.black'));
       Column() {
         Scroll() {
           Column() {
-            Text("API验证:")
-              .fontSize('17vp')
-              .margin({ top : '10vp' , bottom : '10vp' , left : '15vp' })
+            Text($r('app.string.autotest_api_verify_label'))
+              .fontSize(ConfigData.VP_17)
+              .margin({ top : ConfigData.VP_10 , bottom : ConfigData.VP_10 , left : ConfigData.VP_15 })
               .textAlign(TextAlign.Start)
-              .width('100%')
+              .width(ConfigData.WH_100_100)
             AutoContentTable({
               autoItems : initGattClientManagerAutoData() ,
               changeIndex : this.changeIndex
             })
           }
-          .width('100%')
-          .height('260vp')
+          .width(ConfigData.WH_100_100)
+          .height(ConfigData.HEIGHT_260_VP)
         }
-  .accessibilityLevel('yes')
-  .id('pages_subAutoTestManager_subGattAutoTestManager_gattClientAutoTestManager__sc_0')
-        .scrollBarWidth('10vp')
+        .accessibilityLevel('yes')
+        .id('pages_subAutoTestManager_subGattAutoTestManager_gattClientAutoTestManager__sc_0')
+        .scrollBarWidth(ConfigData.VP_10)
         .scrollBar(BarState.Auto)
 
-        Stack().height('1vp').backgroundColor($r('app.color.black'));
+        Stack().height(ConfigData.HEIGHT_1_VP).backgroundColor($r('app.color.black'));
 
         Scroll() {
           Column() {
-            Text("Debug日志:")
-              .fontSize('17vp')
-              .margin({ top : '8vp' , bottom : '8vp' , left : '15vp' })
+            Text($r('app.string.autotest_debug_log_label'))
+              .fontSize(ConfigData.VP_17)
+              .margin({ top : ConfigData.VP_8 , bottom : ConfigData.VP_8 , left : ConfigData.VP_15 })
               .textAlign(TextAlign.Start)
-              .width('100%')
+              .width(ConfigData.WH_100_100)
             List() {
               ListItem() {
-                Text("log:" + "\n" + this.gattClientAutoTestMessage)
-                  .fontSize('17vp')
-                  .margin({ top : '5vp' , left : '30vp' , right : '10vp' })
+                Text($r('app.string.autotest_log_prefix') + "\n" + this.gattClientAutoTestMessage)
+                  .fontSize(ConfigData.VP_17)
+                  .margin({ top : ConfigData.VP_5 , left : ConfigData.VP_30 , right : ConfigData.VP_10 })
                   .textAlign(TextAlign.Start)
-                  .width('90%')
+                  .width(ConfigData.WH_90_100)
               }
-  .accessibilityLevel('yes')
-  .id('pages_subAutoTestManager_subGattAutoTestManager_gattClientAutoTestManager__li_0')
+            .accessibilityLevel('yes')
+            .id('pages_subAutoTestManager_subGattAutoTestManager_gattClientAutoTestManager__li_0')
             }
-            .height('80%')
-            .width('90%')
+            .height(ConfigData.WH_80_100)
+            .width(ConfigData.WH_90_100)
             .backgroundColor($r("sys.color.ohos_id_color_foreground_contrary"))
           }
-          .width('100%')
-          .height('280vp')
+          .width(ConfigData.WH_100_100)
+          .height(ConfigData.HEIGHT_280_VP)
         }
-  .accessibilityLevel('yes')
-  .id('pages_subAutoTestManager_subGattAutoTestManager_gattClientAutoTestManager__sc_1')
-        .scrollBarWidth('10vp')
+        .accessibilityLevel('yes')
+        .id('pages_subAutoTestManager_subGattAutoTestManager_gattClientAutoTestManager__sc_1')
+        .scrollBarWidth(ConfigData.VP_10)
         .scrollBar(BarState.Auto)
       }
-      .height('500vp')
-      .width('100%')
+      .height(ConfigData.HEIGHT_500_VP)
+      .width(ConfigData.WH_100_100)
       .backgroundColor($r("sys.color.ohos_id_color_sub_background"))
 
-      Stack().height('1vp').backgroundColor($r('app.color.black'));
+      Stack().height(ConfigData.HEIGHT_1_VP).backgroundColor($r('app.color.black'));
       Column() {
         Button({ type : ButtonType.Normal , stateEffect : true }) {
           Row() {
-            Text('自动测试').fontSize('24vp').fontColor(0xffffff).margin({ left : '5vp' , right : '5vp' })
+            Text($r('app.string.autotest')).fontSize(ConfigData.VP_24).fontColor(0xffffff).margin({ left : ConfigData.VP_5 , right : ConfigData.VP_5 })
           }.alignItems(VerticalAlign.Center)
         }
-  .accessibilityLevel('yes')
-  .id('pages_subAutoTestManager_subGattAutoTestManager_gattClientAutoTestManager__btn_0')
-        .borderRadius('8vp')
+        .accessibilityLevel('yes')
+        .id('pages_subAutoTestManager_subGattAutoTestManager_gattClientAutoTestManager__btn_0')
+        .borderRadius(ConfigData.VP_8)
         .backgroundColor($r("app.color.blue"))
-        .width('180vp')
-        .height('50vp')
-        .margin({ top : '15vp' })
+        .width(ConfigData.VP_180)
+        .height(ConfigData.VP_50)
+        .margin({ top : ConfigData.VP_15 })
         .onClick(async(event: ClickEvent) => {
           this.forLoop()
         })

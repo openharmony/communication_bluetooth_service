@@ -13,6 +13,7 @@
  * limitations under the License.
  */
 
+import ConfigData from '../Utils/ConfigData';
 import { TestData , TestApi } from '../MainAbility/model/testData'
 import promptAction from '@ohos.promptAction'
 
@@ -35,38 +36,38 @@ export struct AutoVerificationTable {
           Image($r('app.media.bluetooth'))
             .objectFit(ImageFit.Contain)
             .autoResize(false)
-            .height('30vp')
-            .width('30vp')
+            .height(ConfigData.VP_30)
+            .width(ConfigData.VP_30)
         }
         .layoutWeight(1)
-        .padding({ left : '10vp' })
+        .padding({ left : ConfigData.VP_10 })
 
         Flex({ direction : FlexDirection.Column , alignItems : ItemAlign.Start }) {
           Text(apiItem.name)
-            .fontSize('17.4vp')
+            .fontSize(ConfigData.VP_17_4)
             .fontWeight(FontWeight.Bold)
             .layoutWeight(1)
-            .padding({ left : '10vp' , top : '15vp' })
+            .padding({ left : ConfigData.VP_10 , top : ConfigData.VP_15 })
           Text(apiItem.detail)
-            .fontSize('17.4vp')
+            .fontSize(ConfigData.VP_17_4)
             .fontWeight(FontWeight.Bold)
             .layoutWeight(1)
-            .padding({ left : '10vp' , top : '5vp' })
+            .padding({ left : ConfigData.VP_10 , top : ConfigData.VP_5 })
         }
         .layoutWeight(6)
 
         Flex({ alignItems : ItemAlign.Center }) {
           Text(this.changeIndex >= 0 ? this.getCurrentState(index) : apiItem.result)
-            .fontSize('17.4vp')
+            .fontSize(ConfigData.VP_17_4)
             .flexGrow(1)
         }
         .layoutWeight(3)
-        .padding({ left : '10vp' })
+        .padding({ left : ConfigData.VP_10 })
       }
     }
-    .height('80vp')
-    .borderRadius('10vp')
-    .margin({ top : '5vp' , bottom : '5vp' })
+    .height(ConfigData.VP_80)
+    .borderRadius(ConfigData.VP_10)
+    .margin({ top : ConfigData.VP_5 , bottom : ConfigData.VP_5 })
     .backgroundColor($r("app.color.white"))
     .onClick(() => {
       switch ( apiItem.method ) {
@@ -99,9 +100,9 @@ export struct AutoVerificationTable {
           })
         }
       }
-      .scrollBarWidth('20vp')
+      .scrollBarWidth(ConfigData.VP_20)
     }
-    .height('88%')
-    .padding({ top : '5vp' , right : '10vp' , left : '10vp' })
+    .height(ConfigData.PCT_88)
+    .padding({ top : ConfigData.VP_5 , right : ConfigData.VP_10 , left : ConfigData.VP_10 })
   }
 }

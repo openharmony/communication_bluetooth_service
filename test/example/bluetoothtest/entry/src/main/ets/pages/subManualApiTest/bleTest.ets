@@ -13,6 +13,7 @@
  * limitations under the License.
  */
 
+import ConfigData from '../../Utils/ConfigData';
 import { BleScanFilter, testItemFromRouterOrPlaceholder } from '../../Utils/common'
 import BluetoothModel from '../../MainAbility/model/BluetoothModel';
 import bluetooth from '@ohos.bluetooth';
@@ -78,38 +79,38 @@ struct BleTest {
       Stack({ alignContent : Alignment.TopStart }) {
         TestImageDisplay({ testItem : this.testItem })
         PageTitle({ testItem : this.testItem })
-  .accessibilityLevel('yes')
-  .id('pages_subManualApiTest_bleTest__pt_0')
+            .accessibilityLevel('yes')
+            .id('pages_subManualApiTest_bleTest__pt_0')
       }
 
-      Stack().height('0.5vp').backgroundColor($r('app.color.black'));
+      Stack().height(ConfigData.VP_0_5).backgroundColor($r('app.color.black'));
       Column() {
         Row() {
-          Text("外设MAC:")
-            .fontSize('18vp')
-            .height('40vp')
-            .width('25%')
+          Text($r('app.string.bluetoothtest_text_wsm'))
+            .fontSize(ConfigData.VP_18)
+            .height(ConfigData.VP_40)
+            .width(ConfigData.WH_25_100)
             .align(Alignment.Start)
 
           TextInput({ text : this.peripheralDeviceId , placeholder : "input peripheral deviceId." })
-  .accessibilityLevel('yes')
-  .id('pages_subManualApiTest_bleTest__ti_0')
-            .fontSize('18vp')
+            .accessibilityLevel('yes')
+            .id('pages_subManualApiTest_bleTest__ti_0')
+            .fontSize(ConfigData.VP_18)
             .onChange((strInput) => {
               this.peripheralDeviceId = strInput;
               AppStorage.setOrCreate("peripheralDeviceId" , strInput)
             })
-            .width('55%')
-            .padding({ top : '5vp' , left : '5vp' })
-            .height('40vp')
+            .width(ConfigData.WH_55_100)
+            .padding({ top : ConfigData.VP_5 , left : ConfigData.VP_5 })
+            .height(ConfigData.VP_40)
             .borderStyle(BorderStyle.Dashed)
             .backgroundColor($r("app.color.white"))
           Image($r('app.media.Switch'))
-  .accessibilityLevel('yes')
-  .id('pages_subManualApiTest_bleTest__img_0')
-            .height('50vp')
-            .width('15%')
-            .padding({ top : '5vp' , bottom : '5vp' , left : '10vp' })
+            .accessibilityLevel('yes')
+            .id('pages_subManualApiTest_bleTest__img_0')
+            .height(ConfigData.VP_50)
+            .width(ConfigData.PCT_15)
+            .padding({ top : ConfigData.VP_5 , bottom : ConfigData.VP_5 , left : ConfigData.VP_10 })
             .onClick(() => {
               this.showList = !this.showList;
             })
@@ -125,7 +126,7 @@ struct BleTest {
     }
     .alignItems(HorizontalAlign.Center)
     .backgroundColor($r("app.color.lead"))
-    .height('100%')
+    .height(ConfigData.WH_100_100)
   }
 
   /**

@@ -13,6 +13,7 @@
  * limitations under the License.
  */
 
+import ConfigData from '../Utils/ConfigData';
 import { TestData } from '../MainAbility/model/testData'
 import { TestList } from './testList';
 
@@ -33,6 +34,6 @@ export struct ManualApiTest {
       TestList({
         testItems : this.testItems
       })
-    }.height('100%')
+    }.height(ConfigData.WH_100_100)
   }
 }

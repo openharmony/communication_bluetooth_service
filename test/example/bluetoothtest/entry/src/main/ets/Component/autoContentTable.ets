@@ -13,6 +13,7 @@
  * limitations under the License.
  */
 
+import ConfigData from '../Utils/ConfigData';
 import { TestAuto } from '../MainAbility/model/testData'
 
 /**
@@ -32,41 +33,41 @@ export struct AutoContentTable {
           Image($r('app.media.bluetooth'))
             .objectFit(ImageFit.Contain)
             .autoResize(false)
-            .height('26vp')
-            .width('25vp')
+            .height(ConfigData.VP_26)
+            .width(ConfigData.VP_25)
         }
-        .height('30vp')
-        .width('10%')
-        .padding({ left : '10vp' })
+        .height(ConfigData.VP_30)
+        .width(ConfigData.PCT_10)
+        .padding({ left : ConfigData.VP_10 })
 
         Flex({ direction : FlexDirection.Column , alignItems : ItemAlign.Start }) {
           Row() {
             Text(autoItem.method)
-              .fontSize('17vp')
-              .margin({ top : '3vp' , bottom : '3vp' , left : '10vp' })
+              .fontSize(ConfigData.VP_17)
+              .margin({ top : ConfigData.VP_3 , bottom : ConfigData.VP_3 , left : ConfigData.VP_10 })
               .textAlign(TextAlign.Start)
-              .height('40vp')
-              .width('200vp')
+              .height(ConfigData.VP_40)
+              .width(ConfigData.VP_200)
           }
-          .height('30vp')
-          .width('70%')
+          .height(ConfigData.VP_30)
+          .width(ConfigData.PCT_70)
         }
-        .height('30vp')
+        .height(ConfigData.VP_30)
         .layoutWeight(6)
 
         Flex({ alignItems : ItemAlign.Center }) {
           Text(this.changeIndex >= 0 ? this.getCurrentState(index) : autoItem.result)
-            .margin({ left : '10vp' })
-            .fontSize('17vp')
+            .margin({ left : ConfigData.VP_10 })
+            .fontSize(ConfigData.VP_17)
             .flexGrow(1)
         }
         .layoutWeight(3)
-        .padding({ left : '10vp' })
+        .padding({ left : ConfigData.VP_10 })
       }
     }
-    .height('40vp')
-    .borderRadius('10vp')
-    .margin({ top : '3vp' , bottom : '3vp' })
+    .height(ConfigData.VP_40)
+    .borderRadius(ConfigData.VP_10)
+    .margin({ top : ConfigData.VP_3 , bottom : ConfigData.VP_3 })
     .backgroundColor($r("app.color.white"))
   }
 
@@ -92,9 +93,9 @@ export struct AutoContentTable {
           })
         }
       }
-      .scrollBarWidth('20vp')
+      .scrollBarWidth(ConfigData.VP_20)
     }
-    .height('80%')
-    .padding({ top : '5vp' , right : '10vp' , left : '10vp' })
+    .height(ConfigData.WH_80_100)
+    .padding({ top : ConfigData.VP_5 , right : ConfigData.VP_10 , left : ConfigData.VP_10 })
   }
 }

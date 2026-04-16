@@ -13,6 +13,7 @@
  * limitations under the License.
  */
 
+import ConfigData from '../../Utils/ConfigData';
 import { PageTitle } from '../../Component/pageTitle';
 import { TestImageDisplay } from '../../Component/testImageDisplay';
 import { TestData } from '../../MainAbility/model/testData'
@@ -52,192 +53,192 @@ struct SppClientVelocityBenchmarkTestManager {
       Stack({ alignContent : Alignment.TopStart }) {
         TestImageDisplay({ testItem : this.testItem })
         PageTitle({ testItem : this.testItem })
-  .accessibilityLevel('yes')
-  .id('pages_subBenchmarkTestManager_sppClientVelocityBenchmarkTestManager__pt_0')
+              .accessibilityLevel('yes')
+              .id('pages_subBenchmarkTestManager_sppClientVelocityBenchmarkTestManager__pt_0')
       }
 
-      Stack().height('1vp').backgroundColor($r('app.color.black'));
+      Stack().height(ConfigData.HEIGHT_1_VP).backgroundColor($r('app.color.black'));
 
       Column() {
         Scroll() {
           Column() {
-            Text("性能测试:")
-              .fontSize('17vp')
-              .margin({ top : '5vp' , bottom : '5vp' , left : '20vp' })
+            Text($r('app.string.bluetoothtest_text_xncs'))
+              .fontSize(ConfigData.VP_17)
+              .margin({ top : ConfigData.VP_5 , bottom : ConfigData.VP_5 , left : ConfigData.VP_20 })
               .textAlign(TextAlign.Start)
-              .width('100%')
-            Text("Spp的性能测试是测试Spp两端收发信息的速率和带宽性能")
-              .fontSize('17vp')
-              .margin({ left : '15vp' })
+              .width(ConfigData.WH_100_100)
+            Text($r('app.string.bluetoothtest_text_sdxncsscssldsfxxdslhdkxn'))
+              .fontSize(ConfigData.VP_17)
+              .margin({ left : ConfigData.VP_15 })
               .backgroundColor($r("app.color.spring"))
 
-            Stack().height('1vp').backgroundColor($r('app.color.black'))
+            Stack().height(ConfigData.HEIGHT_1_VP).backgroundColor($r('app.color.black'))
 
             Row() {
-              Text("目标设备MAC：").fontSize('17vp').width('1300vp')
+              Text($r('app.string.bluetoothtest_text_mbsbm')).fontSize(ConfigData.VP_17).width(ConfigData.VP_1300)
               TextInput({ text : this.deviceId , placeholder : "请输入mac地址" })
-  .accessibilityLevel('yes')
-  .id('pages_subBenchmarkTestManager_sppClientVelocityBenchmarkTestManager__ti_0')
-                .fontSize('17vp')
+                .accessibilityLevel('yes')
+                .id('pages_subBenchmarkTestManager_sppClientVelocityBenchmarkTestManager__ti_0')
+                .fontSize(ConfigData.VP_17)
                 .onChange((str) => {
                   this.deviceId = str;
                   AppStorage.setOrCreate('inputDeviceId' , str)
                 })
-                .width('80%')
-                .borderRadius('1vp')
+                .width(ConfigData.WH_80_100)
+                .borderRadius(ConfigData.HEIGHT_1_VP)
                 .backgroundColor($r("app.color.white"))
-                .height('30vp')
+                .height(ConfigData.VP_30)
             }
-            .padding('5vp')
+            .padding(ConfigData.VP_5)
             .justifyContent(FlexAlign.Start)
             .alignItems(VerticalAlign.Center)
 
             Row() {
-              Text("clientV_Cycle_index:").fontSize('17vp').width('180vp').padding({ left : '5vp' })
+              Text($r('app.string.bluetoothtest_text_cci')).fontSize(ConfigData.VP_17).width(ConfigData.VP_180).padding({ left : ConfigData.VP_5 })
               Column() {
                 Select([
                   { value : "100" },
                   { value : "1000" },
                   { value : "10000" }
                 ])
-                  .borderRadius('10vp')
+                  .borderRadius(ConfigData.VP_10)
                   .backgroundColor($r("app.color.white"))
                   .selected(0)
                   .value("循环次数")
-                  .font({ size : '15vp' })
-                  .margin({ right : '160vp' })
+                  .font({ size : ConfigData.VP_15 })
+                  .margin({ right : ConfigData.VP_160 })
                   .selectedOptionFont({ size : 17 })
-                  .optionFont({ size : '15vp' })
-                  .width('90%')
-                  .height('40vp')
+                  .optionFont({ size : ConfigData.VP_15 })
+                  .width(ConfigData.WH_90_100)
+                  .height(ConfigData.VP_40)
                   .onSelect((index: number) => {
                     console.log("index Select:" + index)
                     AppStorage.setOrCreate('clientV_Cycle_index' , index);
                   })
               }
-              .width('90%')
+              .width(ConfigData.WH_90_100)
             }
-            .padding('2vp')
+            .padding(ConfigData.VP_2)
             .justifyContent(FlexAlign.Start)
             .alignItems(VerticalAlign.Center)
 
             Row() {
-              Text("写入目标设备数据：").fontSize('17vp').width('160vp').padding({ left : '5vp' });
+              Text($r('app.string.bluetoothtest_text_xrmbsbsj')).fontSize(ConfigData.VP_17).width(ConfigData.VP_160).padding({ left : ConfigData.VP_5 });
               TextInput({ text : this.writeClientData , placeholder : "请输入写入的数据" })
-  .accessibilityLevel('yes')
-  .id('pages_subBenchmarkTestManager_sppClientVelocityBenchmarkTestManager__ti_1')
+                .accessibilityLevel('yes')
+                .id('pages_subBenchmarkTestManager_sppClientVelocityBenchmarkTestManager__ti_1')
                 .align(Alignment.Center)
-                .fontSize('15vp')
+                .fontSize(ConfigData.VP_15)
                 .backgroundColor($r("app.color.white"))
                 .onChange((str) => {
                   this.writeClientData = str;
                   AppStorage.setOrCreate("writeClientData" , str);
                 })
-                .width('50%')
-                .borderRadius('10vp')
-                .height('32vp')
+                .width(ConfigData.WH_50_100)
+                .borderRadius(ConfigData.VP_10)
+                .height(ConfigData.VP_32)
             }
-            .padding('2vp')
+            .padding(ConfigData.VP_2)
             .justifyContent(FlexAlign.Start)
             .alignItems(VerticalAlign.Center)
 
             Scroll() {
               Column() {
-                Text("读取的数据为：")
-                  .fontSize('17vp')
-                  .margin({ left : '10vp' })
+                Text($r('app.string.bluetoothtest_text_dqdsjw'))
+                  .fontSize(ConfigData.VP_17)
+                  .margin({ left : ConfigData.VP_10 })
                   .textAlign(TextAlign.Start)
-                  .width('100%')
+                  .width(ConfigData.WH_100_100)
                 Scroll() {
                   List() {
                     ListItem() {
                       Text(this.dataClientReadMessage)
                         .align(Alignment.TopStart)
-                        .fontSize('14vp')
-                        .width('90%')
-                        .height('150vp')
-                        .borderRadius('10vp')
+                        .fontSize(ConfigData.VP_14)
+                        .width(ConfigData.WH_90_100)
+                        .height(ConfigData.VP_150)
+                        .borderRadius(ConfigData.VP_10)
                         .backgroundColor($r("app.color.white"))
                     }
-  .accessibilityLevel('yes')
-  .id('pages_subBenchmarkTestManager_sppClientVelocityBenchmarkTestManager__li_0')
+                  .accessibilityLevel('yes')
+                  .id('pages_subBenchmarkTestManager_sppClientVelocityBenchmarkTestManager__li_0')
                   }
-                  .height('95%')
-                  .width('90%')
+                  .height(ConfigData.PCT_95)
+                  .width(ConfigData.WH_90_100)
                   .backgroundColor($r("sys.color.ohos_id_color_foreground_contrary"))
                 }
-  .accessibilityLevel('yes')
-  .id('pages_subBenchmarkTestManager_sppClientVelocityBenchmarkTestManager__sc_2')
-                .scrollBarWidth('10vp')
+                .accessibilityLevel('yes')
+                .id('pages_subBenchmarkTestManager_sppClientVelocityBenchmarkTestManager__sc_2')
+                .scrollBarWidth(ConfigData.VP_10)
                 .scrollBar(BarState.On)
               }
-              .width('100%')
-              .height('150vp')
+              .width(ConfigData.WH_100_100)
+              .height(ConfigData.VP_150)
             }
-  .accessibilityLevel('yes')
-  .id('pages_subBenchmarkTestManager_sppClientVelocityBenchmarkTestManager__sc_1')
-            .scrollBarWidth('10vp')
+            .accessibilityLevel('yes')
+            .id('pages_subBenchmarkTestManager_sppClientVelocityBenchmarkTestManager__sc_1')
+            .scrollBarWidth(ConfigData.VP_10)
             .scrollBar(BarState.On)
           }
-          .width('100%')
-          .height('360vp')
+          .width(ConfigData.WH_100_100)
+          .height(ConfigData.VP_360)
           .backgroundColor($r("sys.color.ohos_id_color_sub_background"))
         }
-  .accessibilityLevel('yes')
-  .id('pages_subBenchmarkTestManager_sppClientVelocityBenchmarkTestManager__sc_0')
-        .scrollBarWidth('10vp')
+        .accessibilityLevel('yes')
+        .id('pages_subBenchmarkTestManager_sppClientVelocityBenchmarkTestManager__sc_0')
+        .scrollBarWidth(ConfigData.VP_10)
         .scrollBar(BarState.Auto)
 
-        Stack().height('1vp').backgroundColor($r('app.color.black'))
+        Stack().height(ConfigData.HEIGHT_1_VP).backgroundColor($r('app.color.black'))
 
         Scroll() {
           Column() {
-            Text("日志:")
-              .fontSize('17vp')
-              .margin({ top : '8vp' , bottom : '8vp' , left : '10vp' })
+            Text($r('app.string.bluetoothtest_text_rz'))
+              .fontSize(ConfigData.VP_17)
+              .margin({ top : ConfigData.VP_8 , bottom : ConfigData.VP_8 , left : ConfigData.VP_10 })
               .textAlign(TextAlign.Start)
-              .width('100%')
+              .width(ConfigData.WH_100_100)
               .backgroundColor($r("sys.color.ohos_id_color_sub_background"))
             List() {
               ListItem() {
                 Text(this.sppClientVelocityBenchmarkTestMessage)
-                  .fontSize('17vp')
-                  .margin({ top : '5vp' , left : '10vp' , right : '10vp' })
+                  .fontSize(ConfigData.VP_17)
+                  .margin({ top : ConfigData.VP_5 , left : ConfigData.VP_10 , right : ConfigData.VP_10 })
                   .textAlign(TextAlign.Start)
-                  .width('90%')
+                  .width(ConfigData.WH_90_100)
               }
-  .accessibilityLevel('yes')
-  .id('pages_subBenchmarkTestManager_sppClientVelocityBenchmarkTestManager__li_1')
+            .accessibilityLevel('yes')
+            .id('pages_subBenchmarkTestManager_sppClientVelocityBenchmarkTestManager__li_1')
             }
-            .height('90%')
-            .width('90%')
+            .height(ConfigData.WH_90_100)
+            .width(ConfigData.WH_90_100)
             .backgroundColor($r("sys.color.ohos_id_color_foreground_contrary"))
           }
-          .width('100%')
-          .height('150vp')
+          .width(ConfigData.WH_100_100)
+          .height(ConfigData.VP_150)
         }
-  .accessibilityLevel('yes')
-  .id('pages_subBenchmarkTestManager_sppClientVelocityBenchmarkTestManager__sc_3')
-        .scrollBarWidth('10vp')
+        .accessibilityLevel('yes')
+        .id('pages_subBenchmarkTestManager_sppClientVelocityBenchmarkTestManager__sc_3')
+        .scrollBarWidth(ConfigData.VP_10)
         .scrollBar(BarState.On)
       }
-      .width('100%')
+      .width(ConfigData.WH_100_100)
       .backgroundColor($r("sys.color.ohos_id_color_sub_background"))
 
       Column() {
         Flex({ alignItems : ItemAlign.Center , justifyContent : FlexAlign.SpaceBetween }) {
           Button({ type : ButtonType.Normal , stateEffect : true }) {
             Row() {
-              Text('速率性能测试').fontSize('24vp').fontColor(0xffffff).margin({ left : '5vp' , right : '5vp' })
+              Text($r('app.string.bluetoothtest_text_slxncs')).fontSize(ConfigData.VP_24).fontColor(0xffffff).margin({ left : ConfigData.VP_5 , right : ConfigData.VP_5 })
             }.alignItems(VerticalAlign.Center)
           }
-  .accessibilityLevel('yes')
-  .id('pages_subBenchmarkTestManager_sppClientVelocityBenchmarkTestManager__btn_0')
-          .borderRadius('8vp')
+          .accessibilityLevel('yes')
+          .id('pages_subBenchmarkTestManager_sppClientVelocityBenchmarkTestManager__btn_0')
+          .borderRadius(ConfigData.VP_8)
           .backgroundColor($r("app.color.blue"))
-          .width('100vp')
-          .height('66vp')
-          .margin({ top : '15vp' , left : '5vp' , right : '5vp' })
+          .width(ConfigData.VP_100)
+          .height(ConfigData.VP_66)
+          .margin({ top : ConfigData.VP_15 , left : ConfigData.VP_5 , right : ConfigData.VP_5 })
           .align(Alignment.Start)
           .onClick(async(event: ClickEvent) => {
             let sppClientVelocityBenchmarkTestMessage = ""
@@ -256,16 +257,16 @@ struct SppClientVelocityBenchmarkTestManager {
 
           Button({ type : ButtonType.Normal , stateEffect : true }) {
             Row() {
-              Text('结束测试').fontSize('24vp').fontColor(0xffffff).margin({ left : '5vp' , right : '5vp' })
+              Text($r('app.string.bluetoothtest_text_jscs')).fontSize(ConfigData.VP_24).fontColor(0xffffff).margin({ left : ConfigData.VP_5 , right : ConfigData.VP_5 })
             }.alignItems(VerticalAlign.Center)
           }
-  .accessibilityLevel('yes')
-  .id('pages_subBenchmarkTestManager_sppClientVelocityBenchmarkTestManager__btn_1')
-          .borderRadius('8vp')
+          .accessibilityLevel('yes')
+          .id('pages_subBenchmarkTestManager_sppClientVelocityBenchmarkTestManager__btn_1')
+          .borderRadius(ConfigData.VP_8)
           .backgroundColor($r("app.color.blue"))
-          .width('80vp')
-          .height('66vp')
-          .margin({ top : '15vp' , left : '5vp' , right : '5vp' })
+          .width(ConfigData.VP_80)
+          .height(ConfigData.VP_66)
+          .margin({ top : ConfigData.VP_15 , left : ConfigData.VP_5 , right : ConfigData.VP_5 })
           .align(Alignment.Start)
           .onClick(async(event: ClickEvent) => {
             let sppClientVelocityBenchmarkTestMessage = ""
@@ -284,17 +285,17 @@ struct SppClientVelocityBenchmarkTestManager {
           Button({ type : ButtonType.Normal , stateEffect : true }) {
             Row() {
               Image($r('app.media.ic_public_delete_filled'))
-  .accessibilityLevel('yes')
-  .id('pages_subBenchmarkTestManager_sppClientVelocityBenchmarkTestManager__img_0').width('30vp').height('40vp').margin({ left : '5vp' })
+          .accessibilityLevel('yes')
+          .id('pages_subBenchmarkTestManager_sppClientVelocityBenchmarkTestManager__img_0').width(ConfigData.VP_30).height(ConfigData.VP_40).margin({ left : ConfigData.VP_5 })
             }.alignItems(VerticalAlign.Center)
           }
-  .accessibilityLevel('yes')
-  .id('pages_subBenchmarkTestManager_sppClientVelocityBenchmarkTestManager__btn_2')
-          .borderRadius('8vp')
+          .accessibilityLevel('yes')
+          .id('pages_subBenchmarkTestManager_sppClientVelocityBenchmarkTestManager__btn_2')
+          .borderRadius(ConfigData.VP_8)
           .backgroundColor($r("app.color.moon"))
-          .width('50vp')
-          .height('66vp')
-          .margin({ top : '15vp' , right : '40vp' })
+          .width(ConfigData.VP_50)
+          .height(ConfigData.VP_66)
+          .margin({ top : ConfigData.VP_15 , right : ConfigData.VP_40 })
           .align(Alignment.Start)
           .onClick(async(event: ClickEvent) => {
             let sppClientVelocityBenchmarkTestMessage = ""
@@ -302,11 +303,11 @@ struct SppClientVelocityBenchmarkTestManager {
           })
         }
         .backgroundColor($r("sys.color.ohos_id_color_sub_background"))
-        .width('100%')
+        .width(ConfigData.WH_100_100)
       }
       .backgroundColor($r("sys.color.ohos_id_color_sub_background"))
-      .width('100%')
-      .height('100%');
+      .width(ConfigData.WH_100_100)
+      .height(ConfigData.WH_100_100);
     }
   }
 

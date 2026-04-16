@@ -13,6 +13,7 @@
  * limitations under the License.
  */
 
+import ConfigData from '../Utils/ConfigData';
 import ComponentConfig from './componentconfig';
 
 /**
@@ -34,8 +35,8 @@ export default struct EntryComponentTable {
   private enabled: boolean = true;
   private onArrowClick?: () => void;
   @State isTouched: boolean = false;
-  private height ? = '70vp';
-  private image_wh ? = '50vp';
+  private height ? = ConfigData.VP_70;
+  private image_wh ? = ConfigData.VP_50;
   private fontSize ? = $r('sys.float.ohos_id_text_size_body1');
   private valueFontSize ? = $r('sys.float.ohos_id_text_size_body2');
 
@@ -71,7 +72,7 @@ export default struct EntryComponentTable {
         }
         .alignItems(HorizontalAlign.Start);
       }
-      .flexShrink('0vp')
+      .flexShrink(ConfigData.VP_0)
       .alignItems(VerticalAlign.Center)
       .align(Alignment.Start)
       .layoutWeight(1)
@@ -81,24 +82,24 @@ export default struct EntryComponentTable {
           .fontSize(this.valueFontSize)
           .fontColor($r('sys.color.ohos_id_color_text_secondary'))
           .fontWeight('sans-serif')
-          .height('40vp')
+          .height(ConfigData.VP_40)
           .margin({ left : $r('sys.float.ohos_id_elements_margin_horizontal_l') })
           .align(Alignment.End);
 
         if ( !this.settingArrowStyle && this.settingArrow ) {
           Image(this.settingArrow)
             .visibility(null === this.settingArrow ? Visibility.None : Visibility.Visible)
-            .width('12vp')
-            .height('24vp')
-            .margin({ left : '4vp' , right : '8vp' })
+            .width(ConfigData.VP_12)
+            .height(ConfigData.VP_24)
+            .margin({ left : ConfigData.VP_4 , right : ConfigData.VP_8 })
 
         } else if ( this.settingArrow ) {
           Image(this.settingArrow)
             .visibility(null === this.settingArrow ? Visibility.None : Visibility.Visible)
-            .width('48vp')
-            .height('48vp')
-            .padding('4vp')
-            .margin({ left : '4vp' , right : '4vp' })
+            .width(ConfigData.VP_48)
+            .height(ConfigData.VP_48)
+            .padding(ConfigData.VP_4)
+            .margin({ left : ConfigData.VP_4 , right : ConfigData.VP_4 })
             .borderRadius($r("sys.float.ohos_id_corner_radius_default_l"))
             .onClick(this.onArrowClick);
         }

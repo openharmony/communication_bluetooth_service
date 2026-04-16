@@ -13,6 +13,7 @@
  * limitations under the License.
  */
 
+import ConfigData from '../Utils/ConfigData';
 import { TestScenario } from '../MainAbility/model/testData'
 
 /**
@@ -31,39 +32,39 @@ export struct ScenarioContentTable {
         Flex({ direction : FlexDirection.Column , alignItems : ItemAlign.Start }) {
           Row() {
             Text(scenarioItem.detail)
-              .fontSize('17vp')
-              .margin({ top : '3vp' , bottom : '3vp' , left : '10vp' })
+              .fontSize(ConfigData.VP_17)
+              .margin({ top : ConfigData.VP_3 , bottom : ConfigData.VP_3 , left : ConfigData.VP_10 })
               .textAlign(TextAlign.Start)
-              .height('40vp')
-              .width('30vp')
+              .height(ConfigData.VP_40)
+              .width(ConfigData.VP_30)
 
             Text(scenarioItem.method)
-              .fontSize('17vp')
-              .margin({ top : '3vp' , bottom : '3vp' , left : '10vp' })
+              .fontSize(ConfigData.VP_17)
+              .margin({ top : ConfigData.VP_3 , bottom : ConfigData.VP_3 , left : ConfigData.VP_10 })
               .textAlign(TextAlign.Start)
-              .height('40vp')
-              .width('240vp')
+              .height(ConfigData.VP_40)
+              .width(ConfigData.VP_240)
           }
-          .height('30vp')
-          .width('70%')
+          .height(ConfigData.VP_30)
+          .width(ConfigData.PCT_70)
         }
-        .height('30vp')
+        .height(ConfigData.VP_30)
         .layoutWeight(6)
 
         Flex({ alignItems : ItemAlign.Center }) {
           Text(this.changeIndex >= 0 ? this.getCurrentState(index) : scenarioItem.result)
-            .margin({ left : '10vp' })
-            .fontSize('17vp')
+            .margin({ left : ConfigData.VP_10 })
+            .fontSize(ConfigData.VP_17)
             .flexGrow(1)
         }
         .layoutWeight(3)
-        .padding({ left : '10vp' })
-        .margin({ left : '10vp' })
+        .padding({ left : ConfigData.VP_10 })
+        .margin({ left : ConfigData.VP_10 })
       }
     }
-    .height('40vp')
-    .borderRadius('10vp')
-    .margin({ top : '3vp' , bottom : '3vp' })
+    .height(ConfigData.VP_40)
+    .borderRadius(ConfigData.VP_10)
+    .margin({ top : ConfigData.VP_3 , bottom : ConfigData.VP_3 })
     .backgroundColor($r("app.color.white"))
   }
 
@@ -89,9 +90,9 @@ export struct ScenarioContentTable {
           })
         }
       }
-      .scrollBarWidth('20vp')
+      .scrollBarWidth(ConfigData.VP_20)
     }
-    .height('80%')
-    .padding({ top : '5vp' , right : '10vp' , left : '10vp' })
+    .height(ConfigData.WH_80_100)
+    .padding({ top : ConfigData.VP_5 , right : ConfigData.VP_10 , left : ConfigData.VP_10 })
   }
 }

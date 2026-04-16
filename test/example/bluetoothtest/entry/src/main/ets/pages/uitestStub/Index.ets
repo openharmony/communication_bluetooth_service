@@ -12,17 +12,18 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+import ConfigData from '../../Utils/ConfigData';
 @Entry
 @Component
 struct Index {
   build() {
     Column() {
-      Text('uitest stub')
+      Text($r('app.string.bluetoothtest_text_us'))
         .id('uitest_stub_title')
         .accessibilityLevel('yes')
         .fontSize(16)
     }
-    .width('100%')
-    .height('100%')
+    .width(ConfigData.WH_100_100)
+    .height(ConfigData.WH_100_100)
   }
 }

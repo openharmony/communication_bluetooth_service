@@ -13,6 +13,7 @@
  * limitations under the License.
  */
 
+import ConfigData from '../Utils/ConfigData';
 import screenshot from '@ohos.screenshot'
 import image from '@ohos.multimedia.image'
 import MediaUtils from '../MainAbility/model/MediaUtils'
@@ -62,16 +63,16 @@ export struct MainPageTitle {
   CustomBtn(text: Resource , isFullScreen: boolean) {
     Button() {
       Image($r('app.media.screenShot'))
-        .height('50vp')
-        .width('50vp')
+        .height(ConfigData.VP_50)
+        .width(ConfigData.VP_50)
     }
     .key(isFullScreen + 'FullScreenShot')
     .type(ButtonType.Normal)
     .backgroundColor($r("app.color.blue"))
-    .height('100%')
-    .width('100%')
+    .height(ConfigData.WH_100_100)
+    .width(ConfigData.WH_100_100)
     //    .size({ width: 55, height: 55 })
-    .margin({ left : '6vp' , right : '6vp' , top : '3vp' })
+    .margin({ left : ConfigData.VP_6 , right : ConfigData.VP_6 , top : ConfigData.VP_3 })
     .onClick(() => {
       console.log('[Screenshot] onClick,screenshot')
       this.getScreen(isFullScreen)
@@ -80,17 +81,17 @@ export struct MainPageTitle {
 
   build() {
     Flex({ alignItems : ItemAlign.Start }) {
-      Text('蓝牙调试助手')
-        .fontSize('26vp')
-        .margin({ left : '15vp' })
-        .padding({ top : '28vp' })
+      Text($r('app.string.bluetoothtest_text_lytszs'))
+        .fontSize(ConfigData.VP_26)
+        .margin({ left : ConfigData.VP_15 })
+        .padding({ top : ConfigData.VP_28 })
 
       Scroll() {
         Column() {
           this.CustomBtn($r('app.string.btn_fullscreen') , true)
         }
-        .width('100%')
-        .height('100%')
+        .width(ConfigData.WH_100_100)
+        .height(ConfigData.WH_100_100)
         .borderWidth(this.myborderWidth)
         .borderRadius(this.myborderRadius)
         .borderColor(Color.Green)
@@ -152,8 +153,8 @@ export struct MainPageTitle {
       }
       .layoutWeight(1)
     }
-    .height('80vp')
+    .height(ConfigData.VP_80)
     .backgroundColor($r("app.color.blue"))
-    .padding({ left : '20vp' })
+    .padding({ left : ConfigData.VP_20 })
   }
 }

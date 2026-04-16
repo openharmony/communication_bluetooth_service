@@ -85,35 +85,35 @@ struct brTestManager {
       Stack({ alignContent : Alignment.TopStart }) {
         TestImageDisplay({ testItem : this.testItem })
         PageTitle({ testItem : this.testItem })
-  .accessibilityLevel('yes')
-  .id('pages_subManualApiTestManager_brTestManager__pt_0')
+          .accessibilityLevel('yes')
+          .id('pages_subManualApiTestManager_brTestManager__pt_0')
       }
 
-      Stack().height('0.5vp').backgroundColor($r('app.color.black'));
+      Stack().height(ConfigData.VP_0_5).backgroundColor($r('app.color.black'));
       Column() {
-        Text("目标设备MAC：")
-          .fontSize('20vp')
-          .height('50vp')
-          .width('100%')
-          .padding({ top : '10vp' , left : '10vp' })
+        Text($r('app.string.bluetoothtest_text_mbsbm'))
+          .fontSize(ConfigData.VP_20)
+          .height(ConfigData.VP_50)
+          .width(ConfigData.WH_100_100)
+          .padding({ top : ConfigData.VP_10 , left : ConfigData.VP_10 })
         TextInput({ text : this.pairedMac , placeholder : "请输入即将连接的设备MAC" })
-  .accessibilityLevel('yes')
-  .id('pages_subManualApiTestManager_brTestManager__ti_0')
-          .height('50vp')
+          .accessibilityLevel('yes')
+          .id('pages_subManualApiTestManager_brTestManager__ti_0')
+          .height(ConfigData.VP_50)
           .borderStyle(BorderStyle.Dashed)
           .backgroundColor($r("app.color.white"))
           .onChange((str) => {
             this.deviceId = str;
           })
-          .width('96%')
-          .padding({ top : '10vp' , left : '10vp' })
+          .width(ConfigData.PCT_96)
+          .padding({ top : ConfigData.VP_10 , left : ConfigData.VP_10 })
       }
       .align(Alignment.TopStart)
       ContentTable({ apiItems : initBRManagerApiData() })
     }
     .alignItems(HorizontalAlign.Center)
     .backgroundColor($r("app.color.lead"))
-    .height('100%')
+    .height(ConfigData.WH_100_100)
   }
 
   /**
@@ -192,44 +192,44 @@ struct PairDialog {
   build() {
     Column() {
       Text($r('app.string.bluetooth_pairing_request'))
-        .fontSize('22fp')
-        .height('60vp')
+        .fontSize(ConfigData.FP_22)
+        .height(ConfigData.VP_60)
         .width(ConfigData.WH_100_100)
         .padding({
-          left : '24vp' ,
-          top : '14vp' ,
-          bottom : '14vp'
+          left : ConfigData.VP_24 ,
+          top : ConfigData.VP_14 ,
+          bottom : ConfigData.VP_14
         })
       Column() {
         if ( this.pinCode ) {
           Text($r('app.string.bluetooth_pairing_intelligent_device_hit' , this.deviceName , this.deviceName))
-            .fontSize('16fp')
+            .fontSize(ConfigData.FP_16)
             .width(ConfigData.WH_100_100)
             .margin({
-              top : '14vp' ,
-              bottom : '14vp'
+              top : ConfigData.VP_14 ,
+              bottom : ConfigData.VP_14
             })
 
           Text(`${ this.pinCode }`)
-            .fontSize('32fp')
+            .fontSize(ConfigData.FP_32)
             .fontWeight(FontWeight.Bolder)
             .width(ConfigData.WH_100_100)
             .textAlign(TextAlign.Center)
             .margin({
-              top : '24vp' ,
-              bottom : '24vp'
+              top : ConfigData.VP_24 ,
+              bottom : ConfigData.VP_24
             })
 
         } else {
           Text($r('app.string.bluetooth_pairing_media_device_hit'))
-            .fontSize('16fp')
+            .fontSize(ConfigData.FP_16)
             .width(ConfigData.WH_100_100)
             .margin({
-              bottom : '2vp'
+              bottom : ConfigData.VP_2
             })
 
           Text(this.deviceName)
-            .fontSize('16fp')
+            .fontSize(ConfigData.FP_16)
             .width(ConfigData.WH_100_100)
             .fontWeight(FontWeight.Bold)
         }
@@ -238,14 +238,14 @@ struct PairDialog {
         Flex({ justifyContent : FlexAlign.Center , alignItems : ItemAlign.Center }) {
           Button() {
             Text($r('app.string.cancel'))
-              .fontSize('16fp')
+              .fontSize(ConfigData.FP_16)
               .fontColor(Color.Blue)
           }
-  .accessibilityLevel('yes')
-  .id('pages_subManualApiTestManager_brTestManager__btn_0')
+          .accessibilityLevel('yes')
+          .id('pages_subManualApiTestManager_brTestManager__btn_0')
           .backgroundColor($r("app.color.white_bg_color"))
-          .width('160vp')
-          .height('40vp')
+          .width(ConfigData.VP_160)
+          .height(ConfigData.VP_40)
           .flexGrow(1)
           .onClick(() => {
             this.dialogController.close();
@@ -253,21 +253,21 @@ struct PairDialog {
           })
 
           Divider()
-            .height('24vp')
-            .strokeWidth('0.5vp')
+            .height(ConfigData.VP_24)
+            .strokeWidth(ConfigData.VP_0_5)
             .vertical(true)
             .color(($r("app.color.color_E3E3E3_grey")))
 
           Button() {
             Text($r('app.string.bluetooth_pair_button'))
-              .fontSize('16fp')
+              .fontSize(ConfigData.FP_16)
               .fontColor(Color.Blue)
           }
-  .accessibilityLevel('yes')
-  .id('pages_subManualApiTestManager_brTestManager__btn_1')
+          .accessibilityLevel('yes')
+          .id('pages_subManualApiTestManager_brTestManager__btn_1')
           .backgroundColor($r("app.color.white_bg_color"))
-          .width('160vp')
-          .height('40vp')
+          .width(ConfigData.VP_160)
+          .height(ConfigData.VP_40)
           .flexGrow(1)
           .onClick(() => {
             this.dialogController.close();
@@ -277,17 +277,17 @@ struct PairDialog {
           })
         }
         .width(ConfigData.WH_100_100)
-        .height('60vp');
+        .height(ConfigData.VP_60);
       }
       .width(ConfigData.WH_100_100)
       .padding({
-        left : '24vp' ,
-        right : '24vp'
+        left : ConfigData.VP_24 ,
+        right : ConfigData.VP_24
       })
     }
     .padding({
-      left : '24vp' ,
-      right : '24vp'
+      left : ConfigData.VP_24 ,
+      right : ConfigData.VP_24
     })
     .width(ConfigData.WH_100_100);
   }

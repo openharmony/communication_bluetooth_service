@@ -75,37 +75,37 @@ struct OppProfileTest {
         Stack({ alignContent : Alignment.TopStart }) {
           TestImageDisplay({ testItem : this.testItem })
           PageTitle({ testItem : this.testItem })
-  .accessibilityLevel('yes')
-  .id('pages_subProfileTest_oppProfileTest__pt_0')
+          .accessibilityLevel('yes')
+          .id('pages_subProfileTest_oppProfileTest__pt_0')
         }
 
-        Stack().height('0.5vp').backgroundColor($r('app.color.black'));
+        Stack().height(ConfigData.VP_0_5).backgroundColor($r('app.color.black'));
         Text(this.hasProfile ? this.profileExist : this.profileNotExist)
-          .margin({ top : '10vp' })
-          .fontSize('20vp')
+          .margin({ top : ConfigData.VP_10 })
+          .fontSize(ConfigData.VP_20)
           .fontColor(this.hasProfile ? $r('app.color.color_66CCFF_blue') : $r('app.color.color_FF0000_red'))
           .border({ width : 0.5 })
-          .padding('5vp')
+          .padding(ConfigData.VP_5)
           .fontStyle(FontStyle.Italic);
         Column() {
           Column() {
             Scroll() {
               Column() {
-                Text("已配对设备列表：(点击选择设备)")
-                  .fontSize('20vp')
+                Text($r('app.string.bluetoothtest_text_ypdsblbdjxzsb'))
+                  .fontSize(ConfigData.VP_20)
                   .fontWeight(FontWeight.Bold)
-                  .margin({ top : '5vp' })
+                  .margin({ top : ConfigData.VP_5 })
                 Scroll() {
-                  List({ space : '5vp' }) {
+                  List({ space : ConfigData.VP_5 }) {
                     ForEach(
                       this.pairDevices.length > 0 ? this.pairDevices :
                         [{ id: '__uitest_placeholder__', name: '—' } as PairDevices],
                       (item: PairDevices, index: number) => {
                         ListItem() {
                           Text(item.name)
-                            .fontSize('25vp')
-                            .width('80%')
-                            .margin({ left : '10%' })
+                            .fontSize(ConfigData.VP_25)
+                            .width(ConfigData.WH_80_100)
+                            .margin({ left : ConfigData.PCT_10 })
                             .backgroundColor(this.serverMac === item.id ? $r("app.color.moon") : $r("app.color.white"))
                             .border({
                               radius : 5
@@ -124,73 +124,73 @@ struct OppProfileTest {
                     )
                   }
                 }
-  .accessibilityLevel('yes')
-  .id('pages_subProfileTest_oppProfileTest__sc_1')
-                .height('50%')
-                .width('80%')
+                .accessibilityLevel('yes')
+                .id('pages_subProfileTest_oppProfileTest__sc_1')
+                .height(ConfigData.WH_50_100)
+                .width(ConfigData.WH_80_100)
 
-                Text("已选择的设备的蓝牙mac地址：")
-                  .fontSize('18vp')
+                Text($r('app.string.bluetoothtest_text_yxzdsbdlymdz'))
+                  .fontSize(ConfigData.VP_18)
                   .fontWeight(FontWeight.Bold)
-                  .margin({ top : '3vp' })
+                  .margin({ top : ConfigData.VP_3 })
                 Text(this.serverMac)
-                  .fontSize('25vp')
-                  .width('70%')
-                  .borderRadius('5vp')
+                  .fontSize(ConfigData.VP_25)
+                  .width(ConfigData.PCT_70)
+                  .borderRadius(ConfigData.VP_5)
                   .backgroundColor($r("app.color.moon"))
               }
-              .height('15%')
-              .width('100%')
+              .height(ConfigData.PCT_15)
+              .width(ConfigData.WH_100_100)
             }
-  .accessibilityLevel('yes')
-  .id('pages_subProfileTest_oppProfileTest__sc_0')
-            .scrollBarWidth('10vp')
+            .accessibilityLevel('yes')
+            .id('pages_subProfileTest_oppProfileTest__sc_0')
+            .scrollBarWidth(ConfigData.VP_10)
             .scrollBar(BarState.Auto)
           }
 
-          Stack().height('1vp').backgroundColor($r('app.color.black'));
+          Stack().height(ConfigData.HEIGHT_1_VP).backgroundColor($r('app.color.black'));
 
           Scroll() {
             Column() {
-              Text("接口调用结果： " + this.oppMessage)
-                .fontSize('17vp')
+              Text($r('app.string.label_api_result_space') + this.oppMessage)
+                .fontSize(ConfigData.VP_17)
                 .textAlign(TextAlign.Start)
-                .margin({ top : '5vp' , left : '10vp' })
-                .width('100%')
-              Text("connectionStateChange： " + this.connectionStateInfo)
-                .fontSize('17vp')
-                .margin({ top : '10vp' , left : '10vp' })
+                .margin({ top : ConfigData.VP_5 , left : ConfigData.VP_10 })
+                .width(ConfigData.WH_100_100)
+              Text($r('app.string.label_connection_state_change') + this.connectionStateInfo)
+                .fontSize(ConfigData.VP_17)
+                .margin({ top : ConfigData.VP_10 , left : ConfigData.VP_10 })
                 .textAlign(TextAlign.Start)
-                .width('90%')
+                .width(ConfigData.WH_90_100)
             }
-            .height('80vp')
+            .height(ConfigData.VP_80)
             .backgroundColor($r("sys.color.ohos_id_color_foreground_contrary"))
-            .width('88%')
+            .width(ConfigData.PCT_88)
           }
-  .accessibilityLevel('yes')
-  .id('pages_subProfileTest_oppProfileTest__sc_2')
-          .scrollBarWidth('10vp')
+          .accessibilityLevel('yes')
+          .id('pages_subProfileTest_oppProfileTest__sc_2')
+          .scrollBarWidth(ConfigData.VP_10)
           .scrollBar(BarState.Auto)
 
-          Text("请点击需要测试的方法")
-            .margin({ top : '10vp' })
-            .padding('5vp')
-            .fontSize('17vp')
+          Text($r('app.string.bluetoothtest_text_qdjxycsdff'))
+            .margin({ top : ConfigData.VP_10 })
+            .padding(ConfigData.VP_5)
+            .fontSize(ConfigData.VP_17)
             .fontColor($r('app.color.color_4444444_grey'));
           Column() {
             ContentTable({ apiItems : initOppProfileApiData() })
           }
-          .height('66%')
+          .height(ConfigData.PCT_66)
         }
         .backgroundColor($r("sys.color.ohos_id_color_sub_background"))
-        .width('100%')
-        .height('100%')
+        .width(ConfigData.WH_100_100)
+        .height(ConfigData.WH_100_100)
         .visibility(shouldSkipBluetoothPermissionRequest() || this.hasProfile ? Visibility.Visible : Visibility.Hidden);
       }
-      .width('100%')
+      .width(ConfigData.WH_100_100)
     }
     .backgroundColor($r("sys.color.ohos_id_color_sub_background"))
-    .height('100%')
+    .height(ConfigData.WH_100_100)
     .alignItems(VerticalAlign.Top)
   }
 

@@ -31,23 +31,23 @@ export struct SubEntryComponent {
       Flex({ justifyContent : FlexAlign.SpaceBetween , alignItems : ItemAlign.Center }) {
         Row() {
           Text(this.title)
-            .fontSize('30fp')
-            .lineHeight('32vp')
+            .fontSize(ConfigData.FP_30)
+            .lineHeight(ConfigData.VP_32)
             .fontColor($r('app.color.font_color_182431'))
             .fontWeight(FontWeight.Medium)
-            .margin({ left : '8vp' })
+            .margin({ left : ConfigData.VP_8 })
             .textAlign(TextAlign.Start)
-            .height('32vp');
+            .height(ConfigData.VP_32);
         }
 
         Image(('app.media.ic_settings_arrow'))
-          .width('12vp')
-          .height('100vp')
-          .margin({ right : '8vp' });
+          .width(ConfigData.VP_12)
+          .height(ConfigData.VP_100)
+          .margin({ right : ConfigData.VP_8 });
       }
       .height(ConfigData.WH_100_100)
       .width(ConfigData.WH_100_100)
-      .borderRadius('12vp')
+      .borderRadius(ConfigData.VP_12)
       .linearGradient(this.isTouched ? {
                                          angle : 90 ,
                                          direction : GradientDirection.Right ,
@@ -67,9 +67,9 @@ export struct SubEntryComponent {
       })
     }
     .params({ date : this.date , deviceId : this.deviceId })
-    .padding('4vp')
-    .height('100vp')
-    .borderRadius('24vp')
+    .padding(ConfigData.VP_4)
+    .height(ConfigData.VP_100)
+    .borderRadius(ConfigData.VP_24)
     .backgroundColor($r("sys.color.ohos_id_color_foreground_contrary"));
   }
 }
@@ -89,31 +89,31 @@ export struct SubEntryComponentWithEndText {
       Flex({ justifyContent : FlexAlign.SpaceBetween , alignItems : ItemAlign.Center }) {
         Row() {
           Text(this.title)
-            .fontSize('16fp')
+            .fontSize(ConfigData.FP_16)
             .lineHeight('22vp')
             .fontWeight(FontWeight.Medium)
             .fontColor($r('app.color.font_color_182431'))
-            .margin({ left : '8vp' })
+            .margin({ left : ConfigData.VP_8 })
             .textAlign(TextAlign.Start);
         }
 
         Row() {
           Text(this.endText)
-            .fontSize('14fp')
+            .fontSize(ConfigData.FP_14)
             .lineHeight('19vp')
             .fontWeight(FontWeight.Regular)
             .fontColor($r('sys.color.ohos_id_color_text_secondary'))
-            .margin({ right : '4vp' })
+            .margin({ right : ConfigData.VP_4 })
             .textAlign(TextAlign.End);
           Image(('app.media.ic_settings_arrow'))
-            .width('12vp')
-            .height('24vp')
-            .margin({ right : '8vp' });
+            .width(ConfigData.VP_12)
+            .height(ConfigData.VP_24)
+            .margin({ right : ConfigData.VP_8 });
         }
       }
       .height(ConfigData.WH_100_100)
       .width(ConfigData.WH_100_100)
-      .borderRadius('20vp')
+      .borderRadius(ConfigData.VP_20)
       .linearGradient(this.isTouched ? {
                                          angle : 90 ,
                                          direction : GradientDirection.Right ,
@@ -132,9 +132,9 @@ export struct SubEntryComponentWithEndText {
         }
       });
     }
-    .padding('4vp')
-    .height('56vp')
-    .borderRadius('24vp')
+    .padding(ConfigData.VP_4)
+    .height(ConfigData.VP_56)
+    .borderRadius(ConfigData.VP_24)
     .backgroundColor($r("sys.color.ohos_id_color_foreground_contrary"));
   }
 }

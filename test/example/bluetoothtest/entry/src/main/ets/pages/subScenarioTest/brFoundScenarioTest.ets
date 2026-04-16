@@ -13,6 +13,7 @@
  * limitations under the License.
  */
 
+import ConfigData from '../../Utils/ConfigData';
 import { PageTitle } from '../../Component/pageTitle';
 import { TestImageDisplay } from '../../Component/testImageDisplay';
 import { TestData } from '../../MainAbility/model/testData'
@@ -39,82 +40,82 @@ struct BrFoundScenarioTest {
       Stack({ alignContent : Alignment.TopStart }) {
         TestImageDisplay({ testItem : this.testItem })
         PageTitle({ testItem : this.testItem })
-  .accessibilityLevel('yes')
-  .id('pages_subScenarioTest_brFoundScenarioTest__pt_0')
+              .accessibilityLevel('yes')
+              .id('pages_subScenarioTest_brFoundScenarioTest__pt_0')
       }
 
-      Stack().height('1vp').backgroundColor($r('app.color.black'));
+      Stack().height(ConfigData.HEIGHT_1_VP).backgroundColor($r('app.color.black'));
       Column() {
         Scroll() {
           Column() {
-            Text("场景流程验证:")
-              .fontSize('17vp')
-              .margin({ top : '10vp' , bottom : '10vp' , left : '20vp' })
+            Text($r('app.string.bluetoothtest_text_cjlcyz'))
+              .fontSize(ConfigData.VP_17)
+              .margin({ top : ConfigData.VP_10 , bottom : ConfigData.VP_10 , left : ConfigData.VP_20 })
               .textAlign(TextAlign.Start)
-              .width('100%')
+              .width(ConfigData.WH_100_100)
             ScenarioContentTable({
               scenarioItems : initBRFoundScenarioData() ,
               changeIndex : this.changeIndex
             })
           }
-          .width('100%')
-          .height('280vp')
+          .width(ConfigData.WH_100_100)
+          .height(ConfigData.HEIGHT_280_VP)
         }
-  .accessibilityLevel('yes')
-  .id('pages_subScenarioTest_brFoundScenarioTest__sc_0')
-        .scrollBarWidth('10vp')
+        .accessibilityLevel('yes')
+        .id('pages_subScenarioTest_brFoundScenarioTest__sc_0')
+        .scrollBarWidth(ConfigData.VP_10)
         .scrollBar(BarState.Auto)
 
-        Stack().height('1vp').backgroundColor($r('app.color.black'));
+        Stack().height(ConfigData.HEIGHT_1_VP).backgroundColor($r('app.color.black'));
 
         Scroll() {
           Column() {
-            Text("流程日志:")
-              .fontSize('17vp')
-              .margin({ top : '8vp' , bottom : '8vp' , left : '20vp' })
+            Text($r('app.string.bluetoothtest_text_lcrz'))
+              .fontSize(ConfigData.VP_17)
+              .margin({ top : ConfigData.VP_8 , bottom : ConfigData.VP_8 , left : ConfigData.VP_20 })
               .textAlign(TextAlign.Start)
-              .width('100%')
+              .width(ConfigData.WH_100_100)
             List() {
               ListItem() {
                 Text(this.brFoundScenarioMessage)
-                  .fontSize('17vp')
-                  .margin({ top : '5vp' , left : '30vp' , right : '10vp' })
+                  .fontSize(ConfigData.VP_17)
+                  .margin({ top : ConfigData.VP_5 , left : ConfigData.VP_30 , right : ConfigData.VP_10 })
                   .textAlign(TextAlign.Start)
-                  .width('90%')
+                  .width(ConfigData.WH_90_100)
               }
-  .accessibilityLevel('yes')
-  .id('pages_subScenarioTest_brFoundScenarioTest__li_0')
+            .accessibilityLevel('yes')
+            .id('pages_subScenarioTest_brFoundScenarioTest__li_0')
             }
-            .height('80%')
-            .width('90%')
+            .height(ConfigData.WH_80_100)
+            .width(ConfigData.WH_90_100)
             .backgroundColor($r("sys.color.ohos_id_color_foreground_contrary"))
           }
-          .width('100%')
-          .height('260vp')
+          .width(ConfigData.WH_100_100)
+          .height(ConfigData.HEIGHT_260_VP)
         }
-  .accessibilityLevel('yes')
-  .id('pages_subScenarioTest_brFoundScenarioTest__sc_1')
-        .scrollBarWidth('10vp')
+        .accessibilityLevel('yes')
+        .id('pages_subScenarioTest_brFoundScenarioTest__sc_1')
+        .scrollBarWidth(ConfigData.VP_10)
         .scrollBar(BarState.On)
       }
-      .height('500vp')
-      .width('100%')
+      .height(ConfigData.HEIGHT_500_VP)
+      .width(ConfigData.WH_100_100)
       .backgroundColor($r("sys.color.ohos_id_color_sub_background"))
 
 
-      Stack().height('1vp').backgroundColor($r('app.color.black'));
+      Stack().height(ConfigData.HEIGHT_1_VP).backgroundColor($r('app.color.black'));
       Column() {
         Flex({ alignItems : ItemAlign.Center , justifyContent : FlexAlign.SpaceBetween }) {
           Button({ type : ButtonType.Normal , stateEffect : true }) {
-            Text('场景测试开始').fontSize('24vp').fontColor(0xffffff).margin({ left : '5vp' , right : '5vp' })
+            Text($r('app.string.bluetoothtest_text_cjcsks')).fontSize(ConfigData.VP_24).fontColor(0xffffff).margin({ left : ConfigData.VP_5 , right : ConfigData.VP_5 })
           }
-  .accessibilityLevel('yes')
-  .id('pages_subScenarioTest_brFoundScenarioTest__btn_0')
-          .borderRadius('8vp')
+          .accessibilityLevel('yes')
+          .id('pages_subScenarioTest_brFoundScenarioTest__btn_0')
+          .borderRadius(ConfigData.VP_8)
           .backgroundColor($r("app.color.blue"))
-          .width('100vp')
-          .height('66vp')
-          .margin({ top : '15vp' , left : '20vp' })
+          .width(ConfigData.VP_100)
+          .height(ConfigData.VP_66)
+          .margin({ top : ConfigData.VP_15 , left : ConfigData.VP_20 })
           .align(Alignment.Start)
           .onClick(async(event: ClickEvent) => {
             promptAction.showToast({ message : '开始Br蓝牙发现场景测试' })
@@ -123,16 +124,16 @@ struct BrFoundScenarioTest {
 
           Button({ type : ButtonType.Normal , stateEffect : true }) {
             Row() {
-              Text('场景测试结束').fontSize('24vp').fontColor(0xffffff).margin({ left : '5vp' , right : '5vp' })
+              Text($r('app.string.bluetoothtest_text_cjcsjs')).fontSize(ConfigData.VP_24).fontColor(0xffffff).margin({ left : ConfigData.VP_5 , right : ConfigData.VP_5 })
             }.alignItems(VerticalAlign.Center)
           }
-  .accessibilityLevel('yes')
-  .id('pages_subScenarioTest_brFoundScenarioTest__btn_1')
-          .borderRadius('8vp')
+          .accessibilityLevel('yes')
+          .id('pages_subScenarioTest_brFoundScenarioTest__btn_1')
+          .borderRadius(ConfigData.VP_8)
           .backgroundColor($r("app.color.blue"))
-          .width('100vp')
-          .height('66vp')
-          .margin({ top : '15vp' , left : '10vp' , right : '10vp' })
+          .width(ConfigData.VP_100)
+          .height(ConfigData.VP_66)
+          .margin({ top : ConfigData.VP_15 , left : ConfigData.VP_10 , right : ConfigData.VP_10 })
           .align(Alignment.Start)
           .onClick(async(event: ClickEvent) => {
             let brFoundScenarioMessage = ""
@@ -155,16 +156,16 @@ struct BrFoundScenarioTest {
 
           Button({ type : ButtonType.Normal , stateEffect : true }) {
             Row() {
-              Text('清空日志').fontSize('24vp').fontColor(0xffffff).margin({ left : '5vp' , right : '5vp' })
+              Text($r('app.string.bluetoothtest_text_qkrz')).fontSize(ConfigData.VP_24).fontColor(0xffffff).margin({ left : ConfigData.VP_5 , right : ConfigData.VP_5 })
             }.alignItems(VerticalAlign.Center)
           }
-  .accessibilityLevel('yes')
-  .id('pages_subScenarioTest_brFoundScenarioTest__btn_2')
-          .borderRadius('8vp')
+          .accessibilityLevel('yes')
+          .id('pages_subScenarioTest_brFoundScenarioTest__btn_2')
+          .borderRadius(ConfigData.VP_8)
           .backgroundColor($r("app.color.moon"))
-          .width('80vp')
-          .height('66vp')
-          .margin({ top : '15vp' , right : '20vp' })
+          .width(ConfigData.VP_80)
+          .height(ConfigData.VP_66)
+          .margin({ top : ConfigData.VP_15 , right : ConfigData.VP_20 })
           .align(Alignment.Start)
           .onClick(async(event: ClickEvent) => {
             let brFoundScenarioMessage = ""
@@ -172,11 +173,11 @@ struct BrFoundScenarioTest {
           })
         }
         .backgroundColor($r("sys.color.ohos_id_color_sub_background"))
-        .width('100%')
+        .width(ConfigData.WH_100_100)
       }
       .backgroundColor($r("sys.color.ohos_id_color_sub_background"))
-      .width('100%')
-      .height('100%');
+      .width(ConfigData.WH_100_100)
+      .height(ConfigData.WH_100_100);
     }
   }
 

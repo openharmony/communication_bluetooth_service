@@ -78,79 +78,79 @@ struct SppClientManager {
           Stack({ alignContent : Alignment.TopStart }) {
             TestImageDisplay({ testItem : this.testItem })
             PageTitle({ testItem : this.testItem })
-  .accessibilityLevel('yes')
-  .id('pages_subManualApiTestManager_subSppTestManager_sppClientManager__pt_0')
+              .accessibilityLevel('yes')
+              .id('pages_subManualApiTestManager_subSppTestManager_sppClientManager__pt_0')
           }
 
-          Stack().height('0.5vp').backgroundColor($r('app.color.black'));
+          Stack().height(ConfigData.VP_0_5).backgroundColor($r('app.color.black'));
           Row() {
-            Text("目标设备MAC：").fontSize('17vp').width('70vp');
+            Text($r('app.string.bluetoothtest_text_mbsbm')).fontSize(ConfigData.VP_17).width(ConfigData.VP_70);
             TextInput({ text : this.deviceId , placeholder : "请输入mac地址" })
-  .accessibilityLevel('yes')
-  .id('pages_subManualApiTestManager_subSppTestManager_sppClientManager__ti_0')
-              .fontSize('15vp')
+              .accessibilityLevel('yes')
+              .id('pages_subManualApiTestManager_subSppTestManager_sppClientManager__ti_0')
+              .fontSize(ConfigData.VP_15)
               .onChange((str) => {
                 this.deviceId = str;
                 AppStorage.setOrCreate('inputDeviceId' , str)
               })
-              .width('80%')
-              .borderRadius('1vp')
+              .width(ConfigData.WH_80_100)
+              .borderRadius(ConfigData.HEIGHT_1_VP)
           }
           .backgroundColor($r("app.color.moon"))
-          .padding('5vp')
+          .padding(ConfigData.VP_5)
           .justifyContent(FlexAlign.Start)
           .alignItems(VerticalAlign.Center)
 
           Row() {
-            Text("目标设备UUID：").fontSize('17vp').width('70vp');
+            Text($r('app.string.bluetoothtest_text_mbsbu')).fontSize(ConfigData.VP_17).width(ConfigData.VP_70);
             TextInput({ text : this.uuid , placeholder : "请输入uuid" })
-  .accessibilityLevel('yes')
-  .id('pages_subManualApiTestManager_subSppTestManager_sppClientManager__ti_1')
-              .fontSize('15vp')
+              .accessibilityLevel('yes')
+              .id('pages_subManualApiTestManager_subSppTestManager_sppClientManager__ti_1')
+              .fontSize(ConfigData.VP_15)
               .onChange((str) => {
                 this.uuid = str;
                 AppStorage.setOrCreate('inputUuid' , str)
               })
-              .width('80%')
-              .borderRadius('1vp')
+              .width(ConfigData.WH_80_100)
+              .borderRadius(ConfigData.HEIGHT_1_VP)
           }
           .backgroundColor($r("app.color.spring"))
-          .padding('5vp')
+          .padding(ConfigData.VP_5)
           .justifyContent(FlexAlign.Start)
           .alignItems(VerticalAlign.Center)
 
           Row() {
-            Text("写入目标设备数据：").fontSize('17vp').width('95vp');
+            Text($r('app.string.bluetoothtest_text_xrmbsbsj')).fontSize(ConfigData.VP_17).width(ConfigData.VP_95);
             TextInput({ text : this.writeClientData , placeholder : "请输入写入的数据" })
-  .accessibilityLevel('yes')
-  .id('pages_subManualApiTestManager_subSppTestManager_sppClientManager__ti_2')
-              .fontSize('15vp')
+              .accessibilityLevel('yes')
+              .id('pages_subManualApiTestManager_subSppTestManager_sppClientManager__ti_2')
+              .fontSize(ConfigData.VP_15)
               .onChange((str) => {
                 this.writeClientData = str;
                 AppStorage.setOrCreate("writeClientData" , str);
               })
-              .width('80%')
-              .borderRadius('1vp')
+              .width(ConfigData.WH_80_100)
+              .borderRadius(ConfigData.HEIGHT_1_VP)
           }
           .backgroundColor($r("app.color.moon"))
-          .padding('5vp')
+          .padding(ConfigData.VP_5)
           .justifyContent(FlexAlign.Start)
           .alignItems(VerticalAlign.Center)
 
           Row() {
-            Text("读取的数据为：").fontSize('17vp')
+            Text($r('app.string.bluetoothtest_text_dqdsjw')).fontSize(ConfigData.VP_17)
             Text(this.dataReadMessage)
-              .fontSize('15vp')
-              .width('80%')
-              .borderRadius('1vp')
+              .fontSize(ConfigData.VP_15)
+              .width(ConfigData.WH_80_100)
+              .borderRadius(ConfigData.HEIGHT_1_VP)
           }
-          .padding('5vp')
+          .padding(ConfigData.VP_5)
           .justifyContent(FlexAlign.Start)
           .alignItems(VerticalAlign.Center)
 
           Column() {
-            Text("接口调用结果： " + this.message).fontSize('17vp')
-              .padding('10vp')
+            Text($r('app.string.label_api_result_space') + this.message).fontSize(ConfigData.VP_17)
+              .padding(ConfigData.VP_10)
               .textAlign(TextAlign.Center)
           }
           .backgroundColor($r("app.color.moon"))
@@ -161,21 +161,21 @@ struct SppClientManager {
                 apiItems : initSppClientManagerApiData()
               }) //子层调用
             }
-  .accessibilityLevel('yes')
-  .id('pages_subManualApiTestManager_subSppTestManager_sppClientManager__sc_0')
+            .accessibilityLevel('yes')
+            .id('pages_subManualApiTestManager_subSppTestManager_sppClientManager__sc_0')
             .width(ConfigData.WH_100_100)
             .align(Alignment.TopStart)
             .layoutWeight(1)
             .margin({ top : $r('sys.float.ohos_id_card_margin_middle') })
-            .height('100%')
+            .height(ConfigData.WH_100_100)
           }
-          .height('75%')
+          .height(ConfigData.PCT_75)
         }
       }
-      .width('100%')
+      .width(ConfigData.WH_100_100)
     }
     .backgroundColor($r("sys.color.ohos_id_color_sub_background"))
-    .height('100%')
+    .height(ConfigData.WH_100_100)
     .alignItems(VerticalAlign.Top)
   }
 
@@ -291,44 +291,44 @@ struct PairDialog {
   build() {
     Column() {
       Text($r('app.string.bluetooth_pairing_request'))
-        .fontSize('22fp')
-        .height('60vp')
+        .fontSize(ConfigData.FP_22)
+        .height(ConfigData.VP_60)
         .width(ConfigData.WH_100_100)
         .padding({
-          left : '24vp' ,
-          top : '14vp' ,
-          bottom : '14vp'
+          left : ConfigData.VP_24 ,
+          top : ConfigData.VP_14 ,
+          bottom : ConfigData.VP_14
         })
       Column() {
         if ( this.pinCode ) {
           Text($r('app.string.bluetooth_pairing_intelligent_device_hit' , this.deviceName , this.deviceName))
-            .fontSize('16fp')
+            .fontSize(ConfigData.FP_16)
             .width(ConfigData.WH_100_100)
             .margin({
-              top : '14vp' ,
-              bottom : '14vp'
+              top : ConfigData.VP_14 ,
+              bottom : ConfigData.VP_14
             })
 
           Text(`${ this.pinCode }`)
-            .fontSize('32fp')
+            .fontSize(ConfigData.FP_32)
             .fontWeight(FontWeight.Bolder)
             .width(ConfigData.WH_100_100)
             .textAlign(TextAlign.Center)
             .margin({
-              top : '24vp' ,
-              bottom : '24vp'
+              top : ConfigData.VP_24 ,
+              bottom : ConfigData.VP_24
             })
 
         } else {
           Text($r('app.string.bluetooth_pairing_media_device_hit'))
-            .fontSize('16fp')
+            .fontSize(ConfigData.FP_16)
             .width(ConfigData.WH_100_100)
             .margin({
-              bottom : '2vp'
+              bottom : ConfigData.VP_2
             })
 
           Text(this.deviceName)
-            .fontSize('16fp')
+            .fontSize(ConfigData.FP_16)
             .width(ConfigData.WH_100_100)
             .fontWeight(FontWeight.Bold)
         }
@@ -338,14 +338,14 @@ struct PairDialog {
 
           Button() {
             Text($r('app.string.cancel'))
-              .fontSize('16fp')
+              .fontSize(ConfigData.FP_16)
               .fontColor(Color.Blue)
           }
-  .accessibilityLevel('yes')
-  .id('pages_subManualApiTestManager_subSppTestManager_sppClientManager__btn_0')
+          .accessibilityLevel('yes')
+          .id('pages_subManualApiTestManager_subSppTestManager_sppClientManager__btn_0')
           .backgroundColor($r("app.color.white_bg_color"))
-          .width('160vp')
-          .height('40vp')
+          .width(ConfigData.VP_160)
+          .height(ConfigData.VP_40)
           .flexGrow(1)
           .onClick(() => {
             this.dialogController.close();
@@ -353,21 +353,21 @@ struct PairDialog {
           })
 
           Divider()
-            .height('24vp')
-            .strokeWidth('0.5vp')
+            .height(ConfigData.VP_24)
+            .strokeWidth(ConfigData.VP_0_5)
             .vertical(true)
             .color(($r("app.color.color_E3E3E3_grey")))
 
           Button() {
             Text($r('app.string.bluetooth_pair_button'))
-              .fontSize('16fp')
+              .fontSize(ConfigData.FP_16)
               .fontColor(Color.Blue)
           }
-  .accessibilityLevel('yes')
-  .id('pages_subManualApiTestManager_subSppTestManager_sppClientManager__btn_1')
+          .accessibilityLevel('yes')
+          .id('pages_subManualApiTestManager_subSppTestManager_sppClientManager__btn_1')
           .backgroundColor($r("app.color.white_bg_color"))
-          .width('160vp')
-          .height('40vp')
+          .width(ConfigData.VP_160)
+          .height(ConfigData.VP_40)
           .flexGrow(1)
           .onClick(() => {
             this.dialogController.close();
@@ -375,17 +375,17 @@ struct PairDialog {
           })
         }
         .width(ConfigData.WH_100_100)
-        .height('60vp');
+        .height(ConfigData.VP_60);
       }
       .width(ConfigData.WH_100_100)
       .padding({
-        left : '24vp' ,
-        right : '24vp'
+        left : ConfigData.VP_24 ,
+        right : ConfigData.VP_24
       })
     }
     .padding({
-      left : '24vp' ,
-      right : '24vp'
+      left : ConfigData.VP_24 ,
+      right : ConfigData.VP_24
     })
     .width(ConfigData.WH_100_100);
   }
