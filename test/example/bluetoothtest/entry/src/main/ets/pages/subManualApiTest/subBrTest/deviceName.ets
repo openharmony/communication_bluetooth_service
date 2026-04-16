@@ -34,8 +34,8 @@ struct DeviceNameCard {
       GridContainer({
         columns : 12 ,
         sizeType : SizeType.Auto ,
-        gutter : vp2px(1) === 2 ? '12vp' : '0vp' ,
-        margin : vp2px(1) === 2 ? '24vp' : '0vp'
+        gutter : vp2px(1) === 2 ? ConfigData.VP_12 : ConfigData.VP_0 ,
+        margin : vp2px(1) === 2 ? ConfigData.VP_24 : ConfigData.VP_0
       }) {
         Row({}) {
           Column() {
@@ -49,14 +49,14 @@ struct DeviceNameCard {
 
           Column() {
             PageTitle({ detail : '设备名称' })
-  .accessibilityLevel('yes')
-  .id('pages_subManualApiTest_subBrTest_deviceName__pt_0')
+              .accessibilityLevel('yes')
+              .id('pages_subManualApiTest_subBrTest_deviceName__pt_0')
 
             TextInput({ text : this.deviceName })
-  .accessibilityLevel('yes')
-  .id('pages_subManualApiTest_subBrTest_deviceName__ti_0')
+              .accessibilityLevel('yes')
+              .id('pages_subManualApiTest_subBrTest_deviceName__ti_0')
               .placeholderFont({
-                size : '18fp' ,
+                size : ConfigData.FP_18 ,
                 weight : FontWeight.Normal ,
                 style : FontStyle.Normal
               })
@@ -67,8 +67,8 @@ struct DeviceNameCard {
                 left : $r('sys.float.ohos_id_card_margin_start') ,
                 right : $r('sys.float.ohos_id_card_margin_end')
               })
-              .height('40vp')
-              .borderRadius('0vp')
+              .height(ConfigData.VP_40)
+              .borderRadius(ConfigData.VP_0)
               .backgroundColor($r('app.color.color_00000000_transparent'))
               .onChange((value: string) => {
                 console.log(ConfigData.TAG + 'device name changed to: ' + JSON.stringify(value));
@@ -98,11 +98,11 @@ struct DeviceNameCard {
                 ButtonComponent({ text : $r("app.string.cancel") , isOnClick : () => {
                   router.back();
                 } })
-  .accessibilityLevel('yes')
-  .id('pages_subManualApiTest_subBrTest_deviceName__bcomp_0')
+              .accessibilityLevel('yes')
+              .id('pages_subManualApiTest_subBrTest_deviceName__bcomp_0')
               }
-              .width('120vp')
-              .margin({ right : '12vp' })
+              .width(ConfigData.VP_120)
+              .margin({ right : ConfigData.VP_12 })
 
               Row() {
                 ButtonComponent({ text : $r("app.string.confirm") , isOnClick : () => {
@@ -110,12 +110,12 @@ struct DeviceNameCard {
                   AppStorage.setOrCreate('setLocalNameRet' , ret);
                   router.back();
                 } })
-  .accessibilityLevel('yes')
-  .id('pages_subManualApiTest_subBrTest_deviceName__bcomp_1')
-              }.width('120vp')
+          .accessibilityLevel('yes')
+          .id('pages_subManualApiTest_subBrTest_deviceName__bcomp_1')
+              }.width(ConfigData.VP_120)
             }
           }
-          .padding({ left : '24vp' , right : '24vp' })
+          .padding({ left : ConfigData.VP_24 , right : ConfigData.VP_24 })
           .width(ConfigData.WH_100_100)
           .height(ConfigData.WH_100_100)
           .useSizeType({
@@ -154,14 +154,14 @@ struct ButtonComponent {
   build() {
     Column() {
       Text(this.text)
-        .fontSize('16fp')
+        .fontSize(ConfigData.FP_16)
         .fontWeight(FontWeight.Medium)
         .lineHeight('22vp')
         .fontColor($r('app.color.font_color_007DFF'))
         .textAlign(TextAlign.Center)
-        .width('120vp')
-        .height('40vp')
-        .borderRadius('20vp')
+        .width(ConfigData.VP_120)
+        .height(ConfigData.VP_40)
+        .borderRadius(ConfigData.VP_20)
         .backgroundColor(!this.isTouched ? $r("app.color.color_button_grey") : $r("sys.color.ohos_id_color_foreground_contrary"))
         .onTouch((event: TouchEvent) => {
           if ( event.type === TouchType.Down ) {
