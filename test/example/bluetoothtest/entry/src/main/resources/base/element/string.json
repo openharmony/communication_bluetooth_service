@@ -28,11 +28,11 @@
       "name": "btn_fixedsize",
       "value": "部分截屏"
     },
-
     {
       "name": "MainAbility2_label",
       "value": "label"
-    },    {
+    },
+    {
       "name": "MainAbility3_desc",
       "value": "description"
     },
@@ -135,7 +135,8 @@
     {
       "name": "spp_client_test_title",
       "value": "SPP_CLIENT业务"
-    },    {
+    },
+    {
       "name": "spp_server_test_title",
       "value": "SPP_SERVER业务"
     },
@@ -346,6 +347,382 @@
     {
       "name": "bluetooth_scan_mode_type",
       "value": "设置扫描类型"
+    },
+    {
+      "name": "autotest_api_verify_label",
+      "value": "API验证:"
+    },
+    {
+      "name": "autotest_debug_log_label",
+      "value": "Debug日志:"
+    },
+    {
+      "name": "autotest_log_prefix",
+      "value": "log:"
+    },
+    {
+      "name": "ohcc_txt_36a9e7f1c9",
+      "value": " "
+    },
+    {
+      "name": "ohcc_txt_12156e921b",
+      "value": "Id"
+    },
+    {
+      "name": "ohcc_txt_1ef3de06b3",
+      "value": "清空"
+    },
+    {
+      "name": "ohcc_txt_df3d58c7d8",
+      "value": "设置"
+    },
+    {
+      "name": "ohcc_txt_348a629f5c",
+      "value": "mac"
+    },
+    {
+      "name": "ohcc_txt_52396cf237",
+      "value": "日志:"
+    },
+    {
+      "name": "ohcc_txt_82a3537ff0",
+      "value": "name"
+    },
+    {
+      "name": "ohcc_txt_cca50ac565",
+      "value": "清空日志"
+    },
+    {
+      "name": "ohcc_txt_bea2f398bb",
+      "value": "结束测试"
+    },
+    {
+      "name": "ohcc_txt_8e37953d23",
+      "value": "Value"
+    },
+    {
+      "name": "ohcc_txt_9c3370b3fa",
+      "value": "功能测试:"
+    },
+    {
+      "name": "ohcc_txt_7e119a6c3e",
+      "value": "广播配置:"
+    },
+    {
+      "name": "ohcc_txt_08053166f4",
+      "value": "性能测试:"
+    },
+    {
+      "name": "ohcc_txt_b6f9ef4230",
+      "value": "流程日志:"
+    },
+    {
+      "name": "ohcc_txt_9d88d201ac",
+      "value": "结果显示:"
+    },
+    {
+      "name": "ohcc_txt_c3a450fe07",
+      "value": "场景测试开始"
+    },
+    {
+      "name": "ohcc_txt_c0792d42c1",
+      "value": "场景测试结束"
+    },
+    {
+      "name": "ohcc_txt_f9ff1266db",
+      "value": "外设MAC:"
+    },
+    {
+      "name": "ohcc_txt_5a084aa5f0",
+      "value": "带宽性能测试"
+    },
+    {
+      "name": "ohcc_txt_011ae17795",
+      "value": "性能测试准备"
+    },
+    {
+      "name": "ohcc_txt_c7d2b3af90",
+      "value": "时间性能测试"
+    },
+    {
+      "name": "ohcc_txt_86e88b69a9",
+      "value": "服务Uuid"
+    },
+    {
+      "name": "ohcc_txt_b6f5e48d8b",
+      "value": "稳定性能测试"
+    },
+    {
+      "name": "ohcc_txt_4b0f3528ee",
+      "value": "蓝牙调试助手"
+    },
+    {
+      "name": "ohcc_txt_039f13a4e9",
+      "value": "速率性能测试"
+    },
+    {
+      "name": "ohcc_txt_c14a047cd8",
+      "value": "txPower"
+    },
+    {
+      "name": "ohcc_txt_2231cd27dd",
+      "value": "场景流程验证:"
+    },
+    {
+      "name": "ohcc_txt_0dc2699e88",
+      "value": "服务UUID:"
+    },
+    {
+      "name": "ohcc_txt_85c959ca1f",
+      "value": "读取的数据为："
+    },
+    {
+      "name": "ohcc_txt_214958259c",
+      "value": "BLE扫描配置:"
+    },
+    {
+      "name": "ohcc_txt_caa79af4db",
+      "value": "duration"
+    },
+    {
+      "name": "ohcc_txt_f5584680ea",
+      "value": "dutyMode"
+    },
+    {
+      "name": "ohcc_txt_3fe1406a82",
+      "value": "interval"
+    },
+    {
+      "name": "ohcc_txt_b78f13990a",
+      "value": "外围设备MAC:"
+    },
+    {
+      "name": "ohcc_txt_77695717a2",
+      "value": "描述符UUID:"
+    },
+    {
+      "name": "ohcc_txt_6fb9e7ed0b",
+      "value": "特征值UUID:"
+    },
+    {
+      "name": "ohcc_txt_c232e10e19",
+      "value": "目标设备MAC："
+    },
+    {
+      "name": "ohcc_txt_1e2f6fe522",
+      "value": "CCC UUID:"
+    },
+    {
+      "name": "ohcc_txt_ecd3c7503c",
+      "value": "Gatt服务配置:"
+    },
+    {
+      "name": "ohcc_txt_e8209287d0",
+      "value": "Response:"
+    },
+    {
+      "name": "ohcc_txt_59ad0c69d7",
+      "value": "matchMode"
+    },
+    {
+      "name": "ohcc_txt_13c53189e2",
+      "value": "写入目标设备数据："
+    },
+    {
+      "name": "ohcc_txt_179de15b60",
+      "value": "描述符Value:"
+    },
+    {
+      "name": "ohcc_txt_8db854220f",
+      "value": "本机设备UUID："
+    },
+    {
+      "name": "ohcc_txt_83fa41a70b",
+      "value": "特征值Value:"
+    },
+    {
+      "name": "ohcc_txt_64ac4b08ed",
+      "value": "目标设备UUID："
+    },
+    {
+      "name": "ohcc_txt_41e1eb4706",
+      "value": "BLE扫描过滤参数:"
+    },
+    {
+      "name": "ohcc_txt_375c290861",
+      "value": "CCC Value:"
+    },
+    {
+      "name": "ohcc_txt_8739eeec5f",
+      "value": "请点击需要测试的方法"
+    },
+    {
+      "name": "ohcc_txt_d9d08add49",
+      "value": "connectable"
+    },
+    {
+      "name": "ohcc_txt_d5d17c03fa",
+      "value": "serviceData"
+    },
+    {
+      "name": "ohcc_txt_c9c0a20f30",
+      "value": "serviceUuid"
+    },
+    {
+      "name": "ohcc_txt_e45de40b1d",
+      "value": "uitest stub"
+    },
+    {
+      "name": "ohcc_txt_8310f85556",
+      "value": "现在正在连接的设备为："
+    },
+    {
+      "name": "ohcc_txt_4bcfa81617",
+      "value": "serviceValue"
+    },
+    {
+      "name": "ohcc_txt_3071f08f35",
+      "value": "manufactureData"
+    },
+    {
+      "name": "ohcc_txt_78ff2ab0b3",
+      "value": "已选择的设备的蓝牙mac地址："
+    },
+    {
+      "name": "ohcc_txt_2e2a55209b",
+      "value": "Descriptor UUID:"
+    },
+    {
+      "name": "ohcc_txt_110b0bcf04",
+      "value": "已配对设备列表：(点击选择设备)"
+    },
+    {
+      "name": "ohcc_txt_a8dde554d6",
+      "value": "Descriptor Value:"
+    },
+    {
+      "name": "ohcc_txt_e604afc38d",
+      "value": "GattClientSetting"
+    },
+    {
+      "name": "ohcc_txt_9048df37af",
+      "value": "GattServerSetting"
+    },
+    {
+      "name": "ohcc_txt_25ed78fb5f",
+      "value": "gatt_Cycle_index:"
+    },
+    {
+      "name": "ohcc_txt_8f1cb07c07",
+      "value": "clientV_Cycle_index:"
+    },
+    {
+      "name": "ohcc_txt_f0da2c93b9",
+      "value": "serverV_Cycle_index:"
+    },
+    {
+      "name": "ohcc_txt_a9e7adce22",
+      "value": "请输入需要发送的文件名称，如：test.txt"
+    },
+    {
+      "name": "ohcc_txt_6549691e51",
+      "value": "Br的性能测试是测试在发现蓝牙时的时间性能和稳定性能"
+    },
+    {
+      "name": "ohcc_txt_d55f768648",
+      "value": "Spp的性能测试是测试Spp两端收发信息的速率和带宽性能"
+    },
+    {
+      "name": "ohcc_txt_9d8e6c2861",
+      "value": "Ble的性能测试是测试在发现BLE蓝牙时的时间性能和稳定性能"
+    },
+    {
+      "name": "ohcc_txt_f8e8da8f60",
+      "value": "注：文件必须在/data/bluetooth/log/目录下"
+    },
+    {
+      "name": "ohcc_txt_df076aa39b",
+      "value": "Gatt的性能测试是测试Gatt两端收发notify信息变化的速率性能"
+    },
+    {
+      "name": "label_api_result_space",
+      "value": "接口调用结果： "
+    },
+    {
+      "name": "label_api_result_tight",
+      "value": "接口调用结果："
+    },
+    {
+      "name": "label_connection_state_change",
+      "value": "connectionStateChange： "
+    },
+    {
+      "name": "percent_symbol",
+      "value": "%"
+    },
+    {
+      "name": "opp_recv_confirm_prefix",
+      "value": "是否接收来自 "
+    },
+    {
+      "name": "opp_recv_confirm_suffix",
+      "value": " 的文件"
+    },
+    {
+      "name": "label_gatt_current_config",
+      "value": "当前配置:"
+    },
+    {
+      "name": "label_ble_conn_state",
+      "value": "BLE连接状态:"
+    },
+    {
+      "name": "label_ble_char_change",
+      "value": "BLE特征变化:"
+    },
+    {
+      "name": "label_device_name_colon",
+      "value": "deviceName:"
+    },
+    {
+      "name": "label_rssi_colon",
+      "value": "Rssi:"
+    },
+    {
+      "name": "label_get_service_colon",
+      "value": "getService:"
+    },
+    {
+      "name": "label_read_char_colon",
+      "value": "readCharacteristic:"
+    },
+    {
+      "name": "label_read_desc_colon",
+      "value": "readDescriptor:"
+    },
+    {
+      "name": "label_gatt_result_colon",
+      "value": "Result:"
+    },
+    {
+      "name": "label_gatt_conn_state_colon",
+      "value": "ConnectionStateChange:"
+    },
+    {
+      "name": "label_char_read_colon",
+      "value": "characteristicRead:"
+    },
+    {
+      "name": "label_char_write_colon",
+      "value": "characteristicWrite:"
+    },
+    {
+      "name": "label_desc_read_colon",
+      "value": "descriptorRead:"
+    },
+    {
+      "name": "label_desc_write_colon",
+      "value": "descriptorWrite:"
     }
   ]
 }
