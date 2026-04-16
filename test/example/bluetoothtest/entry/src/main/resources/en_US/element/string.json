@@ -1,8 +1,8 @@
 {
   "string": [
     {
-      "name": "module_desc",
-      "value": "module description"
+      "name": "DataAbility_desc",
+      "value": "hap sample empty provider"
     },
     {
       "name": "EntryAbility_desc",
@@ -11,6 +11,70 @@
     {
       "name": "EntryAbility_label",
       "value": "label"
+    },
+    {
+      "name": "MainAbility2_desc",
+      "value": "description"
+    },
+    {
+      "name": "MainAbility2_label",
+      "value": "label"
+    },
+    {
+      "name": "MainAbility3_desc",
+      "value": "description"
+    },
+    {
+      "name": "MainAbility3_label",
+      "value": "label"
+    },
+    {
+      "name": "MainAbility_desc",
+      "value": "description"
+    },
+    {
+      "name": "MainAbility_label",
+      "value": "Bluetooth Test Suite"
+    },
+    {
+      "name": "PageAbility_desc",
+      "value": "description"
+    },
+    {
+      "name": "PageAbility_label",
+      "value": "label"
+    },
+    {
+      "name": "a2dp_sink_profile_test_title",
+      "value": "A2DP SINK Profile"
+    },
+    {
+      "name": "a2dp_sour_profile_test_title",
+      "value": "A2DP SOUR Profile"
+    },
+    {
+      "name": "api",
+      "value": "API Test"
+    },
+    {
+      "name": "api_M",
+      "value": "API Test (M)"
+    },
+    {
+      "name": "api_test_title",
+      "value": "Manual API Test"
+    },
+    {
+      "name": "auto_test_title",
+      "value": "Automated Test"
+    },
+    {
+      "name": "autotest",
+      "value": "Auto Test"
+    },
+    {
+      "name": "autotest_M",
+      "value": "Auto Test (M)"
     },
     {
       "name": "autotest_api_verify_label",
@@ -25,332 +89,528 @@
       "value": "log:"
     },
     {
-      "name": "ohcc_txt_36a9e7f1c9",
-      "value": " "
+      "name": "avrcp_ct_profile_test_title",
+      "value": "AVRCP CT Profile"
     },
     {
-      "name": "ohcc_txt_12156e921b",
-      "value": "Id"
+      "name": "avrcp_tg_profile_test_title",
+      "value": "AVRCP TG Profile"
     },
     {
-      "name": "ohcc_txt_1ef3de06b3",
-      "value": "清空"
+      "name": "benchmark",
+      "value": "Performance Test"
     },
     {
-      "name": "ohcc_txt_df3d58c7d8",
-      "value": "设置"
+      "name": "benchmark_M",
+      "value": "Performance Test (M)"
     },
     {
-      "name": "ohcc_txt_348a629f5c",
-      "value": "mac"
+      "name": "ble_test_title",
+      "value": "BLE Test"
     },
     {
-      "name": "ohcc_txt_52396cf237",
-      "value": "日志:"
+      "name": "bluetoothContent",
+      "value": "Other devices see this name when using Bluetooth, hotspot sharing, or USB."
     },
     {
-      "name": "ohcc_txt_82a3537ff0",
-      "value": "name"
+      "name": "bluetooth_address_error_msg",
+      "value": "This address looks invalid and may be risky. Continue?"
     },
     {
-      "name": "ohcc_txt_cca50ac565",
-      "value": "清空日志"
+      "name": "bluetooth_available_devices",
+      "value": "Available devices"
     },
     {
-      "name": "ohcc_txt_bea2f398bb",
-      "value": "结束测试"
+      "name": "bluetooth_connect_failed",
+      "value": "Connection failed"
     },
     {
-      "name": "ohcc_txt_8e37953d23",
-      "value": "Value"
+      "name": "bluetooth_connect_failed_msg",
+      "value": "Cannot connect to \"%s\". Possible causes:\n1. Bluetooth is off or out of range (10 m).\n2. The device is connected elsewhere; disconnect and retry."
     },
     {
-      "name": "ohcc_txt_9c3370b3fa",
-      "value": "功能测试:"
+      "name": "bluetooth_device_name",
+      "value": "Device name"
     },
     {
-      "name": "ohcc_txt_7e119a6c3e",
-      "value": "广播配置:"
+      "name": "bluetooth_disconnect",
+      "value": "Disconnect?"
     },
     {
-      "name": "ohcc_txt_08053166f4",
-      "value": "性能测试:"
+      "name": "bluetooth_disconnect_device",
+      "value": "This will disconnect you from: %s"
     },
     {
-      "name": "ohcc_txt_b6f9ef4230",
-      "value": "流程日志:"
+      "name": "bluetooth_know_button",
+      "value": "OK"
     },
     {
-      "name": "ohcc_txt_9d88d201ac",
-      "value": "结果显示:"
+      "name": "bluetooth_pair_button",
+      "value": "Pair"
     },
     {
-      "name": "ohcc_txt_c3a450fe07",
-      "value": "场景测试开始"
+      "name": "bluetooth_paired_devices",
+      "value": "Paired devices"
     },
     {
-      "name": "ohcc_txt_c0792d42c1",
-      "value": "场景测试结束"
+      "name": "bluetooth_pairing_intelligent_device_hit",
+      "value": "\"%s\" wants to pair. Confirm this code is shown on \"%s\" and was not entered manually."
     },
     {
-      "name": "ohcc_txt_f9ff1266db",
-      "value": "外设MAC:"
+      "name": "bluetooth_pairing_media_device_hit",
+      "value": "Pair with the following device:"
     },
     {
-      "name": "ohcc_txt_5a084aa5f0",
-      "value": "带宽性能测试"
+      "name": "bluetooth_pairing_request",
+      "value": "Bluetooth pairing request"
     },
     {
-      "name": "ohcc_txt_011ae17795",
-      "value": "性能测试准备"
+      "name": "bluetooth_scan_mode_type",
+      "value": "Set scan mode"
     },
     {
-      "name": "ohcc_txt_c7d2b3af90",
-      "value": "时间性能测试"
+      "name": "bluetooth_state_connected",
+      "value": "Connected"
     },
     {
-      "name": "ohcc_txt_86e88b69a9",
-      "value": "服务Uuid"
+      "name": "bluetooth_state_connecting",
+      "value": "Connecting"
     },
     {
-      "name": "ohcc_txt_b6f5e48d8b",
-      "value": "稳定性能测试"
+      "name": "bluetooth_state_disconnected",
+      "value": "Disconnected"
     },
     {
-      "name": "ohcc_txt_4b0f3528ee",
-      "value": "蓝牙调试助手"
+      "name": "bluetooth_state_disconnecting",
+      "value": "Disconnecting"
     },
     {
-      "name": "ohcc_txt_039f13a4e9",
-      "value": "速率性能测试"
+      "name": "bluetooth_state_pairing",
+      "value": "Pairing…"
     },
     {
-      "name": "ohcc_txt_c14a047cd8",
-      "value": "txPower"
+      "name": "bluetooth_state_unknown",
+      "value": "Unknown"
     },
     {
-      "name": "ohcc_txt_2231cd27dd",
-      "value": "场景流程验证:"
+      "name": "bluetooth_visible_to_nearby",
+      "value": "Visible to nearby Bluetooth devices"
     },
     {
-      "name": "ohcc_txt_0dc2699e88",
-      "value": "服务UUID:"
+      "name": "bluetoothtest_text_bdxncsscszfxblysdsjxnhwdxn",
+      "value": "BLE benchmark measures discovery time and stability when scanning for BLE devices."
     },
     {
-      "name": "ohcc_txt_85c959ca1f",
-      "value": "读取的数据为："
+      "name": "bluetoothtest_text_bdxncsscszfxlysdsjxnhwdxn",
+      "value": "BR benchmark measures discovery time and stability when scanning for Bluetooth devices."
     },
     {
-      "name": "ohcc_txt_214958259c",
-      "value": "BLE扫描配置:"
+      "name": "bluetoothtest_text_bjsbu",
+      "value": "Local device UUID:"
     },
     {
-      "name": "ohcc_txt_caa79af4db",
-      "value": "duration"
+      "name": "bluetoothtest_text_bsmglcs",
+      "value": "BLE scan filter parameters:"
     },
     {
-      "name": "ohcc_txt_f5584680ea",
-      "value": "dutyMode"
+      "name": "bluetoothtest_text_bsmpz",
+      "value": "BLE scan configuration:"
     },
     {
-      "name": "ohcc_txt_3fe1406a82",
-      "value": "interval"
-    },
-    {
-      "name": "ohcc_txt_b78f13990a",
-      "value": "外围设备MAC:"
-    },
-    {
-      "name": "ohcc_txt_77695717a2",
-      "value": "描述符UUID:"
-    },
-    {
-      "name": "ohcc_txt_6fb9e7ed0b",
-      "value": "特征值UUID:"
-    },
-    {
-      "name": "ohcc_txt_c232e10e19",
-      "value": "目标设备MAC："
-    },
-    {
-      "name": "ohcc_txt_1e2f6fe522",
-      "value": "CCC UUID:"
-    },
-    {
-      "name": "ohcc_txt_ecd3c7503c",
-      "value": "Gatt服务配置:"
-    },
-    {
-      "name": "ohcc_txt_e8209287d0",
-      "value": "Response:"
-    },
-    {
-      "name": "ohcc_txt_59ad0c69d7",
-      "value": "matchMode"
-    },
-    {
-      "name": "ohcc_txt_13c53189e2",
-      "value": "写入目标设备数据："
-    },
-    {
-      "name": "ohcc_txt_179de15b60",
-      "value": "描述符Value:"
-    },
-    {
-      "name": "ohcc_txt_8db854220f",
-      "value": "本机设备UUID："
-    },
-    {
-      "name": "ohcc_txt_83fa41a70b",
-      "value": "特征值Value:"
-    },
-    {
-      "name": "ohcc_txt_64ac4b08ed",
-      "value": "目标设备UUID："
-    },
-    {
-      "name": "ohcc_txt_41e1eb4706",
-      "value": "BLE扫描过滤参数:"
-    },
-    {
-      "name": "ohcc_txt_375c290861",
-      "value": "CCC Value:"
-    },
-    {
-      "name": "ohcc_txt_8739eeec5f",
-      "value": "请点击需要测试的方法"
-    },
-    {
-      "name": "ohcc_txt_d9d08add49",
+      "name": "bluetoothtest_text_c",
       "value": "connectable"
     },
     {
-      "name": "ohcc_txt_d5d17c03fa",
-      "value": "serviceData"
-    },
-    {
-      "name": "ohcc_txt_c9c0a20f30",
-      "value": "serviceUuid"
-    },
-    {
-      "name": "ohcc_txt_e45de40b1d",
-      "value": "uitest stub"
-    },
-    {
-      "name": "ohcc_txt_8310f85556",
-      "value": "现在正在连接的设备为："
-    },
-    {
-      "name": "ohcc_txt_4bcfa81617",
-      "value": "serviceValue"
-    },
-    {
-      "name": "ohcc_txt_3071f08f35",
-      "value": "manufactureData"
-    },
-    {
-      "name": "ohcc_txt_78ff2ab0b3",
-      "value": "已选择的设备的蓝牙mac地址："
-    },
-    {
-      "name": "ohcc_txt_2e2a55209b",
-      "value": "Descriptor UUID:"
-    },
-    {
-      "name": "ohcc_txt_110b0bcf04",
-      "value": "已配对设备列表：(点击选择设备)"
-    },
-    {
-      "name": "ohcc_txt_a8dde554d6",
-      "value": "Descriptor Value:"
-    },
-    {
-      "name": "ohcc_txt_e604afc38d",
-      "value": "GattClientSetting"
-    },
-    {
-      "name": "ohcc_txt_9048df37af",
-      "value": "GattServerSetting"
-    },
-    {
-      "name": "ohcc_txt_25ed78fb5f",
-      "value": "gatt_Cycle_index:"
-    },
-    {
-      "name": "ohcc_txt_8f1cb07c07",
+      "name": "bluetoothtest_text_cci",
       "value": "clientV_Cycle_index:"
     },
     {
-      "name": "ohcc_txt_f0da2c93b9",
+      "name": "bluetoothtest_text_cjcsjs",
+      "value": "Scenario test ended"
+    },
+    {
+      "name": "bluetoothtest_text_cjcsks",
+      "value": "Scenario test started"
+    },
+    {
+      "name": "bluetoothtest_text_cjlcyz",
+      "value": "Scenario flow verification:"
+    },
+    {
+      "name": "bluetoothtest_text_cu",
+      "value": "CCC UUID:"
+    },
+    {
+      "name": "bluetoothtest_text_cv",
+      "value": "CCC Value:"
+    },
+    {
+      "name": "bluetoothtest_text_d",
+      "value": "duration"
+    },
+    {
+      "name": "bluetoothtest_text_d_1",
+      "value": "dutyMode"
+    },
+    {
+      "name": "bluetoothtest_text_dkxncs",
+      "value": "Bandwidth benchmark"
+    },
+    {
+      "name": "bluetoothtest_text_dqdsjw",
+      "value": "Read data:"
+    },
+    {
+      "name": "bluetoothtest_text_du",
+      "value": "Descriptor UUID:"
+    },
+    {
+      "name": "bluetoothtest_text_dv",
+      "value": "Descriptor Value:"
+    },
+    {
+      "name": "bluetoothtest_text_empty",
+      "value": " "
+    },
+    {
+      "name": "bluetoothtest_text_fwu",
+      "value": "Service UUID"
+    },
+    {
+      "name": "bluetoothtest_text_fwu_1",
+      "value": "Service UUID:"
+    },
+    {
+      "name": "bluetoothtest_text_g",
+      "value": "GattClientSetting"
+    },
+    {
+      "name": "bluetoothtest_text_g_1",
+      "value": "GattServerSetting"
+    },
+    {
+      "name": "bluetoothtest_text_gbpz",
+      "value": "Advertise configuration:"
+    },
+    {
+      "name": "bluetoothtest_text_gci",
+      "value": "gatt_Cycle_index:"
+    },
+    {
+      "name": "bluetoothtest_text_gdxncsscsgldsfnxxbhdslxn",
+      "value": "GATT benchmark measures notify throughput between GATT peers."
+    },
+    {
+      "name": "bluetoothtest_text_gfwpz",
+      "value": "GATT service configuration:"
+    },
+    {
+      "name": "bluetoothtest_text_gncs",
+      "value": "Function test:"
+    },
+    {
+      "name": "bluetoothtest_text_i",
+      "value": "Id"
+    },
+    {
+      "name": "bluetoothtest_text_i_1",
+      "value": "interval"
+    },
+    {
+      "name": "bluetoothtest_text_jgxs",
+      "value": "Result:"
+    },
+    {
+      "name": "bluetoothtest_text_jscs",
+      "value": "End test"
+    },
+    {
+      "name": "bluetoothtest_text_lcrz",
+      "value": "Flow log:"
+    },
+    {
+      "name": "bluetoothtest_text_lytszs",
+      "value": "Bluetooth Debug Assistant"
+    },
+    {
+      "name": "bluetoothtest_text_m",
+      "value": "mac"
+    },
+    {
+      "name": "bluetoothtest_text_m_1",
+      "value": "matchMode"
+    },
+    {
+      "name": "bluetoothtest_text_m_2",
+      "value": "manufactureData"
+    },
+    {
+      "name": "bluetoothtest_text_mbsbm",
+      "value": "Target device MAC:"
+    },
+    {
+      "name": "bluetoothtest_text_mbsbu",
+      "value": "Target device UUID:"
+    },
+    {
+      "name": "bluetoothtest_text_msfu",
+      "value": "Descriptor UUID:"
+    },
+    {
+      "name": "bluetoothtest_text_msfv",
+      "value": "Descriptor value:"
+    },
+    {
+      "name": "bluetoothtest_text_n",
+      "value": "name"
+    },
+    {
+      "name": "bluetoothtest_text_qdjxycsdff",
+      "value": "Tap a method to test"
+    },
+    {
+      "name": "bluetoothtest_text_qk",
+      "value": "Clear"
+    },
+    {
+      "name": "bluetoothtest_text_qkrz",
+      "value": "Clear log"
+    },
+    {
+      "name": "bluetoothtest_text_qsrxyfsdwjmcrtt",
+      "value": "Enter file name to send, e.g. test.txt"
+    },
+    {
+      "name": "bluetoothtest_text_r",
+      "value": "Response:"
+    },
+    {
+      "name": "bluetoothtest_text_rz",
+      "value": "Log:"
+    },
+    {
+      "name": "bluetoothtest_text_s",
+      "value": "serviceData"
+    },
+    {
+      "name": "bluetoothtest_text_s_1",
+      "value": "serviceUuid"
+    },
+    {
+      "name": "bluetoothtest_text_s_2",
+      "value": "serviceValue"
+    },
+    {
+      "name": "bluetoothtest_text_sci",
       "value": "serverV_Cycle_index:"
     },
     {
-      "name": "ohcc_txt_a9e7adce22",
-      "value": "请输入需要发送的文件名称，如：test.txt"
+      "name": "bluetoothtest_text_sdxncsscssldsfxxdslhdkxn",
+      "value": "SPP benchmark measures throughput and bandwidth between SPP peers."
     },
     {
-      "name": "ohcc_txt_6549691e51",
-      "value": "Br的性能测试是测试在发现蓝牙时的时间性能和稳定性能"
+      "name": "bluetoothtest_text_sjxncs",
+      "value": "Timing benchmark"
     },
     {
-      "name": "ohcc_txt_d55f768648",
-      "value": "Spp的性能测试是测试Spp两端收发信息的速率和带宽性能"
+      "name": "bluetoothtest_text_slxncs",
+      "value": "Throughput benchmark"
     },
     {
-      "name": "ohcc_txt_9d8e6c2861",
-      "value": "Ble的性能测试是测试在发现BLE蓝牙时的时间性能和稳定性能"
+      "name": "bluetoothtest_text_sz",
+      "value": "Settings"
     },
     {
-      "name": "ohcc_txt_f8e8da8f60",
-      "value": "注：文件必须在/data/bluetooth/log/目录下"
+      "name": "bluetoothtest_text_t",
+      "value": "txPower"
     },
     {
-      "name": "ohcc_txt_df076aa39b",
-      "value": "Gatt的性能测试是测试Gatt两端收发notify信息变化的速率性能"
+      "name": "bluetoothtest_text_tzzu",
+      "value": "Characteristic UUID:"
+    },
+    {
+      "name": "bluetoothtest_text_tzzv",
+      "value": "Characteristic value:"
+    },
+    {
+      "name": "bluetoothtest_text_us",
+      "value": "uitest stub"
+    },
+    {
+      "name": "bluetoothtest_text_v",
+      "value": "Value"
+    },
+    {
+      "name": "bluetoothtest_text_wdxncs",
+      "value": "Stability benchmark"
+    },
+    {
+      "name": "bluetoothtest_text_wsm",
+      "value": "Peripheral MAC:"
+    },
+    {
+      "name": "bluetoothtest_text_wwsbm",
+      "value": "Peripheral MAC:"
+    },
+    {
+      "name": "bluetoothtest_text_xncs",
+      "value": "Performance test:"
+    },
+    {
+      "name": "bluetoothtest_text_xncszb",
+      "value": "Preparing performance test"
+    },
+    {
+      "name": "bluetoothtest_text_xrmbsbsj",
+      "value": "Write data to target device:"
+    },
+    {
+      "name": "bluetoothtest_text_xzzzljdsbw",
+      "value": "Currently connecting to:"
+    },
+    {
+      "name": "bluetoothtest_text_ypdsblbdjxzsb",
+      "value": "Paired device list (tap to select)"
+    },
+    {
+      "name": "bluetoothtest_text_yxzdsbdlymdz",
+      "value": "Selected device Bluetooth MAC:"
+    },
+    {
+      "name": "bluetoothtest_text_zwjbxzdblmlx",
+      "value": "Note: file must be under /data/bluetooth/log/"
+    },
+    {
+      "name": "br_interface_test_title",
+      "value": "BR API Test"
+    },
+    {
+      "name": "br_test_title",
+      "value": "BR Service"
+    },
+    {
+      "name": "bt_device_name_title",
+      "value": "Device name"
+    },
+    {
+      "name": "bt_scan_switch_title",
+      "value": "Scan switch"
+    },
+    {
+      "name": "bt_switch_title",
+      "value": "Bluetooth"
+    },
+    {
+      "name": "btn_fixedsize",
+      "value": "Partial screenshot"
+    },
+    {
+      "name": "btn_fullscreen",
+      "value": "Full-screen screenshot"
+    },
+    {
+      "name": "cancel",
+      "value": "Cancel"
+    },
+    {
+      "name": "cancelPairing",
+      "value": "Cancel pairing"
+    },
+    {
+      "name": "conf_title",
+      "value": "Configuration"
+    },
+    {
+      "name": "confirm",
+      "value": "Confirm"
+    },
+    {
+      "name": "entry_desc",
+      "value": "description"
+    },
+    {
+      "name": "form_FormAbility_desc",
+      "value": "form_description"
+    },
+    {
+      "name": "form_FormAbility_label",
+      "value": "form_label"
+    },
+    {
+      "name": "gatt_client_test_title",
+      "value": "GATT Client Test"
+    },
+    {
+      "name": "gatt_server_test_title",
+      "value": "GATT Server Test"
+    },
+    {
+      "name": "gatt_test_title",
+      "value": "GATT Test"
+    },
+    {
+      "name": "hands_free_audio_gateway_profile_test_title",
+      "value": "HANDS FREE AUDIO GATEWAY Profile"
+    },
+    {
+      "name": "hands_free_unit_profile_test_title",
+      "value": "HANDS FREE UNIT Profile"
+    },
+    {
+      "name": "hid_host_profile_test_title",
+      "value": "HID HOST Profile"
     },
     {
       "name": "label_api_result_space",
-      "value": "接口调用结果： "
+      "value": "API call result: "
     },
     {
       "name": "label_api_result_tight",
-      "value": "接口调用结果："
+      "value": "API call result:"
+    },
+    {
+      "name": "label_ble_char_change",
+      "value": "BLE characteristic change:"
+    },
+    {
+      "name": "label_ble_conn_state",
+      "value": "BLE connection state:"
+    },
+    {
+      "name": "label_char_read_colon",
+      "value": "characteristicRead:"
+    },
+    {
+      "name": "label_char_write_colon",
+      "value": "characteristicWrite:"
     },
     {
       "name": "label_connection_state_change",
       "value": "connectionStateChange： "
     },
     {
-      "name": "percent_symbol",
-      "value": "%"
+      "name": "label_desc_read_colon",
+      "value": "descriptorRead:"
     },
     {
-      "name": "opp_recv_confirm_prefix",
-      "value": "是否接收来自 "
-    },
-    {
-      "name": "opp_recv_confirm_suffix",
-      "value": " 的文件"
-    },
-    {
-      "name": "label_gatt_current_config",
-      "value": "当前配置:"
-    },
-    {
-      "name": "label_ble_conn_state",
-      "value": "BLE连接状态:"
-    },
-    {
-      "name": "label_ble_char_change",
-      "value": "BLE特征变化:"
+      "name": "label_desc_write_colon",
+      "value": "descriptorWrite:"
     },
     {
       "name": "label_device_name_colon",
       "value": "deviceName:"
     },
     {
-      "name": "label_rssi_colon",
-      "value": "Rssi:"
+      "name": "label_gatt_conn_state_colon",
+      "value": "ConnectionStateChange:"
+    },
+    {
+      "name": "label_gatt_current_config",
+      "value": "Current configuration:"
+    },
+    {
+      "name": "label_gatt_result_colon",
+      "value": "Result:"
     },
     {
       "name": "label_get_service_colon",
@@ -365,28 +625,116 @@
       "value": "readDescriptor:"
     },
     {
-      "name": "label_gatt_result_colon",
-      "value": "Result:"
+      "name": "label_rssi_colon",
+      "value": "Rssi:"
     },
     {
-      "name": "label_gatt_conn_state_colon",
-      "value": "ConnectionStateChange:"
+      "name": "manual_test_title",
+      "value": "Manual scenario test"
     },
     {
-      "name": "label_char_read_colon",
-      "value": "characteristicRead:"
+      "name": "module_desc",
+      "value": "module description"
     },
     {
-      "name": "label_char_write_colon",
-      "value": "characteristicWrite:"
+      "name": "more",
+      "value": "more"
     },
     {
-      "name": "label_desc_read_colon",
-      "value": "descriptorRead:"
+      "name": "opp_profile_test_title",
+      "value": "Opp Profile"
     },
     {
-      "name": "label_desc_write_colon",
-      "value": "descriptorWrite:"
+      "name": "opp_recv_confirm_prefix",
+      "value": "Accept incoming from "
+    },
+    {
+      "name": "opp_recv_confirm_suffix",
+      "value": " file"
+    },
+    {
+      "name": "p_bap_clinet_profile_test_title",
+      "value": "Pbap CLIENT Profile"
+    },
+    {
+      "name": "p_bap_server_profile_test_title",
+      "value": "Pbap SERVER Profile"
+    },
+    {
+      "name": "pairing_failed_message",
+      "value": "Pairing code or peer configuration is incorrect."
+    },
+    {
+      "name": "pairing_failed_title",
+      "value": "Pairing failed"
+    },
+    {
+      "name": "pan_network_profile_test_title",
+      "value": "PAN NetWork Profile"
+    },
+    {
+      "name": "percent_symbol",
+      "value": "%"
+    },
+    {
+      "name": "profile",
+      "value": "Profile Test"
+    },
+    {
+      "name": "profile_M",
+      "value": "Profile Test (M)"
+    },
+    {
+      "name": "profile_test_title",
+      "value": "Profile Service"
+    },
+    {
+      "name": "put_away",
+      "value": "put away"
+    },
+    {
+      "name": "reason",
+      "value": "User authorization"
+    },
+    {
+      "name": "result",
+      "value": "Result"
+    },
+    {
+      "name": "scanning",
+      "value": "Searching…"
+    },
+    {
+      "name": "scenario",
+      "value": "Scenario Test"
+    },
+    {
+      "name": "scenario_M",
+      "value": "Scenario Test (M)"
+    },
+    {
+      "name": "spp_client_test_title",
+      "value": "SPP_CLIENT Service"
+    },
+    {
+      "name": "spp_server_test_title",
+      "value": "SPP_SERVER Service"
+    },
+    {
+      "name": "spp_test_title",
+      "value": "SPP Service"
+    },
+    {
+      "name": "test_title",
+      "value": "Bluetooth Test"
+    },
+    {
+      "name": "testcase",
+      "value": "API"
+    },
+    {
+      "name": "version",
+      "value": "1.1.1"
     }
   ]
 }

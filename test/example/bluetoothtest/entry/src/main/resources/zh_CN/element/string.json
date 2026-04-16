@@ -1,16 +1,740 @@
 {
   "string": [
     {
+      "name": "DataAbility_desc",
+      "value": "安装包示例空数据提供者"
+    },
+    {
+      "name": "EntryAbility_desc",
+      "value": "描述"
+    },
+    {
+      "name": "EntryAbility_label",
+      "value": "标签"
+    },
+    {
+      "name": "MainAbility2_desc",
+      "value": "描述"
+    },
+    {
+      "name": "MainAbility2_label",
+      "value": "标签"
+    },
+    {
+      "name": "MainAbility3_desc",
+      "value": "描述"
+    },
+    {
+      "name": "MainAbility3_label",
+      "value": "标签"
+    },
+    {
+      "name": "MainAbility_desc",
+      "value": "描述"
+    },
+    {
+      "name": "MainAbility_label",
+      "value": "蓝牙专项测试"
+    },
+    {
+      "name": "PageAbility_desc",
+      "value": "描述"
+    },
+    {
+      "name": "PageAbility_label",
+      "value": "标签"
+    },
+    {
+      "name": "a2dp_sink_profile_test_title",
+      "value": "音频分发接收端配置文件"
+    },
+    {
+      "name": "a2dp_sour_profile_test_title",
+      "value": "音频分发发送端配置文件"
+    },
+    {
+      "name": "api",
+      "value": "接口测试"
+    },
+    {
+      "name": "api_M",
+      "value": "接口测试（管理）"
+    },
+    {
+      "name": "api_test_title",
+      "value": "手动接口测试"
+    },
+    {
+      "name": "auto_test_title",
+      "value": "自动化测试"
+    },
+    {
+      "name": "autotest",
+      "value": "自动测试"
+    },
+    {
+      "name": "autotest_M",
+      "value": "自动测试（管理）"
+    },
+    {
+      "name": "autotest_api_verify_label",
+      "value": "接口验证:"
+    },
+    {
+      "name": "autotest_debug_log_label",
+      "value": "调试日志:"
+    },
+    {
+      "name": "autotest_log_prefix",
+      "value": "日志："
+    },
+    {
+      "name": "avrcp_ct_profile_test_title",
+      "value": "音视频遥控控制器配置文件"
+    },
+    {
+      "name": "avrcp_tg_profile_test_title",
+      "value": "音视频遥控目标配置文件"
+    },
+    {
+      "name": "benchmark",
+      "value": "性能测试"
+    },
+    {
+      "name": "benchmark_M",
+      "value": "性能测试（管理）"
+    },
+    {
+      "name": "ble_test_title",
+      "value": "低功耗蓝牙测试"
+    },
+    {
+      "name": "bluetoothContent",
+      "value": "使用蓝牙互联，热点共享和通用串行总线连接时，其他设备将看到此名称"
+    },
+    {
+      "name": "bluetooth_address_error_msg",
+      "value": "该地址设备非法，可能存在风险。是否继续连接？"
+    },
+    {
+      "name": "bluetooth_available_devices",
+      "value": "可用设备"
+    },
+    {
+      "name": "bluetooth_connect_failed",
+      "value": "连接失败"
+    },
+    {
+      "name": "bluetooth_connect_failed_msg",
+      "value": "无法与“%s”连接，可能原因如下：\n1.该设备蓝牙关闭，或不在通信范围内（10米）；\n2.该设备已经与其他设备连接，请断开后重试"
+    },
+    {
+      "name": "bluetooth_device_name",
+      "value": "设备名称"
+    },
+    {
+      "name": "bluetooth_disconnect",
+      "value": "断开连接？"
+    },
+    {
+      "name": "bluetooth_disconnect_device",
+      "value": "此操作将会断开您与以下设备的连接：%s"
+    },
+    {
+      "name": "bluetooth_know_button",
+      "value": "知道了"
+    },
+    {
+      "name": "bluetooth_pair_button",
+      "value": "配对"
+    },
+    {
+      "name": "bluetooth_paired_devices",
+      "value": "已配对的设备"
+    },
+    {
+      "name": "bluetooth_pairing_intelligent_device_hit",
+      "value": "“%s”要与您配对。请确认此配对码已在“%s”上直接显示，且不是手动输入的。"
+    },
+    {
+      "name": "bluetooth_pairing_media_device_hit",
+      "value": "要与以下设备配对："
+    },
+    {
+      "name": "bluetooth_pairing_request",
+      "value": "蓝牙配对请求"
+    },
+    {
+      "name": "bluetooth_scan_mode_type",
+      "value": "设置扫描类型"
+    },
+    {
+      "name": "bluetooth_state_connected",
+      "value": "已连接"
+    },
+    {
+      "name": "bluetooth_state_connecting",
+      "value": "正在连接"
+    },
+    {
+      "name": "bluetooth_state_disconnected",
+      "value": "未连接"
+    },
+    {
+      "name": "bluetooth_state_disconnecting",
+      "value": "正在断开"
+    },
+    {
+      "name": "bluetooth_state_pairing",
+      "value": "正在配对…"
+    },
+    {
+      "name": "bluetooth_state_unknown",
+      "value": "未知状态"
+    },
+    {
+      "name": "bluetooth_visible_to_nearby",
+      "value": "当前可被附近的蓝牙设备发现"
+    },
+    {
+      "name": "bluetoothtest_text_bdxncsscszfxblysdsjxnhwdxn",
+      "value": "低功耗蓝牙的性能测试是测试在发现低功耗蓝牙蓝牙时的时间性能和稳定性能"
+    },
+    {
+      "name": "bluetoothtest_text_bdxncsscszfxlysdsjxnhwdxn",
+      "value": "经典蓝牙的性能测试是测试在发现蓝牙时的时间性能和稳定性能"
+    },
+    {
+      "name": "bluetoothtest_text_bjsbu",
+      "value": "本机设备唯一标识："
+    },
+    {
+      "name": "bluetoothtest_text_bsmglcs",
+      "value": "低功耗蓝牙扫描过滤参数:"
+    },
+    {
+      "name": "bluetoothtest_text_bsmpz",
+      "value": "低功耗蓝牙扫描配置:"
+    },
+    {
+      "name": "bluetoothtest_text_c",
+      "value": "可连接"
+    },
+    {
+      "name": "bluetoothtest_text_cci",
+      "value": "客户端循环序号："
+    },
+    {
+      "name": "bluetoothtest_text_cjcsjs",
+      "value": "场景测试结束"
+    },
+    {
+      "name": "bluetoothtest_text_cjcsks",
+      "value": "场景测试开始"
+    },
+    {
+      "name": "bluetoothtest_text_cjlcyz",
+      "value": "场景流程验证:"
+    },
+    {
+      "name": "bluetoothtest_text_cu",
+      "value": "客户端特性配置标识："
+    },
+    {
+      "name": "bluetoothtest_text_cv",
+      "value": "客户端特性配置取值："
+    },
+    {
+      "name": "bluetoothtest_text_d",
+      "value": "时长"
+    },
+    {
+      "name": "bluetoothtest_text_d_1",
+      "value": "占空模式"
+    },
+    {
+      "name": "bluetoothtest_text_dkxncs",
+      "value": "带宽性能测试"
+    },
+    {
+      "name": "bluetoothtest_text_dqdsjw",
+      "value": "读取的数据为："
+    },
+    {
+      "name": "bluetoothtest_text_du",
+      "value": "描述符标识："
+    },
+    {
+      "name": "bluetoothtest_text_dv",
+      "value": "描述符取值："
+    },
+    {
+      "name": "bluetoothtest_text_empty",
+      "value": " "
+    },
+    {
+      "name": "bluetoothtest_text_fwu",
+      "value": "服务唯一标识"
+    },
+    {
+      "name": "bluetoothtest_text_fwu_1",
+      "value": "服务唯一标识:"
+    },
+    {
+      "name": "bluetoothtest_text_g",
+      "value": "通用属性客户端设置"
+    },
+    {
+      "name": "bluetoothtest_text_g_1",
+      "value": "通用属性服务端设置"
+    },
+    {
+      "name": "bluetoothtest_text_gbpz",
+      "value": "广播配置:"
+    },
+    {
+      "name": "bluetoothtest_text_gci",
+      "value": "通用属性循环序号："
+    },
+    {
+      "name": "bluetoothtest_text_gdxncsscsgldsfnxxbhdslxn",
+      "value": "通用属性的性能测试是测试通用属性两端收发通知信息变化的速率性能"
+    },
+    {
+      "name": "bluetoothtest_text_gfwpz",
+      "value": "通用属性服务配置:"
+    },
+    {
+      "name": "bluetoothtest_text_gncs",
+      "value": "功能测试:"
+    },
+    {
+      "name": "bluetoothtest_text_i",
+      "value": "编号"
+    },
+    {
+      "name": "bluetoothtest_text_i_1",
+      "value": "间隔"
+    },
+    {
+      "name": "bluetoothtest_text_jgxs",
+      "value": "结果："
+    },
+    {
+      "name": "bluetoothtest_text_jscs",
+      "value": "结束测试"
+    },
+    {
+      "name": "bluetoothtest_text_lcrz",
+      "value": "流程日志:"
+    },
+    {
+      "name": "bluetoothtest_text_lytszs",
+      "value": "蓝牙调试助手"
+    },
+    {
+      "name": "bluetoothtest_text_m",
+      "value": "地址"
+    },
+    {
+      "name": "bluetoothtest_text_m_1",
+      "value": "匹配模式"
+    },
+    {
+      "name": "bluetoothtest_text_m_2",
+      "value": "厂商数据"
+    },
+    {
+      "name": "bluetoothtest_text_mbsbm",
+      "value": "目标设备物理地址："
+    },
+    {
+      "name": "bluetoothtest_text_mbsbu",
+      "value": "目标设备唯一标识："
+    },
+    {
+      "name": "bluetoothtest_text_msfu",
+      "value": "描述符标识："
+    },
+    {
+      "name": "bluetoothtest_text_msfv",
+      "value": "描述符取值："
+    },
+    {
+      "name": "bluetoothtest_text_n",
+      "value": "名称"
+    },
+    {
+      "name": "bluetoothtest_text_qdjxycsdff",
+      "value": "请点击需要测试的方法"
+    },
+    {
+      "name": "bluetoothtest_text_qk",
+      "value": "清空"
+    },
+    {
+      "name": "bluetoothtest_text_qkrz",
+      "value": "清空日志"
+    },
+    {
+      "name": "bluetoothtest_text_qsrxyfsdwjmcrtt",
+      "value": "请输入需要发送的文件名称，如：示例文本文件"
+    },
+    {
+      "name": "bluetoothtest_text_r",
+      "value": "响应："
+    },
+    {
+      "name": "bluetoothtest_text_rz",
+      "value": "日志:"
+    },
+    {
+      "name": "bluetoothtest_text_s",
+      "value": "服务数据"
+    },
+    {
+      "name": "bluetoothtest_text_s_1",
+      "value": "服务标识"
+    },
+    {
+      "name": "bluetoothtest_text_s_2",
+      "value": "服务取值"
+    },
+    {
+      "name": "bluetoothtest_text_sci",
+      "value": "服务端循环序号："
+    },
+    {
+      "name": "bluetoothtest_text_sdxncsscssldsfxxdslhdkxn",
+      "value": "串口的性能测试是测试串口两端收发信息的速率和带宽性能"
+    },
+    {
+      "name": "bluetoothtest_text_sjxncs",
+      "value": "时间性能测试"
+    },
+    {
+      "name": "bluetoothtest_text_slxncs",
+      "value": "速率性能测试"
+    },
+    {
+      "name": "bluetoothtest_text_sz",
+      "value": "设置"
+    },
+    {
+      "name": "bluetoothtest_text_t",
+      "value": "发射功率"
+    },
+    {
+      "name": "bluetoothtest_text_tzzu",
+      "value": "特征值唯一标识:"
+    },
+    {
+      "name": "bluetoothtest_text_tzzv",
+      "value": "特征值取值："
+    },
+    {
+      "name": "bluetoothtest_text_us",
+      "value": "界面自动化测试占位页"
+    },
+    {
+      "name": "bluetoothtest_text_v",
+      "value": "取值"
+    },
+    {
+      "name": "bluetoothtest_text_wdxncs",
+      "value": "稳定性能测试"
+    },
+    {
+      "name": "bluetoothtest_text_wsm",
+      "value": "外围设备物理地址:"
+    },
+    {
+      "name": "bluetoothtest_text_wwsbm",
+      "value": "外围设备物理地址:"
+    },
+    {
+      "name": "bluetoothtest_text_xncs",
+      "value": "性能测试:"
+    },
+    {
+      "name": "bluetoothtest_text_xncszb",
+      "value": "性能测试准备"
+    },
+    {
+      "name": "bluetoothtest_text_xrmbsbsj",
+      "value": "写入目标设备数据："
+    },
+    {
+      "name": "bluetoothtest_text_xzzzljdsbw",
+      "value": "现在正在连接的设备为："
+    },
+    {
+      "name": "bluetoothtest_text_ypdsblbdjxzsb",
+      "value": "已配对设备列表：(点击选择设备)"
+    },
+    {
+      "name": "bluetoothtest_text_yxzdsbdlymdz",
+      "value": "已选择的设备的蓝牙物理地址地址："
+    },
+    {
+      "name": "bluetoothtest_text_zwjbxzdblmlx",
+      "value": "注：文件必须在数据分区蓝牙日志目录目录下"
+    },
+    {
+      "name": "br_interface_test_title",
+      "value": "经典蓝牙接口测试"
+    },
+    {
+      "name": "br_test_title",
+      "value": "经典蓝牙业务"
+    },
+    {
+      "name": "bt_device_name_title",
+      "value": "设备名称"
+    },
+    {
+      "name": "bt_scan_switch_title",
+      "value": "扫描开关"
+    },
+    {
+      "name": "bt_switch_title",
+      "value": "蓝牙开关"
+    },
+    {
+      "name": "btn_fixedsize",
+      "value": "部分截屏"
+    },
+    {
+      "name": "btn_fullscreen",
+      "value": "全屏截屏"
+    },
+    {
+      "name": "cancel",
+      "value": "取消"
+    },
+    {
+      "name": "cancelPairing",
+      "value": "取消配对"
+    },
+    {
+      "name": "conf_title",
+      "value": "配置信息"
+    },
+    {
+      "name": "confirm",
+      "value": "确认"
+    },
+    {
+      "name": "entry_desc",
+      "value": "描述"
+    },
+    {
+      "name": "form_FormAbility_desc",
+      "value": "表单描述"
+    },
+    {
+      "name": "form_FormAbility_label",
+      "value": "表单标签"
+    },
+    {
+      "name": "gatt_client_test_title",
+      "value": "通用属性客户端测试"
+    },
+    {
+      "name": "gatt_server_test_title",
+      "value": "通用属性服务端测试"
+    },
+    {
+      "name": "gatt_test_title",
+      "value": "通用属性测试"
+    },
+    {
+      "name": "hands_free_audio_gateway_profile_test_title",
+      "value": "免提音频网关配置文件"
+    },
+    {
+      "name": "hands_free_unit_profile_test_title",
+      "value": "免提音频单元配置文件"
+    },
+    {
+      "name": "hid_host_profile_test_title",
+      "value": "人机接口主机配置文件"
+    },
+    {
+      "name": "label_api_result_space",
+      "value": "接口调用结果： "
+    },
+    {
+      "name": "label_api_result_tight",
+      "value": "接口调用结果："
+    },
+    {
+      "name": "label_ble_char_change",
+      "value": "低功耗蓝牙特征变化:"
+    },
+    {
+      "name": "label_ble_conn_state",
+      "value": "低功耗蓝牙连接状态:"
+    },
+    {
+      "name": "label_char_read_colon",
+      "value": "特征读："
+    },
+    {
+      "name": "label_char_write_colon",
+      "value": "特征写："
+    },
+    {
+      "name": "label_connection_state_change",
+      "value": "连接状态变化： "
+    },
+    {
+      "name": "label_desc_read_colon",
+      "value": "描述符读："
+    },
+    {
+      "name": "label_desc_write_colon",
+      "value": "描述符写："
+    },
+    {
+      "name": "label_device_name_colon",
+      "value": "设备名称："
+    },
+    {
+      "name": "label_gatt_conn_state_colon",
+      "value": "连接状态变化："
+    },
+    {
+      "name": "label_gatt_current_config",
+      "value": "当前配置:"
+    },
+    {
+      "name": "label_gatt_result_colon",
+      "value": "结果："
+    },
+    {
+      "name": "label_get_service_colon",
+      "value": "获取服务："
+    },
+    {
+      "name": "label_read_char_colon",
+      "value": "读特征："
+    },
+    {
+      "name": "label_read_desc_colon",
+      "value": "读描述符："
+    },
+    {
+      "name": "label_rssi_colon",
+      "value": "信号强度："
+    },
+    {
+      "name": "manual_test_title",
+      "value": "手动场景化测试"
+    },
+    {
       "name": "module_desc",
       "value": "模块描述"
     },
     {
-      "name": "EntryAbility_desc",
-      "value": "description"
+      "name": "more",
+      "value": "更多"
     },
     {
-      "name": "EntryAbility_label",
-      "value": "label"
+      "name": "opp_profile_test_title",
+      "value": "对象推送配置文件"
+    },
+    {
+      "name": "opp_recv_confirm_prefix",
+      "value": "是否接收来自 "
+    },
+    {
+      "name": "opp_recv_confirm_suffix",
+      "value": " 的文件"
+    },
+    {
+      "name": "p_bap_clinet_profile_test_title",
+      "value": "电话簿访问客户端配置文件"
+    },
+    {
+      "name": "p_bap_server_profile_test_title",
+      "value": "电话簿访问服务端配置文件"
+    },
+    {
+      "name": "pairing_failed_message",
+      "value": "配对码或要配对的设备配置错误。"
+    },
+    {
+      "name": "pairing_failed_title",
+      "value": "配对失败"
+    },
+    {
+      "name": "pan_network_profile_test_title",
+      "value": "个人局域网配置文件"
+    },
+    {
+      "name": "percent_symbol",
+      "value": "%"
+    },
+    {
+      "name": "profile",
+      "value": "配置文件测试"
+    },
+    {
+      "name": "profile_M",
+      "value": "配置文件测试（管理）"
+    },
+    {
+      "name": "profile_test_title",
+      "value": "配置文件业务"
+    },
+    {
+      "name": "put_away",
+      "value": "收起"
+    },
+    {
+      "name": "reason",
+      "value": "用户授权"
+    },
+    {
+      "name": "result",
+      "value": "结果"
+    },
+    {
+      "name": "scanning",
+      "value": "正在搜索…"
+    },
+    {
+      "name": "scenario",
+      "value": "场景测试"
+    },
+    {
+      "name": "scenario_M",
+      "value": "场景测试（管理）"
+    },
+    {
+      "name": "spp_client_test_title",
+      "value": "串口客户端业务"
+    },
+    {
+      "name": "spp_server_test_title",
+      "value": "串口服务端业务"
+    },
+    {
+      "name": "spp_test_title",
+      "value": "串口业务"
+    },
+    {
+      "name": "test_title",
+      "value": "蓝牙测试"
+    },
+    {
+      "name": "testcase",
+      "value": "接口"
+    },
+    {
+      "name": "version",
+      "value": "1.1.1"
     }
   ]
 }
