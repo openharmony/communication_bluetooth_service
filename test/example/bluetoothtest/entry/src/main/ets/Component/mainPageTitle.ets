@@ -81,7 +81,7 @@ export struct MainPageTitle {
 
   build() {
     Flex({ alignItems : ItemAlign.Start }) {
-      Text($r('app.string.ohcc_txt_4b0f3528ee'))
+      Text($r('app.string.bluetoothtest_text_lytszs'))
         .fontSize(ConfigData.VP_26)
         .margin({ left : ConfigData.VP_15 })
         .padding({ top : ConfigData.VP_28 })

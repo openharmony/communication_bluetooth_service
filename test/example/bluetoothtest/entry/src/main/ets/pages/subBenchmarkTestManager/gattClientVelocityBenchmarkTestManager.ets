@@ -67,17 +67,17 @@ struct GattClientVelocityBenchmarkTest {
       Column() {
         Scroll() {
           Column() {
-            Text($r('app.string.ohcc_txt_08053166f4'))
+            Text($r('app.string.bluetoothtest_text_xncs'))
               .fontSize(ConfigData.VP_17)
               .margin({ top : ConfigData.VP_10 , bottom : ConfigData.VP_10 , left : ConfigData.VP_20 })
               .textAlign(TextAlign.Start)
               .width(ConfigData.WH_100_100)
-            Text($r('app.string.ohcc_txt_df076aa39b'))
+            Text($r('app.string.bluetoothtest_text_gdxncsscsgldsfnxxbhdslxn'))
               .fontSize(ConfigData.VP_17)
               .margin({ left : ConfigData.VP_15 })
               .backgroundColor($r("app.color.spring"))
             Row() {
-              Text($r('app.string.ohcc_txt_25ed78fb5f')).fontSize(ConfigData.VP_20).width(ConfigData.VP_180).padding({ left : ConfigData.VP_15 })
+              Text($r('app.string.bluetoothtest_text_gci')).fontSize(ConfigData.VP_20).width(ConfigData.VP_180).padding({ left : ConfigData.VP_15 })
               Column() {
                 Select([
                   { value : "100" },
@@ -116,7 +116,7 @@ struct GattClientVelocityBenchmarkTest {
 
         Scroll() {
           Column() {
-            Text($r('app.string.ohcc_txt_52396cf237'))
+            Text($r('app.string.bluetoothtest_text_rz'))
               .fontSize(ConfigData.VP_17)
               .margin({ top : ConfigData.VP_8 , bottom : ConfigData.VP_8 , left : ConfigData.VP_10 })
               .textAlign(TextAlign.Start)
@@ -151,7 +151,7 @@ struct GattClientVelocityBenchmarkTest {
         Flex({ alignItems : ItemAlign.Center , justifyContent : FlexAlign.SpaceBetween }) {
           Button({ type : ButtonType.Normal , stateEffect : true }) {
             Row() {
-              Text($r('app.string.ohcc_txt_039f13a4e9')).fontSize(ConfigData.VP_24).fontColor(0xffffff).margin({ left : ConfigData.VP_5 , right : ConfigData.VP_5 })
+              Text($r('app.string.bluetoothtest_text_slxncs')).fontSize(ConfigData.VP_24).fontColor(0xffffff).margin({ left : ConfigData.VP_5 , right : ConfigData.VP_5 })
             }.alignItems(VerticalAlign.Center)
           }
           .accessibilityLevel('yes')
@@ -207,7 +207,7 @@ struct GattClientVelocityBenchmarkTest {
 
           Button({ type : ButtonType.Normal , stateEffect : true }) {
             Row() {
-              Text($r('app.string.ohcc_txt_bea2f398bb')).fontSize(ConfigData.VP_24).fontColor(0xffffff).margin({ left : ConfigData.VP_5 , right : ConfigData.VP_5 })
+              Text($r('app.string.bluetoothtest_text_jscs')).fontSize(ConfigData.VP_24).fontColor(0xffffff).margin({ left : ConfigData.VP_5 , right : ConfigData.VP_5 })
             }.alignItems(VerticalAlign.Center)
           }
           .accessibilityLevel('yes')

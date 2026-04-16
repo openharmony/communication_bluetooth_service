@@ -32,7 +32,7 @@ struct profileConnState2 {
     Row() {
       Column() {
         Row() {
-          Text($r('app.string.ohcc_txt_c232e10e19')).fontSize(ConfigData.VP_20)
+          Text($r('app.string.bluetoothtest_text_mbsbm')).fontSize(ConfigData.VP_20)
           TextInput({ text : this.deviceId , placeholder : "请输入mac地址" })
             .fontSize(ConfigData.VP_20)
             .onChange((str) => {

@@ -57,19 +57,19 @@ struct SppServerVelocityBenchmarkTest {
       Column() {
         Scroll() {
           Column() {
-            Text($r('app.string.ohcc_txt_08053166f4'))
+            Text($r('app.string.bluetoothtest_text_xncs'))
               .fontSize(ConfigData.VP_17)
               .margin({ top : ConfigData.VP_5 , bottom : ConfigData.VP_5 , left : ConfigData.VP_20 })
               .textAlign(TextAlign.Start)
               .width(ConfigData.WH_100_100)
-            Text($r('app.string.ohcc_txt_d55f768648'))
+            Text($r('app.string.bluetoothtest_text_sdxncsscssldsfxxdslhdkxn'))
               .fontSize(ConfigData.VP_17)
               .margin({ left : ConfigData.VP_15 })
               .backgroundColor($r("app.color.spring"))
             Stack().height(ConfigData.HEIGHT_1_VP).backgroundColor($r('app.color.black'))
 
             Row() {
-              Text($r('app.string.ohcc_txt_f0da2c93b9')).fontSize(ConfigData.VP_17).width(ConfigData.VP_200)
+              Text($r('app.string.bluetoothtest_text_sci')).fontSize(ConfigData.VP_17).width(ConfigData.VP_200)
               Column() {
                 Select([
                   { value : "100" },
@@ -99,7 +99,7 @@ struct SppServerVelocityBenchmarkTest {
             .alignItems(VerticalAlign.Center)
 
             Row() {
-              Text($r('app.string.ohcc_txt_13c53189e2')).fontSize(ConfigData.VP_17).width(ConfigData.VP_160)
+              Text($r('app.string.bluetoothtest_text_xrmbsbsj')).fontSize(ConfigData.VP_17).width(ConfigData.VP_160)
               TextInput({ text : this.writeServerData , placeholder : "请输入写入的数据" })
                 .accessibilityLevel('yes')
                 .id('pages_subBenchmarkTest_sppServerVelocityBenchmarkTest__ti_0')
@@ -120,7 +120,7 @@ struct SppServerVelocityBenchmarkTest {
 
             Scroll() {
               Column() {
-                Text($r('app.string.ohcc_txt_85c959ca1f'))
+                Text($r('app.string.bluetoothtest_text_dqdsjw'))
                   .fontSize(ConfigData.VP_17)
                   .margin({ left : ConfigData.VP_10 })
                   .textAlign(TextAlign.Start)
@@ -169,7 +169,7 @@ struct SppServerVelocityBenchmarkTest {
 
         Scroll() {
           Column() {
-            Text($r('app.string.ohcc_txt_52396cf237'))
+            Text($r('app.string.bluetoothtest_text_rz'))
               .fontSize(ConfigData.VP_17)
               .margin({ top : ConfigData.VP_5 , bottom : ConfigData.VP_5 , left : ConfigData.VP_10 })
               .textAlign(TextAlign.Start)
@@ -205,7 +205,7 @@ struct SppServerVelocityBenchmarkTest {
         Flex({ alignItems : ItemAlign.Center , justifyContent : FlexAlign.SpaceBetween }) {
           Button({ type : ButtonType.Normal , stateEffect : true }) {
             Row() {
-              Text($r('app.string.ohcc_txt_039f13a4e9')).fontSize(ConfigData.VP_24).fontColor(0xffffff).margin({ left : ConfigData.VP_5 , right : ConfigData.VP_5 })
+              Text($r('app.string.bluetoothtest_text_slxncs')).fontSize(ConfigData.VP_24).fontColor(0xffffff).margin({ left : ConfigData.VP_5 , right : ConfigData.VP_5 })
             }.alignItems(VerticalAlign.Center)
           }
           .accessibilityLevel('yes')
@@ -235,7 +235,7 @@ struct SppServerVelocityBenchmarkTest {
 
           Button({ type : ButtonType.Normal , stateEffect : true }) {
             Row() {
-              Text($r('app.string.ohcc_txt_bea2f398bb')).fontSize(ConfigData.VP_24).fontColor(0xffffff).margin({ left : ConfigData.VP_5 , right : ConfigData.VP_5 })
+              Text($r('app.string.bluetoothtest_text_jscs')).fontSize(ConfigData.VP_24).fontColor(0xffffff).margin({ left : ConfigData.VP_5 , right : ConfigData.VP_5 })
             }.alignItems(VerticalAlign.Center)
           }
           .accessibilityLevel('yes')

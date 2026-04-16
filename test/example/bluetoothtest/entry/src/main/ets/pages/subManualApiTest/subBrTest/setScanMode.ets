@@ -180,7 +180,7 @@ struct etScanMode {
       .scrollBarWidth(ConfigData.VP_30)
 
       Row() {
-        Text($r('app.string.ohcc_txt_caa79af4db'))
+        Text($r('app.string.bluetoothtest_text_d'))
           .textAlign(TextAlign.Center)
           .fontSize(ConfigData.FP_20)
           .fontColor($r('app.color.font_color_182431'))

@@ -84,7 +84,7 @@ struct SppClientManager {
 
           Stack().height(ConfigData.VP_0_5).backgroundColor($r('app.color.black'));
           Row() {
-            Text($r('app.string.ohcc_txt_c232e10e19')).fontSize(ConfigData.VP_17).width(ConfigData.VP_70);
+            Text($r('app.string.bluetoothtest_text_mbsbm')).fontSize(ConfigData.VP_17).width(ConfigData.VP_70);
             TextInput({ text : this.deviceId , placeholder : "请输入mac地址" })
               .accessibilityLevel('yes')
               .id('pages_subManualApiTestManager_subSppTestManager_sppClientManager__ti_0')
@@ -102,7 +102,7 @@ struct SppClientManager {
           .alignItems(VerticalAlign.Center)
 
           Row() {
-            Text($r('app.string.ohcc_txt_64ac4b08ed')).fontSize(ConfigData.VP_17).width(ConfigData.VP_70);
+            Text($r('app.string.bluetoothtest_text_mbsbu')).fontSize(ConfigData.VP_17).width(ConfigData.VP_70);
             TextInput({ text : this.uuid , placeholder : "请输入uuid" })
               .accessibilityLevel('yes')
               .id('pages_subManualApiTestManager_subSppTestManager_sppClientManager__ti_1')
@@ -120,7 +120,7 @@ struct SppClientManager {
           .alignItems(VerticalAlign.Center)
 
           Row() {
-            Text($r('app.string.ohcc_txt_13c53189e2')).fontSize(ConfigData.VP_17).width(ConfigData.VP_95);
+            Text($r('app.string.bluetoothtest_text_xrmbsbsj')).fontSize(ConfigData.VP_17).width(ConfigData.VP_95);
             TextInput({ text : this.writeClientData , placeholder : "请输入写入的数据" })
               .accessibilityLevel('yes')
               .id('pages_subManualApiTestManager_subSppTestManager_sppClientManager__ti_2')
@@ -138,7 +138,7 @@ struct SppClientManager {
           .alignItems(VerticalAlign.Center)
 
           Row() {
-            Text($r('app.string.ohcc_txt_85c959ca1f')).fontSize(ConfigData.VP_17)
+            Text($r('app.string.bluetoothtest_text_dqdsjw')).fontSize(ConfigData.VP_17)
             Text(this.dataReadMessage)
               .fontSize(ConfigData.VP_15)
               .width(ConfigData.WH_80_100)

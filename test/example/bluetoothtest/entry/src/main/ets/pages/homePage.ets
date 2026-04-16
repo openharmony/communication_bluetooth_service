@@ -158,16 +158,16 @@ struct HomePage {
   @Builder
   HomeUiTestTabIdAnchors() {
     Row() {
-      Text($r('app.string.ohcc_txt_36a9e7f1c9')).id('pages_homePage__tc_0').layoutWeight(1).fontSize(1).height(ConfigData.VP_2).accessibilityLevel('yes')
-      Text($r('app.string.ohcc_txt_36a9e7f1c9')).id('pages_homePage__tc_1').layoutWeight(1).fontSize(1).height(ConfigData.VP_2).accessibilityLevel('yes')
-      Text($r('app.string.ohcc_txt_36a9e7f1c9')).id('pages_homePage__tc_2').layoutWeight(1).fontSize(1).height(ConfigData.VP_2).accessibilityLevel('yes')
-      Text($r('app.string.ohcc_txt_36a9e7f1c9')).id('pages_homePage__tc_3').layoutWeight(1).fontSize(1).height(ConfigData.VP_2).accessibilityLevel('yes')
-      Text($r('app.string.ohcc_txt_36a9e7f1c9')).id('pages_homePage__tc_4').layoutWeight(1).fontSize(1).height(ConfigData.VP_2).accessibilityLevel('yes')
-      Text($r('app.string.ohcc_txt_36a9e7f1c9')).id('pages_homePage__tc_5').layoutWeight(1).fontSize(1).height(ConfigData.VP_2).accessibilityLevel('yes')
-      Text($r('app.string.ohcc_txt_36a9e7f1c9')).id('pages_homePage__tc_6').layoutWeight(1).fontSize(1).height(ConfigData.VP_2).accessibilityLevel('yes')
-      Text($r('app.string.ohcc_txt_36a9e7f1c9')).id('pages_homePage__tc_7').layoutWeight(1).fontSize(1).height(ConfigData.VP_2).accessibilityLevel('yes')
-      Text($r('app.string.ohcc_txt_36a9e7f1c9')).id('pages_homePage__tc_8').layoutWeight(1).fontSize(1).height(ConfigData.VP_2).accessibilityLevel('yes')
-      Text($r('app.string.ohcc_txt_36a9e7f1c9')).id('pages_homePage__tc_9').layoutWeight(1).fontSize(1).height(ConfigData.VP_2).accessibilityLevel('yes')
+      Text($r('app.string.bluetoothtest_text_empty')).id('pages_homePage__tc_0').layoutWeight(1).fontSize(1).height(ConfigData.VP_2).accessibilityLevel('yes')
+      Text($r('app.string.bluetoothtest_text_empty')).id('pages_homePage__tc_1').layoutWeight(1).fontSize(1).height(ConfigData.VP_2).accessibilityLevel('yes')
+      Text($r('app.string.bluetoothtest_text_empty')).id('pages_homePage__tc_2').layoutWeight(1).fontSize(1).height(ConfigData.VP_2).accessibilityLevel('yes')
+      Text($r('app.string.bluetoothtest_text_empty')).id('pages_homePage__tc_3').layoutWeight(1).fontSize(1).height(ConfigData.VP_2).accessibilityLevel('yes')
+      Text($r('app.string.bluetoothtest_text_empty')).id('pages_homePage__tc_4').layoutWeight(1).fontSize(1).height(ConfigData.VP_2).accessibilityLevel('yes')
+      Text($r('app.string.bluetoothtest_text_empty')).id('pages_homePage__tc_5').layoutWeight(1).fontSize(1).height(ConfigData.VP_2).accessibilityLevel('yes')
+      Text($r('app.string.bluetoothtest_text_empty')).id('pages_homePage__tc_6').layoutWeight(1).fontSize(1).height(ConfigData.VP_2).accessibilityLevel('yes')
+      Text($r('app.string.bluetoothtest_text_empty')).id('pages_homePage__tc_7').layoutWeight(1).fontSize(1).height(ConfigData.VP_2).accessibilityLevel('yes')
+      Text($r('app.string.bluetoothtest_text_empty')).id('pages_homePage__tc_8').layoutWeight(1).fontSize(1).height(ConfigData.VP_2).accessibilityLevel('yes')
+      Text($r('app.string.bluetoothtest_text_empty')).id('pages_homePage__tc_9').layoutWeight(1).fontSize(1).height(ConfigData.VP_2).accessibilityLevel('yes')
     }
     .width(ConfigData.WH_100_100)
     .height(ConfigData.VP_2)

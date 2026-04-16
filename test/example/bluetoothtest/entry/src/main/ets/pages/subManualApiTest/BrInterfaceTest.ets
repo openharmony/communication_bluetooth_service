@@ -93,7 +93,7 @@ struct BrTest {
       Stack().height(ConfigData.VP_0_5).backgroundColor($r('app.color.black'));
       Column() {
         Row() {
-          Text($r('app.string.ohcc_txt_c232e10e19'))
+          Text($r('app.string.bluetoothtest_text_mbsbm'))
             .fontSize(ConfigData.VP_18)
             .height(ConfigData.VP_40)
             .width(ConfigData.WH_30_100)

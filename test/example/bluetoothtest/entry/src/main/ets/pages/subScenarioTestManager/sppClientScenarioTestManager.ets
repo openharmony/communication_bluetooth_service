@@ -69,7 +69,7 @@ struct SppClientScenarioTestManager {
       Column() {
         Scroll() {
           Column() {
-            Text($r('app.string.ohcc_txt_2231cd27dd'))
+            Text($r('app.string.bluetoothtest_text_cjlcyz'))
               .fontSize(ConfigData.VP_17)
               .margin({ top : ConfigData.VP_10 , bottom : ConfigData.VP_10 , left : ConfigData.VP_20 })
               .textAlign(TextAlign.Start)
@@ -91,7 +91,7 @@ struct SppClientScenarioTestManager {
 
         Scroll() {
           Column() {
-            Text($r('app.string.ohcc_txt_b6f9ef4230'))
+            Text($r('app.string.bluetoothtest_text_lcrz'))
               .fontSize(ConfigData.VP_17)
               .margin({ top : ConfigData.VP_8 , bottom : ConfigData.VP_8 , left : ConfigData.VP_20 })
               .textAlign(TextAlign.Start)
@@ -128,7 +128,7 @@ struct SppClientScenarioTestManager {
       Column() {
         Flex({ alignItems : ItemAlign.Center , justifyContent : FlexAlign.SpaceBetween }) {
           Button({ type : ButtonType.Normal , stateEffect : true }) {
-            Text($r('app.string.ohcc_txt_c3a450fe07')).fontSize(ConfigData.VP_24).fontColor(0xffffff).margin({ left : ConfigData.VP_5 , right : ConfigData.VP_5 })
+            Text($r('app.string.bluetoothtest_text_cjcsks')).fontSize(ConfigData.VP_24).fontColor(0xffffff).margin({ left : ConfigData.VP_5 , right : ConfigData.VP_5 })
           }
           .accessibilityLevel('yes')
           .id('pages_subScenarioTestManager_sppClientScenarioTestManager__btn_0')
@@ -206,7 +206,7 @@ struct SppClientScenarioTestManager {
 
           Button({ type : ButtonType.Normal , stateEffect : true }) {
             Row() {
-              Text($r('app.string.ohcc_txt_c0792d42c1')).fontSize(ConfigData.VP_24).fontColor(0xffffff).margin({ left : ConfigData.VP_5 , right : ConfigData.VP_5 })
+              Text($r('app.string.bluetoothtest_text_cjcsjs')).fontSize(ConfigData.VP_24).fontColor(0xffffff).margin({ left : ConfigData.VP_5 , right : ConfigData.VP_5 })
             }.alignItems(VerticalAlign.Top)
           }
           .accessibilityLevel('yes')
@@ -248,7 +248,7 @@ struct SppClientScenarioTestManager {
 
           Button({ type : ButtonType.Normal , stateEffect : true }) {
             Row() {
-              Text($r('app.string.ohcc_txt_cca50ac565')).fontSize(ConfigData.VP_24).fontColor(0xffffff).margin({ left : ConfigData.VP_5 , right : ConfigData.VP_5 })
+              Text($r('app.string.bluetoothtest_text_qkrz')).fontSize(ConfigData.VP_24).fontColor(0xffffff).margin({ left : ConfigData.VP_5 , right : ConfigData.VP_5 })
             }.alignItems(VerticalAlign.Top)
           }
           .accessibilityLevel('yes')
