@@ -13,6 +13,7 @@
  * limitations under the License.
  */
 
+import ConfigData from '../../Utils/ConfigData';
 import { testItemFromRouterOrPlaceholder } from '../../Utils/common'
 import { PageTitle } from '../../Component/pageTitle';
 import { TestImageDisplay } from '../../Component/testImageDisplay';
@@ -57,109 +58,109 @@ struct GattClientVelocityBenchmarkTest {
       Stack({ alignContent : Alignment.TopStart }) {
         TestImageDisplay({ testItem : this.testItem })
         PageTitle({ testItem : this.testItem })
-  .accessibilityLevel('yes')
-  .id('pages_subBenchmarkTestManager_gattClientVelocityBenchmarkTestManager__pt_0')
+              .accessibilityLevel('yes')
+              .id('pages_subBenchmarkTestManager_gattClientVelocityBenchmarkTestManager__pt_0')
       }
 
-      Stack().height('1vp').backgroundColor($r('app.color.black'));
+      Stack().height(ConfigData.HEIGHT_1_VP).backgroundColor($r('app.color.black'));
 
       Column() {
         Scroll() {
           Column() {
-            Text("性能测试:")
-              .fontSize('17vp')
-              .margin({ top : '10vp' , bottom : '10vp' , left : '20vp' })
+            Text($r('app.string.ohcc_txt_08053166f4'))
+              .fontSize(ConfigData.VP_17)
+              .margin({ top : ConfigData.VP_10 , bottom : ConfigData.VP_10 , left : ConfigData.VP_20 })
               .textAlign(TextAlign.Start)
-              .width('100%')
-            Text("Gatt的性能测试是测试Gatt两端收发notify信息变化的速率性能")
-              .fontSize('17vp')
-              .margin({ left : '15vp' })
+              .width(ConfigData.WH_100_100)
+            Text($r('app.string.ohcc_txt_df076aa39b'))
+              .fontSize(ConfigData.VP_17)
+              .margin({ left : ConfigData.VP_15 })
               .backgroundColor($r("app.color.spring"))
             Row() {
-              Text("gatt_Cycle_index:").fontSize('20vp').width('180vp').padding({ left : '15vp' })
+              Text($r('app.string.ohcc_txt_25ed78fb5f')).fontSize(ConfigData.VP_20).width(ConfigData.VP_180).padding({ left : ConfigData.VP_15 })
               Column() {
                 Select([
                   { value : "100" },
                   { value : "1000" },
                   { value : "10000" }
                 ])
-                  .borderRadius('10vp')
+                  .borderRadius(ConfigData.VP_10)
                   .backgroundColor($r("app.color.white"))
                   .selected(0)
                   .value("100")
                   .font({ size : 17 })
-                  .margin({ right : '80vp' })
+                  .margin({ right : ConfigData.VP_80 })
                   .selectedOptionFont({ size : 17 })
-                  .optionFont({ size : '15vp' })
-                  .width('50%')
+                  .optionFont({ size : ConfigData.VP_15 })
+                  .width(ConfigData.WH_50_100)
                   .onSelect((index: number) => {
                     console.log("Select:" + index)
                     AppStorage.setOrCreate("gatt_Cycle_index" , index);
                   })
               }
-              .width('90%')
+              .width(ConfigData.WH_90_100)
             }
-            .padding('3vp')
+            .padding(ConfigData.VP_3)
             .justifyContent(FlexAlign.Start)
             .alignItems(VerticalAlign.Center)
           }
-          .width('100%')
-          .height('1300vp')
+          .width(ConfigData.WH_100_100)
+          .height(ConfigData.VP_1300)
         }
-  .accessibilityLevel('yes')
-  .id('pages_subBenchmarkTestManager_gattClientVelocityBenchmarkTestManager__sc_0')
-        .scrollBarWidth('10vp')
+        .accessibilityLevel('yes')
+        .id('pages_subBenchmarkTestManager_gattClientVelocityBenchmarkTestManager__sc_0')
+        .scrollBarWidth(ConfigData.VP_10)
         .scrollBar(BarState.Auto)
 
-        Stack().height('1vp').backgroundColor($r('app.color.black'))
+        Stack().height(ConfigData.HEIGHT_1_VP).backgroundColor($r('app.color.black'))
 
         Scroll() {
           Column() {
-            Text("日志:")
-              .fontSize('17vp')
-              .margin({ top : '8vp' , bottom : '8vp' , left : '10vp' })
+            Text($r('app.string.ohcc_txt_52396cf237'))
+              .fontSize(ConfigData.VP_17)
+              .margin({ top : ConfigData.VP_8 , bottom : ConfigData.VP_8 , left : ConfigData.VP_10 })
               .textAlign(TextAlign.Start)
-              .width('100%')
+              .width(ConfigData.WH_100_100)
             List() {
               ListItem() {
                 Text(this.gattClientBenchmarkTestMessage)
-                  .fontSize('17vp')
-                  .margin({ top : '5vp' , left : '10vp' , right : '10vp' })
+                  .fontSize(ConfigData.VP_17)
+                  .margin({ top : ConfigData.VP_5 , left : ConfigData.VP_10 , right : ConfigData.VP_10 })
                   .textAlign(TextAlign.Start)
-                  .width('90%')
+                  .width(ConfigData.WH_90_100)
               }
-  .accessibilityLevel('yes')
-  .id('pages_subBenchmarkTestManager_gattClientVelocityBenchmarkTestManager__li_0')
+            .accessibilityLevel('yes')
+            .id('pages_subBenchmarkTestManager_gattClientVelocityBenchmarkTestManager__li_0')
             }
-            .height('90%')
-            .width('90%')
+            .height(ConfigData.WH_90_100)
+            .width(ConfigData.WH_90_100)
             .backgroundColor($r("sys.color.ohos_id_color_foreground_contrary"))
           }
-          .width('100%')
-          .height('330vp')
+          .width(ConfigData.WH_100_100)
+          .height(ConfigData.VP_330)
         }
-  .accessibilityLevel('yes')
-  .id('pages_subBenchmarkTestManager_gattClientVelocityBenchmarkTestManager__sc_1')
-        .scrollBarWidth('10vp')
+        .accessibilityLevel('yes')
+        .id('pages_subBenchmarkTestManager_gattClientVelocityBenchmarkTestManager__sc_1')
+        .scrollBarWidth(ConfigData.VP_10)
         .scrollBar(BarState.On)
       }
-      .width('100%')
+      .width(ConfigData.WH_100_100)
       .backgroundColor($r("sys.color.ohos_id_color_sub_background"))
 
       Column() {
         Flex({ alignItems : ItemAlign.Center , justifyContent : FlexAlign.SpaceBetween }) {
           Button({ type : ButtonType.Normal , stateEffect : true }) {
             Row() {
-              Text("速率性能测试").fontSize('24vp').fontColor(0xffffff).margin({ left : '5vp' , right : '5vp' })
+              Text($r('app.string.ohcc_txt_039f13a4e9')).fontSize(ConfigData.VP_24).fontColor(0xffffff).margin({ left : ConfigData.VP_5 , right : ConfigData.VP_5 })
             }.alignItems(VerticalAlign.Center)
           }
-  .accessibilityLevel('yes')
-  .id('pages_subBenchmarkTestManager_gattClientVelocityBenchmarkTestManager__btn_0')
-          .borderRadius('8vp')
+          .accessibilityLevel('yes')
+          .id('pages_subBenchmarkTestManager_gattClientVelocityBenchmarkTestManager__btn_0')
+          .borderRadius(ConfigData.VP_8)
           .backgroundColor($r("app.color.blue"))
-          .width('100vp')
-          .height('66vp')
-          .margin({ top : '15vp' , left : '5vp' , right : '5vp' })
+          .width(ConfigData.VP_100)
+          .height(ConfigData.VP_66)
+          .margin({ top : ConfigData.VP_15 , left : ConfigData.VP_5 , right : ConfigData.VP_5 })
           .align(Alignment.Start)
           .onClick(async(event: ClickEvent) => {
             let gattClientBenchmarkTestMessage = ""
@@ -206,16 +207,16 @@ struct GattClientVelocityBenchmarkTest {
 
           Button({ type : ButtonType.Normal , stateEffect : true }) {
             Row() {
-              Text("结束测试").fontSize('24vp').fontColor(0xffffff).margin({ left : '5vp' , right : '5vp' })
+              Text($r('app.string.ohcc_txt_bea2f398bb')).fontSize(ConfigData.VP_24).fontColor(0xffffff).margin({ left : ConfigData.VP_5 , right : ConfigData.VP_5 })
             }.alignItems(VerticalAlign.Center)
           }
-  .accessibilityLevel('yes')
-  .id('pages_subBenchmarkTestManager_gattClientVelocityBenchmarkTestManager__btn_1')
-          .borderRadius('8vp')
+          .accessibilityLevel('yes')
+          .id('pages_subBenchmarkTestManager_gattClientVelocityBenchmarkTestManager__btn_1')
+          .borderRadius(ConfigData.VP_8)
           .backgroundColor($r("app.color.blue"))
-          .width('100vp')
-          .height('66vp')
-          .margin({ top : '15vp' , left : '5vp' , right : '5vp' })
+          .width(ConfigData.VP_100)
+          .height(ConfigData.VP_66)
+          .margin({ top : ConfigData.VP_15 , left : ConfigData.VP_5 , right : ConfigData.VP_5 })
           .align(Alignment.Start)
           .onClick(async(event: ClickEvent) => {
             let gattClientBenchmarkTestMessage = ""
@@ -232,17 +233,17 @@ struct GattClientVelocityBenchmarkTest {
           Button({ type : ButtonType.Normal , stateEffect : true }) {
             Row() {
               Image($r("app.media.ic_public_delete_filled"))
-  .accessibilityLevel('yes')
-  .id('pages_subBenchmarkTestManager_gattClientVelocityBenchmarkTestManager__img_0').width('30vp').height('40vp').margin({ left : '5vp' })
+          .accessibilityLevel('yes')
+          .id('pages_subBenchmarkTestManager_gattClientVelocityBenchmarkTestManager__img_0').width(ConfigData.VP_30).height(ConfigData.VP_40).margin({ left : ConfigData.VP_5 })
             }.alignItems(VerticalAlign.Center)
           }
-  .accessibilityLevel('yes')
-  .id('pages_subBenchmarkTestManager_gattClientVelocityBenchmarkTestManager__btn_2')
-          .borderRadius('8vp')
+          .accessibilityLevel('yes')
+          .id('pages_subBenchmarkTestManager_gattClientVelocityBenchmarkTestManager__btn_2')
+          .borderRadius(ConfigData.VP_8)
           .backgroundColor($r("app.color.moon"))
-          .width('50vp')
-          .height('66vp')
-          .margin({ top : '15vp' , right : '40vp' })
+          .width(ConfigData.VP_50)
+          .height(ConfigData.VP_66)
+          .margin({ top : ConfigData.VP_15 , right : ConfigData.VP_40 })
           .align(Alignment.Start)
           .onClick(async(event: ClickEvent) => {
             let gattClientBenchmarkTestMessage = ""
@@ -250,11 +251,11 @@ struct GattClientVelocityBenchmarkTest {
           })
         }
         .backgroundColor($r("sys.color.ohos_id_color_sub_background"))
-        .width('100%')
+        .width(ConfigData.WH_100_100)
       }
       .backgroundColor($r("sys.color.ohos_id_color_sub_background"))
-      .width('100%')
-      .height('100%');
+      .width(ConfigData.WH_100_100)
+      .height(ConfigData.WH_100_100);
     }
   }
 }
