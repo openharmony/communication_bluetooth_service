@@ -45,22 +45,22 @@ struct setScanMode {
               TitleComponent({
                 title : "SCAN_MODE_SELECT" ,
                 bgColor : $r('app.color.moon') ,
-                fontSize : '17vp' ,
+                fontSize : ConfigData.VP_17 ,
               });
             }
-            .height('80vp')
-            .borderRadius('10vp')
+            .height(ConfigData.VP_80)
+            .borderRadius(ConfigData.VP_10)
 
             ListItem() {
               TitleComponent({
                 title : "SCAN_MODE_NONE" ,
-                fontSize : '15vp' ,
+                fontSize : ConfigData.VP_15 ,
                 bgColor : this.currentClick === 0 ? $r('app.color.font_color_007DFF') : $r('app.color.white_bg_color')
               });
             }
-            .padding({ top : '10vp' })
-            .height('80vp')
-            .borderRadius('10vp')
+            .padding({ top : ConfigData.VP_10 })
+            .height(ConfigData.VP_80)
+            .borderRadius(ConfigData.VP_10)
             .onClick(() => {
               this.currentClick = 0;
             })
@@ -68,13 +68,13 @@ struct setScanMode {
             ListItem() {
               TitleComponent({
                 title : "CONNECTABLE" ,
-                fontSize : '15vp' ,
+                fontSize : ConfigData.VP_15 ,
                 bgColor : this.currentClick === 1 ? $r('app.color.font_color_007DFF') : $r('app.color.white_bg_color')
               });
             }
-            .padding({ top : '10vp' })
-            .height('80vp')
-            .borderRadius('10vp')
+            .padding({ top : ConfigData.VP_10 })
+            .height(ConfigData.VP_80)
+            .borderRadius(ConfigData.VP_10)
             .onClick(() => {
               this.currentClick = 1;
             })
@@ -82,13 +82,13 @@ struct setScanMode {
             ListItem() {
               TitleComponent({
                 title : "GENERAL_DISCOVERABLE" ,
-                fontSize : '15vp' ,
+                fontSize : ConfigData.VP_15 ,
                 bgColor : this.currentClick === 2 ? $r('app.color.font_color_007DFF') : $r('app.color.white_bg_color')
               });
             }
-            .padding({ top : '10vp' })
-            .height('80vp')
-            .borderRadius('10vp')
+            .padding({ top : ConfigData.VP_10 })
+            .height(ConfigData.VP_80)
+            .borderRadius(ConfigData.VP_10)
             .onClick(() => {
               this.currentClick = 2;
             })
@@ -96,13 +96,13 @@ struct setScanMode {
             ListItem() {
               TitleComponent({
                 title : "LIMITED_DISCOVERABLE" ,
-                fontSize : '15vp' ,
+                fontSize : ConfigData.VP_15 ,
                 bgColor : this.currentClick === 3 ? $r('app.color.font_color_007DFF') : $r('app.color.white_bg_color')
               });
             }
-            .padding({ top : '10vp' })
-            .height('80vp')
-            .borderRadius('10vp')
+            .padding({ top : ConfigData.VP_10 })
+            .height(ConfigData.VP_80)
+            .borderRadius(ConfigData.VP_10)
             .onClick(() => {
               this.currentClick = 3;
             })
@@ -110,13 +110,13 @@ struct setScanMode {
             ListItem() {
               TitleComponent({
                 title : "CONNECTABLE_GENERAL_DISCOVERABLE" ,
-                fontSize : '15vp' ,
+                fontSize : ConfigData.VP_15 ,
                 bgColor : this.currentClick === 4 ? $r('app.color.font_color_007DFF') : $r('app.color.white_bg_color')
               });
             }
-            .padding({ top : '10vp' })
-            .height('80vp')
-            .borderRadius('10vp')
+            .padding({ top : ConfigData.VP_10 })
+            .height(ConfigData.VP_80)
+            .borderRadius(ConfigData.VP_10)
             .onClick(() => {
               this.currentClick = 4;
             })
@@ -124,13 +124,13 @@ struct setScanMode {
             ListItem() {
               TitleComponent({
                 title : "CONNECTABLE_LIMITED_DISCOVERABLE" ,
-                fontSize : '15vp' ,
+                fontSize : ConfigData.VP_15 ,
                 bgColor : this.currentClick === 5 ? $r('app.color.font_color_007DFF') : $r('app.color.white_bg_color')
               });
             }
-            .padding({ top : '10vp' })
-            .height('80vp')
-            .borderRadius('10vp')
+            .padding({ top : ConfigData.VP_10 })
+            .height(ConfigData.VP_80)
+            .borderRadius(ConfigData.VP_10)
             .onClick(() => {
               this.currentClick = 5;
             })
@@ -139,29 +139,29 @@ struct setScanMode {
           Blank()
         }
       }
-      .height('50%')
+      .height(ConfigData.WH_50_100)
       .scrollable(ScrollDirection.Vertical)
       .scrollBar(BarState.On)
       .scrollBarColor(Color.Gray)
-      .scrollBarWidth('30vp')
+      .scrollBarWidth(ConfigData.VP_30)
 
       Row() {
-        Text('duration')
+        Text($r('app.string.bluetoothtest_text_d'))
           .textAlign(TextAlign.Center)
-          .fontSize('20fp')
+          .fontSize(ConfigData.FP_20)
           .fontColor($r('app.color.font_color_182431'))
           .fontWeight(FontWeight.Medium)
         TextInput({ text : this.duration })
           .placeholderFont({
-            size : '18fp' ,
+            size : ConfigData.FP_18 ,
             weight : FontWeight.Normal ,
             style : FontStyle.Normal
           })
           .type(InputType.Normal)
           .enterKeyType(EnterKeyType.Done)
           .caretColor(Color.Blue)
-          .height('40vp')
-          .borderRadius('0vp')
+          .height(ConfigData.VP_40)
+          .borderRadius(ConfigData.VP_0)
           .backgroundColor($r('app.color.color_00000000_transparent'))
           .onChange((value: string) => {
             console.log(ConfigData.TAG + 'device name changed to: ' + JSON.stringify(value));
@@ -173,14 +173,14 @@ struct setScanMode {
             });
           })
       }
-      .padding('15vp')
-      .width('100%')
+      .padding(ConfigData.VP_15)
+      .width(ConfigData.WH_100_100)
 
       Text(this.message)
         .textAlign(TextAlign.Center)
-        .fontSize('17fp')
-        .height('50vp')
-        .width('100%')
+        .fontSize(ConfigData.FP_17)
+        .height(ConfigData.VP_50)
+        .width(ConfigData.WH_100_100)
         .fontWeight(FontWeight.Medium)
         .backgroundColor($r("app.color.moon"))
 
@@ -190,8 +190,8 @@ struct setScanMode {
             router.back();
           } })
         }
-        .width('120vp')
-        .margin({ right : '12vp' })
+        .width(ConfigData.VP_120)
+        .margin({ right : ConfigData.VP_12 })
 
         Row() {
           ButtonComponent({ text : $r("app.string.confirm") , isOnClick : () => {
@@ -206,12 +206,12 @@ struct setScanMode {
             AppStorage.setOrCreate('setScanModeRet' , ret);
             router.back();
           } })
-        }.width('120vp')
+        }.width(ConfigData.VP_120)
 
       }
     }
-    .padding({ left : '24vp' , right : '24vp' })
-    .width('100%')
+    .padding({ left : ConfigData.VP_24 , right : ConfigData.VP_24 })
+    .width(ConfigData.WH_100_100)
     .height(ConfigData.WH_100_100)
     .backgroundColor($r("app.color.lead"))
   }
@@ -228,14 +228,14 @@ struct ButtonComponent {
   build() {
     Column() {
       Text(this.text)
-        .fontSize('16fp')
+        .fontSize(ConfigData.FP_16)
         .fontWeight(FontWeight.Medium)
         .lineHeight('22vp')
         .fontColor($r('app.color.font_color_007DFF'))
         .textAlign(TextAlign.Center)
-        .width('120vp')
-        .height('40vp')
-        .borderRadius('20vp')
+        .width(ConfigData.VP_120)
+        .height(ConfigData.VP_40)
+        .borderRadius(ConfigData.VP_20)
         .backgroundColor(!this.isTouched ? $r("app.color.color_button_grey") : $r("sys.color.ohos_id_color_foreground_contrary"))
         .onTouch((event: TouchEvent) => {
           if ( event.type === TouchType.Down ) {

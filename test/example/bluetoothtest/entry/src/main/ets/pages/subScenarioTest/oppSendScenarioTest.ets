@@ -13,6 +13,7 @@
  * limitations under the License.
  */
 
+import ConfigData from '../../Utils/ConfigData';
 import { PairDevices, testItemFromRouterOrPlaceholder } from '../../Utils/common'
 import promptAction from '@ohos.promptAction';
 import { PageTitle } from '../../Component/pageTitle';
@@ -63,72 +64,72 @@ struct oppSendScenarioTest {
       Stack({ alignContent : Alignment.TopStart }) {
         TestImageDisplay({ testItem : this.testItem })
         PageTitle({ testItem : this.testItem })
-  .accessibilityLevel('yes')
-  .id('pages_subScenarioTest_oppSendScenarioTest__pt_0')
+              .accessibilityLevel('yes')
+              .id('pages_subScenarioTest_oppSendScenarioTest__pt_0')
       }
 
-      Stack().height('1vp').backgroundColor($r('app.color.black'));
+      Stack().height(ConfigData.HEIGHT_1_VP).backgroundColor($r('app.color.black'));
       Column() {
         Scroll() {
           Column() {
-            Text("已配对设备列表：(点击选择设备)")
-              .fontSize('20vp')
+            Text($r('app.string.bluetoothtest_text_ypdsblbdjxzsb'))
+              .fontSize(ConfigData.VP_20)
               .fontWeight(FontWeight.Bold)
-              .margin({ top : '5vp' })
+              .margin({ top : ConfigData.VP_5 })
             Scroll() {
-              List({ space : '5vp' }) {
+              List({ space : ConfigData.VP_5 }) {
                 ForEach(this.pairDevices , (item: PairDevices, index: number) => {
                   ListItem() {
                     Text(item.name)
-                      .fontSize('25vp')
-                      .width('80%')
-                      .margin({ left : '10%' })
+                      .fontSize(ConfigData.VP_25)
+                      .width(ConfigData.WH_80_100)
+                      .margin({ left : ConfigData.PCT_10 })
                       .backgroundColor(this.serverMac === item.id ? $r("app.color.moon") : $r("app.color.white"))
                       .border({
                         radius : 5
                       })
                   }
-  .id(index === 0 ? 'pages_subScenarioTest_oppSendScenarioTest__li_0' : `pages_subScenarioTest_oppSendScenarioTest__li_${index}`)
+                  .id(index === 0 ? 'pages_subScenarioTest_oppSendScenarioTest__li_0' : `pages_subScenarioTest_oppSendScenarioTest__li_${index}`)
                   .onClick(() => {
                     this.serverMac = item.id;
                   })
                 })
               }
             }
-  .accessibilityLevel('yes')
-  .id('pages_subScenarioTest_oppSendScenarioTest__sc_1')
-            .height('80%')
-            .width('80%')
+            .accessibilityLevel('yes')
+            .id('pages_subScenarioTest_oppSendScenarioTest__sc_1')
+            .height(ConfigData.WH_80_100)
+            .width(ConfigData.WH_80_100)
           }
-          .height('30%')
-          .width('100%')
+          .height(ConfigData.WH_30_100)
+          .width(ConfigData.WH_100_100)
         }
-  .accessibilityLevel('yes')
-  .id('pages_subScenarioTest_oppSendScenarioTest__sc_0')
-        .scrollBarWidth('10vp')
+        .accessibilityLevel('yes')
+        .id('pages_subScenarioTest_oppSendScenarioTest__sc_0')
+        .scrollBarWidth(ConfigData.VP_10)
         .scrollBar(BarState.Auto)
 
-        Stack().height('1vp').backgroundColor($r('app.color.black'));
+        Stack().height(ConfigData.HEIGHT_1_VP).backgroundColor($r('app.color.black'));
 
         Column() {
-          Text("已选择的设备的蓝牙mac地址：")
-            .fontSize('18vp')
+          Text($r('app.string.bluetoothtest_text_yxzdsbdlymdz'))
+            .fontSize(ConfigData.VP_18)
             .fontWeight(FontWeight.Bold)
-            .margin({ top : '3vp' })
+            .margin({ top : ConfigData.VP_3 })
           Text(this.serverMac)
-            .fontSize('25vp')
-            .width('70%')
-            .borderRadius('5vp')
+            .fontSize(ConfigData.VP_25)
+            .width(ConfigData.PCT_70)
+            .borderRadius(ConfigData.VP_5)
             .backgroundColor($r("app.color.moon"))
-        }.height('15%')
+        }.height(ConfigData.PCT_15)
 
         Column() {
-          Text("请输入需要发送的文件名称，如：test.txt").fontSize('18vp').fontWeight(FontWeight.Bold)
-          Text("注：文件必须在/data/bluetooth/log/目录下").fontSize('18vp').fontWeight(FontWeight.Bold)
+          Text($r('app.string.bluetoothtest_text_qsrxyfsdwjmcrtt')).fontSize(ConfigData.VP_18).fontWeight(FontWeight.Bold)
+          Text($r('app.string.bluetoothtest_text_zwjbxzdblmlx')).fontSize(ConfigData.VP_18).fontWeight(FontWeight.Bold)
           TextInput({ placeholder : "文件名称" })
-  .accessibilityLevel('yes')
-  .id('pages_subScenarioTest_oppSendScenarioTest__ti_0')
-            .fontSize('20vp')
+            .accessibilityLevel('yes')
+            .id('pages_subScenarioTest_oppSendScenarioTest__ti_0')
+            .fontSize(ConfigData.VP_20)
             .onChange((str) => {
               if ( str ) {
                 let strs = str.split(".");
@@ -136,57 +137,57 @@ struct oppSendScenarioTest {
                 this.fileType = strs[ 1 ];
               }
               this.oppSendScenarioMessage = "需要发送的文件为：/data/bluetooth/log/" + str + "\n"
-            }).width('70%').borderRadius('1vp')
-        }.height('20%')
+            }).width(ConfigData.PCT_70).borderRadius(ConfigData.HEIGHT_1_VP)
+        }.height(ConfigData.PCT_20)
 
         Scroll() {
           Column() {
-            Text("流程日志:")
-              .fontSize('17vp')
-              .margin({ top : '8vp' , bottom : '8vp' , left : '20vp' })
+            Text($r('app.string.bluetoothtest_text_lcrz'))
+              .fontSize(ConfigData.VP_17)
+              .margin({ top : ConfigData.VP_8 , bottom : ConfigData.VP_8 , left : ConfigData.VP_20 })
               .textAlign(TextAlign.Start)
-              .width('100%')
+              .width(ConfigData.WH_100_100)
             List() {
               ListItem() {
                 Text(this.oppSendScenarioMessage)
-                  .fontSize('18vp')
-                  .margin({ top : '5vp' , left : '30vp' , right : '10vp' })
+                  .fontSize(ConfigData.VP_18)
+                  .margin({ top : ConfigData.VP_5 , left : ConfigData.VP_30 , right : ConfigData.VP_10 })
                   .textAlign(TextAlign.Start)
-                  .width('90%')
+                  .width(ConfigData.WH_90_100)
               }
-  .accessibilityLevel('yes')
-  .id('pages_subScenarioTest_oppSendScenarioTest__li_1')
+            .accessibilityLevel('yes')
+            .id('pages_subScenarioTest_oppSendScenarioTest__li_1')
             }
-            .height('80%')
-            .width('90%')
+            .height(ConfigData.WH_80_100)
+            .width(ConfigData.WH_90_100)
             .backgroundColor($r("sys.color.ohos_id_color_foreground_contrary"))
           }
-          .width('100%')
-          .height('30%')
+          .width(ConfigData.WH_100_100)
+          .height(ConfigData.WH_30_100)
         }
-  .accessibilityLevel('yes')
-  .id('pages_subScenarioTest_oppSendScenarioTest__sc_2')
-        .scrollBarWidth('10vp')
+        .accessibilityLevel('yes')
+        .id('pages_subScenarioTest_oppSendScenarioTest__sc_2')
+        .scrollBarWidth(ConfigData.VP_10)
         .scrollBar(BarState.On)
       }
-      .height('66%')
-      .width('100%')
+      .height(ConfigData.PCT_66)
+      .width(ConfigData.WH_100_100)
       .backgroundColor($r("sys.color.ohos_id_color_sub_background"))
 
-      Stack().height('1vp').backgroundColor($r('app.color.black'));
+      Stack().height(ConfigData.HEIGHT_1_VP).backgroundColor($r('app.color.black'));
 
       Column() {
         Flex({ alignItems : ItemAlign.Center , justifyContent : FlexAlign.SpaceBetween }) {
           Column() {
             Button('oppSendFile')
-  .accessibilityLevel('yes')
-  .id('pages_subScenarioTest_oppSendScenarioTest__btn_0')
-              .borderRadius('8vp')
+              .accessibilityLevel('yes')
+              .id('pages_subScenarioTest_oppSendScenarioTest__btn_0')
+              .borderRadius(ConfigData.VP_8)
               .backgroundColor($r("app.color.blue"))
-              .width('200vp')
-              .height('60vp')
-              .fontSize('20vp')
-              .margin({ top : '15vp' })
+              .width(ConfigData.VP_200)
+              .height(ConfigData.VP_60)
+              .fontSize(ConfigData.VP_20)
+              .margin({ top : ConfigData.VP_15 })
               .align(Alignment.Center)
               .alignSelf(ItemAlign.Center)
               .onClick(async(event: ClickEvent) => {
@@ -208,17 +209,17 @@ struct oppSendScenarioTest {
                 AppStorage.setOrCreate("oppSendScenarioMessage" , this.oppSendScenarioMessage)
               })
           }
-          .width('100%')
+          .width(ConfigData.WH_100_100)
           .align(Alignment.Center)
           .alignItems(HorizontalAlign.Center)
           .backgroundColor($r("sys.color.ohos_id_color_sub_background"))
         }
         .backgroundColor($r("sys.color.ohos_id_color_sub_background"))
-        .width('100%')
+        .width(ConfigData.WH_100_100)
       }
       .backgroundColor($r("sys.color.ohos_id_color_sub_background"))
-      .width('100%')
-      .height('100%');
+      .width(ConfigData.WH_100_100)
+      .height(ConfigData.WH_100_100);
     }
   }
 }

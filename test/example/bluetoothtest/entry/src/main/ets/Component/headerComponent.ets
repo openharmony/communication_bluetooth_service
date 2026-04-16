@@ -32,10 +32,10 @@ export default struct HeadTableComponent {
     Row() {
       Stack({ alignContent : Alignment.Center }) {
         Image($r('app.media.ic_back'))
-          .width('30vp')
-          .height('30vp')
+          .width(ConfigData.VP_30)
+          .height(ConfigData.VP_30)
       }
-      .margin({ left : '4vp' , right : '16vp' })
+      .margin({ left : ConfigData.VP_4 , right : ConfigData.VP_16 })
       .backgroundColor(this.isTouch ? $r('app.color.color_E3E3E3_grey') : $r('app.color.color_00000000_transparent'))
       .visibility(this.icBackIsVisibility ? Visibility.Visible : Visibility.None)
       .onClick(() => {
@@ -51,7 +51,7 @@ export default struct HeadTableComponent {
       });
 
       Text(this.headName)
-        .fontSize('24fp')
+        .fontSize(ConfigData.FP_24)
         .lineHeight('33vp')
         .fontFamily('HarmonyHeiTi-Bold')
         .fontWeight(FontWeight.Bold)
@@ -59,11 +59,11 @@ export default struct HeadTableComponent {
         .maxLines(ConfigData.MAX_LINES_1)
         .textOverflow({ overflow : TextOverflow.Ellipsis })
         .textAlign(TextAlign.Start)
-        .margin({ top : '13vp' , bottom : '15vp' });
+        .margin({ top : ConfigData.VP_13 , bottom : ConfigData.VP_15 });
     }
     .width(ConfigData.WH_100_100)
-    .padding({ left : '8vp' })
-    .height('56vp')
+    .padding({ left : ConfigData.VP_8 })
+    .height(ConfigData.VP_56)
     .alignItems(VerticalAlign.Center)
     .align(Alignment.Start);
   }

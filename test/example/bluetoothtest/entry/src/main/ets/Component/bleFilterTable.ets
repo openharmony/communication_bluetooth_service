@@ -13,6 +13,7 @@
  * limitations under the License.
  */
 
+import ConfigData from '../Utils/ConfigData';
 import { TestData , TestApi } from '../MainAbility/model/testData'
 import { initBRApiData } from '../MainAbility/model/testDataModels'
 
@@ -54,11 +55,11 @@ export struct BleFilterTable {
     Scroll() {
       Column() {
         Row() {
-          Text("BLE扫描过滤参数:")
-            .fontSize('17vp')
+          Text($r('app.string.bluetoothtest_text_bsmglcs'))
+            .fontSize(ConfigData.VP_17)
             .fontColor($r('app.color.color_4444444_grey'))
-            .width('80%')
-            .padding('5vp')
+            .width(ConfigData.WH_80_100)
+            .padding(ConfigData.VP_5)
           Checkbox({ name : 'bleScanFilter' , group : 'checkboxGroup99' })
             .select(this.cbxBleScanFilter)
             .selectedColor(0x39a2db)
@@ -70,12 +71,12 @@ export struct BleFilterTable {
               }
               AppStorage.setOrCreate('cbxBleScanFilter' , value);
             })
-            .width('20vp')
+            .width(ConfigData.VP_20)
         }
-        .height('40vp')
-        .width('100%')
-        .borderWidth('1vp')
-        .padding('5vp')
+        .height(ConfigData.VP_40)
+        .width(ConfigData.WH_100_100)
+        .borderWidth(ConfigData.HEIGHT_1_VP)
+        .padding(ConfigData.VP_5)
         .borderColor($r("app.color.lead"))
         .backgroundColor( $r( "app.color.moon" ) )
 
@@ -83,67 +84,67 @@ export struct BleFilterTable {
           Column() {
             Column() {
               Row() {
-                Text("mac").fontSize('17vp').width('60vp');
+                Text($r('app.string.bluetoothtest_text_m')).fontSize(ConfigData.VP_17).width(ConfigData.VP_60);
                 TextInput({ text : this.txtScanFilter_deviceId , placeholder : "input deviceId" })
-                  .fontSize('15vp')
+                  .fontSize(ConfigData.VP_15)
                   .onChange((strInput) => {
                     this.txtScanFilter_deviceId = strInput;
                     AppStorage.setOrCreate('txtScanFilterDeviceId' , strInput);
                   })
-                  .width('85%')
-                  .borderRadius('1vp')
+                  .width(ConfigData.PCT_85)
+                  .borderRadius(ConfigData.HEIGHT_1_VP)
               }
-              .padding('5vp')
+              .padding(ConfigData.VP_5)
               .justifyContent(FlexAlign.Start)
               .alignItems(VerticalAlign.Center)
               .backgroundColor( $r( "app.color.spring" ) )
 
               Row() {
-                Text("name").fontSize('17vp').width('60vp');
+                Text($r('app.string.bluetoothtest_text_n')).fontSize(ConfigData.VP_17).width(ConfigData.VP_60);
                 TextInput({ text : this.txtScanFilter_name , placeholder : "input name" })
-                  .fontSize('15vp')
+                  .fontSize(ConfigData.VP_15)
                   .onChange((strInput) => {
                     this.txtScanFilter_name = strInput;
                     AppStorage.setOrCreate('txtScanFilterName' , strInput);
                   })
-                  .width('85%')
-                  .borderRadius('1vp')
+                  .width(ConfigData.PCT_85)
+                  .borderRadius(ConfigData.HEIGHT_1_VP)
               }
-              .padding('5vp')
+              .padding(ConfigData.VP_5)
               .justifyContent(FlexAlign.Start)
               .alignItems(VerticalAlign.Center)
               .backgroundColor( $r( "app.color.spring" ) )
 
               Row() {
-                Text("serviceUuid").fontSize('17vp').width('100vp');
+                Text($r('app.string.bluetoothtest_text_s_1')).fontSize(ConfigData.VP_17).width(ConfigData.VP_100);
                 TextInput({ text : this.txtScanFilter_serviceUuid , placeholder : "input serviceUuid" })
-                  .fontSize('15vp')
+                  .fontSize(ConfigData.VP_15)
                   .onChange((strInput) => {
                     this.txtScanFilter_serviceUuid = strInput;
                     AppStorage.setOrCreate('txtScanFilterServiceUuid' , strInput);
                   })
-                  .width('77%')
-                  .borderRadius('1vp')
+                  .width(ConfigData.PCT_77)
+                  .borderRadius(ConfigData.HEIGHT_1_VP)
               }
-              .padding('5vp')
+              .padding(ConfigData.VP_5)
               .justifyContent(FlexAlign.Start)
               .alignItems(VerticalAlign.Center)
               .backgroundColor( $r( "app.color.spring" ) )
             }
-            .height('180vp')
-            .width('100%')
-            .padding('5vp')
+            .height(ConfigData.VP_180)
+            .width(ConfigData.WH_100_100)
+            .padding(ConfigData.VP_5)
           }
           .borderColor($r("app.color.lead"))
-          .borderWidth('1vp')
+          .borderWidth(ConfigData.HEIGHT_1_VP)
 
           Column() {
             Row() {
-              Text("BLE扫描配置:")
-                .padding('5vp')
-                .fontSize('17vp')
+              Text($r('app.string.bluetoothtest_text_bsmpz'))
+                .padding(ConfigData.VP_5)
+                .fontSize(ConfigData.VP_17)
                 .fontColor($r('app.color.color_4444444_grey'))
-                .width('80%')
+                .width(ConfigData.WH_80_100)
               Checkbox({ name : 'bleScanOptions' , group : 'checkboxGroup95' })
                 .select(this.cbxBleScanOptions)
                 .selectedColor(0x39a2db)
@@ -158,32 +159,32 @@ export struct BleFilterTable {
                     AppStorage.setOrCreate('cbxBleScanOptions' , this.cbxBleScanOptions);
                   }
                 })
-                .width('20vp')
-                .margin({ left : '1vp' })
+                .width(ConfigData.VP_20)
+                .margin({ left : ConfigData.HEIGHT_1_VP })
             }
-            .height('40vp')
-            .width('100%')
-            .padding('5vp')
+            .height(ConfigData.VP_40)
+            .width(ConfigData.WH_100_100)
+            .padding(ConfigData.VP_5)
             .backgroundColor( $r( "app.color.moon" ) );
 
             Column() {
               Row() {
-                Text("interval").fontSize('17vp').width('80vp')
+                Text($r('app.string.bluetoothtest_text_i_1')).fontSize(ConfigData.VP_17).width(ConfigData.VP_80)
                 TextInput({ text : this.txtScanOptions_interval , placeholder : "input interval" })
-                  .fontSize('17vp')
+                  .fontSize(ConfigData.VP_17)
                   .onChange((strInput) => {
                     this.txtScanOptions_interval = strInput;
                     AppStorage.setOrCreate('txtScanOptionsInterval' , strInput);
                   })
-                  .width('80%')
+                  .width(ConfigData.WH_80_100)
               }
-              .padding('5vp')
+              .padding(ConfigData.VP_5)
               .justifyContent(FlexAlign.Start)
               .alignItems(VerticalAlign.Center)
               .backgroundColor( $r( "app.color.spring" ) )
 
               Row() {
-                Text("dutyMode").fontSize('17vp').width('80vp')
+                Text($r('app.string.bluetoothtest_text_d_1')).fontSize(ConfigData.VP_17).width(ConfigData.VP_80)
                 Column() {
                   Select([
                     { value : 'LOW_POWER' },
@@ -194,22 +195,22 @@ export struct BleFilterTable {
                     .value('LOW_POWER')
                     .font({ size : 17 })
                     .selectedOptionFont({ size : 17 })
-                    .optionFont({ size : '15vp' })
-                    .width('80%')
+                    .optionFont({ size : ConfigData.VP_15 })
+                    .width(ConfigData.WH_80_100)
                     .onSelect((index: number) => {
                       console.log("Select:" + index)
                       AppStorage.setOrCreate('txtScanOptionsDutyMode' , index);
                     })
                 }
-                .width('80%')
+                .width(ConfigData.WH_80_100)
               }
-              .padding('5vp')
+              .padding(ConfigData.VP_5)
               .justifyContent(FlexAlign.Start)
               .alignItems(VerticalAlign.Center)
               .backgroundColor( $r( "app.color.spring" ) )
 
               Row() {
-                Text("matchMode").fontSize('17vp').width('90vp')
+                Text($r('app.string.bluetoothtest_text_m_1')).fontSize(ConfigData.VP_17).width(ConfigData.VP_90)
                 Column() {
                   Select([
                     { value : 'MATCH_MODE_AGGRESSIVE' },
@@ -218,30 +219,30 @@ export struct BleFilterTable {
                     .value('MATCH_MODE_AGGRESSIVE')
                     .font({ size : 17 })
                     .selectedOptionFont({ size : 17 })
-                    .optionFont({ size : '15vp' })
-                    .width('75%')
+                    .optionFont({ size : ConfigData.VP_15 })
+                    .width(ConfigData.PCT_75)
                     .onSelect((index: number) => {
                       console.log("Select:" + index)
                       AppStorage.setOrCreate('txtScanOptionsMatchMode' , index);
                     })
-                }.width('78%')
+                }.width(ConfigData.PCT_78)
               }
-              .padding('5vp')
+              .padding(ConfigData.VP_5)
               .justifyContent(FlexAlign.Start)
               .alignItems(VerticalAlign.Center)
               .backgroundColor( $r( "app.color.spring" ) )
             }
-            .width('100%')
-            .padding('5vp')
+            .width(ConfigData.WH_100_100)
+            .padding(ConfigData.VP_5)
           }
-          .height('240vp')
-          .borderWidth('1vp')
+          .height(ConfigData.VP_240)
+          .borderWidth(ConfigData.HEIGHT_1_VP)
           .borderColor($r("app.color.lead"))
         }
       }
-      .height('100%')
+      .height(ConfigData.WH_100_100)
     }
-    .scrollBarWidth('20vp')
-    .padding({ bottom : '10vp' })
+    .scrollBarWidth(ConfigData.VP_20)
+    .padding({ bottom : ConfigData.VP_10 })
   }
 }

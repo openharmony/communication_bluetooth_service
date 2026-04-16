@@ -13,6 +13,7 @@
  * limitations under the License.
  */
 
+import ConfigData from '../../Utils/ConfigData';
 import { testItemFromRouterOrPlaceholder } from '../../Utils/common'
 import { TestData } from '../../MainAbility/model/testData'
 import { initA2dpSourceProfileManagerApiData } from '../../MainAbility/model/testDataModelsManager'
@@ -39,13 +40,13 @@ struct ProfileTestManager {
       Stack({ alignContent : Alignment.TopStart }) {
         TestImageDisplay({ testItem : this.testItem })
         PageTitle({ testItem : this.testItem })
-  .accessibilityLevel('yes')
-  .id('pages_subManualApiTestManager_profileTestManager__pt_0')
+    .accessibilityLevel('yes')
+    .id('pages_subManualApiTestManager_profileTestManager__pt_0')
       }
       ContentTable({ apiItems : initA2dpSourceProfileManagerApiData() })
     }
     .backgroundColor($r("sys.color.ohos_id_color_sub_background"))
-    .height('100%')
+    .height(ConfigData.WH_100_100)
     .alignItems(HorizontalAlign.Start)
   }
 }

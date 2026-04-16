@@ -21,7 +21,7 @@ import ConfigData from '../Utils/ConfigData';
 @Component
 export struct TitleComponent {
   private title: string | Resource = 'defaultTitle';
-  private fontSize: string = '30vp';
+  private fontSize: string = ConfigData.VP_30;
   private stateChangeFlag: boolean = false;
   private pinRequiredFlag: boolean = false;
   private bondStateChangeFlag: boolean = false;
@@ -36,13 +36,13 @@ export struct TitleComponent {
       Flex({ justifyContent : FlexAlign.SpaceBetween , alignItems : ItemAlign.Center }) {
         Text(this.stateChangeFlag ? this.state : (this.pinRequiredFlag ? this.pin : (this.bondStateChangeFlag ? this.bondState : this.title)))
           .textAlign(TextAlign.Center)
-          .width('100%')
-          .height('70vp')
+          .width(ConfigData.WH_100_100)
+          .height(ConfigData.VP_70)
           .fontSize(this.fontSize)
           .fontColor($r('app.color.font_color_182431'))
           .fontWeight(FontWeight.Medium)
       }
-      .height('80vp')
+      .height(ConfigData.VP_80)
       .width(ConfigData.WH_100_100)
       .backgroundColor(this.bgColor)
       .linearGradient(this.isTouched ?
@@ -65,9 +65,9 @@ export struct TitleComponent {
         }
       })
     }
-    .padding('4vp')
-    .height('100vp')
-    .borderRadius('12vp')
+    .padding(ConfigData.VP_4)
+    .height(ConfigData.VP_100)
+    .borderRadius(ConfigData.VP_12)
     .backgroundColor($r("sys.color.ohos_id_color_foreground_contrary"));
   }
 }
