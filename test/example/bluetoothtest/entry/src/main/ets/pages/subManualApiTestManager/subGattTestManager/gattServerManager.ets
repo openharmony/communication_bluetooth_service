@@ -67,137 +67,137 @@ struct GattServerSetting {
   build() {
     Column() {
       Column() {
-        Text("Gatt服务配置:")
-          .margin({ top : '1vp' })
-          .padding('1vp')
-          .fontSize('17vp')
+        Text($r('app.string.ohcc_txt_ecd3c7503c'))
+          .margin({ top : ConfigData.HEIGHT_1_VP })
+          .padding(ConfigData.HEIGHT_1_VP)
+          .fontSize(ConfigData.VP_17)
           .fontColor($r('app.color.color_4444444_grey'))
-          .height('30vp')
-          .width('94%')
+          .height(ConfigData.VP_30)
+          .width(ConfigData.PCT_94)
           .textAlign(TextAlign.Start)
         Scroll() {
           Column() {
             Row() {
-              Text("服务UUID:").fontSize('15vp').width('70vp').padding({ left : '10vp' });
+              Text($r('app.string.ohcc_txt_0dc2699e88')).fontSize(ConfigData.VP_15).width(ConfigData.VP_70).padding({ left : ConfigData.VP_10 });
               TextInput({ text : this.curServiceUUID , placeholder : "input service UUID" })
-  .accessibilityLevel('yes')
-  .id('pages_subManualApiTestManager_subGattTestManager_gattServerManager__ti_0')
-                .fontSize('17vp')
+                .accessibilityLevel('yes')
+                .id('pages_subManualApiTestManager_subGattTestManager_gattServerManager__ti_0')
+                .fontSize(ConfigData.VP_17)
                 .onChange((strInput) => {
                   this.curServiceUUID = strInput;
                   AppStorage.setOrCreate('curServiceUUID' , strInput);
                 })
-                .width('80%')
-                .borderRadius('1vp')
+                .width(ConfigData.WH_80_100)
+                .borderRadius(ConfigData.HEIGHT_1_VP)
             }
-            .height('60vp')
-            .width('100%')
-            .padding('5vp')
+            .height(ConfigData.VP_60)
+            .width(ConfigData.WH_100_100)
+            .padding(ConfigData.VP_5)
             .backgroundColor($r("app.color.moon"));
 
             Column() {
               Row() {
-                Text("CCC UUID:").fontSize('15vp').width('70vp').padding({ left : '10vp' });
+                Text($r('app.string.ohcc_txt_1e2f6fe522')).fontSize(ConfigData.VP_15).width(ConfigData.VP_70).padding({ left : ConfigData.VP_10 });
                 TextInput({ text : this.curCharacteristicUUID , placeholder : "input characteristic UUID" })
-  .accessibilityLevel('yes')
-  .id('pages_subManualApiTestManager_subGattTestManager_gattServerManager__ti_1')
-                  .fontSize('17vp')
+                  .accessibilityLevel('yes')
+                  .id('pages_subManualApiTestManager_subGattTestManager_gattServerManager__ti_1')
+                  .fontSize(ConfigData.VP_17)
                   .onChange((strInput) => {
                     this.curCharacteristicUUID = strInput;
                     AppStorage.setOrCreate('curCharacteristicUUID' , strInput);
                   })
-                  .width('80%')
-                  .borderRadius('1vp')
+                  .width(ConfigData.WH_80_100)
+                  .borderRadius(ConfigData.HEIGHT_1_VP)
               }
-              .width('100%')
-              .padding('5vp')
+              .width(ConfigData.WH_100_100)
+              .padding(ConfigData.VP_5)
               .justifyContent(FlexAlign.Start)
               .alignItems(VerticalAlign.Center)
 
               Row() {
-                Text("CCC Value:").fontSize('15vp').width('70vp').padding({ left : '10vp' });
+                Text($r('app.string.ohcc_txt_375c290861')).fontSize(ConfigData.VP_15).width(ConfigData.VP_70).padding({ left : ConfigData.VP_10 });
                 TextInput({ text : this.curCharacteristicValue , placeholder : "input characteristic Value" })
-  .accessibilityLevel('yes')
-  .id('pages_subManualApiTestManager_subGattTestManager_gattServerManager__ti_2')
-                  .fontSize('17vp')
+                  .accessibilityLevel('yes')
+                  .id('pages_subManualApiTestManager_subGattTestManager_gattServerManager__ti_2')
+                  .fontSize(ConfigData.VP_17)
                   .onChange((strInput) => {
                     this.curCharacteristicValue = strInput;
                     AppStorage.setOrCreate('curCharacteristicValue' , strInput);
                   })
-                  .width('80%')
-                  .borderRadius('1vp')
+                  .width(ConfigData.WH_80_100)
+                  .borderRadius(ConfigData.HEIGHT_1_VP)
               }
-              .width('100%')
-              .padding('5vp')
+              .width(ConfigData.WH_100_100)
+              .padding(ConfigData.VP_5)
               .justifyContent(FlexAlign.Start)
               .alignItems(VerticalAlign.Center)
             }
-            .height('100vp')
-            .width('100%')
-            .padding('5vp')
+            .height(ConfigData.VP_100)
+            .width(ConfigData.WH_100_100)
+            .padding(ConfigData.VP_5)
             .backgroundColor($r("app.color.spring"));
 
             Flex({ direction : FlexDirection.Column }) {
               Row() {
-                Text("Descriptor UUID:").fontSize('15vp').width('70vp');
+                Text($r('app.string.ohcc_txt_2e2a55209b')).fontSize(ConfigData.VP_15).width(ConfigData.VP_70);
                 TextInput({ text : this.curDescriptorUUID , placeholder : "input descriptor UUID" })
-  .accessibilityLevel('yes')
-  .id('pages_subManualApiTestManager_subGattTestManager_gattServerManager__ti_3')
-                  .fontSize('17vp')
+                  .accessibilityLevel('yes')
+                  .id('pages_subManualApiTestManager_subGattTestManager_gattServerManager__ti_3')
+                  .fontSize(ConfigData.VP_17)
                   .onChange((strInput) => {
                     this.curDescriptorUUID = strInput;
                     AppStorage.setOrCreate('curDescriptorUUID' , strInput);
                   })
-                  .width('80%')
-                  .borderRadius('1vp')
+                  .width(ConfigData.WH_80_100)
+                  .borderRadius(ConfigData.HEIGHT_1_VP)
               }
-              .width('100%')
-              .padding('5vp')
+              .width(ConfigData.WH_100_100)
+              .padding(ConfigData.VP_5)
               .justifyContent(FlexAlign.Start)
               .alignItems(VerticalAlign.Center)
 
               Row() {
-                Text("Descriptor Value:").fontSize('15vp').width('70vp');
+                Text($r('app.string.ohcc_txt_a8dde554d6')).fontSize(ConfigData.VP_15).width(ConfigData.VP_70);
                 TextInput({ text : this.curDescriptorValue , placeholder : "input descriptor Value" })
-  .accessibilityLevel('yes')
-  .id('pages_subManualApiTestManager_subGattTestManager_gattServerManager__ti_4')
-                  .fontSize('17vp')
+                  .accessibilityLevel('yes')
+                  .id('pages_subManualApiTestManager_subGattTestManager_gattServerManager__ti_4')
+                  .fontSize(ConfigData.VP_17)
                   .onChange((strInput) => {
                     this.curDescriptorValue = strInput;
                     AppStorage.setOrCreate('curDescriptorValue' , strInput);
                   })
-                  .width('80%')
-                  .borderRadius('1vp')
+                  .width(ConfigData.WH_80_100)
+                  .borderRadius(ConfigData.HEIGHT_1_VP)
               }
-              .width('100%')
-              .padding('5vp')
+              .width(ConfigData.WH_100_100)
+              .padding(ConfigData.VP_5)
               .justifyContent(FlexAlign.Start)
               .alignItems(VerticalAlign.Center)
             }
-            .height('100vp')
-            .width('100%')
+            .height(ConfigData.VP_100)
+            .width(ConfigData.WH_100_100)
             .backgroundColor($r("app.color.moon"));
           }
         }
-  .accessibilityLevel('yes')
-  .id('pages_subManualApiTestManager_subGattTestManager_gattServerManager__sc_0')
-        .height('22%')
+        .accessibilityLevel('yes')
+        .id('pages_subManualApiTestManager_subGattTestManager_gattServerManager__sc_0')
+        .height(ConfigData.PCT_22)
       }
       .backgroundColor($r("app.color.lead"))
 
       Column() {
         Row() {
-          Text("广播配置:")
-            .margin({ top : '1vp' })
-            .padding('5vp')
-            .fontSize('17vp')
+          Text($r('app.string.ohcc_txt_7e119a6c3e'))
+            .margin({ top : ConfigData.HEIGHT_1_VP })
+            .padding(ConfigData.VP_5)
+            .fontSize(ConfigData.VP_17)
             .fontColor($r('app.color.color_4444444_grey'))
-            .height('30vp')
-            .width('70%')
+            .height(ConfigData.VP_30)
+            .width(ConfigData.PCT_70)
             .textAlign(TextAlign.Start)
           Checkbox({ name : 'AdvSettings' , group : 'checkboxGroup1' })
-  .accessibilityLevel('yes')
-  .id('pages_subManualApiTestManager_subGattTestManager_gattServerManager__cb_0')
+            .accessibilityLevel('yes')
+            .id('pages_subManualApiTestManager_subGattTestManager_gattServerManager__cb_0')
             .select(this.cbxAdvSettings)
             .selectedColor(0x39a2db)
             .onChange((value: boolean) => {
@@ -209,24 +209,24 @@ struct GattServerSetting {
               AppStorage.setOrCreate('cbxAdvSettings' , value);
               promptAction.showToast({ message : String(value) })
             })
-            .width('30vp')
-            .margin({ left : '1vp' })
-          Text("设置")
-            .fontSize('14vp')
+            .width(ConfigData.VP_30)
+            .margin({ left : ConfigData.HEIGHT_1_VP })
+          Text($r('app.string.ohcc_txt_df3d58c7d8'))
+            .fontSize(ConfigData.VP_14)
             .fontColor($r('app.color.color_4444444_grey'))
         }
-        .height('40vp')
+        .height(ConfigData.VP_40)
 
         Scroll() {
           Column() {
             Column() {
               Row() {
                 Checkbox({ name : 'interval' , group : 'checkboxGroup1' })
-  .accessibilityLevel('yes')
-  .id('pages_subManualApiTestManager_subGattTestManager_gattServerManager__cb_1')
+                  .accessibilityLevel('yes')
+                  .id('pages_subManualApiTestManager_subGattTestManager_gattServerManager__cb_1')
                   .select(this.cbxInterval)
                   .selectedColor(0x39a2db)
-                  .width('30vp')
+                  .width(ConfigData.VP_30)
                   .onChange((value) => {
                     if ( value ) {
                       this.cbxInterval = true;
@@ -235,29 +235,29 @@ struct GattServerSetting {
                     }
                     AppStorage.setOrCreate('cbxInterval' , value);
                   })
-                Text("interval").fontSize('17vp').width('70vp');
+                Text($r('app.string.ohcc_txt_3fe1406a82')).fontSize(ConfigData.VP_17).width(ConfigData.VP_70);
                 TextInput({ text : this.advSettings_interval , placeholder : "32~1600" })
-  .accessibilityLevel('yes')
-  .id('pages_subManualApiTestManager_subGattTestManager_gattServerManager__ti_5')
-                  .fontSize('18vp')
+                  .accessibilityLevel('yes')
+                  .id('pages_subManualApiTestManager_subGattTestManager_gattServerManager__ti_5')
+                  .fontSize(ConfigData.VP_18)
                   .onChange((strInput) => {
                     this.advSettings_interval = strInput;
                     AppStorage.setOrCreate('advSettings_interval' , strInput);
                   })
-                  .width('60%')
-                  .borderRadius('1vp')
+                  .width(ConfigData.PCT_60)
+                  .borderRadius(ConfigData.HEIGHT_1_VP)
               }
-              .height('40vp')
+              .height(ConfigData.VP_40)
               .justifyContent(FlexAlign.Start)
               .alignItems(VerticalAlign.Center)
 
               Row() {
                 Checkbox({ name : 'txPower' , group : 'checkboxGroup' })
-  .accessibilityLevel('yes')
-  .id('pages_subManualApiTestManager_subGattTestManager_gattServerManager__cb_2')
+                  .accessibilityLevel('yes')
+                  .id('pages_subManualApiTestManager_subGattTestManager_gattServerManager__cb_2')
                   .select(this.cbxTxPower)
                   .selectedColor(0x39a2db)
-                  .width('30vp')
+                  .width(ConfigData.VP_30)
                   .onChange((value) => {
                     if ( value ) {
                       this.cbxTxPower = true;
@@ -266,27 +266,27 @@ struct GattServerSetting {
                     }
                     AppStorage.setOrCreate('cbxTxPower' , value);
                   })
-                Text("txPower").fontSize('17vp').width('70vp')
+                Text($r('app.string.ohcc_txt_c14a047cd8')).fontSize(ConfigData.VP_17).width(ConfigData.VP_70)
                 TextInput({ text : this.advSettings_txPower.toString() , placeholder : "input txPower" })
-  .accessibilityLevel('yes')
-  .id('pages_subManualApiTestManager_subGattTestManager_gattServerManager__ti_6')
-                  .fontSize('18vp')
+                  .accessibilityLevel('yes')
+                  .id('pages_subManualApiTestManager_subGattTestManager_gattServerManager__ti_6')
+                  .fontSize(ConfigData.VP_18)
                   .onChange((strInput) => {
                     this.advSettings_txPower = strInput;
                     AppStorage.setOrCreate('advSettings_txPower' , strInput);
                   })
-                  .width('60%')
-                  .borderRadius('1vp')
+                  .width(ConfigData.PCT_60)
+                  .borderRadius(ConfigData.HEIGHT_1_VP)
               }
-              .height('40vp')
-              .padding({ top : '5vp' })
+              .height(ConfigData.VP_40)
+              .padding({ top : ConfigData.VP_5 })
               .justifyContent(FlexAlign.Start)
               .alignItems(VerticalAlign.Center)
 
               Row() {
                 Checkbox({ name : 'connectable' , group : 'checkboxGroup' })
-  .accessibilityLevel('yes')
-  .id('pages_subManualApiTestManager_subGattTestManager_gattServerManager__cb_3')
+                  .accessibilityLevel('yes')
+                  .id('pages_subManualApiTestManager_subGattTestManager_gattServerManager__cb_3')
                   .select(this.cbxConnectable)
                   .selectedColor(0x39a2db)
                   .onChange((value) => {
@@ -298,112 +298,112 @@ struct GattServerSetting {
                     this.advSettings_connectable = this.cbxConnectable;
                     AppStorage.setOrCreate('advSettings_connectable' , value);
                   })
-                  .width('30vp')
-                  .margin({ left : '1vp' })
-                Text("connectable").fontSize('17vp').width('80%')
+                  .width(ConfigData.VP_30)
+                  .margin({ left : ConfigData.HEIGHT_1_VP })
+                Text($r('app.string.ohcc_txt_d9d08add49')).fontSize(ConfigData.VP_17).width(ConfigData.WH_80_100)
               }
-              .height('40vp')
+              .height(ConfigData.VP_40)
               .justifyContent(FlexAlign.Start)
               .alignItems(VerticalAlign.Center)
             }
-            .height('120vp')
-            .width('100%')
-            .padding('5vp')
+            .height(ConfigData.VP_120)
+            .width(ConfigData.WH_100_100)
+            .padding(ConfigData.VP_5)
             .backgroundColor(0xAFEEEE);
 
             Column() {
               Row() {
-                Text("服务Uuid").fontSize('17vp').width('60vp').padding({ left : '10vp' })
+                Text($r('app.string.ohcc_txt_86e88b69a9')).fontSize(ConfigData.VP_17).width(ConfigData.VP_60).padding({ left : ConfigData.VP_10 })
                 TextInput({ text : this.advDataServiceUuids_serviceUuid , placeholder : "input serviceUuid" })
-  .accessibilityLevel('yes')
-  .id('pages_subManualApiTestManager_subGattTestManager_gattServerManager__ti_7')
-                  .fontSize('17vp')
+                  .accessibilityLevel('yes')
+                  .id('pages_subManualApiTestManager_subGattTestManager_gattServerManager__ti_7')
+                  .fontSize(ConfigData.VP_17)
                   .onChange((strInput) => {
                     this.advDataServiceUuids_serviceUuid = strInput;
                     AppStorage.setOrCreate('advDataServiceUuids_serviceUuid' , strInput);
                   })
-                  .width('80%')
+                  .width(ConfigData.WH_80_100)
               }
-              .width('100%')
+              .width(ConfigData.WH_100_100)
 
               Column() {
-                Text("manufactureData").fontSize('17vp').width('100%')
+                Text($r('app.string.ohcc_txt_3071f08f35')).fontSize(ConfigData.VP_17).width(ConfigData.WH_100_100)
                 Row() {
-                  Text("Id").fontSize('17vp').width('30vp')
+                  Text($r('app.string.ohcc_txt_12156e921b')).fontSize(ConfigData.VP_17).width(ConfigData.VP_30)
                   TextInput({
                     text : this.advDataManufactureData_manufactureId ,
                     placeholder : "input manufactureId(less than 8 digi)"
                   })
-  .accessibilityLevel('yes')
-  .id('pages_subManualApiTestManager_subGattTestManager_gattServerManager__ti_8')
-                    .fontSize('17vp')
+                    .accessibilityLevel('yes')
+                    .id('pages_subManualApiTestManager_subGattTestManager_gattServerManager__ti_8')
+                    .fontSize(ConfigData.VP_17)
                     .onChange((strInput) => {
                       this.advDataManufactureData_manufactureId = strInput;
                       AppStorage.setOrCreate('advDataManufactureData_manufactureId' , strInput)
                     })
-                    .width('100vp')
-                  Text("Value").fontSize('17vp').width('70vp').padding({ left : '10vp' })
+                    .width(ConfigData.VP_100)
+                  Text($r('app.string.ohcc_txt_8e37953d23')).fontSize(ConfigData.VP_17).width(ConfigData.VP_70).padding({ left : ConfigData.VP_10 })
                   TextInput({
                     text : this.advDataManufactureData_manufactureValue ,
                     placeholder : "input manufactureValue(less than 8 char)"
                   })
-  .accessibilityLevel('yes')
-  .id('pages_subManualApiTestManager_subGattTestManager_gattServerManager__ti_9')
-                    .fontSize('17vp')
+                    .accessibilityLevel('yes')
+                    .id('pages_subManualApiTestManager_subGattTestManager_gattServerManager__ti_9')
+                    .fontSize(ConfigData.VP_17)
                     .onChange((strInput) => {
                       this.advDataManufactureData_manufactureValue = strInput;
                       AppStorage.setOrCreate('advDataManufactureData_manufactureValue' , strInput)
                     })
-                    .width('100vp')
+                    .width(ConfigData.VP_100)
                 }
-                .width('90%')
+                .width(ConfigData.WH_90_100)
               }
-              .borderWidth('1vp')
+              .borderWidth(ConfigData.HEIGHT_1_VP)
               .borderColor($r("app.color.lead"))
 
               Column() {
-                Text("serviceData").fontSize('17vp').width('100%')
+                Text($r('app.string.ohcc_txt_d5d17c03fa')).fontSize(ConfigData.VP_17).width(ConfigData.WH_100_100)
                 Column() {
                   Row() {
-                    Text("serviceUuid").fontSize('17vp').width('70vp')
+                    Text($r('app.string.ohcc_txt_c9c0a20f30')).fontSize(ConfigData.VP_17).width(ConfigData.VP_70)
                     TextInput({ text : '' + this.advDataServiceData_serviceUuid , placeholder : "input serviceUuid" })
-  .accessibilityLevel('yes')
-  .id('pages_subManualApiTestManager_subGattTestManager_gattServerManager__ti_10')
-                      .fontSize('17vp')
+                      .accessibilityLevel('yes')
+                      .id('pages_subManualApiTestManager_subGattTestManager_gattServerManager__ti_10')
+                      .fontSize(ConfigData.VP_17)
                       .onChange((strInput) => {
                         this.advDataServiceData_serviceUuid = strInput;
                         AppStorage.setOrCreate('advDataServiceData_serviceUuid' , strInput)
-                      }).width('80%')
+                      }).width(ConfigData.WH_80_100)
                   }
 
                   Row() {
-                    Text("serviceValue").fontSize('17vp').width('70vp')
+                    Text($r('app.string.ohcc_txt_4bcfa81617')).fontSize(ConfigData.VP_17).width(ConfigData.VP_70)
                     TextInput({
                       text : this.advDataServiceData_serviceValue ,
                       placeholder : "input manufactureValue(less than 8 char)"
                     })
-  .accessibilityLevel('yes')
-  .id('pages_subManualApiTestManager_subGattTestManager_gattServerManager__ti_11')
-                      .fontSize('17vp')
+                      .accessibilityLevel('yes')
+                      .id('pages_subManualApiTestManager_subGattTestManager_gattServerManager__ti_11')
+                      .fontSize(ConfigData.VP_17)
                       .onChange((strInput) => {
                         this.advDataServiceData_serviceValue = strInput;
                         AppStorage.setOrCreate('advDataServiceData_serviceValue' , strInput)
                       })
-                      .width('80%')
+                      .width(ConfigData.WH_80_100)
                   }
-                  .padding({ top : '10vp' })
+                  .padding({ top : ConfigData.VP_10 })
                 }
               }
-              .borderWidth('1vp')
+              .borderWidth(ConfigData.HEIGHT_1_VP)
               .borderColor($r("app.color.lead"))
             }
-            .width('100%')
+            .width(ConfigData.WH_100_100)
             .backgroundColor($r("app.color.moon"));
 
             Row() {
               Checkbox({ name : 'AdvResponse' , group : 'checkboxGroup1' })
-  .accessibilityLevel('yes')
-  .id('pages_subManualApiTestManager_subGattTestManager_gattServerManager__cb_4')
+                .accessibilityLevel('yes')
+                .id('pages_subManualApiTestManager_subGattTestManager_gattServerManager__cb_4')
                 .select(this.cbxAdvResponse)
                 .selectedColor(0x39a2db)
                 .onChange((value) => {
@@ -416,117 +416,117 @@ struct GattServerSetting {
                   console.log('cbxAdvResponse' , value)
                   promptAction.showToast({ message : value.toString() })
                 })
-                .width('30vp')
-                .margin({ left : '1vp' })
-              Text("Response:")
-                .margin({ top : '5vp' , left : '5vp' })
-                .fontSize('17vp')
+                .width(ConfigData.VP_30)
+                .margin({ left : ConfigData.HEIGHT_1_VP })
+              Text($r('app.string.ohcc_txt_e8209287d0'))
+                .margin({ top : ConfigData.VP_5 , left : ConfigData.VP_5 })
+                .fontSize(ConfigData.VP_17)
                 .fontColor($r('app.color.color_4444444_grey'));
             }
-            .height('40vp')
-            .width('100%')
-            .padding('5vp');
+            .height(ConfigData.VP_40)
+            .width(ConfigData.WH_100_100)
+            .padding(ConfigData.VP_5);
             Column() {
               Row() {
-                Text("serviceUuid").fontSize('17vp').width('70vp') //.width('40vp')
+                Text($r('app.string.ohcc_txt_c9c0a20f30')).fontSize(ConfigData.VP_17).width(ConfigData.VP_70) //.width(ConfigData.VP_40)
                 TextInput({ text : this.advResponseServiceUuids_serviceUuid , placeholder : "input serviceUuid" })
-  .accessibilityLevel('yes')
-  .id('pages_subManualApiTestManager_subGattTestManager_gattServerManager__ti_12')
-                  .fontSize('17vp')
+                  .accessibilityLevel('yes')
+                  .id('pages_subManualApiTestManager_subGattTestManager_gattServerManager__ti_12')
+                  .fontSize(ConfigData.VP_17)
                   .onChange((strInput) => {
                     this.advResponseServiceUuids_serviceUuid = strInput;
                     AppStorage.setOrCreate('advResponseServiceUuids_serviceUuid' , strInput)
                   })
-                  .width('80%')
+                  .width(ConfigData.WH_80_100)
               }
 
               Column() {
-                Text("manufactureData").fontSize('17vp').width('100%')
+                Text($r('app.string.ohcc_txt_3071f08f35')).fontSize(ConfigData.VP_17).width(ConfigData.WH_100_100)
                   .backgroundColor($r("app.color.lead"))
                 Column() {
                   Row() {
-                    Text("Id").fontSize('17vp').width('50vp')
+                    Text($r('app.string.ohcc_txt_12156e921b')).fontSize(ConfigData.VP_17).width(ConfigData.VP_50)
                     TextInput({ text : this.advResponseManufactureData_manufactureId ,
                       placeholder : "input manufactureId(less than 8 char)" })
-  .accessibilityLevel('yes')
-  .id('pages_subManualApiTestManager_subGattTestManager_gattServerManager__ti_13')
-                      .fontSize('17vp')
+                      .accessibilityLevel('yes')
+                      .id('pages_subManualApiTestManager_subGattTestManager_gattServerManager__ti_13')
+                      .fontSize(ConfigData.VP_17)
                       .onChange((strInput) => {
                         this.advResponseManufactureData_manufactureId = strInput;
                         AppStorage.setOrCreate('advResponseManufactureData_manufactureId' , strInput)
                       })
-                      .width('80%')
+                      .width(ConfigData.WH_80_100)
                   }
 
                   Row() {
-                    Text("Value").fontSize('17vp').width('50vp')
+                    Text($r('app.string.ohcc_txt_8e37953d23')).fontSize(ConfigData.VP_17).width(ConfigData.VP_50)
                     TextInput({ text : this.advResponseManufactureData_manufactureValue ,
                       placeholder : "input manufactureValue(less than 8 char)" })
-  .accessibilityLevel('yes')
-  .id('pages_subManualApiTestManager_subGattTestManager_gattServerManager__ti_14')
-                      .fontSize('17vp')
+                      .accessibilityLevel('yes')
+                      .id('pages_subManualApiTestManager_subGattTestManager_gattServerManager__ti_14')
+                      .fontSize(ConfigData.VP_17)
                       .onChange((strInput) => {
                         this.advResponseManufactureData_manufactureValue = strInput;
                         AppStorage.setOrCreate('advResponseManufactureData_manufactureValue' , strInput)
                       })
-                      .width('80%')
+                      .width(ConfigData.WH_80_100)
                   }
-                  .padding({ top : '5vp' })
+                  .padding({ top : ConfigData.VP_5 })
                 }
               }
-              .borderWidth('1vp')
+              .borderWidth(ConfigData.HEIGHT_1_VP)
               .borderColor($r("app.color.lead"))
 
               Column() {
-                Text("serviceData").fontSize('17vp').width('100%')
+                Text($r('app.string.ohcc_txt_d5d17c03fa')).fontSize(ConfigData.VP_17).width(ConfigData.WH_100_100)
                   .backgroundColor($r("app.color.lead"))
                 Column() {
                   Row() {
-                    Text("serviceUuid").fontSize('17vp').width('70vp')
+                    Text($r('app.string.ohcc_txt_c9c0a20f30')).fontSize(ConfigData.VP_17).width(ConfigData.VP_70)
                     TextInput({
                       text : '' + this.advResponseServiceData_serviceUuid ,
                       placeholder : "input serviceUuid"
                     })
-  .accessibilityLevel('yes')
-  .id('pages_subManualApiTestManager_subGattTestManager_gattServerManager__ti_15')
-                      .fontSize('17vp')
+                      .accessibilityLevel('yes')
+                      .id('pages_subManualApiTestManager_subGattTestManager_gattServerManager__ti_15')
+                      .fontSize(ConfigData.VP_17)
                       .onChange((strInput) => {
                         this.advResponseServiceData_serviceUuid = strInput;
                         AppStorage.setOrCreate('advResponseServiceData_serviceUuid' , strInput)
                       })
-                      .width('80%')
+                      .width(ConfigData.WH_80_100)
                   }
 
                   Row() {
-                    Text("serviceValue").fontSize('17vp').width('70vp')
+                    Text($r('app.string.ohcc_txt_4bcfa81617')).fontSize(ConfigData.VP_17).width(ConfigData.VP_70)
                     TextInput({
                       text : this.advResponseServiceData_serviceValue ,
                       placeholder : "input manufactureValue(less than 8 char)"
                     })
-  .accessibilityLevel('yes')
-  .id('pages_subManualApiTestManager_subGattTestManager_gattServerManager__ti_16')
-                      .fontSize('17vp')
+                      .accessibilityLevel('yes')
+                      .id('pages_subManualApiTestManager_subGattTestManager_gattServerManager__ti_16')
+                      .fontSize(ConfigData.VP_17)
                       .onChange((strInput) => {
                         this.advResponseServiceData_serviceValue = strInput;
                         AppStorage.setOrCreate('advResponseServiceData_serviceValue' , strInput)
                       })
-                      .width('80%')
+                      .width(ConfigData.WH_80_100)
                   }
-                  .padding({ top : '5vp' })
+                  .padding({ top : ConfigData.VP_5 })
                 }
               }
-              .borderWidth('1vp')
+              .borderWidth(ConfigData.HEIGHT_1_VP)
               .borderColor($r("app.color.lead"))
             }
-            .height('85%')
-            .width('100%')
-            .padding('5vp')
+            .height(ConfigData.PCT_85)
+            .width(ConfigData.WH_100_100)
+            .padding(ConfigData.VP_5)
             .backgroundColor($r("app.color.moon"));
           }
         }
-  .accessibilityLevel('yes')
-  .id('pages_subManualApiTestManager_subGattTestManager_gattServerManager__sc_1')
-        .height('50%')
+        .accessibilityLevel('yes')
+        .id('pages_subManualApiTestManager_subGattTestManager_gattServerManager__sc_1')
+        .height(ConfigData.WH_50_100)
       }
       .backgroundColor($r("app.color.lead"))
     }
@@ -682,28 +682,28 @@ struct GattServerManager {
       Stack({ alignContent : Alignment.TopStart }) {
         TestImageDisplay({ testItem : this.testItem })
         PageTitle({ testItem : this.testItem })
-  .accessibilityLevel('yes')
-  .id('pages_subManualApiTestManager_subGattTestManager_gattServerManager__pt_0')
+          .accessibilityLevel('yes')
+          .id('pages_subManualApiTestManager_subGattTestManager_gattServerManager__pt_0')
       }
 
-      Stack().height('0.5vp').backgroundColor($r('app.color.black'));
+      Stack().height(ConfigData.VP_0_5).backgroundColor($r('app.color.black'));
       Row() {
-        Text("GattServerSetting")
-          .fontSize('20vp')
-          .height('60vp')
-          .width('80%')
-          .padding({ left : '10vp' })
+        Text($r('app.string.ohcc_txt_9048df37af'))
+          .fontSize(ConfigData.VP_20)
+          .height(ConfigData.VP_60)
+          .width(ConfigData.WH_80_100)
+          .padding({ left : ConfigData.VP_10 })
         Image($r('app.media.Switch'))
-  .accessibilityLevel('yes')
-  .id('pages_subManualApiTestManager_subGattTestManager_gattServerManager__img_0')
-          .height('50vp')
-          .width('50vp')
-          .padding({ top : '10vp' , bottom : '10vp' , left : '10vp' })
+          .accessibilityLevel('yes')
+          .id('pages_subManualApiTestManager_subGattTestManager_gattServerManager__img_0')
+          .height(ConfigData.VP_50)
+          .width(ConfigData.VP_50)
+          .padding({ top : ConfigData.VP_10 , bottom : ConfigData.VP_10 , left : ConfigData.VP_10 })
           .onClick(() => {
             this.showList = !this.showList;
           })
       }
-      .width('100%')
+      .width(ConfigData.WH_100_100)
 
       Column() {
         if ( this.showList ) {
@@ -711,70 +711,70 @@ struct GattServerManager {
         } else {
           Column() {
             Column() {
-              Text("结果显示:")
-                .fontSize('17vp')
-                .margin({ top : '5vp' , left : '10vp' })
+              Text($r('app.string.ohcc_txt_9d88d201ac'))
+                .fontSize(ConfigData.VP_17)
+                .margin({ top : ConfigData.VP_5 , left : ConfigData.VP_10 })
                 .textAlign(TextAlign.Start)
-                .width('100%')
-              Text("Result:" + this.message)
-                .fontSize('17vp')
-                .margin({ top : '1vp' , left : '10vp' })
+                .width(ConfigData.WH_100_100)
+              Text($r('app.string.label_gatt_result_colon') + this.message)
+                .fontSize(ConfigData.VP_17)
+                .margin({ top : ConfigData.HEIGHT_1_VP , left : ConfigData.VP_10 })
                 .textAlign(TextAlign.Start)
-                .width('90%')
-              Text("ConnectionStateChange:" + this.connectStateMsg)
-                .fontSize('17vp')
-                .margin({ top : '1vp' , left : '10vp' })
+                .width(ConfigData.WH_90_100)
+              Text($r('app.string.label_gatt_conn_state_colon') + this.connectStateMsg)
+                .fontSize(ConfigData.VP_17)
+                .margin({ top : ConfigData.HEIGHT_1_VP , left : ConfigData.VP_10 })
                 .textAlign(TextAlign.Start)
-                .width('90%')
-              Text("characteristicRead:" + this.characteristicReadMsg)
-                .fontSize('17vp')
-                .margin({ top : '1vp' , left : '10vp' })
+                .width(ConfigData.WH_90_100)
+              Text($r('app.string.label_char_read_colon') + this.characteristicReadMsg)
+                .fontSize(ConfigData.VP_17)
+                .margin({ top : ConfigData.HEIGHT_1_VP , left : ConfigData.VP_10 })
                 .textAlign(TextAlign.Start)
-                .width('90%')
-              Text("characteristicWrite:" + this.characteristicWriteMsg)
-                .fontSize('17vp')
-                .margin({ top : '1vp' , left : '10vp' })
+                .width(ConfigData.WH_90_100)
+              Text($r('app.string.label_char_write_colon') + this.characteristicWriteMsg)
+                .fontSize(ConfigData.VP_17)
+                .margin({ top : ConfigData.HEIGHT_1_VP , left : ConfigData.VP_10 })
                 .textAlign(TextAlign.Start)
-                .width('90%')
-              Text("descriptorRead:" + this.descriptorReadMsg)
-                .fontSize('17vp')
-                .margin({ top : '1vp' , left : '10vp' })
+                .width(ConfigData.WH_90_100)
+              Text($r('app.string.label_desc_read_colon') + this.descriptorReadMsg)
+                .fontSize(ConfigData.VP_17)
+                .margin({ top : ConfigData.HEIGHT_1_VP , left : ConfigData.VP_10 })
                 .textAlign(TextAlign.Start)
-                .width('90%')
-              Text("descriptorWrite:" + this.descriptorWriteMsg)
-                .fontSize('17vp')
-                .margin({ top : '1vp' , left : '10vp' })
+                .width(ConfigData.WH_90_100)
+              Text($r('app.string.label_desc_write_colon') + this.descriptorWriteMsg)
+                .fontSize(ConfigData.VP_17)
+                .margin({ top : ConfigData.HEIGHT_1_VP , left : ConfigData.VP_10 })
                 .textAlign(TextAlign.Start)
-                .width('90%')
+                .width(ConfigData.WH_90_100)
             }
-            .width('95%')
-            .height('160vp')
+            .width(ConfigData.PCT_95)
+            .height(ConfigData.VP_160)
             .backgroundColor($r("sys.color.ohos_id_color_foreground_contrary"))
 
-            Stack().height('0.25vp').backgroundColor($r('app.color.black'));
+            Stack().height(ConfigData.VP_0_25).backgroundColor($r('app.color.black'));
             Column() {
-              Text("功能测试:")
-                .margin({ top : '5vp' , left : '10vp' })
-                .padding('5vp')
-                .fontSize('18vp')
-                .width('100%')
+              Text($r('app.string.ohcc_txt_9c3370b3fa'))
+                .margin({ top : ConfigData.VP_5 , left : ConfigData.VP_10 })
+                .padding(ConfigData.VP_5)
+                .fontSize(ConfigData.VP_18)
+                .width(ConfigData.WH_100_100)
               Scroll() {
                 ContentTable({ apiItems : initGattServerManagerApiData() }) //子层调用
               }
-  .accessibilityLevel('yes')
-  .id('pages_subManualApiTestManager_subGattTestManager_gattServerManager__sc_2')
+              .accessibilityLevel('yes')
+              .id('pages_subManualApiTestManager_subGattTestManager_gattServerManager__sc_2')
               .width(ConfigData.WH_100_100)
               .align(Alignment.TopStart)
               .layoutWeight(1)
               .margin({ top : $r('sys.float.ohos_id_card_margin_middle') })
             }
-            .height('75%')
+            .height(ConfigData.PCT_75)
           }
         }
       }
       .visibility(Visibility.Visible);
     }
-    .width('100%')
+    .width(ConfigData.WH_100_100)
     .backgroundColor($r("sys.color.ohos_id_color_sub_background"))
   }
 
