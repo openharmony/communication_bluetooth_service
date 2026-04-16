@@ -37,8 +37,8 @@ struct GattAutoTestManager {
       Stack({ alignContent : Alignment.TopStart }) {
         TestImageDisplay({ testItem : this.testItem })
         PageTitle({ testItem : this.testItem })
-  .accessibilityLevel('yes')
-  .id('pages_subAutoTestManager_gattAutoTestManager__pt_0')
+      .accessibilityLevel('yes')
+      .id('pages_subAutoTestManager_gattAutoTestManager__pt_0')
       }
 
       List() {
@@ -48,10 +48,10 @@ struct GattAutoTestManager {
               testItem : item
             })
           }
-  .id(index === 0 ? 'pages_subAutoTestManager_gattAutoTestManager__li_0' : `pages_subAutoTestManager_gattAutoTestManager__li_${index}`)
+      .id(index === 0 ? 'pages_subAutoTestManager_gattAutoTestManager__li_0' : `pages_subAutoTestManager_gattAutoTestManager__li_${index}`)
         } , (item: TestData) => item.id)
       }
-      .height('93%')
+      .height(ConfigData.PCT_93)
       .backgroundColor($r("app.color.lead"))
     }
     .backgroundColor($r("sys.color.ohos_id_color_sub_background"))
