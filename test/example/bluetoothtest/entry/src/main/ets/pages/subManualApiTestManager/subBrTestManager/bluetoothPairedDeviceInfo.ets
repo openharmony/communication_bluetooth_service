@@ -42,8 +42,8 @@ struct BluetoothPairedDeviceInfo {
       GridContainer({
         columns : 12 ,
         sizeType : SizeType.Auto ,
-        gutter : vp2px(1) === 2 ? '12vp' : '0vp' ,
-        margin : vp2px(1) === 2 ? '24vp' : '0vp'
+        gutter : vp2px(1) === 2 ? ConfigData.VP_12 : ConfigData.VP_0 ,
+        margin : vp2px(1) === 2 ? ConfigData.VP_24 : ConfigData.VP_0
       }) {
         Row({}) {
           Column() {
@@ -60,12 +60,12 @@ struct BluetoothPairedDeviceInfo {
             Row() {
               Button() {
                 Text($r("app.string.cancelPairing"))
-                  .fontSize('16fp')
+                  .fontSize(ConfigData.FP_16)
                   .fontColor(Color.Blue)
               }
               .backgroundColor($r('app.color.color_E3E3E3_grey'))
-              .width('186vp')
-              .height('40vp')
+              .width(ConfigData.VP_186)
+              .height(ConfigData.VP_40)
               .align(Alignment.Center)
               .onTouch((event: TouchEvent) => {
                 if ( event.type === TouchType.Down ) {
@@ -81,9 +81,9 @@ struct BluetoothPairedDeviceInfo {
                   router.back();
                 }
               })
-            }.margin({ bottom : '24vp' });
+            }.margin({ bottom : ConfigData.VP_24 });
           }
-          .padding({ left : '24vp' , right : '24vp' })
+          .padding({ left : ConfigData.VP_24 , right : ConfigData.VP_24 })
           .height(ConfigData.WH_100_100)
           .width(ConfigData.WH_100_100)
           .useSizeType({

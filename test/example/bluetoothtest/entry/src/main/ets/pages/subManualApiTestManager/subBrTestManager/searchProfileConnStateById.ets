@@ -12,6 +12,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+import ConfigData from '../../../Utils/ConfigData';
 import { TitleComponent } from '../../../Component/titleComponent';
 import bt from '@ohos.bluetooth';
 
@@ -31,30 +32,30 @@ struct profileConnState2 {
     Row() {
       Column() {
         Row() {
-          Text("目标设备MAC：").fontSize('20vp')
+          Text($r('app.string.ohcc_txt_c232e10e19')).fontSize(ConfigData.VP_20)
           TextInput({ text : this.deviceId , placeholder : "请输入mac地址" })
-            .fontSize('20vp')
+            .fontSize(ConfigData.VP_20)
             .onChange((str) => {
               this.deviceId = str;
               AppStorage.setOrCreate('inputDeviceId' , str)
             })
-            .width('70%')
+            .width(ConfigData.PCT_70)
         }
         .backgroundColor($r("app.color.moon"))
-        .margin({ top : '20vp' , left : '20vp' , right : '20vp' })
+        .margin({ top : ConfigData.VP_20 , left : ConfigData.VP_20 , right : ConfigData.VP_20 })
         .alignItems(VerticalAlign.Center)
 
         List() {
           ListItem() {
             TitleComponent({
               title : "A2DP_SOURCE" ,
-              fontSize : '15vp' ,
+              fontSize : ConfigData.VP_15 ,
               bgColor : this.currentClick === 0 ? $r('app.color.font_color_007DFF') : $r('app.color.white_bg_color')
             });
           }
-          .padding({ top : '20vp' })
-          .height('80vp')
-          .borderRadius('10vp')
+          .padding({ top : ConfigData.VP_20 })
+          .height(ConfigData.VP_80)
+          .borderRadius(ConfigData.VP_10)
           .onClick(() => {
             this.currentClick = 0;
             this.profileId = 1;
@@ -83,13 +84,13 @@ struct profileConnState2 {
           ListItem() {
             TitleComponent({
               title : "HANDS_FREE_AUDIO_GATEWAY" ,
-              fontSize : '15vp' ,
+              fontSize : ConfigData.VP_15 ,
               bgColor : this.currentClick === 1 ? $r('app.color.font_color_007DFF') : $r('app.color.white_bg_color')
             });
           }
-          .padding({ top : '20vp' })
-          .height('80vp')
-          .borderRadius('10vp')
+          .padding({ top : ConfigData.VP_20 })
+          .height(ConfigData.VP_80)
+          .borderRadius(ConfigData.VP_10)
           .onClick(() => {
             this.currentClick = 1;
             this.profileId = 4;
@@ -118,13 +119,13 @@ struct profileConnState2 {
           ListItem() {
             TitleComponent({
               title : "HID_HOST" ,
-              fontSize : '15vp' ,
+              fontSize : ConfigData.VP_15 ,
               bgColor : this.currentClick === 2 ? $r('app.color.font_color_007DFF') : $r('app.color.white_bg_color')
             });
           }
-          .padding({ top : '20vp' })
-          .height('80vp')
-          .borderRadius('10vp')
+          .padding({ top : ConfigData.VP_20 })
+          .height(ConfigData.VP_80)
+          .borderRadius(ConfigData.VP_10)
           .onClick(() => {
             this.currentClick = 2;
             this.profileId = 6;
@@ -150,16 +151,16 @@ struct profileConnState2 {
             this.message = "当前HID的状态是：" + this.stateProfile;
           })
         }
-        .height('300vp')
-        .margin('20vp');
+        .height(ConfigData.VP_300)
+        .margin(ConfigData.VP_20);
 
-        Text("接口调用结果：" + this.message)
+        Text($r('app.string.label_api_result_tight') + this.message)
           .textAlign(TextAlign.Start)
-          .fontSize('17fp')
+          .fontSize(ConfigData.FP_17)
           .backgroundColor($r("app.color.white"))
-      }.width('100%')
+      }.width(ConfigData.WH_100_100)
     }
-    .height('100%')
+    .height(ConfigData.WH_100_100)
     .alignItems(VerticalAlign.Top)
     .backgroundColor($r("app.color.lead"))
   }

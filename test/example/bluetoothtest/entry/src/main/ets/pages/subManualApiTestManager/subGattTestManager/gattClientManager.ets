@@ -47,11 +47,11 @@ struct GattClientSetting {
   build() {
     Column() {
       Row() {
-        Text("外围设备MAC:").fontSize('16vp').width('70vp')
+        Text($r('app.string.ohcc_txt_b78f13990a')).fontSize(ConfigData.VP_16).width(ConfigData.VP_70)
         TextInput({ text : this.peripheralDeviceId , placeholder : "input peripheral deviceId." })
-  .accessibilityLevel('yes')
-  .id('pages_subManualApiTestManager_subGattTestManager_gattClientManager__ti_0')
-          .fontSize('15vp')
+          .accessibilityLevel('yes')
+          .id('pages_subManualApiTestManager_subGattTestManager_gattClientManager__ti_0')
+          .fontSize(ConfigData.VP_15)
           .onChange((strInput) => {
             this.peripheralDeviceId = strInput;
             //判断合法性
@@ -59,119 +59,119 @@ struct GattClientSetting {
               AppStorage.setOrCreate('peripheralDeviceId' , strInput);
             }
           })
-          .width('80%')
-          .borderRadius('1vp')
+          .width(ConfigData.WH_80_100)
+          .borderRadius(ConfigData.HEIGHT_1_VP)
       }
       .backgroundColor($r("app.color.moon"))
-      .padding('5vp')
+      .padding(ConfigData.VP_5)
       .justifyContent(FlexAlign.Start)
       .alignItems(VerticalAlign.Center)
 
       Column() {
-        Stack().height('0.25vp').backgroundColor($r('app.color.black'));
+        Stack().height(ConfigData.VP_0_25).backgroundColor($r('app.color.black'));
         Column() {
           Row() {
-            Text("服务UUID:").fontSize('15vp').width('60vp');
+            Text($r('app.string.ohcc_txt_0dc2699e88')).fontSize(ConfigData.VP_15).width(ConfigData.VP_60);
             TextInput({ text : this.serviceUUID , placeholder : "input Service UUID" })
-  .accessibilityLevel('yes')
-  .id('pages_subManualApiTestManager_subGattTestManager_gattClientManager__ti_1')
-              .fontSize('15vp')
+              .accessibilityLevel('yes')
+              .id('pages_subManualApiTestManager_subGattTestManager_gattClientManager__ti_1')
+              .fontSize(ConfigData.VP_15)
               .onChange((strInput) => {
                 this.serviceUUID = strInput;
                 if ( strInput.length >= 36 ) {
                   AppStorage.setOrCreate('serviceUUID' , strInput);
                 }
               })
-              .width('80%')
-              .borderRadius('1vp')
+              .width(ConfigData.WH_80_100)
+              .borderRadius(ConfigData.HEIGHT_1_VP)
           }
-          .padding('5vp')
+          .padding(ConfigData.VP_5)
           .justifyContent(FlexAlign.Start)
           .alignItems(VerticalAlign.Center)
           .backgroundColor($r("app.color.spring"))
 
           Row() {
-            Text("特征值UUID:").fontSize('15vp').width('60vp');
+            Text($r('app.string.ohcc_txt_6fb9e7ed0b')).fontSize(ConfigData.VP_15).width(ConfigData.VP_60);
             TextInput({ text : this.characteristicUUID , placeholder : "input Characteristic UUID" })
-  .accessibilityLevel('yes')
-  .id('pages_subManualApiTestManager_subGattTestManager_gattClientManager__ti_2')
-              .fontSize('15vp')
+              .accessibilityLevel('yes')
+              .id('pages_subManualApiTestManager_subGattTestManager_gattClientManager__ti_2')
+              .fontSize(ConfigData.VP_15)
               .onChange((strInput) => {
                 this.characteristicUUID = strInput;
                 if ( strInput.length >= 36 ) {
                   AppStorage.setOrCreate('characteristicUUID' , strInput);
                 }
               })
-              .width('80%')
-              .borderRadius('1vp')
+              .width(ConfigData.WH_80_100)
+              .borderRadius(ConfigData.HEIGHT_1_VP)
           }
           .backgroundColor($r("app.color.spring"))
-          .padding('5vp')
+          .padding(ConfigData.VP_5)
           .justifyContent(FlexAlign.Start)
           .alignItems(VerticalAlign.Center)
 
           Row() {
-            Text("特征值Value:").fontSize('15vp').width('60vp');
+            Text($r('app.string.ohcc_txt_83fa41a70b')).fontSize(ConfigData.VP_15).width(ConfigData.VP_60);
             TextInput({ text : this.characteristicUUID , placeholder : "Characteristic Value" })
-  .accessibilityLevel('yes')
-  .id('pages_subManualApiTestManager_subGattTestManager_gattClientManager__ti_3')
-              .fontSize('15vp')
+              .accessibilityLevel('yes')
+              .id('pages_subManualApiTestManager_subGattTestManager_gattClientManager__ti_3')
+              .fontSize(ConfigData.VP_15)
               .onChange((strInput) => {
                 this.characteristicValue = strInput;
                 if ( strInput.length >= 1 ) {
                   AppStorage.setOrCreate('characteristicValue' , strInput);
                 }
               })
-              .width('80%')
-              .borderRadius('1vp')
+              .width(ConfigData.WH_80_100)
+              .borderRadius(ConfigData.HEIGHT_1_VP)
           }
           .backgroundColor($r("app.color.spring"))
-          .padding('5vp')
+          .padding(ConfigData.VP_5)
           .justifyContent(FlexAlign.Start)
           .alignItems(VerticalAlign.Center)
 
           Row() {
-            Text("描述符UUID:").fontSize('15vp').width('60vp');
+            Text($r('app.string.ohcc_txt_77695717a2')).fontSize(ConfigData.VP_15).width(ConfigData.VP_60);
             TextInput({ text : this.descriptorUUID , placeholder : "input descriptor UUID" })
-  .accessibilityLevel('yes')
-  .id('pages_subManualApiTestManager_subGattTestManager_gattClientManager__ti_4')
-              .fontSize('15vp')
+              .accessibilityLevel('yes')
+              .id('pages_subManualApiTestManager_subGattTestManager_gattClientManager__ti_4')
+              .fontSize(ConfigData.VP_15)
               .onChange((strInput) => {
                 this.descriptorUUID = strInput;
                 if ( strInput.length >= 36 ) {
                   AppStorage.setOrCreate('descriptorUUID' , strInput);
                 }
               })
-              .width('80%')
-              .borderRadius('1vp')
+              .width(ConfigData.WH_80_100)
+              .borderRadius(ConfigData.HEIGHT_1_VP)
           }
           .backgroundColor($r("app.color.spring"))
-          .padding('5vp')
+          .padding(ConfigData.VP_5)
           .justifyContent(FlexAlign.Start)
           .alignItems(VerticalAlign.Center)
 
           Row() {
-            Text("描述符Value:").fontSize('15vp').width('60vp');
+            Text($r('app.string.ohcc_txt_179de15b60')).fontSize(ConfigData.VP_15).width(ConfigData.VP_60);
             TextInput({ text : this.descriptorUUID , placeholder : "descriptor Value" })
-  .accessibilityLevel('yes')
-  .id('pages_subManualApiTestManager_subGattTestManager_gattClientManager__ti_5')
-              .fontSize('15vp')
+              .accessibilityLevel('yes')
+              .id('pages_subManualApiTestManager_subGattTestManager_gattClientManager__ti_5')
+              .fontSize(ConfigData.VP_15)
               .onChange((strInput) => {
                 this.descriptorValue = strInput;
                 if ( strInput.length >= 1 ) {
                   AppStorage.setOrCreate('descriptorValue' , strInput);
                 }
               })
-              .width('80%')
-              .borderRadius('1vp')
+              .width(ConfigData.WH_80_100)
+              .borderRadius(ConfigData.HEIGHT_1_VP)
           }
           .backgroundColor($r("app.color.spring"))
-          .padding('5vp')
+          .padding(ConfigData.VP_5)
           .justifyContent(FlexAlign.Start)
           .alignItems(VerticalAlign.Center)
         }
 
-        Stack().height('0.25vp').backgroundColor($r('app.color.black'));
+        Stack().height(ConfigData.VP_0_25).backgroundColor($r('app.color.black'));
       }
     }
   }
@@ -222,28 +222,28 @@ struct GattClientManager {
       Stack({ alignContent : Alignment.TopStart }) {
         TestImageDisplay({ testItem : this.testItem })
         PageTitle({ testItem : this.testItem })
-  .accessibilityLevel('yes')
-  .id('pages_subManualApiTestManager_subGattTestManager_gattClientManager__pt_0')
+          .accessibilityLevel('yes')
+          .id('pages_subManualApiTestManager_subGattTestManager_gattClientManager__pt_0')
       }
 
-      Stack().height('0.5vp').backgroundColor($r('app.color.black'));
+      Stack().height(ConfigData.VP_0_5).backgroundColor($r('app.color.black'));
       Row() {
-        Text("GattClientSetting")
-          .fontSize('20vp')
-          .height('60vp')
-          .width('80%')
-          .padding({ left : '15vp' })
+        Text($r('app.string.ohcc_txt_e604afc38d'))
+          .fontSize(ConfigData.VP_20)
+          .height(ConfigData.VP_60)
+          .width(ConfigData.WH_80_100)
+          .padding({ left : ConfigData.VP_15 })
         Image($r('app.media.Switch'))
-  .accessibilityLevel('yes')
-  .id('pages_subManualApiTestManager_subGattTestManager_gattClientManager__img_0')
-          .height('50vp')
-          .width('50vp')
-          .padding({ top : '10vp' , bottom : '10vp' , left : '10vp' })
+          .accessibilityLevel('yes')
+          .id('pages_subManualApiTestManager_subGattTestManager_gattClientManager__img_0')
+          .height(ConfigData.VP_50)
+          .width(ConfigData.VP_50)
+          .padding({ top : ConfigData.VP_10 , bottom : ConfigData.VP_10 , left : ConfigData.VP_10 })
           .onClick(() => {
             this.showList = !this.showList;
           })
       }
-      .width('100%')
+      .width(ConfigData.WH_100_100)
 
       Column() {
         if ( this.showList ) {
@@ -252,87 +252,87 @@ struct GattClientManager {
           Column() {
             Scroll() {
               Column() {
-                Text("结果显示:")
-                  .fontSize('17vp')
-                  .margin({ top : '5vp' , left : '10vp' })
+                Text($r('app.string.ohcc_txt_9d88d201ac'))
+                  .fontSize(ConfigData.VP_17)
+                  .margin({ top : ConfigData.VP_5 , left : ConfigData.VP_10 })
                   .textAlign(TextAlign.Start)
-                  .width('100%')
-                Text("当前配置:" + this.message)
-                  .fontSize('17vp')
-                  .margin({ top : '5vp' , left : '15vp' })
+                  .width(ConfigData.WH_100_100)
+                Text($r('app.string.label_gatt_current_config') + this.message)
+                  .fontSize(ConfigData.VP_17)
+                  .margin({ top : ConfigData.VP_5 , left : ConfigData.VP_15 })
                   .textAlign(TextAlign.Start)
-                  .width('90%')
-                Text("BLE连接状态:" + this.bleConnectionStateInfo)
-                  .fontSize('17vp')
-                  .margin({ top : '5vp' , left : '15vp' })
+                  .width(ConfigData.WH_90_100)
+                Text($r('app.string.label_ble_conn_state') + this.bleConnectionStateInfo)
+                  .fontSize(ConfigData.VP_17)
+                  .margin({ top : ConfigData.VP_5 , left : ConfigData.VP_15 })
                   .textAlign(TextAlign.Start)
-                  .width('90%')
-                Text("BLE特征变化:" + this.bleCharacteristicChangeInfo)
-                  .fontSize('17vp')
-                  .margin({ top : '5vp' , left : '15vp' })
+                  .width(ConfigData.WH_90_100)
+                Text($r('app.string.label_ble_char_change') + this.bleCharacteristicChangeInfo)
+                  .fontSize(ConfigData.VP_17)
+                  .margin({ top : ConfigData.VP_5 , left : ConfigData.VP_15 })
                   .textAlign(TextAlign.Start)
-                  .width('90%')
-                Text("deviceName:" + this.deviceName)
-                  .fontSize('17vp')
-                  .margin({ top : '5vp' , left : '15vp' })
+                  .width(ConfigData.WH_90_100)
+                Text($r('app.string.label_device_name_colon') + this.deviceName)
+                  .fontSize(ConfigData.VP_17)
+                  .margin({ top : ConfigData.VP_5 , left : ConfigData.VP_15 })
                   .textAlign(TextAlign.Start)
-                  .width('90%')
-                Text("Rssi:" + this.Rssi)
-                  .fontSize('17vp')
-                  .margin({ top : '5vp' , left : '15vp' })
+                  .width(ConfigData.WH_90_100)
+                Text($r('app.string.label_rssi_colon') + this.Rssi)
+                  .fontSize(ConfigData.VP_17)
+                  .margin({ top : ConfigData.VP_5 , left : ConfigData.VP_15 })
                   .textAlign(TextAlign.Start)
-                  .width('90%')
-                Text("getService:" + this.getServices)
-                  .fontSize('17vp')
-                  .margin({ top : '5vp' , left : '15vp' })
+                  .width(ConfigData.WH_90_100)
+                Text($r('app.string.label_get_service_colon') + this.getServices)
+                  .fontSize(ConfigData.VP_17)
+                  .margin({ top : ConfigData.VP_5 , left : ConfigData.VP_15 })
                   .textAlign(TextAlign.Start)
-                  .width('90%')
-                Text("readCharacteristic:" + this.read_CharacteristicValue)
-                  .fontSize('17vp')
-                  .margin({ top : '5vp' , left : '15vp' })
+                  .width(ConfigData.WH_90_100)
+                Text($r('app.string.label_read_char_colon') + this.read_CharacteristicValue)
+                  .fontSize(ConfigData.VP_17)
+                  .margin({ top : ConfigData.VP_5 , left : ConfigData.VP_15 })
                   .textAlign(TextAlign.Start)
-                  .width('90%')
-                Text("readDescriptor:" + this.read_DescriptorValue)
-                  .fontSize('17vp')
-                  .margin({ top : '5vp' , left : '15vp' })
+                  .width(ConfigData.WH_90_100)
+                Text($r('app.string.label_read_desc_colon') + this.read_DescriptorValue)
+                  .fontSize(ConfigData.VP_17)
+                  .margin({ top : ConfigData.VP_5 , left : ConfigData.VP_15 })
                   .textAlign(TextAlign.Start)
-                  .width('90%')
+                  .width(ConfigData.WH_90_100)
               }
-              .width('100%')
+              .width(ConfigData.WH_100_100)
             }
-  .accessibilityLevel('yes')
-  .id('pages_subManualApiTestManager_subGattTestManager_gattClientManager__sc_0')
-            .scrollBarWidth('10vp')
+            .accessibilityLevel('yes')
+            .id('pages_subManualApiTestManager_subGattTestManager_gattClientManager__sc_0')
+            .scrollBarWidth(ConfigData.VP_10)
             .scrollBar(BarState.Auto)
           }
-          .height('110vp')
-          .width('95%')
+          .height(ConfigData.VP_110)
+          .width(ConfigData.PCT_95)
           .backgroundColor($r("sys.color.ohos_id_color_foreground_contrary"))
 
-          Stack().height('0.5vp').backgroundColor($r('app.color.black'));
+          Stack().height(ConfigData.VP_0_5).backgroundColor($r('app.color.black'));
           Column() {
-            Text("功能测试:")
-              .margin({ top : '5vp' , left : '10vp' })
-              .padding('5vp')
-              .fontSize('18vp')
-              .width('100%')
+            Text($r('app.string.ohcc_txt_9c3370b3fa'))
+              .margin({ top : ConfigData.VP_5 , left : ConfigData.VP_10 })
+              .padding(ConfigData.VP_5)
+              .fontSize(ConfigData.VP_18)
+              .width(ConfigData.WH_100_100)
             Scroll() {
               ContentTable({ apiItems : initGattClientManagerApiData() })
             }
-  .accessibilityLevel('yes')
-  .id('pages_subManualApiTestManager_subGattTestManager_gattClientManager__sc_1')
+            .accessibilityLevel('yes')
+            .id('pages_subManualApiTestManager_subGattTestManager_gattClientManager__sc_1')
             .width(ConfigData.WH_100_100)
             .align(Alignment.TopStart)
             .layoutWeight(1)
             .margin({ top : $r('sys.float.ohos_id_card_margin_middle') })
-            .height('100%')
+            .height(ConfigData.WH_100_100)
           }
-          .height('80%')
+          .height(ConfigData.WH_80_100)
         }
       }
       .visibility(Visibility.Visible);
     }
     .backgroundColor($r("app.color.lead"))
-    .height('100%')
+    .height(ConfigData.WH_100_100)
   }
 }
