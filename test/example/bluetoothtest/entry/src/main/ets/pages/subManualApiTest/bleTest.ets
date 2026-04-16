@@ -86,7 +86,7 @@ struct BleTest {
       Stack().height(ConfigData.VP_0_5).backgroundColor($r('app.color.black'));
       Column() {
         Row() {
-          Text($r('app.string.ohcc_txt_f9ff1266db'))
+          Text($r('app.string.bluetoothtest_text_wsm'))
             .fontSize(ConfigData.VP_18)
             .height(ConfigData.VP_40)
             .width(ConfigData.WH_25_100)

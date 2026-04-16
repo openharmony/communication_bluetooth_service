@@ -121,7 +121,7 @@ struct OppRecvScenarioTest {
       Column() {
         Scroll() {
           Column() {
-            Text($r('app.string.ohcc_txt_110b0bcf04'))
+            Text($r('app.string.bluetoothtest_text_ypdsblbdjxzsb'))
               .fontSize(ConfigData.VP_20)
               .fontWeight(FontWeight.Bold)
               .margin({ top : ConfigData.VP_5 })
@@ -162,7 +162,7 @@ struct OppRecvScenarioTest {
         Stack().height(ConfigData.HEIGHT_1_VP).backgroundColor($r('app.color.black'));
 
         Column() {
-          Text($r('app.string.ohcc_txt_78ff2ab0b3'))
+          Text($r('app.string.bluetoothtest_text_yxzdsbdlymdz'))
             .fontSize(ConfigData.VP_18)
             .fontWeight(FontWeight.Bold)
             .margin({ top : ConfigData.VP_3 })
@@ -175,7 +175,7 @@ struct OppRecvScenarioTest {
 
         Scroll() {
           Column() {
-            Text($r('app.string.ohcc_txt_b6f9ef4230'))
+            Text($r('app.string.bluetoothtest_text_lcrz'))
               .fontSize(ConfigData.VP_18)
               .margin({ top : ConfigData.VP_8 , bottom : ConfigData.VP_8 , left : ConfigData.VP_20 })
               .textAlign(TextAlign.Start)
@@ -251,8 +251,7 @@ struct OppRecvScenarioTest {
               Progress({ value : this.curProgress , total : 100 , type : ProgressType.Linear })
                 .style({ strokeWidth : ConfigData.VP_10 })
 
-              Text(this.curProgress.toString() +
-                getContext(this).resourceManager.getStringSync($r('app.string.percent_symbol')))
+              Text(this.curProgress.toString() + getContext(this).resourceManager.getStringSync($r('app.string.percent_symbol')))
                 .fontSize(ConfigData.VP_30)
             }
           }

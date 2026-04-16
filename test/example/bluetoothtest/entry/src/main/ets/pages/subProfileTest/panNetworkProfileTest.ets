@@ -74,7 +74,7 @@ struct PanNetWorkTest {
           .fontStyle(FontStyle.Italic);
         Column() {
           Row() {
-            Text($r('app.string.ohcc_txt_8310f85556'))
+            Text($r('app.string.bluetoothtest_text_xzzzljdsbw'))
               .fontSize("17").width(ConfigData.VP_110).margin(ConfigData.VP_5)
             TextInput({ text : JSON.stringify(this.deviceId) , placeholder : "请输入需要连接的deviceId" })
               .accessibilityLevel('yes')
@@ -107,7 +107,7 @@ struct PanNetWorkTest {
           .width(ConfigData.PCT_88)
           .height(ConfigData.VP_90)
 
-          Text($r('app.string.ohcc_txt_8739eeec5f'))
+          Text($r('app.string.bluetoothtest_text_qdjxycsdff'))
             .margin({ top : ConfigData.VP_10 })
             .padding(ConfigData.VP_5)
             .fontSize(ConfigData.VP_17)

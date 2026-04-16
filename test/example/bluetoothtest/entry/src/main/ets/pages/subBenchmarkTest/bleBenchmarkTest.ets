@@ -52,12 +52,12 @@ struct BleBenchmarkTest {
       Column() {
         Scroll() {
           Column() {
-            Text($r('app.string.ohcc_txt_08053166f4'))
+            Text($r('app.string.bluetoothtest_text_xncs'))
               .fontSize(ConfigData.VP_17)
               .margin({ top : ConfigData.VP_10 , bottom : ConfigData.VP_10 , left : ConfigData.VP_20 })
               .textAlign(TextAlign.Start)
               .width(ConfigData.WH_100_100)
-            Text($r('app.string.ohcc_txt_9d8e6c2861'))
+            Text($r('app.string.bluetoothtest_text_bdxncsscszfxblysdsjxnhwdxn'))
               .fontSize(ConfigData.VP_17)
               .margin({ left : ConfigData.VP_10 })
           }
@@ -73,7 +73,7 @@ struct BleBenchmarkTest {
 
         Scroll() {
           Column() {
-            Text($r('app.string.ohcc_txt_52396cf237'))
+            Text($r('app.string.bluetoothtest_text_rz'))
               .fontSize(ConfigData.VP_17)
               .margin({ top : ConfigData.VP_8 , bottom : ConfigData.VP_8 , left : ConfigData.VP_10 })
               .textAlign(TextAlign.Start)
@@ -107,7 +107,7 @@ struct BleBenchmarkTest {
       Column() {
         Flex({ alignItems : ItemAlign.Center , justifyContent : FlexAlign.SpaceBetween }) {
           Button({ type : ButtonType.Normal , stateEffect : true }) {
-            Text($r('app.string.ohcc_txt_011ae17795')).fontSize(ConfigData.VP_24).fontColor(0xffffff).margin({ left : ConfigData.VP_5 , right : ConfigData.VP_5 })
+            Text($r('app.string.bluetoothtest_text_xncszb')).fontSize(ConfigData.VP_24).fontColor(0xffffff).margin({ left : ConfigData.VP_5 , right : ConfigData.VP_5 })
           }
           .accessibilityLevel('yes')
           .id('pages_subBenchmarkTest_bleBenchmarkTest__btn_0')
@@ -123,7 +123,7 @@ struct BleBenchmarkTest {
 
           Button({ type : ButtonType.Normal , stateEffect : true }) {
             Row() {
-              Text($r('app.string.ohcc_txt_c7d2b3af90')).fontSize(ConfigData.VP_24).fontColor(0xffffff).margin({ left : ConfigData.VP_5 , right : ConfigData.VP_5 })
+              Text($r('app.string.bluetoothtest_text_sjxncs')).fontSize(ConfigData.VP_24).fontColor(0xffffff).margin({ left : ConfigData.VP_5 , right : ConfigData.VP_5 })
             }.alignItems(VerticalAlign.Center)
           }
           .accessibilityLevel('yes')
@@ -152,7 +152,7 @@ struct BleBenchmarkTest {
 
           Button({ type : ButtonType.Normal , stateEffect : true }) {
             Row() {
-              Text($r('app.string.ohcc_txt_b6f5e48d8b')).fontSize(ConfigData.VP_24).fontColor(0xffffff).margin({ left : ConfigData.VP_5 , right : ConfigData.VP_5 })
+              Text($r('app.string.bluetoothtest_text_wdxncs')).fontSize(ConfigData.VP_24).fontColor(0xffffff).margin({ left : ConfigData.VP_5 , right : ConfigData.VP_5 })
             }.alignItems(VerticalAlign.Center)
           }
           .accessibilityLevel('yes')

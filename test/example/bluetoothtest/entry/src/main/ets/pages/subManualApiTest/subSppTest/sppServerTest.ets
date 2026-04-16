@@ -89,7 +89,7 @@ struct SppServer {
           Stack().height(ConfigData.VP_0_5).backgroundColor($r('app.color.black'));
 
           Row() {
-            Text($r('app.string.ohcc_txt_8db854220f')).fontSize(ConfigData.VP_17).width(ConfigData.VP_85)
+            Text($r('app.string.bluetoothtest_text_bjsbu')).fontSize(ConfigData.VP_17).width(ConfigData.VP_85)
             TextInput({ text : this.uuid , placeholder : "请输入uuid" })
               .accessibilityLevel('yes')
               .id('pages_subManualApiTest_subSppTest_sppServerTest__ti_0')
@@ -107,7 +107,7 @@ struct SppServer {
           .alignItems(VerticalAlign.Center)
 
           Row() {
-            Text($r('app.string.ohcc_txt_13c53189e2')).fontSize(ConfigData.VP_17).width(ConfigData.VP_95)
+            Text($r('app.string.bluetoothtest_text_xrmbsbsj')).fontSize(ConfigData.VP_17).width(ConfigData.VP_95)
             TextInput({ text : this.writeServerData , placeholder : "请输入写入的数据" })
               .accessibilityLevel('yes')
               .id('pages_subManualApiTest_subSppTest_sppServerTest__ti_1')
@@ -125,7 +125,7 @@ struct SppServer {
           .alignItems(VerticalAlign.Center)
 
           Row() {
-            Text($r('app.string.ohcc_txt_85c959ca1f')).fontSize(ConfigData.VP_17)
+            Text($r('app.string.bluetoothtest_text_dqdsjw')).fontSize(ConfigData.VP_17)
             Text(this.dataReadMessage)
               .fontSize(ConfigData.VP_14)
               .width(ConfigData.WH_80_100)

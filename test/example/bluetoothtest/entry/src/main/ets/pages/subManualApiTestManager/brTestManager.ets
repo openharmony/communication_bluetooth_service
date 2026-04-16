@@ -91,7 +91,7 @@ struct brTestManager {
 
       Stack().height(ConfigData.VP_0_5).backgroundColor($r('app.color.black'));
       Column() {
-        Text($r('app.string.ohcc_txt_c232e10e19'))
+        Text($r('app.string.bluetoothtest_text_mbsbm'))
           .fontSize(ConfigData.VP_20)
           .height(ConfigData.VP_50)
           .width(ConfigData.WH_100_100)

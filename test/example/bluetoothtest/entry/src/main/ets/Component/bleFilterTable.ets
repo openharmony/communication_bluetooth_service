@@ -55,7 +55,7 @@ export struct BleFilterTable {
     Scroll() {
       Column() {
         Row() {
-          Text($r('app.string.ohcc_txt_41e1eb4706'))
+          Text($r('app.string.bluetoothtest_text_bsmglcs'))
             .fontSize(ConfigData.VP_17)
             .fontColor($r('app.color.color_4444444_grey'))
             .width(ConfigData.WH_80_100)
@@ -84,7 +84,7 @@ export struct BleFilterTable {
           Column() {
             Column() {
               Row() {
-                Text($r('app.string.ohcc_txt_348a629f5c')).fontSize(ConfigData.VP_17).width(ConfigData.VP_60);
+                Text($r('app.string.bluetoothtest_text_m')).fontSize(ConfigData.VP_17).width(ConfigData.VP_60);
                 TextInput({ text : this.txtScanFilter_deviceId , placeholder : "input deviceId" })
                   .fontSize(ConfigData.VP_15)
                   .onChange((strInput) => {
@@ -100,7 +100,7 @@ export struct BleFilterTable {
               .backgroundColor( $r( "app.color.spring" ) )
 
               Row() {
-                Text($r('app.string.ohcc_txt_82a3537ff0')).fontSize(ConfigData.VP_17).width(ConfigData.VP_60);
+                Text($r('app.string.bluetoothtest_text_n')).fontSize(ConfigData.VP_17).width(ConfigData.VP_60);
                 TextInput({ text : this.txtScanFilter_name , placeholder : "input name" })
                   .fontSize(ConfigData.VP_15)
                   .onChange((strInput) => {
@@ -116,7 +116,7 @@ export struct BleFilterTable {
               .backgroundColor( $r( "app.color.spring" ) )
 
               Row() {
-                Text($r('app.string.ohcc_txt_c9c0a20f30')).fontSize(ConfigData.VP_17).width(ConfigData.VP_100);
+                Text($r('app.string.bluetoothtest_text_s_1')).fontSize(ConfigData.VP_17).width(ConfigData.VP_100);
                 TextInput({ text : this.txtScanFilter_serviceUuid , placeholder : "input serviceUuid" })
                   .fontSize(ConfigData.VP_15)
                   .onChange((strInput) => {
@@ -140,7 +140,7 @@ export struct BleFilterTable {
 
           Column() {
             Row() {
-              Text($r('app.string.ohcc_txt_214958259c'))
+              Text($r('app.string.bluetoothtest_text_bsmpz'))
                 .padding(ConfigData.VP_5)
                 .fontSize(ConfigData.VP_17)
                 .fontColor($r('app.color.color_4444444_grey'))
@@ -169,7 +169,7 @@ export struct BleFilterTable {
 
             Column() {
               Row() {
-                Text($r('app.string.ohcc_txt_3fe1406a82')).fontSize(ConfigData.VP_17).width(ConfigData.VP_80)
+                Text($r('app.string.bluetoothtest_text_i_1')).fontSize(ConfigData.VP_17).width(ConfigData.VP_80)
                 TextInput({ text : this.txtScanOptions_interval , placeholder : "input interval" })
                   .fontSize(ConfigData.VP_17)
                   .onChange((strInput) => {
@@ -184,7 +184,7 @@ export struct BleFilterTable {
               .backgroundColor( $r( "app.color.spring" ) )
 
               Row() {
-                Text($r('app.string.ohcc_txt_f5584680ea')).fontSize(ConfigData.VP_17).width(ConfigData.VP_80)
+                Text($r('app.string.bluetoothtest_text_d_1')).fontSize(ConfigData.VP_17).width(ConfigData.VP_80)
                 Column() {
                   Select([
                     { value : 'LOW_POWER' },
@@ -210,7 +210,7 @@ export struct BleFilterTable {
               .backgroundColor( $r( "app.color.spring" ) )
 
               Row() {
-                Text($r('app.string.ohcc_txt_59ad0c69d7')).fontSize(ConfigData.VP_17).width(ConfigData.VP_90)
+                Text($r('app.string.bluetoothtest_text_m_1')).fontSize(ConfigData.VP_17).width(ConfigData.VP_90)
                 Column() {
                   Select([
                     { value : 'MATCH_MODE_AGGRESSIVE' },

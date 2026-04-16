@@ -91,7 +91,7 @@ struct OppProfileTest {
           Column() {
             Scroll() {
               Column() {
-                Text($r('app.string.ohcc_txt_110b0bcf04'))
+                Text($r('app.string.bluetoothtest_text_ypdsblbdjxzsb'))
                   .fontSize(ConfigData.VP_20)
                   .fontWeight(FontWeight.Bold)
                   .margin({ top : ConfigData.VP_5 })
@@ -129,7 +129,7 @@ struct OppProfileTest {
                 .height(ConfigData.WH_50_100)
                 .width(ConfigData.WH_80_100)
 
-                Text($r('app.string.ohcc_txt_78ff2ab0b3'))
+                Text($r('app.string.bluetoothtest_text_yxzdsbdlymdz'))
                   .fontSize(ConfigData.VP_18)
                   .fontWeight(FontWeight.Bold)
                   .margin({ top : ConfigData.VP_3 })
@@ -172,7 +172,7 @@ struct OppProfileTest {
           .scrollBarWidth(ConfigData.VP_10)
           .scrollBar(BarState.Auto)
 
-          Text($r('app.string.ohcc_txt_8739eeec5f'))
+          Text($r('app.string.bluetoothtest_text_qdjxycsdff'))
             .margin({ top : ConfigData.VP_10 })
             .padding(ConfigData.VP_5)
             .fontSize(ConfigData.VP_17)

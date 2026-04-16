@@ -72,7 +72,7 @@ struct oppSendScenarioTest {
       Column() {
         Scroll() {
           Column() {
-            Text($r('app.string.ohcc_txt_110b0bcf04'))
+            Text($r('app.string.bluetoothtest_text_ypdsblbdjxzsb'))
               .fontSize(ConfigData.VP_20)
               .fontWeight(FontWeight.Bold)
               .margin({ top : ConfigData.VP_5 })
@@ -112,7 +112,7 @@ struct oppSendScenarioTest {
         Stack().height(ConfigData.HEIGHT_1_VP).backgroundColor($r('app.color.black'));
 
         Column() {
-          Text($r('app.string.ohcc_txt_78ff2ab0b3'))
+          Text($r('app.string.bluetoothtest_text_yxzdsbdlymdz'))
             .fontSize(ConfigData.VP_18)
             .fontWeight(FontWeight.Bold)
             .margin({ top : ConfigData.VP_3 })
@@ -124,8 +124,8 @@ struct oppSendScenarioTest {
         }.height(ConfigData.PCT_15)
 
         Column() {
-          Text($r('app.string.ohcc_txt_a9e7adce22')).fontSize(ConfigData.VP_18).fontWeight(FontWeight.Bold)
-          Text($r('app.string.ohcc_txt_f8e8da8f60')).fontSize(ConfigData.VP_18).fontWeight(FontWeight.Bold)
+          Text($r('app.string.bluetoothtest_text_qsrxyfsdwjmcrtt')).fontSize(ConfigData.VP_18).fontWeight(FontWeight.Bold)
+          Text($r('app.string.bluetoothtest_text_zwjbxzdblmlx')).fontSize(ConfigData.VP_18).fontWeight(FontWeight.Bold)
           TextInput({ placeholder : "文件名称" })
             .accessibilityLevel('yes')
             .id('pages_subScenarioTest_oppSendScenarioTest__ti_0')
@@ -142,7 +142,7 @@ struct oppSendScenarioTest {
 
         Scroll() {
           Column() {
-            Text($r('app.string.ohcc_txt_b6f9ef4230'))
+            Text($r('app.string.bluetoothtest_text_lcrz'))
               .fontSize(ConfigData.VP_17)
               .margin({ top : ConfigData.VP_8 , bottom : ConfigData.VP_8 , left : ConfigData.VP_20 })
               .textAlign(TextAlign.Start)

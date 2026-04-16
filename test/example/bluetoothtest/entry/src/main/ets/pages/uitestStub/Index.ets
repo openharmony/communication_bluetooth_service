@@ -18,7 +18,7 @@ import ConfigData from '../../Utils/ConfigData';
 struct Index {
   build() {
     Column() {
-      Text($r('app.string.ohcc_txt_e45de40b1d'))
+      Text($r('app.string.bluetoothtest_text_us'))
         .id('uitest_stub_title')
         .accessibilityLevel('yes')
         .fontSize(16)
