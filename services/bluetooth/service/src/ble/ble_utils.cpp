@@ -15,6 +15,7 @@
 
 #include "ble_utils.h"
 
+#include <charconv>
 #include <ctime>
 #include <random>
 #include <sstream>
@@ -44,9 +45,15 @@ std::string BleUtils::ConvertIntToHexString(const std::vector<uint8_t> &key)
 
 void BleUtils::ConvertHexStringToInt(const std::string &str, std::vector<uint8_t> &key)
 {
-    for (size_t i = 0; i < str.size(); i = i + 2) {  // 2 is the length of str to be truncated
-        long k = std::stol(str.substr(i, 2), nullptr, HEX);
-        key.push_back(k);
+    for (size_t i = 0; i + 2 <= str.size(); i += 2) {  // 2 is the length of str to be truncated
+        const char *begin = str.data() + i;
+        const char *end = begin + 2;
+        unsigned int value = 0;
+        auto parsed = std::from_chars(begin, end, value, HEX);
+        if (parsed.ec != std::errc{} || parsed.ptr != end) {
+            continue;
+        }
+        key.push_back(static_cast<uint8_t>(value));
     }
 }
 
