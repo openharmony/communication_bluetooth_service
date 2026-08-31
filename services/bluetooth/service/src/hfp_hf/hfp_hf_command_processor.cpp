@@ -15,6 +15,7 @@
 
 #include "hfp_hf_command_processor.h"
 
+#include <charconv>
 #include <regex>
 
 #include "adapter_config.h"
@@ -59,12 +60,15 @@ std::unordered_map<std::string, HfpHfCommandProcessor::HfpHfAtHandler> &HfpHfCom
 
 int HfpHfCommandProcessor::StoiTryCatch(const std::string &arg)
 {
-    try {
-        return std::stoi(arg);
-    } catch (std::exception &e) {
-        LOG_ERROR("[HFP HF]%{public}s():Catch exception %{public}s", __FUNCTION__, e.what());
-        return 0;
+    int value = 0;
+    const char *begin = arg.data();
+    const char *end = begin + arg.size();
+    auto parsed = std::from_chars(begin, end, value);
+    if (parsed.ec == std::errc{} && parsed.ptr == end) {
+        return value;
     }
+    LOG_ERROR("[HFP HF]%{public}s():invalid numeric argument", __FUNCTION__);
+    return 0;
 }
 
 void HfpHfCommandProcessor::Init(const std::string& address)
