@@ -14,6 +14,7 @@
  */
 
 #include "xml_parse.h"
+#include <charconv>
 #include <algorithm>
 #include <sstream>
 #include <libxml/parser.h>
@@ -173,7 +174,11 @@ bool XmlParse::impl::GetValue(xmlNodePtr node, int &value)
     std::string nodeContentStr = (char *)nodeContent;
     std::string sValue = nodeContentStr;
     sValue = sValue.substr(SIZEOF_0X, sValue.size() - SIZEOF_0X);
-    value = std::stol(sValue, nullptr, BASE_16);
+    auto parsed = std::from_chars(sValue.data(), sValue.data() + sValue.size(), value, BASE_16);
+    if (parsed.ec != std::errc{} || parsed.ptr != sValue.data() + sValue.size()) {
+        xmlFree(nodeContent);
+        return false;
+    }
     xmlFree(nodeContent);
     return true;
 }
