@@ -15,6 +15,8 @@
 
 #include "ble_config.h"
 
+#include <charconv>
+
 #include "ble_defs.h"
 #include "log.h"
 #include "xml_parse.h"
@@ -551,7 +553,13 @@ uint32_t BleConfig::GetLocalSignCounter(const std::string &section) const
     if (!ret) {
         LOG_DEBUG("[BleConfig] %{public}s:%{public}s", __func__, "Get ble local signCounter failed!");
     }
-    return std::stoul(signCounter);
+    uint32_t value = 0;
+    auto [ptr, ec] = std::from_chars(signCounter.data(), signCounter.data() + signCounter.size(), value, 10);
+    if (ec != std::errc{} || ptr != signCounter.data() + signCounter.size()) {
+        LOG_ERROR("[BleConfig] %{public}s:%{public}s", __func__, "Invalid ble local signCounter!");
+        return 0;
+    }
+    return value;
 }
 
 std::string BleConfig::GetPeerLtk(const std::string &section) const
