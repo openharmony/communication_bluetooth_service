@@ -492,7 +492,7 @@ void HfpHfProfile::SendAtCommand(int cmdId, const std::string &arg)
             CallLastDialedNumber();
             break;
         case HfpHfCommandProcessor::AT_ATD_EXECUTER:
-            DialMemory(std::stoi(arg));
+            DialMemory(HfpHfCommandProcessor::StoiTryCatch(arg));
             break;
         default:
             break;
