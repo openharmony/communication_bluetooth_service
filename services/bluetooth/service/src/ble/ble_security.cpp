@@ -15,6 +15,7 @@
 
 #include "ble_security.h"
 
+#include <charconv>
 #include <iostream>
 
 #include "ble_adapter.h"
@@ -29,6 +30,17 @@
 
 namespace OHOS {
 namespace bluetooth {
+namespace {
+template<typename T>
+bool ParseUnsigned(const std::string &value, T &result)
+{
+    const char *begin = value.data();
+    const char *end = begin + value.size();
+    auto parsed = std::from_chars(begin, end, result);
+    return parsed.ec == std::errc{} && parsed.ptr == end;
+}
+} // namespace
+
 struct BleSecurity::impl {
 public:
     uint8_t pairMethod_ = 0;
@@ -538,14 +550,17 @@ bool BleSecurity::GapLeLocalEncryptionKeyReqEvent(const BleGapCallbackParam &par
     std::string ltk = BleConfig::GetInstance().GetLocalLtk(addr.GetAddress());
     std::string rand = BleConfig::GetInstance().GetLocalRand(addr.GetAddress());
     std::string ediv = BleConfig::GetInstance().GetLocalEdiv(addr.GetAddress());
+    uint64_t randValue = 0;
+    uint16_t edivValue = 0;
     if ((rand.compare(std::to_string(param.leLocalEncryptionKeyReqEvent_.rand)) == 0) &&
-        (ediv.compare(std::to_string(param.leLocalEncryptionKeyReqEvent_.ediv)) == 0) && (!ltk.empty())) {
+        (ediv.compare(std::to_string(param.leLocalEncryptionKeyReqEvent_.ediv)) == 0) && (!ltk.empty()) &&
+        ParseUnsigned(rand, randValue) && ParseUnsigned(ediv, edivValue)) {
         accept = GAP_ACCEPT;
         std::vector<uint8_t> vec;
         BleUtils::ConvertHexStringToInt(ltk, vec);
         (void)memcpy_s(encKey.ltk, GAP_CSRK_SIZE, &vec[0], vec.size());
-        encKey.rand = std::stoull(rand);
-        encKey.ediv = std::stoull(ediv);
+        encKey.rand = randValue;
+        encKey.ediv = edivValue;
     }
 
     int ret = GAPIF_LeLocalEncryptionKeyRsp(&param.leLocalEncryptionKeyReqEvent_.addr, accept, encKey, 1);
@@ -567,13 +582,16 @@ bool BleSecurity::GapLeRemoteEncryptionKeyReqEvent(const BleGapCallbackParam &pa
     std::string ltk = BleConfig::GetInstance().GetPeerLtk(addr.GetAddress());
     std::string rand = BleConfig::GetInstance().GetPeerRand(addr.GetAddress());
     std::string ediv = BleConfig::GetInstance().GetPeerEdiv(addr.GetAddress());
-    if ((!rand.empty()) && (!ediv.empty()) && (!ltk.empty())) {
+    uint64_t randValue = 0;
+    uint16_t edivValue = 0;
+    if ((!rand.empty()) && (!ediv.empty()) && (!ltk.empty()) && ParseUnsigned(rand, randValue) &&
+        ParseUnsigned(ediv, edivValue)) {
         accept = GAP_ACCEPT;
         std::vector<uint8_t> vec;
         BleUtils::ConvertHexStringToInt(ltk, vec);
         (void)memcpy_s(encKey.ltk, GAP_CSRK_SIZE, &vec[0], vec.size());
-        encKey.rand = std::stoull(rand);
-        encKey.ediv = std::stoull(ediv);
+        encKey.rand = randValue;
+        encKey.ediv = edivValue;
     }
 
     int ret = GAPIF_LeRemoteEncryptionKeyRsp(&param.leRemoteEncryptionKeyReqEvent_.addr, accept, encKey, 1);
